@@ -21,12 +21,11 @@ Breve descrição do que se trata o projeto
 ---
 
 # Laravel
-======
 
 ### Instalação
 ---
 - **1:** Instalar o composer
-..* Verificar se o composer foi instalado com sucesso "composer" (bash/shell)
+ Verificar se o composer foi instalado com sucesso "composer" (bash/shell)
 - **2:** Ultilizar o comando "composer global require laravel/installer" (bash/shell)
 - **3:** Fazer o download do xamp (Windows) ou MAMP (Apple)
 
@@ -35,8 +34,8 @@ Breve descrição do que se trata o projeto
 1. Criar um novo projeto: composer create-project --prefer-dist laravel/laravel nome-do-projeto
 2. Iniciar o server: php artisan serve
 3. Migrations servem para todos os Integrantes terem o mesmo esquema de banco de dados
-⋅⋅* Para criar uma Migration: php artisan make:migration create_nome_da_tabela
-⋅⋅* Para gerar uma Migration com o nome da tabela ja especificado ultilizar a bandeira:
+- Para criar uma Migration: php artisan make:migration create_nome_da_tabela
+- Para gerar uma Migration com o nome da tabela ja especificado ultilizar a bandeira:
 --table NomeDaTabela
 
 - Para executar todas as Migrations ultilizar o comando: php artisan migrate
@@ -44,7 +43,7 @@ Breve descrição do que se trata o projeto
 - Para voltar a um numero especifico de Migrations anterior ultilizar a bandeira: --step=5
 - Para votar todas as Migration de sua applicação ultilizar o comando: php artisan migrate:reset
 > **Observações :**
-Uma Migration nunca tera o mesmo time stamp de outra para não haver conflito 
+Uma Migration nunca tera o mesmo time stamp de outra para não haver conflito
 [Clique aqui para mais codigos sobre Migration e como criar tabelas](https://laravel.com/docs/5.8/migrations)
 4. Para ver todas a lista completa de comandos artisan: php artisan list
 5. Para entender o que certo comando faz ultilizar: php artisan help NomeDoComando
