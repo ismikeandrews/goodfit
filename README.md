@@ -45,7 +45,7 @@ Breve descrição do que se trata o projeto
 > **Observações :**
 Uma Migration nunca tera o mesmo time stamp de outra para não haver conflito
 [Clique aqui para mais codigos sobre Migration e como criar tabelas](https://laravel.com/docs/5.8/migrations)
-4. Para ver todas a lista de comandos artisan: php artisan list
+4. Para ver a lista de comandos Artisan Completa: php artisan list
 5. Para entender o que certo comando faz ultilizar: php artisan help NomeDoComando
 6. Para testar e interagir com sua aplicação: php artisan tinker
 7. Para criar um novo comando: php artisan make:command NomeDoComando
