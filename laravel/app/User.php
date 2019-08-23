@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Authenticatable
+class User extends Authenticatable
 {
   use Notifiable;
 
@@ -20,11 +20,11 @@ class Usuario extends Authenticatable
   ];
 
   public function nivelUsuario(){
-    return $this->hasOne(NivelUsuario::class, 'codUsuario', 'codNivelUsuario');
+    return $this->hasOne(NivelUsuario::class, 'codNivelUsuario', 'codUsuario');
   }
 
   public function Endereco(){
-    return $this->hasOne(Endereco::class, 'codUsuario', 'codEndereco');
+    return $this->hasOne(Endereco::class, 'codEndereco', 'codUsuario');
   }
 
   /**
@@ -34,14 +34,5 @@ class Usuario extends Authenticatable
   */
   protected $hidden = [
     'senhaUsuario', 'remember_token',
-  ];
-
-  /**
-  * The attributes that should be cast to native types.
-  *
-  * @var array
-  */
-  protected $casts = [
-    'email_verified_at' => 'datetime',
   ];
 }

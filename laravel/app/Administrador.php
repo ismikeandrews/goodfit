@@ -11,6 +11,6 @@ class Administrador extends Model
   protected $fillable = ['unidadeAdministrador', 'codUsuario'];
 
   public function Usuario(){
-    return $this->hasOne(Usuario::class, 'codAdministrador', 'codUsuario');
+    return $this->hasOne(Usuario::class, 'codUsuario', 'codAdministrador');
   }
 }

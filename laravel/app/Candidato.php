@@ -11,10 +11,10 @@ class Candidato extends Model
   protected $fillable ['nomeCandidato', 'cpfCandidato', 'rgCandidato', 'dataNascimentoCandidato', 'nacionalidadeCandidato', 'codUsuario', 'codCurriculo'];
 
   public function Usuario(){
-    return $this->hasOne(Usuario::class, 'codCandidato', 'codUsuario');
+    return $this->hasOne(Usuario::class, 'codUsuario', 'codCandidato');
   }
 
   public function Curriculo(){
-    return $this->hasOne(Curriculo::class, 'codCandidato', 'codCurriculo');
+    return $this->hasOne(Curriculo::class, 'codCurriculo', 'codCandidato');
   }
 }

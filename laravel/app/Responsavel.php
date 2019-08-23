@@ -11,6 +11,6 @@ class Responsavel extends Model
   protected $fillable = ['nomeResponsavel', 'emailResponsavel', 'codCandidato', 'codUsuario'];
 
   public function Candidato(){
-    return $this->hasMany(Candidato::class 'codCandidato', 'codResponsavel');
+    return $this->hasMany(Candidato::class, 'codCandidato', 'codResponsavel');
   }
 }

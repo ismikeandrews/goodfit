@@ -11,6 +11,6 @@ class Experiencia extends Model
   protected $fillable = ['empresaExperienciaProfissional', 'anoInicioExperienciaProfissional', 'anoFimExperienciaProfissional', 'cargoExperienciaProfissional', 'descricaoExperienciaProfissional', 'codCurriculo'];
 
   public function Curriculo(){
-    return $this->hasMany(Curriculo::class 'codCurriculo', 'codExperienciaProfissional');
+    return $this->hasMany(Curriculo::class, 'codExperienciaProfissional', 'codCurriculo');
   }
 }

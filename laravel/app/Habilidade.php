@@ -11,7 +11,7 @@ class Habilidade extends Model
   protected $fillable['nomeHabilidade', 'descricaoHabilidade', 'codCurriculo'];
 
   public function Curriculo(){
-    return $this->hasOne(Curriculo::class 'codHabilidade','codCurriculo');
+    return $this->hasOne(Curriculo::class,'codCurriculo', 'codHabilidade');
   }
 
 }
