@@ -1,0 +1,12 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Endereco extends Model
+{
+  protected $table = "tbEndereco";
+
+  protected $fillable = ['logradouroEndereco', 'numeroEndereco', 'complementoEndereco', 'cepEndereco', 'bairroEndereco', 'zonaEndereco', 'cidadeEndereco', 'estadoEndereco'];
+}
