@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NivelUsuario extends Model
 {
-  protected $table = 'tbNivelUsuario'
+  protected $table = "tbNivelUsuario";
 
-  protected $fillable = ['nomeNivelUsuario', 'descricaoNivelUsuario'];
+  protected $fillable = ['nomeNivelusuario', 'descricaoNivelUsuario'];
 }

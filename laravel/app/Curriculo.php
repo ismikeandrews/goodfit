@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curriculo extends Model
 {
-  protected $table = 'tbCurriculo';
+  protected $table = "tbCurriculo";
 
-  protected $fillable = ['objetivoProfissonalCandidato','nivelAlfabetizacaoCandidato', 'nivelEscolaridadeCandidato'];
+  protected $fillable = ['codObjetivoProfissional', 'codNivelAlfabetizacao', 'codNivelEscolaridade'];
 }
