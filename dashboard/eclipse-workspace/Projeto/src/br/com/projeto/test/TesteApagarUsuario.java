@@ -10,7 +10,7 @@ public class TesteApagarUsuario {
 		UsuarioDAO dao = null;
 		try {
 			System.out.println
-				(dao.delete(Integer.parseInt
+				(dao.deleteUsuario(Integer.parseInt
 				(JOptionPane.showInputDialog
 				("Digite p codigo"))));
 			

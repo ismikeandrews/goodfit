@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import br.com.projeto.beans.NivelUsuario;
 import br.com.projeto.beans.Usuario;
 import br.com.projeto.conexao.Conexao2;
 
@@ -16,19 +17,21 @@ public class UsuarioDAO {
 		con = Conexao2.getConexao();
 	}
 	
+	
+	
 	public Usuario getUsuario(int cod) throws Exception{
 		stmt = (PreparedStatement) con.prepareStatement
-				("select * from DDD_TB_LOGIN where CD_USUARIO=?");
+				("select * from tbUsuario where codUsuario=?");
 		stmt.setInt(1, cod);
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
 			return new Usuario(
-					rs.getString("NM_USUARIO"),
-					rs.getString("CD_ENDERECO"),
-					rs.getString("NM_LOGIN"),
-					rs.getString("NM_SENHA"),
-					rs.getString("NM_TIPO")
+					rs.getInt("codUsuario"),
+					rs.getString("loginUsuario"),
+					rs.getString("senhaUsuario"),
+					rs.getInt("codNivelUsuario"),
+					rs.getString("codEndereco")
 					);
 		}else {
 			return new Usuario();
@@ -37,18 +40,20 @@ public class UsuarioDAO {
 	
 	public int addUsuario(Usuario usu) throws Exception{
 		stmt = con.prepareStatement
-				("INSERT INTO DDD_TB_LOGIN (CD_USUARIO, NM_USUARIO, NM_SENHA) VALUES (?,?,?)");
-		
-		stmt.setString(2, usu.getNome());
+				("INSERT INTO tbUsuario (codUsuario, loginUsuario, senhaUsuario, codNivelUsuario, codEndereco) VALUES (?,?,?,?,?)");
+		stmt.setInt(1, usu.getCodigo());
+		stmt.setString(2, usu.getLogin());
 		stmt.setString(3, usu.getSenha());
+		stmt.setInt(4, usu.getNivel().getCodigo());
+		stmt.setInt(5, usu.getEndereco().getCodigo());
 		
 		return stmt.executeUpdate();
 	}
 	
-	public int delete(int cod) throws Exception{
+	public int deleteUsuario(int cod) throws Exception{
 		
 		stmt = con.prepareStatement
-				("delete from DDD_TB_LOGIN where CD_USUARIO=?");
+				("delete from tbUsuario where codUsuario=?");
 		stmt.setInt(1, cod);
 		return stmt.executeUpdate();
 	}

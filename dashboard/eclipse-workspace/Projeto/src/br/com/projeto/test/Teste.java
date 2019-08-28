@@ -10,8 +10,10 @@ public class Teste {
 		UsuarioDAO dao = null;
 		try {
 			Usuario usu = dao.getUsuario(1);
-			System.out.println("Nome..." + usu.getNome());
+			System.out.println("Nome..." + usu.getLogin());
 			System.out.println("Senha..." + usu.getSenha());
+			System.out.println("Senha..." + usu.getNivel().getNome());
+			System.out.println("Senha..." + usu.getEndereco().getTudo());
 			
 		}catch(Exception e) {
 			e.printStackTrace();
