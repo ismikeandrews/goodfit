@@ -17,17 +17,15 @@ public class UsuarioDAO {
 	}
 	
 	public Usuario getUsuario(int cod) throws Exception{
-		stmt = con.prepareStatement
+		stmt = (PreparedStatement) con.prepareStatement
 				("select * from DDD_TB_LOGIN where CD_USUARIO=?");
 		stmt.setInt(1, cod);
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
 			return new Usuario(
-					rs.getInt("CD_USUARIO"),
 					rs.getString("NM_USUARIO"),
-					rs.getInt("CD_ENDERECO"),
-					rs.getInt("CD_CONTATO"),
+					rs.getString("CD_ENDERECO"),
 					rs.getString("NM_LOGIN"),
 					rs.getString("NM_SENHA"),
 					rs.getString("NM_TIPO")
@@ -35,6 +33,16 @@ public class UsuarioDAO {
 		}else {
 			return new Usuario();
 		}
+	}
+	
+	public int addUsuario(Usuario usu) throws Exception{
+		stmt = con.prepareStatement
+				("INSERT INTO DDD_TB_LOGIN (CD_USUARIO, NM_USUARIO, NM_SENHA) VALUES (?,?,?)");
+		
+		stmt.setString(2, usu.getNome());
+		stmt.setString(3, usu.getSenha());
+		
+		return stmt.executeUpdate();
 	}
 	
 	public int delete(int cod) throws Exception{

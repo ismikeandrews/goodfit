@@ -9,9 +9,11 @@ public class Moderador extends Usuario{
 		super();
 	}
 
-	public Moderador(int codigo, String nome, Endereco endereco, Contato contato, String login, String senha,
-			String tipo, String sobrenome, String token, String unidade) {
-		super(codigo, nome, endereco, contato, login, senha, tipo);
+
+
+	public Moderador(String nome, Endereco endereco, String login, String senha, String tipo, String sobrenome,
+			String token, String unidade) {
+		super(nome, endereco, login, senha, tipo);
 		this.sobrenome = sobrenome;
 		this.token = token;
 		this.unidade = unidade;

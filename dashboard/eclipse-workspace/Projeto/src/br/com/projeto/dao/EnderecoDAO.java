@@ -10,8 +10,8 @@ import br.com.projeto.conexao.Conexao2;
 public class EnderecoDAO {
 	
 	public Endereco getEndereco(int lougradouro) throws Exception{
-		Connection c = Conexao2.getConexao();
-		PreparedStatement stmt = c.prepareStatement
+		Connection c = (Connection) Conexao2.getConexao();
+		PreparedStatement stmt = (PreparedStatement) c.prepareStatement
 				("select * from DDD_TB_LOGIN where CD_ENDERECO=?");
 		stmt.setInt(1, lougradouro);
 		ResultSet rs = stmt.executeQuery();

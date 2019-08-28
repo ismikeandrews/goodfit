@@ -9,15 +9,13 @@ public class Empresa extends Usuario{
 		super();
 	}
 
-	public Empresa(int codigo, String nome, Endereco endereco, Contato contato, String login, String senha, String tipo,
-			String cnpj, String nomeFantasia, Vaga vaga) {
-		super(codigo, nome, endereco, contato, login, senha, tipo);
+	public Empresa(String nome, Endereco endereco, String login, String senha, String tipo, String cnpj,
+			String nomeFantasia, Vaga vaga) {
+		super(nome, endereco, login, senha, tipo);
 		this.cnpj = cnpj;
 		this.nomeFantasia = nomeFantasia;
 		this.vaga = vaga;
 	}
-
-
 
 	public String getTudo() {
 		return cnpj+"\n"+nomeFantasia+"\n"+vaga;

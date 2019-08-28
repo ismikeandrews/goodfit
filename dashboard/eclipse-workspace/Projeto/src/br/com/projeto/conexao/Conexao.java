@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+
 //Isso e um teste
 public class Conexao {
 
@@ -13,7 +14,7 @@ public class Conexao {
 		try {
 			Connection c = DriverManager.getConnection
 					("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL","x","fiap"); //Coloque seu rm no lugar do x
-			PreparedStatement stmt = c.prepareStatement
+			PreparedStatement stmt = (PreparedStatement) c.prepareStatement
 					("select * from DDD_TB_LOGIN where NM_USUARIO =? AND NM_SENHA =?");
 			
 			String login = JOptionPane .showInputDialog("Digite o login");
