@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import br.com.projeto.beans.Endereco;
 import br.com.projeto.beans.NivelUsuario;
 import br.com.projeto.beans.Usuario;
 import br.com.projeto.conexao.Conexao2;
@@ -26,12 +27,15 @@ public class UsuarioDAO {
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
+			NivelUsuario nu = new NivelUsuario();
+			Endereco end = new Endereco();
+			
 			return new Usuario(
 					rs.getInt("codUsuario"),
 					rs.getString("loginUsuario"),
 					rs.getString("senhaUsuario"),
-					rs.getInt("codNivelUsuario"),
-					rs.getString("codEndereco")
+					nu.ge
+					rs.getObject("")
 					);
 		}else {
 			return new Usuario();
