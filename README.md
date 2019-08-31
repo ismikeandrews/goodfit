@@ -1,4 +1,4 @@
-# Nome do Projeto
+﻿# Nome do Projeto
 
 Breve descrição do que se trata o projeto
 ---
@@ -16,7 +16,12 @@ Breve descrição do que se trata o projeto
 - **1:** lista
 - **2:** lista
 - **3:** lista
+---
+# Eclipse
 
+> **Obs: **
+Ao abrir a workspace criar um novo projeto java com o nome Projeto, em seguida uma janela perguntando se deseja sobre escrever um projeto ja existente
+selecionar a opção "No"
 ---
 
 # Laravel
