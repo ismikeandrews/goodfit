@@ -34,8 +34,8 @@ public class UsuarioDAO {
 					rs.getInt("codUsuario"),
 					rs.getString("loginUsuario"),
 					rs.getString("senhaUsuario"),
-					nu.ge
-					rs.getObject("")
+					rs.getObject(nu.getCodigo(), "codNivelUsuario"),
+					rs.getString("")
 					);
 		}else {
 			return new Usuario();
