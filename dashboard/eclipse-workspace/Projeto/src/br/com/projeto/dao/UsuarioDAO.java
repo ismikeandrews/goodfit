@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import br.com.projeto.beans.Endereco;
-import br.com.projeto.beans.NivelUsuario;
 import br.com.projeto.beans.Usuario;
 import br.com.projeto.conexao.Conexao2;
 
