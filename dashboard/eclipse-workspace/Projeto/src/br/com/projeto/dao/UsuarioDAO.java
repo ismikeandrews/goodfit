@@ -27,15 +27,13 @@ public class UsuarioDAO {
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
-			NivelUsuario nu = new NivelUsuario();
-			Endereco end = new Endereco();
 			
 			return new Usuario(
 					rs.getInt("codUsuario"),
 					rs.getString("loginUsuario"),
 					rs.getString("senhaUsuario"),
-					rs.getObject(nu.getCodigo(), "codNivelUsuario"),
-					rs.getString("")
+					new NivelUsuarioDAO().getNivelUsuario(rs.getInt("codNivelUsuario")),
+					new EnderecoDAO().getEndereco(rs.getInt("codEndereco"))
 					);
 		}else {
 			return new Usuario();

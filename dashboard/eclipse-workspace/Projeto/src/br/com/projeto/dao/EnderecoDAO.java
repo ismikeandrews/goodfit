@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import br.com.projeto.beans.NivelUsuario;
+import br.com.projeto.beans.Endereco;
 import br.com.projeto.conexao.Conexao2;
 
 public class EnderecoDAO {
@@ -18,7 +18,7 @@ public class EnderecoDAO {
 	
 	
 	
-	public EnderecoDAO getEndereco(int cod) throws Exception{
+	public Endereco getEndereco(int cod) throws Exception{
 		stmt = (PreparedStatement) con.prepareStatement
 				("select * from tbEndereco where codEndereco=?");
 		stmt.setInt(1, cod);
@@ -26,9 +26,10 @@ public class EnderecoDAO {
 		
 		if(rs.next()) {
 			return new Endereco(
-					rs.getInt("codUsuario"),
-					rs.getString("loginUsuario"),
-					rs.getString("senhaUsuario")
+					rs.getInt("codEndereco"),
+					rs.getString("logradouroEndereco"),
+					rs.getString(""),
+					rs.getString("senhaUsuario"),
 					);
 		}else {
 			return new Endereco();
