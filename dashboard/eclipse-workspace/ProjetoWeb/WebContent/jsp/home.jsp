@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +14,7 @@
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark">
-         <a class="navbar-brand" href="#">
+         <a class="navbar-brand" href="#"><!-- dropdown-menu dropdown-menu-right -->
           CRUD
         </a>
         <div class="dropdown">
@@ -48,29 +50,22 @@
       <nav>
         <ul class="nav nav-pills justify-content-center mt-4">
           <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Niveis
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item disabled" href="/niveis">Niveis Cadastrados</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/niveis/cadastro">Novo nivel de usuario</a>
-            </div>
+            <a class="nav-link active" href="home.jsp">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/enderecos">Enderecos</a>
+            <a class="nav-link" href="nivel.jsp">Niveis de acesso</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="endereco.jsp">Enderecos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Usuarios
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item disabled" href="#">Usuarios Cadastrados</a>
+              <a class="dropdown-item" href="#">Usuarios Cadastrados</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/usuarios/cadastro">Cadastro</a>
+              <a class="dropdown-item" href="usuarios.jsp">Cadastro</a>
             </div>
           </li>
         </ul>
@@ -81,3 +76,4 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
+

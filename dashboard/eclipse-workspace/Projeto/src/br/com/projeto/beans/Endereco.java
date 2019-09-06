@@ -8,13 +8,15 @@ public class Endereco {
 	private String cep;
 	private String bairro;
 	private String zona;
+	private String cidade;
+	private String estado;
 	
 	public Endereco() {
 		super();
 	}
-
+	
 	public Endereco(int codigo, String lougradouro, String numero, String complemento, String cep, String bairro,
-			String zona) {
+			String zona, String cidade, String estado) {
 		super();
 		this.codigo = codigo;
 		this.lougradouro = lougradouro;
@@ -23,14 +25,18 @@ public class Endereco {
 		this.cep = cep;
 		this.bairro = bairro;
 		this.zona = zona;
+		this.cidade = cidade;
+		this.estado = estado;
 	}
-	
+
+
+
 	public String getTudo() {
-		return codigo+"\n"+lougradouro+"\n"+numero+"\n"+complemento+"\n"+cep+"\n"+bairro+"\n"+zona;
+		return codigo+"\n"+lougradouro+"\n"+numero+"\n"+complemento+"\n"+cep+"\n"+bairro+"\n"+zona+"\n"+cidade+"\n"+estado;
 	}
 	
 	public void setTudo(int codigo, String lougradouro, String numero, String complemento, String cep, String bairro,
-			String zona) {
+			String zona, String cidade, String estado) {
 		this.codigo = codigo;
 		this.lougradouro = lougradouro;
 		this.numero = numero;
@@ -38,6 +44,8 @@ public class Endereco {
 		this.cep = cep;
 		this.bairro = bairro;
 		this.zona = zona;
+		this.cidade = cidade;
+		this.estado = estado;
 	}
 
 	public int getCodigo() {
@@ -95,4 +103,21 @@ public class Endereco {
 	public void setZona(String zona) {
 		this.zona = zona;
 	}
+	
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	
 }

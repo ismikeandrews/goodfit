@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class NivelUsuario extends Model
 {
-  protected $table = "tbNivelUsuario";
+  protected $table = 'tbNivelUsuario';
 
-  protected $fillable = ['nomeNivelusuario', 'descricaoNivelUsuario'];
+  protected $fillable = ['nomeNivelUsuario', 'descricaoNivelUsuario'];
+
+  public $timestamps = false;
+
+  public function usuario(){
+    return $this->hasMany(Usuario::class, 'codNivelUsuario', 'codUsuario');
+  }
 }

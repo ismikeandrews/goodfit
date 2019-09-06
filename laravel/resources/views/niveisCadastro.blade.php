@@ -1,3 +1,4 @@
+<?php $page = '/nivel/cadastrar'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +13,7 @@
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark">
-         <a class="navbar-brand" href="#">
+         <a class="navbar-brand" href="#"><!-- dropdown-menu dropdown-menu-right -->
           CRUD
         </a>
         <div class="dropdown">
@@ -48,7 +49,7 @@
       <nav>
         <ul class="nav nav-pills justify-content-center mt-4">
           <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,6 +77,27 @@
         </ul>
       </nav>
     </header>
+  <div class="container mt-5">
+      <h2>Novo nivel de Usuario</h2>
+      <hr>
+      @if(isset($tudocerto) && $tudocerto)
+        <div class="alert alert-success text-center" role="alert">
+          Nivel cadastrado com sucesso 🤩
+        </div>
+      @endif
+      <form action="/nivel/cadastrar" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="col-md-12 mb-3">
+           <label for="titulo">Titulo</label>
+           <input type="text" name="titulo" id="titulo" class="form-control">
+        </div>
+        <div class="col-md-12 mb-3">
+           <label for="descricao">Descricao</label>
+           <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+        </div>
+        <button class="btn btn-success btn-lg btn-block" type="submit">Salvar</button>
+      </form>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +14,7 @@
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark">
-         <a class="navbar-brand" href="#">
+         <a class="navbar-brand" href="#"><!-- dropdown-menu dropdown-menu-right -->
           CRUD
         </a>
         <div class="dropdown">
@@ -48,34 +50,65 @@
       <nav>
         <ul class="nav nav-pills justify-content-center mt-4">
           <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Niveis
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item disabled" href="/niveis">Niveis Cadastrados</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/niveis/cadastro">Novo nivel de usuario</a>
-            </div>
+            <a class="nav-link" href="home.jsp">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/enderecos">Enderecos</a>
+            <a class="nav-link" href="nivel.jsp">Niveis de acesso</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="endereco.jsp">Enderecos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Usuarios
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item disabled" href="#">Usuarios Cadastrados</a>
+              <a class="dropdown-item" href="#">Usuarios Cadastrados</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/usuarios/cadastro">Cadastro</a>
+              <a class="dropdown-item" href="usuarios.jsp">Cadastro</a>
             </div>
           </li>
         </ul>
       </nav>
     </header>
+  	<div class="container mt-5">
+      <h2>Novo Usuario</h2>
+      <hr>
+      <form class="needs-validation" action="cadastro.jsp">
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="login">Login</label>
+            <input type="text" name="login" id="login" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control" placeholder="email@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="nivel">Nivel Usuario</label>
+            <select class="form-control" name="nivel" id="nivel">
+              <option value="">Selecione</option>
+              <option value="">Administrador</option>
+              <option value="">Empresa</option>
+              <option value="">Candidato</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="confirme">Confirme a senha</label>
+            <input type="password" id="confirme" name="confirme" class="form-control">
+          </div>
+        </div>
+        <button class="btn btn-success btn-lg btn-block" type="submit">Proximo</button>
+      </form>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

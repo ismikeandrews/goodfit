@@ -12,7 +12,7 @@
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark">
-         <a class="navbar-brand" href="#">
+         <a class="navbar-brand" href="#"><!-- dropdown-menu dropdown-menu-right -->
           CRUD
         </a>
         <div class="dropdown">
@@ -48,7 +48,7 @@
       <nav>
         <ul class="nav nav-pills justify-content-center mt-4">
           <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="home.jsp">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,7 +61,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/enderecos">Enderecos</a>
+            <a class="nav-link active" href="/enderecos">Enderecos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

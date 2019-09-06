@@ -32,7 +32,9 @@ public class EnderecoDAO {
 					rs.getString("complementoEndereco"),
 					rs.getString("cepEndereco"),
 					rs.getString("bairroEndereco"),
-					rs.getString("zonaEndereco")
+					rs.getString("zonaEndereco"),
+					rs.getString("cidadeEndereco"),
+					rs.getString("estadoEndereco")
 					);
 		}else {
 			return new Endereco();
@@ -41,7 +43,7 @@ public class EnderecoDAO {
 	
 	public int addEndereco(Endereco en) throws Exception{
 		stmt = con.prepareStatement
-				("INSERT INTO tbEndereco (codEndereco, lougradouroEndereco, numeroEndereco, complementoEndereco, cepEndereco, bairroEndereco, zonaEndereco) VALUES (?,?,?,?,?,?,?)");
+				("INSERT INTO tbEndereco (codEndereco, lougradouroEndereco, numeroEndereco, complementoEndereco, cepEndereco, bairroEndereco, zonaEndereco, cidadeEndereco, estadoEndereco) VALUES (?,?,?,?,?,?,?,?,?)");
 		stmt.setInt(1, en.getCodigo());
 		stmt.setString(2, en.getLougradouro());
 		stmt.setString(3, en.getNumero());
@@ -49,6 +51,8 @@ public class EnderecoDAO {
 		stmt.setString(5, en.getCep());
 		stmt.setString(6, en.getBairro());
 		stmt.setString(7, en.getZona());
+		stmt.setString(8, en.getCidade());
+		stmt.setString(9, en.getEstado());
 		
 		return stmt.executeUpdate();
 	}
@@ -56,7 +60,7 @@ public class EnderecoDAO {
 	public int deleteEndereco(int cod) throws Exception{
 		
 		stmt = con.prepareStatement
-				("delete from tbNivelUsuario where codNivelUsuario=?");
+				("delete from tbEndereco where codEndereco=?");
 		stmt.setInt(1, cod);
 		return stmt.executeUpdate();
 	}

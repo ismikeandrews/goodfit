@@ -1,16 +1,13 @@
-package br.com.projeto.test;
+package conexao;
 
 import java.sql.Connection;
 
-import br.com.projeto.conexao.Conexao2;
-
-//Aula 4
 public class TesteConexao {
 
 	public static void main(String[] args) {
 		Connection minhaConexao = null;
 		try {
-			minhaConexao = Conexao2.getConexao();
+			minhaConexao = Conecta.getConnection();
 			 System.out.println("conectou");
 		}catch(Exception e){
 			e.printStackTrace();
@@ -23,4 +20,5 @@ public class TesteConexao {
 		}
 
 	}
+
 }

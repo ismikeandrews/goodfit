@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Endereco extends Model
 {
-  protected $table = "tbEndereco";
+  protected $table = 'tbEndereco';
 
-  protected $fillable = ['logradouroEndereco', 'numeroEndereco', 'complementoEndereco', 'cepEndereco', 'bairroEndereco', 'zonaEndereco', 'cidadeEndereco', 'estadoEndereco'];
+  protected $fillable = ['logradouroEndereco', 'numeroEndereco', 'complementoEndereco', 'cepEndereco', 'bairroEndereco', 'zonaEndereco', 'cidadeEndereco', 'estadoEndereco']
+
+  public function usuario(){
+    return $this->hasMany(Usuario::class, 'codEndereco', 'codUsuario');
+  }
 }

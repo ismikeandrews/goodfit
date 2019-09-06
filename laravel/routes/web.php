@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Pages@home');
+Route::get('/enderecos', 'Pages@enderecos');
+Route::get('/usuarios/cadastro', 'Pages@usuariosCadastro');
+Route::get('/niveis/cadastro', 'Pages@niveisCadastro');
+
+//cadastrar
+Route::post('/nivel/cadastrar', 'Cadastro@cadastrarNivel');
+Route::post('/usuario/cadastrar', 'Cadastro@cadastrarUsuario');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

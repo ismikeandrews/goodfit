@@ -12,8 +12,8 @@ public class Teste {
 			Usuario usu = dao.getUsuario(1);
 			System.out.println("Nome..." + usu.getLogin());
 			System.out.println("Senha..." + usu.getSenha());
-			System.out.println("Senha..." + usu.getNivel().getNome());
-			System.out.println("Senha..." + usu.getEndereco().getTudo());
+			System.out.println("Nivel..." + usu.getNivel().getNome());
+			System.out.println("Endereco..." + usu.getEndereco().getTudo());
 			
 		}catch(Exception e) {
 			e.printStackTrace();
