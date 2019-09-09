@@ -5,7 +5,13 @@
 <div class="container mt-5">
   <h2>Novo Usuario</h2>
   <hr>
-  <form class="needs-validation" action="cadastro.jsp">
+  @if(isset($ok) && $ok)
+  <div class="alert alert-success text-center" role="alert">
+    Usuario cadastrado com sucesso 🤩
+  </div>
+  @endif
+  <form class="needs-validation"  method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
+    @csrf
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="login">Login</label>
@@ -21,9 +27,9 @@
         <label for="nivel">Nivel Usuario</label>
         <select class="form-control" name="nivel" id="nivel">
           <option value="">Selecione</option>
-          <option value="">Administrador</option>
-          <option value="">Empresa</option>
-          <option value="">Candidato</option>
+          @foreach($niveis as $nivel)
+          <option value="{{ $nivel->codNivelUsuario }}">{{ $nivel->nomeNivelUsuario }}</option>
+          @endforeach
         </select>
       </div>
     </div>
@@ -33,8 +39,8 @@
         <input type="password" name="senha" id="senha" class="form-control">
       </div>
       <div class="col-md-6 mb-3">
-        <label for="confirme">Confirme a senha</label>
-        <input type="password" id="confirme" name="confirme" class="form-control">
+        <label for="password-confirm">Confirme a senha</label>
+        <input type="password" id="password-confirm" name="password_confirmation" class="form-control" required autocomplete="new-password">
       </div>
     </div>
     <button class="btn btn-success btn-lg btn-block" type="submit">Proximo</button>

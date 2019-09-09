@@ -11,13 +11,16 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/functions.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/b5c17076b7.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   </head>
   <body>
     <div id="app">
@@ -62,11 +65,11 @@
               <a class="nav-link <?php if($page=='home'){ echo 'active';}else { echo '';} ?>" href="/">Home</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle <?php if($page=='/niveis' || $page=='cadastroNivel'){ echo 'active';}else { echo '';} ?>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle <?php if($page=='niveis' || $page=='cadastroNivel'){ echo 'active';}else { echo '';} ?>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Niveis
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item disabled" href="/niveis">Niveis Cadastrados</a>
+                <a class="dropdown-item" href="/niveis">Niveis Cadastrados</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/niveis/cadastro">Novo nivel de usuario</a>
               </div>

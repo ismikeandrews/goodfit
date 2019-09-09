@@ -13,15 +13,19 @@ use App\Endereco;
 
 class Cadastro extends Controller
 {
+//beging
+//Codigos ulteis:
+// dd($request->all());
+// echo var_dump();
 
   public function cadastrarNivel(Request $request){
-    // echo var_dump();
+
     $this->validate($request, [
       'titulo' => 'required',
       'descricao' => 'required'
     ]);
-// dd($request->all());
-// dd($request->input('nomeNivelUsuario'));
+
+
     $nivelUsuario = NivelUsuario::create([
       'nomeNivelUsuario' => $request->input('titulo'),
       'descricaoNivelUsuario' => $request->input('descricao')
@@ -33,7 +37,28 @@ class Cadastro extends Controller
     ->with('ok', $salvar);
   }
 
+  public function cadastrarUsuario(Request $request){
+// dd($request->all());
+    $this->validate($request, [
+      'login' => 'required',
+      'email' => 'required',
+      'nivel' => 'required|numeric',
+      'senha' => 'required'
+    ]);
 
+    $usuario = Usuario::create([
+      'loginUsuario' => $request->input('login'),
+      'emailUsuario' => $request->input('email'),
+      'codNivelUsuario' => $request->input('nivel'),
+      'senhaUsuario' => $request->input('senha')
+    ]);
+
+    $salvar = $usuario->save();
+    $nivel = NivelUsuario::all();
+
+    return view('usuariosCadastro')
+    ->with('ok', $salvar)->with('niveis', $nivel);
+  }
 
 //end
 }

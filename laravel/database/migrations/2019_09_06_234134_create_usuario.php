@@ -18,7 +18,8 @@ class CreateUsuario extends Migration
             $table->increments('codUsuario');
             $table->string('loginUsuario', 50);
             $table->string('senhaUsuario', 50);
-            $table->string('emailUsuario', 150);
+            $table->string('emailUsuario', 150)->unique();
+            $table->rememberToken();
             $table->unsignedInteger('codEndereco')->unsigned()->nullable();
             $table->unsignedInteger('codNivelUsuario')->unsigned();
             $table->timestamps();
