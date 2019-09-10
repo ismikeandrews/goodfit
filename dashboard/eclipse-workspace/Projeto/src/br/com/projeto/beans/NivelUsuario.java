@@ -25,7 +25,7 @@ public class NivelUsuario {
 		this.nome = nome;
 		this.descricao = descricao;
 	}
-
+	
 	public int getCodigo() {
 		return codigo;
 	}
