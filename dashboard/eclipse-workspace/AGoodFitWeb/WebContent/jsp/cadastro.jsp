@@ -10,7 +10,7 @@
 
   try{
     Connection con = Conecta.getConnection();
-    String sql = "insert into tbUsuario(loginUsuario, emailUsuario, senhaUsuario, codNivelUsuario) value (?,?,?,?)";
+    String sql = "insert into tbUsuario(loginUsuario, email, password, codNivelUsuario) value (?,?,?,?)";
 
 	PreparedStatement stmt = con.prepareStatement(sql);
 	

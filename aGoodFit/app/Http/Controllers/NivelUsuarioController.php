@@ -41,18 +41,12 @@ class NivelUsuarioController extends Controller
   }
 
   public function validarNivel(){
-    $nivel =  NivelUsuario::where('codNivelUsuario', Auth::user()->codNivelUsuario)->get('codNivelUsuario');
-
-    dd($nivel);
-
-
-    // if (Auth::user()->codNivelUsuario = 1) {
-    //   return view('home');
-    // }else if(Auth::user()->codNivelUsuario = 2){
-    //   return view('homeEmpresa');
-    // }else if(Auth::user()->codNivelUsuario = 3){
-    //   return view('homeCandidato');
-    // }
-
+    if(Auth::user()->codNivelUsuario == 1){
+      return redirect('/moderador/form');
+    }elseif (Auth::user()->codNivelUsuario == 2) {
+      return redirect('/candidato/form');
+    }elseif (Auth::user()->codNivelUsuario == 3) {
+      return redirect('/empresa/form');
+    }
   }
 }
