@@ -17,7 +17,7 @@
     <tbody>
       @foreach($niveis as $nivel)
       <tr>
-        <td>{{ $nivel->codNivelUsuario }}</th>
+        <td>{{ $nivel->codNivelUsuario }}</td>
         <td>{{ $nivel->nomeNivelUsuario }}</td>
         <td><a href="/nivelusuario/deletar/{{ $nivel->codNivelUsuario }}" class="badge badge-danger"><i class="far fa-trash-alt" style="font-size:25px;"></i></a></td>
       </tr>

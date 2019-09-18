@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
-<%@ page language="java" import="conexao.Conecta"%>
+<%@ page language="java" import="br.com.projeto.conexao.Conecta"%>
 <%
 	String login = request.getParameter("login");
 	String email = request.getParameter("email");

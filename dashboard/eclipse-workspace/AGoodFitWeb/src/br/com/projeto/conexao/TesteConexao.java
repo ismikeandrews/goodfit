@@ -1,4 +1,4 @@
-package conexao;
+package br.com.projeto.conexao;
 
 import java.sql.Connection;
 
@@ -22,3 +22,4 @@ public class TesteConexao {
 	}
 
 }
+
