@@ -13,16 +13,16 @@ import br.com.projeto.beans.NivelUsuario;
 import br.com.projeto.dao.NivelUsuarioDAO;
 
 /**
- * Servlet implementation class Cadastro
+ * Servlet implementation class Alterar
  */
-@WebServlet("/Cadastro")
-public class Cadastro extends HttpServlet {
+@WebServlet("/Alterar")
+public class Alterar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Cadastro() {
+    public Alterar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,21 +40,25 @@ public class Cadastro extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int id = Integer.parseInt(request.getParameter("id"));
 		String titulo = request.getParameter("titulo");
 		
 		NivelUsuario nu = new NivelUsuario();
 		
+		nu.setCodigo(id);
 		nu.setNome(titulo);
 		
 		try {
 			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
-			nuDAO.addNivelUsuario(nu);
-			request.setAttribute("message", "Inserido com sucesso");
-		}catch(Exception e){
-			request.setAttribute("message", "Problema na inserção.");
+			nuDAO.atualizar(nu.getCodigo(), nu.getNome());
+			request.setAttribute("message", "O registro " + id + " foi alterado com sucesso.");
+		}catch(Exception e) {
+			request.setAttribute("message", "Problema na alteração.");
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("listaNivel.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("AlterarNivel.jsp");
 		dispatcher.forward(request, response);
+
+		
 	}
 
 }

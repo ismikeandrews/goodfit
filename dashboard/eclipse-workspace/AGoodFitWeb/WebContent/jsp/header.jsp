@@ -43,11 +43,12 @@
               Niveis de usuario
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="listaNivel.jsp">Niveis Cadastrados</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="nivel.jsp">Niveis de acesso</a>
+             
+              <a class="dropdown-item" href="listarNivel.jsp">Niveis de acesso</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="deletarNivel.jsp">Deletar um nivel</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="AlterarNivel.jsp">Atualizar um nivel</a>
             </div>
           </li>
           <li class="nav-item dropdown">

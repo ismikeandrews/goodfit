@@ -67,6 +67,14 @@ public class NivelUsuarioDAO {
 		return stmt.executeUpdate();
 	}
 	
+	public int atualizar(int cod, String nome) throws Exception{
+		stmt = con.prepareStatement
+				("update tbNivelUsuario set nomeNivelUsuario = ? where codNivelUsuario = ?");
+		stmt.setInt(1, cod);
+		stmt.setString(1, nome);
+		return stmt.executeUpdate();
+	}
+	
 	public void fechar() throws Exception{
 		con.close();
 	}

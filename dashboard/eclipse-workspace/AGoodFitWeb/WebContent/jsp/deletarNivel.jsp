@@ -17,12 +17,12 @@ pageEncoding="UTF-8"%>
       <h2>Deletar um nivel</h2>
       <p>${message}</p>
       <hr>
-      <form class="needs-validation" method="POST" action="/Delete">
+      <form method="POST" action="${pageContext.request.contextPath}/Remover">
         <div class="col-md-12 mb-3">
-           <label for="id">Codigo do Nivel</label>
+           <label for="id">Remover</label>
            <input type="text" name="id" id="id" class="form-control">
         </div>
-        <button class="btn btn-danger btn-lg btn-block" type="submit">Deletar</button>
+        <button class="btn btn-danger btn-lg btn-block" type="submit">Remover</button>
       </form>
     </div>
   </body>
