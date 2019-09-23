@@ -1,22 +1,133 @@
 body {
-  font-family: Roboto;
+  font-family: Montserrat;
+  height: 736px;
+  width: 414px;
 }
 
-/*
-  MENU
-*/
-.menu-logo {
-  border: 1px solid #fff;
-  height: 40px;
-  margin: 10px 10px;
-  width: 150px;
+.container {
+  margin: auto;
+  padding: 20px;
+  position: relative;
 }
 
-.menu {
+.logo-content {
+  height: 170px;
+  margin-top: 50px;
+  transform: translateX(135px);
+  width: fit-content;
+}
+
+.logo {
+  border: 1px solid #000;
+  height: 95px;
+  transform: rotate(45deg);
+  width: 95px;
+}
+
+.intro-title {
+  color: #000;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.intro-title > span {
+  color: #04b2d9;
+}
+
+.intro-desc {
+  color: #828181;
+  font-size: 14px;
+  margin: 5px 0 15px;
+}
+
+.form-inputs {
+  display: block;
+}
+
+.form-input-item {
+  border: 1px solid #aeaeae;
+  font-size: 15px;
+  padding: 15px 0px 15px 15px;
+  margin: 10px 0;
+  width: 96%;
+}
+
+.form-link {
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.form-link-senha {
+  color: #04b2d9;
+  float: right;
+  margin: 10px 0 20px;
+}
+
+.form-link-cadastrar {
+  color: #828181;
+  margin-left: 130px;
+  position: absolute;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.btn {
+  padding: 15px 0;
+  margin: 30px 0 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-login {
+  background: #04b2d9;
+  margin-top: 40px;
+}
+
+.btn-cod {
+  background: #fff;
+  border: 1px solid #023373;
+}
+
+.btn-cadastrar {
+  background: #fff;
+  border: 1px solid #828181;
+  margin-top: 50px;
+}
+
+.btn-link {
+  text-decoration: none;
+}
+
+.btn-login > .btn-link {
+  color: #fff;
+}
+
+.btn-cod > .btn-link {
+  color: #023373;
+}
+
+.btn-cadastrar > .btn-link {
+  color: #828181;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .menu {
   align-items: center;
   background: #666b7a;
   display: flex;
+  height: 60px;
   position: relative;
+  width: 100%;
 }
 
 .menu-content {
@@ -52,12 +163,12 @@ body {
   color: #f06060;
   border-bottom: 3px solid #f06060;
   transition: all .5s ease-out;
-}
+} */
 
 /*
   MODAL
 */
-.bg-dark {
+/* .bg-dark {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   height: 100%;
@@ -102,4 +213,4 @@ body {
 .modal-close-link:hover {
   color: #f06060;
   transition: color .5s ease-out;
-}
+} */
