@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%>
         <div class="col-md-12 mb-3">
            <label for="id">Id</label>
            <input type="text" name="id" id="id" class="form-control">
-           <label for="titulo">Titulo</label>
+           <label for="titulo">Novo titulo</label>
            <input type="text" name="titulo" id="titulo" class="form-control">
         </div>
         <button class="btn btn-warning btn-lg btn-block" type="submit">Atualizar</button>

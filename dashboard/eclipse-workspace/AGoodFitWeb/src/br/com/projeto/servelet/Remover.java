@@ -42,11 +42,11 @@ public class Remover extends HttpServlet {
 		// TODO Auto-generated method stub
 		int id = Integer.parseInt(request.getParameter("id"));
 		NivelUsuario nu = new NivelUsuario(); 
-		nu.getCodigo();
+		nu.setCodigo(id);
 		
 		try {
 			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
-			nuDAO.deleteNivelUsuario();
+			nuDAO.deleteNivelUsuario(nu.getCodigo());
 			request.setAttribute("message", "Apagado com sucesso");
 		}catch(Exception e){
 			request.setAttribute("message", "Problema ao apagar.");
