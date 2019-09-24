@@ -64,7 +64,7 @@ public class NivelUsuarioDAO {
 		stmt = con.prepareStatement
 				("delete from tbNivelUsuario where codNivelUsuario=?");
 		stmt.setInt(1, cod);
-		return stmt.executeUpdate();
+		return rs.getInt("codNivelUsaurio");
 	}
 	
 	public int atualizar(int cod, String nome) throws Exception{

@@ -46,7 +46,7 @@ public class Remover extends HttpServlet {
 		
 		try {
 			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
-			nuDAO.deleteNivelUsuario(nu.getCodigo());
+			nuDAO.deleteNivelUsuario(id);
 			request.setAttribute("message", "Apagado com sucesso");
 		}catch(Exception e){
 			request.setAttribute("message", "Problema ao apagar.");
