@@ -44,7 +44,7 @@ class NivelUsuarioController extends Controller
     if(Auth::user()->codNivelUsuario == 1){
       return redirect('/moderador/form');
     }elseif (Auth::user()->codNivelUsuario == 2) {
-      return redirect('/candidato/form');
+      return redirect('/candidato/cadastro');
     }elseif (Auth::user()->codNivelUsuario == 3) {
       return redirect('/empresa/form');
     }
