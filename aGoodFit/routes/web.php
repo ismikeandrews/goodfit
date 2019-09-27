@@ -25,13 +25,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Niveis de Usuarios
 Route::prefix('nivelusuario')->group(function() {
 //paginas
+Route::get('/escolha', 'NivelUsuarioController@escolhaNivelUsuario');
 Route::get('/cadastro', 'NivelUsuarioController@formularioNivelUsuario');
 Route::get('/', 'NivelUsuarioController@niveisUsuario');
 //cadastros
 Route::post('/cadastro', 'NivelUsuarioController@novoNivel');
 //Excluir e Editar dados e Validar
 Route::get('/deletar/{codNivelUsuario}', 'NivelUsuarioController@deletarNivel');
-Route::get('/validar', 'NivelUsuarioController@validarNivel');
+Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 });
 
 //Candidato
