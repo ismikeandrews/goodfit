@@ -1,7 +1,7 @@
 body {
   font-family: Montserrat;
-  height: 736px;
-  width: 414px;
+  height: 100%;
+  width: 100%;
 }
 
 .container {
@@ -13,8 +13,7 @@ body {
 .logo-content {
   height: 170px;
   margin-top: 50px;
-  transform: translateX(135px);
-  width: fit-content;
+  margin-left: 135px;
 }
 
 .logo {
@@ -53,23 +52,19 @@ body {
   width: 96%;
 }
 
-.form-link {
+.label {
   font-size: 11px;
   text-decoration: none;
 }
 
-.form-link-senha {
+.label-senha {
   color: #04b2d9;
   float: right;
   margin: 10px 0 20px;
 }
 
-.form-link-cadastrar {
+.label-cadastrar {
   color: #828181;
-  margin-left: 130px;
-  position: absolute;
-  width: 100%;
-  padding-top: 20px;
 }
 
 .btn {
