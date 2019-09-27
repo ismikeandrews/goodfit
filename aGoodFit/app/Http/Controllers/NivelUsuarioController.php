@@ -40,12 +40,17 @@ class NivelUsuarioController extends Controller
     return redirect('/nivelusuario');
   }
 
-  public function validarNivel(){
-    if(Auth::user()->codNivelUsuario == 1){
-      return redirect('/moderador/form');
-    }elseif (Auth::user()->codNivelUsuario == 2) {
-      return redirect('/candidato/cadastro');
-    }elseif (Auth::user()->codNivelUsuario == 3) {
+  public function escolhaNivelUsuario(){
+    $nivel = NivelUsuario::all();
+    return view('escolhaNivel')->with('niveis', $nivel);
+  }
+
+  public function validarNivel($codNivelUsuario){
+    if($codNivelUsuario == 1){
+      return redirect('auth.registerMod');
+    }elseif ($codNivelUsuario == 2) {
+      return view('auth.registerCand');
+    }elseif ($codNivelUsuario == 3) {
       return redirect('/empresa/form');
     }
   }
