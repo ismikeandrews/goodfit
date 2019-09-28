@@ -8,7 +8,7 @@
         <div class="card-header">Cadastro de Candidato</div>
 
         <div class="card-body">
-          <form method="POST" action="{{ route('register') }}">
+          <form method="POST" action="candidato/cadastro">
             @csrf
 
             <div class="form-group row">

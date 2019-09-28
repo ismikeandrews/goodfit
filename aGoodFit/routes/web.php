@@ -23,8 +23,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/login', 'Auth\LoginMike@showLoginForm')->name('login');
-// Route::post('/login', 'Auth\LoginMike@login')->name('login.submit');
 
 //Niveis de Usuarios
 Route::prefix('nivelusuario')->group(function() {
