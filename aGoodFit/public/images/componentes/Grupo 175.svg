@@ -1,0 +1,12 @@
+<svg id="Grupo_175" data-name="Grupo 175" xmlns="http://www.w3.org/2000/svg" width="107" height="23" viewBox="0 0 107 23">
+  <g id="Retângulo_42" data-name="Retângulo 42" fill="none" stroke="#04b2d9" stroke-width="1">
+    <rect width="107" height="23" rx="5" stroke="none"/>
+    <rect x="0.5" y="0.5" width="106" height="22" rx="4.5" fill="none"/>
+  </g>
+  <text id="Tempo_Integral" data-name="Tempo Integral" transform="translate(24 15)" fill="#04b2d9" font-size="10" font-family="Raleway-Medium, Raleway" font-weight="500"><tspan x="0" y="0">Tempo Integral</tspan></text>
+  <g id="work-briefcase" transform="translate(7.667 6.708)">
+    <g id="work">
+      <path id="Caminho_89" data-name="Caminho 89" d="M9.2,14.794H7.156V13.772L6.133,12.75H4.089L3.067,13.772v1.022H1.022A1.025,1.025,0,0,0,0,15.817v5.622a1.025,1.025,0,0,0,1.022,1.022H9.2a1.025,1.025,0,0,0,1.022-1.022V15.817A1.025,1.025,0,0,0,9.2,14.794Zm-3.067,0H4.089V13.772H6.133Z" transform="translate(0 -12.75)" fill="#04b2d9"/>
+    </g>
+  </g>
+</svg>

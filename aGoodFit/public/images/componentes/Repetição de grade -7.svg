@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="295" height="572" viewBox="0 0 295 572">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="295" height="572" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repetição_de_grade_3" data-name="Repetição de grade 3" clip-path="url(#clip-path)">
+    <g transform="translate(-27 -217)">
+      <g id="Retângulo_56" data-name="Retângulo 56" transform="translate(27 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+      <g id="Retângulo_57" data-name="Retângulo 57" transform="translate(194 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+    </g>
+    <g transform="translate(-27 -69)">
+      <g id="Retângulo_56-2" data-name="Retângulo 56" transform="translate(27 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+      <g id="Retângulo_57-2" data-name="Retângulo 57" transform="translate(194 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+    </g>
+    <g transform="translate(-27 79)">
+      <g id="Retângulo_56-3" data-name="Retângulo 56" transform="translate(27 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+      <g id="Retângulo_57-3" data-name="Retângulo 57" transform="translate(194 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+    </g>
+    <g transform="translate(-27 227)">
+      <g id="Retângulo_56-4" data-name="Retângulo 56" transform="translate(27 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+      <g id="Retângulo_57-4" data-name="Retângulo 57" transform="translate(194 217)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="128" height="128" stroke="none"/>
+        <rect x="0.5" y="0.5" width="127" height="127" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
