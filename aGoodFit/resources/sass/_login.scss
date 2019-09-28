@@ -3,13 +3,13 @@ body {
     height: 100%;
     width: 100%;
 }
-  
+
 .container {
     margin: auto;
     padding: 20px;
     position: relative;
 }
-  
+
 .logo {
     border: 1px solid #000;
     height: 95px;
@@ -22,7 +22,7 @@ body {
         margin-left: 135px;
     }
 }
-  
+
 .intro {
     &-title {
         color: #000;
@@ -41,11 +41,11 @@ body {
         margin: 5px 0 15px;
     }
 }
-  
+
 .form-inputs {
     display: block;
 }
-  
+
 .form-input-item {
     border: 1px solid #aeaeae;
     font-size: 15px;
@@ -53,7 +53,7 @@ body {
     margin: 10px 0;
     width: 96%;
 }
-  
+
 .label {
     font-size: 11px;
     text-decoration: none;
@@ -92,7 +92,7 @@ body {
             color: #023373;
         }
     }
-  
+
     &-cadastrar {
         background: #fff;
         border: 1px solid #828181;
@@ -102,7 +102,7 @@ body {
             color: #828181;
         }
     }
-  
+
     &-link {
         text-decoration: none;
     }
