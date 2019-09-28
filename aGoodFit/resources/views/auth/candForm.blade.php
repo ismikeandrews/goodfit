@@ -5,10 +5,13 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Cadastro de usuario</div>
+        <div class="card-header @if(isset($ok) && $ok) bg-success @endif">Cadastro de usuario @if(isset($ok) && $ok) concluida @endif</div>
+
+
+
 
         <div class="card-body">
-          <form method="POST" action="">
+          <form method="POST" action="/candidato/cadastro">
             @csrf
 
             <div class="form-group row">
@@ -71,7 +74,7 @@
               <label for="descricao" class="col-md-4 col-form-label text-md-right">Descricao</label>
 
               <div class="col-md-6">
-                
+
                 <textarea class="form-control @error('descricao') is-invalid @enderror" name="descricao" autocomplete="descricao" id="descricao"></textarea>
 
                 @error('descricao')

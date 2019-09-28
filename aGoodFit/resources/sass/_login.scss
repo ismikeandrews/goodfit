@@ -1,0 +1,108 @@
+body {
+    font-family: Montserrat;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.logo {
+    border: 1px solid #000;
+    height: 95px;
+    transform: rotate(45deg);
+    width: 95px;
+    &-content {
+        height: 170px;
+        margin-top: 50px;
+        margin-left: 135px;
+    }
+}
+
+.intro {
+    &-title {
+        color: #000;
+        font-size: 21px;
+        font-weight: 600;
+        line-height: 25px;
+
+        &-span {
+            color: #04b2d9;
+        }
+    }
+
+    &-desc {
+        color: #828181;
+        font-size: 14px;
+        margin: 5px 0 15px;
+    }
+}
+
+.form-inputs {
+    display: block;
+}
+
+.form-input-item {
+    border: 1px solid #aeaeae;
+    font-size: 15px;
+    padding: 15px 0px 15px 15px;
+    margin: 10px 0;
+    width: 96%;
+}
+
+.label {
+    font-size: 11px;
+    text-decoration: none;
+
+    &-senha {
+        color: #04b2d9;
+        float: right;
+        margin: 10px 0 20px;
+    }
+
+    &-cadastrar {
+        color: #828181;
+    }
+}
+
+.btn {
+    padding: 15px 0;
+    margin: 30px 0 10px;
+    text-align: center;
+    width: 100%;
+
+    &-login {
+        background: #04b2d9;
+        margin-top: 40px;
+
+        &.btn-link {
+            color: #fff;
+        }
+    }
+
+    &-cod {
+        background: #fff;
+        border: 1px solid #023373;
+
+        &.btn-link {
+            color: #023373;
+        }
+    }
+
+    &-cadastrar {
+        background: #fff;
+        border: 1px solid #828181;
+        margin-top: 50px;
+
+        &.btn-link {
+            color: #828181;
+        }
+    }
+
+    &-link {
+        text-decoration: none;
+    }
+}
