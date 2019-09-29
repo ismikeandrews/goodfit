@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/nivelusuario/validar';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -51,7 +52,6 @@ class RegisterController extends Controller
         return Validator::make($data, [
           'login' => ['required', 'string', 'max:255', 'unique:tbUsuario,loginUsuario'],
           'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
-          'nivel' => ['required', 'numeric'],
           'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,11 +64,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        return User::create([
+        return = User::create([
           'loginUsuario' => $data['login'],
           'email' => $data['email'],
-          'codNivelUsuario' => $data['nivel'],
+          'codNivelUsuario' => $data['codNivelUsuario'],
           'password' => Hash::make($data['password']),
         ]);
     }

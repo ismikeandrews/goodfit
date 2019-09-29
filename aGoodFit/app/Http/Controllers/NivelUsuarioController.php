@@ -47,11 +47,11 @@ class NivelUsuarioController extends Controller
 
   public function validarNivel($codNivelUsuario){
     if($codNivelUsuario == 1){
-      return redirect('auth.registerMod');
+      return view('auth.registerMod')->with('codNivelUsuario', 1);
     }elseif ($codNivelUsuario == 2) {
-      return view('auth.registerCand');
+      return view('auth.registerCand')->with('codNivelUsuario', 2);
     }elseif ($codNivelUsuario == 3) {
-      return redirect('auth.registerEmp');
+      return view('auth.registerEmp')->with('codNivelUsuario', 3);
     }
   }
 }
