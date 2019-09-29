@@ -1,14 +1,17 @@
 body {
     background: #f2f2f2;
-    font-family: Montserrat;
+    font-family: Raleway, Montserrat, sans-serif;
     height: 100%;
     width: 100%;
 }
 
 .container {
-    margin: auto;
     padding: 20px;
-    position: relative;
+
+    &-login {
+      background: url('../images/componentes/logo-bg.svg') no-repeat;
+      background-position: 235px -163px;
+    }
 }
 
 .logo {
@@ -23,9 +26,9 @@ body {
 
 .intro {
     &-title {
-        color: #000;
+        color: #2a2a2a;
+        font-family: 'Raleway Bold';
         font-size: 21px;
-        font-weight: 600;
         line-height: 25px;
 
         &-span {
@@ -80,22 +83,16 @@ body {
     }
 
     &-cod {
-        background: #fff;
+        background: transparent;
         border: 1px solid #023373;
-
-        &.btn-link {
-            color: #023373;
-        }
+        color: #023373;
     }
 
     &-cadastrar {
-        background: #fff;
+        background: #transparent;
         border: 1px solid #828181;
+        color: #828181;
         margin-top: 50px;
-
-        &.btn-link {
-            color: #828181;
-        }
     }
 
     &-link {

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="container">
+<section class="container container-login">
     <div class="logo-content">
         <div class="logo">
             <img src="{{asset('images/componentes/logo.png')}}" alt="Logo - A Good Fit" class="logo-img">
@@ -54,16 +54,20 @@
               </button>
             </div>
 
-            <div class="btn btn-cod">
-              <a href="#" class="btn-link">Código de cadastro</a>
+            <div>
+              <button type="submit" class="btn btn-cod">
+                {{ __('Código de cadastro') }}
+              </button>
             </div>
 
             <div class="form-label">
               <p class="label label-cadastrar">Não tem uma conta?</a>
             </div>
 
-            <div class="btn btn-cadastrar">
-              <a href="#" class="btn-link">Cadastre-se</a>
+            <div>
+              <button type="submit" class="btn btn-cadastrar">
+                {{ __('Cadastre-se') }}
+              </button>
             </div>
         </form>
     </div>

@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #f2f2f2;
 }
 
 [tabindex="-1"]:focus {
@@ -517,7 +517,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #f2f2f2;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4097,15 +4097,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f2f2f2, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f2f2f2, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f2f2f2, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4305,8 +4305,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #f2f2f2;
+  border-color: #dee2e6 #dee2e6 #f2f2f2;
 }
 
 .nav-tabs .dropdown-menu {
@@ -10646,15 +10646,18 @@ a.text-dark:focus {
 
 body {
   background: #f2f2f2;
-  font-family: Montserrat;
+  font-family: Raleway, Montserrat, sans-serif;
   height: 100%;
   width: 100%;
 }
 
 .container {
-  margin: auto;
   padding: 20px;
-  position: relative;
+}
+
+.container-login {
+  background: url(/images/logo-bg.svg?270147600bbedad57114bca408fa1105) no-repeat;
+  background-position: 235px -163px;
 }
 
 .logo {
@@ -10668,9 +10671,9 @@ body {
 }
 
 .intro-title {
-  color: #000;
+  color: #2a2a2a;
+  font-family: "Raleway Bold";
   font-size: 21px;
-  font-weight: 600;
   line-height: 25px;
 }
 
@@ -10725,22 +10728,16 @@ body {
 }
 
 .btn-cod {
-  background: #fff;
+  background: transparent;
   border: 1px solid #023373;
-}
-
-.btn-cod.btn-link {
   color: #023373;
 }
 
 .btn-cadastrar {
-  background: #fff;
+  background: #transparent;
   border: 1px solid #828181;
-  margin-top: 50px;
-}
-
-.btn-cadastrar.btn-link {
   color: #828181;
+  margin-top: 50px;
 }
 
 .btn-link {
