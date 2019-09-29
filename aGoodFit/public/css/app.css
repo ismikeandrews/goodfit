@@ -10645,6 +10645,7 @@ a.text-dark:focus {
 }
 
 body {
+  background: #f2f2f2;
   font-family: Montserrat;
   height: 100%;
   width: 100%;
@@ -10657,16 +10658,13 @@ body {
 }
 
 .logo {
-  border: 1px solid #000;
-  height: 95px;
-  transform: rotate(45deg);
-  width: 95px;
+  display: flex;
+  width: 100%;
 }
 
-.logo-content {
-  height: 170px;
-  margin-top: 50px;
-  margin-left: 135px;
+.logo-img {
+  margin: 0 auto;
+  width: 150px;
 }
 
 .intro-title {
@@ -10722,11 +10720,8 @@ body {
 
 .btn-login {
   background: #04b2d9;
-  margin-top: 40px;
-}
-
-.btn-login.btn-link {
   color: #fff;
+  margin-top: 40px;
 }
 
 .btn-cod {

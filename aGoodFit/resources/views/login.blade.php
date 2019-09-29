@@ -5,7 +5,7 @@
 <section class="container">
     <div class="logo-content">
         <div class="logo">
-            LOGO
+            <img src="{{asset('images/componentes/logo.png')}}" alt="Logo - A Good Fit" class="logo-img">
         </div>
     </div>
 
@@ -17,28 +17,53 @@
 
         <form class="form">
             <div class="form-inputs">
-            <input type="text" placeholder="Email" class="form-input-item">
-            <input type="text" placeholder="Senha" class="form-input-item">
+                <div class="form-input-email">
+                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                  @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
+                </div>
+            </div>
+
+            <div class="form-inputs">
+                <div class="form-input-senha">
+                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
             </div>
 
             <div class="form-label">
-            <a href="#" class="label label-senha">Esqueceu a senha?</a>
+              @if (Route::has('password.request'))
+              <a class="label label-senha" href="{{ route('password.request') }}">
+                {{ __('Esqueceu a senha?') }}
+              </a>
+              @endif
             </div>
 
-            <div class="btn btn-login">
-            <a href="#" class="btn-link">Entrar</a>
+            <div>
+              <button type="submit" class="btn btn-login">
+                {{ __('Entrar') }}
+              </button>
             </div>
 
             <div class="btn btn-cod">
-            <a href="#" class="btn-link">Código de cadastro</a>
+              <a href="#" class="btn-link">Código de cadastro</a>
             </div>
 
             <div class="form-label">
-            <p class="label label-cadastrar">Não tem uma conta?</a>
+              <p class="label label-cadastrar">Não tem uma conta?</a>
             </div>
 
             <div class="btn btn-cadastrar">
-            <a href="#" class="btn-link">Cadastre-se</a>
+              <a href="#" class="btn-link">Cadastre-se</a>
             </div>
         </form>
     </div>

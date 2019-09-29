@@ -13,11 +13,13 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
 
+  <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
