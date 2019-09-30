@@ -29,10 +29,10 @@ public class UsuarioBO {
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		Usuario usuario = usuarioDAO.getUsuario(novoUsuario.getCodigo());
 		
-		if (usuario.getCodigo()==0) {
+		if ((usuario.getCodigo() == 0) || (usuario.getUsuarioByEmail(novoUsuario.getEmail())) == 0 ) {
 			return usuarioDAO.addUsuario(novoUsuario) + "Usuario Cadastrado"; 
 		}else {
-			return "usuario já existe";
+			return "Usuário já existe";
 		}
 	}
 }
