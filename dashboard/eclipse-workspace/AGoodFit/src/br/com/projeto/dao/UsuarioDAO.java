@@ -36,6 +36,26 @@ public class UsuarioDAO {
 		}
 	}
 	
+	public Usuario getUsuarioByEmail(String email){
+		stmt = (PreparedStatement) con.prepareStatement
+				("SELECT * FROM tbUsuario WHERE email = ?");
+		stmt.setString(1, email);
+		rs = stmt.executeQuery();
+		
+		if( rs.next() ){
+			return new Usuario(
+				rs.getInt("codUsuario"),
+				rs.getString("loginUsuario"),
+				rs.getString("password"),
+				rs.getString("email"),
+				new NivelUsuarioDAO().getNivelUsuario(rs.getInt("codNivelUsuario")),
+				new EnderecoDAO().getEndereco(rs.getInt("codEndereco"))
+			);
+		}else{
+			return new Usuario();
+		}
+	}
+	
 	public int addUsuario(Usuario usu) throws Exception{
 		stmt = con.prepareStatement
 				("INSERT INTO tbUsuario (codUsuario, loginUsuario, password, email, codNivelUsuario, codEndereco) VALUES (?,?,?,?,?,?)");
