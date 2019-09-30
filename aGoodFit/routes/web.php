@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/service/{usuario}', 'Sevice\UsuarioService@novoUsuario')->name('service');
+
 
 //Niveis de Usuarios
 Route::prefix('nivelusuario')->group(function() {
