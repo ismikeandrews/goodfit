@@ -54,21 +54,24 @@
               </button>
             </div>
 
-            <div>
-              <button type="submit" class="btn btn-cod">
-                {{ __('Código de cadastro') }}
-              </button>
-            </div>
-
             <div class="form-label">
               <p class="label label-cadastrar">Não tem uma conta?</a>
             </div>
 
-            <div>
-              <button type="submit" class="btn btn-cadastrar">
-                {{ __('Cadastre-se') }}
-              </button>
+            <div class="cadastro-content">
+              <div class="cadastro-content-item">
+                <button type="submit" class="btn btn-cadastrar">
+                  {{ __('Cadastre-se') }}
+                </button>
+              </div>
+
+              <div class="cadastro-content-item">
+                <button type="submit" class="btn btn-cod">
+                  {{ __('Código de cadastro') }}
+                </button>
+              </div>
             </div>
+
         </form>
     </div>
 </section>

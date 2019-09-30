@@ -1,17 +1,16 @@
-body {
-    background: $branco;
-    font-family: $font-regular;
-    height: 100%;
-    width: 100%;
-}
+.container-login {
+    position: relative;
 
-.container {
-    background: $branco;
-    padding: 20px;
-
-    &-login {
-      background: url('../images/componentes/logo-bg.svg') no-repeat;
-      background-position: 235px -163px;
+    &:after {
+        background: url('../images/componentes/logo-bg.svg') center no-repeat;
+        content: '';
+        display: block;
+        height: 330px;
+        right: 0px;
+        position: absolute;
+        top: 0;
+        transform: translate(50%,-50%);
+        width: 330px;
     }
 }
 
@@ -20,8 +19,8 @@ body {
   width: 100%;
 
     &-img {
-      margin: 0 auto;
-      width: 150px;
+      margin: 50px auto;
+      width: 125px;
     }
 }
 
@@ -44,18 +43,6 @@ body {
     }
 }
 
-.form-inputs {
-    display: block;
-}
-
-.form-input-item {
-    border: 1px solid #aeaeae;
-    font: 15px $font-medium;
-    padding: 15px 0px 15px 15px;
-    margin: 10px 0;
-    width: 100%;
-}
-
 .label {
     font: 11px $font-regular;
     letter-spacing: 0.5px;
@@ -69,19 +56,14 @@ body {
 
     &-cadastrar {
         color: $cinza;
-        margin: 25px auto -40px;
+        margin: 45px auto -40px;
         text-align: center;
     }
 }
 
 .btn {
     border-radius: 0;
-    font: 14px $font-semibold;
-    padding: 15px 0;
-    margin: 15px 0 10px;
-    text-align: center;
-    width: 100%;
-
+    
     &-login {
         background: $azul_primary;
         color: #fff;
@@ -95,13 +77,30 @@ body {
     }
 
     &-cadastrar {
-        background: #transparent;
+        background: transparent;
         border: 1px solid $cinza;
         color: $cinza;
-        margin-top: 50px;
     }
 
     &-link {
         text-decoration: none;
+    }
+}
+
+.cadastro-content {
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+
+    &-item {
+        width: 50%;
+
+        &:first-child {
+            margin-right: 5px;
+        }
+        
+        &:last-child {
+            margin-left: 5px;
+        }
     }
 }

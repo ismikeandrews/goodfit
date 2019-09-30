@@ -1,4 +1,37 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+
+body {
+  background: #F2F2F2;
+  font-family: "Raleway Regular", "Montserrat Regular", "sans-serif";
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+.btn {
+  border-radius: 0;
+  font: 14px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  padding: 15px 0;
+  margin: 15px 0 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.form-inputs {
+  display: block;
+}
+
+.form-input-item {
+  border: 1px solid #aeaeae;
+  font: 15px "Raleway Medium", "Montserrat Medium", "sans-serif";
+  padding: 15px 0px 15px 15px;
+  margin: 10px 0;
+  width: 100%;
+}
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10644,21 +10677,20 @@ a.text-dark:focus {
   }
 }
 
-body {
-  background: #F2F2F2;
-  font-family: "Raleway Regular", "Montserrat Regular", "sans-serif";
-  height: 100%;
-  width: 100%;
-}
-
-.container {
-  background: #F2F2F2;
-  padding: 20px;
-}
-
 .container-login {
-  background: url(/images/logo-bg.svg?270147600bbedad57114bca408fa1105) no-repeat;
-  background-position: 235px -163px;
+  position: relative;
+}
+
+.container-login:after {
+  background: url(/images/logo-bg.svg?270147600bbedad57114bca408fa1105) center no-repeat;
+  content: "";
+  display: block;
+  height: 330px;
+  right: 0px;
+  position: absolute;
+  top: 0;
+  transform: translate(50%, -50%);
+  width: 330px;
 }
 
 .logo {
@@ -10667,8 +10699,8 @@ body {
 }
 
 .logo-img {
-  margin: 0 auto;
-  width: 150px;
+  margin: 50px auto;
+  width: 125px;
 }
 
 .intro-title {
@@ -10688,16 +10720,97 @@ body {
   margin: 5px 0 15px;
 }
 
-.form-inputs {
-  display: block;
+.label {
+  font: 11px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
-.form-input-item {
-  border: 1px solid #aeaeae;
-  font: 15px "Raleway Medium", "Montserrat Medium", "sans-serif";
-  padding: 15px 0px 15px 15px;
-  margin: 10px 0;
+.label-senha {
+  color: #04B2D9;
+  float: right;
+  margin-top: 10px;
+}
+
+.label-cadastrar {
+  color: #828181;
+  margin: 45px auto -40px;
+  text-align: center;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-login {
+  background: #04B2D9;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.btn-cod {
+  background: transparent;
+  border: 1px solid #023373;
+  color: #023373;
+}
+
+.btn-cadastrar {
+  background: transparent;
+  border: 1px solid #828181;
+  color: #828181;
+}
+
+.btn-link {
+  text-decoration: none;
+}
+
+.cadastro-content {
+  display: flex;
+  margin-top: 40px;
   width: 100%;
+}
+
+.cadastro-content-item {
+  width: 50%;
+}
+
+.cadastro-content-item:first-child {
+  margin-right: 5px;
+}
+
+.cadastro-content-item:last-child {
+  margin-left: 5px;
+}
+
+.container {
+  padding: 20px 30px;
+}
+
+.section-cadastro {
+  margin-top: 70px;
+}
+
+.intro-desc {
+  color: #828181;
+  font: 14px "Raleway Light", "Montserrat Light", "sans-serif";
+  letter-spacing: 0.5px;
+  margin: 5px 0 15px;
+}
+
+.cadastro-perfil {
+  align-items: center;
+  display: flex;
+  margin: 30px 0 20px;
+}
+
+.cadastro-perfil-img {
+  width: 23%;
+}
+
+.cadastro-perfil-desc {
+  color: #828181;
+  font: 15px/15px "Raleway Medium", "Montserrat Medium", "sans-serif";
+  width: 70%;
 }
 
 .label {
@@ -10714,39 +10827,7 @@ body {
 
 .label-cadastrar {
   color: #828181;
-  margin: 25px auto -40px;
+  margin: 45px auto -40px;
   text-align: center;
-}
-
-.btn {
-  border-radius: 0;
-  font: 14px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
-  padding: 15px 0;
-  margin: 15px 0 10px;
-  text-align: center;
-  width: 100%;
-}
-
-.btn-login {
-  background: #04B2D9;
-  color: #fff;
-  margin-top: 20px;
-}
-
-.btn-cod {
-  background: transparent;
-  border: 1px solid #023373;
-  color: #023373;
-}
-
-.btn-cadastrar {
-  background: #transparent;
-  border: 1px solid #828181;
-  color: #828181;
-  margin-top: 50px;
-}
-
-.btn-link {
-  text-decoration: none;
 }
 

@@ -15,9 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+/* Caminhos feitos pela Cyntia */
+
 Route::get('/ologinho', function () {
     return view('login');
 });
+
+Route::get('/cadastro', function () {
+    return view('cadastro');
+});
+
+
+
 
 Auth::routes();
 
