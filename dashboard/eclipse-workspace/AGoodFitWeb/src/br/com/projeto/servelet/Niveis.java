@@ -36,18 +36,18 @@ public class Niveis extends HttpServlet {
 		 
 
 		 
-		 try {
-			NivelUsuario nu = new NivelUsuario();
-			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
-			
-			ArrayList<NivelUsuario> listaResul = nuDAO.todosNivelUsuario(nu);
-			
-			request.setAttribute("listaResul", listaResul);
-			RequestDispatcher saida = request.getRequestDispatcher("listaResul");
-		    saida.forward(request, response);
-		 }catch(Exception e) {
-			 
-		 }
+//		 try {
+//			NivelUsuario nu = new NivelUsuario();
+//			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
+//			
+//			ArrayList<NivelUsuario> listaResul = nuDAO.todosNivelUsuario(nu);
+//			
+//			request.setAttribute("listaResul", listaResul);
+//			RequestDispatcher saida = request.getRequestDispatcher("listaResul");
+//		    saida.forward(request, response);
+//		 }catch(Exception e) {
+//			 
+//		 }
 		}
 
 	/**

@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 
 import br.com.projeto.beans.Endereco;
 import br.com.projeto.bo.EnderecoBO;
+import br.com.projeto.dao.EnderecoDAO;
 
 /*
  * @author Michael RM82443
@@ -13,22 +14,27 @@ import br.com.projeto.bo.EnderecoBO;
 
 public class CadastroEnderecoBO {
 	public static void main(String[] args) {
-		try {
-			EnderecoBO bo = new EnderecoBO();
-			Endereco endereco = new Endereco();
-			
-			endereco.setLougradouro(JOptionPane.showInputDialog("Endereco"));
-			endereco.setNumero(JOptionPane.showInputDialog("Numero"));
-			endereco.setComplemento(JOptionPane.showInputDialog("Complemento"));
-			endereco.setCep(JOptionPane.showInputDialog("Cep"));
-			endereco.setZona(JOptionPane.showInputDialog("Zona"));
-			endereco.setBairro(JOptionPane.showInputDialog("Bairro"));
-			endereco.setCidade(JOptionPane.showInputDialog("Cidade"));
-			endereco.setEstado(JOptionPane.showInputDialog("Estado"));
+		Endereco end = null;
+		EnderecoDAO daoEnd = null;
+		EnderecoBO boEnd = null;
 		
-			String x = bo.addEndereco(endereco);
+		try {
+			end = new Endereco();
+			daoEnd = new EnderecoDAO();
+			boEnd = new EnderecoBO();
 			
+			end.setLougradouro(JOptionPane.showInputDialog("Endereco"));
+			end.setNumero(JOptionPane.showInputDialog("Numero"));
+			end.setComplemento(JOptionPane.showInputDialog("Complemento"));
+			end.setCep(JOptionPane.showInputDialog("Cep"));
+			end.setZona(JOptionPane.showInputDialog("Zona"));
+			end.setBairro(JOptionPane.showInputDialog("Bairro"));
+			end.setCidade(JOptionPane.showInputDialog("Cidade"));
+			end.setEstado(JOptionPane.showInputDialog("Estado"));
 			
+			boEnd.addEndereco(end);
+			daoEnd.addEndereco(end);
+				
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
