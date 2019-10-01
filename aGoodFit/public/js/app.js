@@ -49331,11 +49331,15 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* Importando JavaScript */
+__webpack_require__(/*! ./cadastro */ "./resources/js/cadastro.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -49404,6 +49408,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/cadastro.js":
+/*!**********************************!*\
+  !*** ./resources/js/cadastro.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var senha = document.getElementById("senha");
+var confirmar_senha = document.getElementById("confirmar_senha");
+
+function validarSenha() {
+  if (senha.value != confirmar_senha.value) {
+    confirmar_senha.setCustomValidity("Senhas diferentes!");
+  } else {
+    confirmar_senha.setCustomValidity('');
+  }
+} // senha.onchange = validarSenha;
+// confirmar_senha.onkeyup = validarSenha;
 
 /***/ }),
 
