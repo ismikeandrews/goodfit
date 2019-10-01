@@ -4,26 +4,26 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import br.com.projeto.beans.Usuarioas;
+import br.com.projeto.beans.Usuario;
 import br.com.projeto.conexao.Conecta;
 
-public class UsuarioasDAO {
+public class UsuarioDAO {
 	private Connection con;
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
-	public UsuarioasDAO() throws Exception{
+	public UsuarioDAO() throws Exception{
 		con = Conecta.getConnection();
 	}
 	
-	public Usuarioas getUsuario(int cod) throws Exception{
+	public Usuario getUsuario(int cod) throws Exception{
 		stmt = (PreparedStatement) con.prepareStatement
 				("SELECT * FROM tbUsuario WHERE codUsuario=?");
 		stmt.setInt(1, cod);
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
-			return new Usuarioas(
+			return new Usuario(
 					rs.getInt("codUsuario"),
 					rs.getString("loginUsuario"),
 					rs.getString("password"),
@@ -32,18 +32,18 @@ public class UsuarioasDAO {
 					new EnderecoDAO().getEndereco(rs.getInt("codEndereco"))
 					);
 		}else {
-			return new Usuarioas();
+			return new Usuario();
 		}
 	}
 	
-	public Usuarioas getUsuarioByEmail(String email)throws Exception{
+	public Usuario getUsuarioByEmail(String email) throws Exception{
 		stmt = (PreparedStatement) con.prepareStatement
 				("SELECT * FROM tbUsuario WHERE email = ?");
 		stmt.setString(1, email);
 		rs = stmt.executeQuery();
 		
 		if( rs.next() ){
-			return new Usuarioas(
+			return new Usuario(
 				rs.getInt("codUsuario"),
 				rs.getString("loginUsuario"),
 				rs.getString("password"),
@@ -52,14 +52,14 @@ public class UsuarioasDAO {
 				new EnderecoDAO().getEndereco(rs.getInt("codEndereco"))
 			);
 		}else{
-			return new Usuarioas();
+			return new Usuario();
 		}
 	}
 	
-	public int addUsuario(Usuarioas usu) throws Exception{
+	public int addUsuario(Usuario usu) throws Exception{
 		stmt = con.prepareStatement
 				("INSERT INTO tbUsuario (codUsuario, loginUsuario, password, email, codNivelUsuario, codEndereco) VALUES (?,?,?,?,?,?)");
-		stmt.setInt(1, usu.getCodigo());
+		stmt.setInt(1, usu.getCodUsuario());
 		stmt.setString(2, usu.getLogin());
 		stmt.setString(3, usu.getSenha());
 		stmt.setString(4, usu.getEmail());
@@ -80,4 +80,5 @@ public class UsuarioasDAO {
 	public void fechar() throws Exception{
 		con.close();
 	}
+	
 }

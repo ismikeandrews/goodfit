@@ -1,17 +1,17 @@
 package br.com.projeto.bo;
 
 import br.com.projeto.beans.Usuario;
-
 import br.com.projeto.dao.UsuarioDAO;
 
-public class UsuarioBO {
+public class CandidatoBO {
+	
 	public String novoUsuario(Usuario novoUsuario) throws  Exception{
-		if(novoUsuario.getCodUsuario()<=0) {
+		if(novoUsuario.getCodigo()<=0) {
 			return "Codigo Invalido";
 		}
 		
 		//validações com login
-		if(novoUsuario.getLogin().length() > 30 || novoUsuario.getLogin().length() == 0) {
+		if((novoUsuario.getLogin().length() > 30) || (novoUsuario.getLogin().length() == 0) {
 			return "Nome inálido";
 		}
 		novoUsuario.setLogin(novoUsuario.getLogin().toUpperCase());
@@ -27,9 +27,9 @@ public class UsuarioBO {
 		}
 		
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		Usuario usuario = usuarioDAO.getUsuario(novoUsuario.getCodUsuario());
+		Usuario usuario = usuarioDAO.getUsuario(novoUsuario.getCodigo());
 		
-		if ((usuario.getCodUsuario() == 0) || (usuarioDAO.getUsuarioByEmail(novoUsuario.getEmail())) == 0 ) {
+		if ((usuario.getCodigo() == 0) || (usuario.getUsuarioByEmail(novoUsuario.getEmail())) == 0 ) {
 			return usuarioDAO.addUsuario(novoUsuario) + "Usuario Cadastrado"; 
 		}else {
 			return "Usuário já existe";

@@ -1,16 +1,20 @@
 package br.com.projeto.beans;
 
-public class Usuarioas {
-	private int codigo;
+
+public class Usuario {
+	private int codUsuario;
+
 	private String login;
 	private String senha;
 	private String email;
 	private NivelUsuario nivel;
 	private Endereco endereco;
 	
-	public Usuarioas(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
+
+	public Usuario(int codUsuario, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
+
 		super();
-		this.codigo = codigo;
+		this.codUsuario = codUsuario;
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
@@ -18,16 +22,16 @@ public class Usuarioas {
 		this.endereco = endereco;
 	}
 
-	public Usuarioas() {
+	public Usuario() {
 		super();
 	}
 	
 	public String getTudo() {
-		return  codigo+"\n"+login+"\n"+senha+"\n"+email+"\n"+nivel.getTudo()+"\n"+endereco.getTudo();
+		return  codUsuario+"\n"+login+"\n"+senha+"\n"+email+"\n"+nivel.getTudo()+"\n"+endereco.getTudo();
 	}
 	
-	public void setTudo(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
-		this.codigo = codigo;
+	public void setTudo(int codUsuario, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
+		this.codUsuario = codUsuario;
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
@@ -35,12 +39,12 @@ public class Usuarioas {
 		this.endereco = endereco;
 	}
 
-	public int getCodigo() {
-		return codigo;
+	public int getCodUsuario() {
+		return codUsuario;
 	}
 	
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
 	}
 	
 	public String getLogin() {
