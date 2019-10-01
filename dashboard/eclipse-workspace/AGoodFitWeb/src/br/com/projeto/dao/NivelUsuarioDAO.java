@@ -7,7 +7,10 @@ import java.util.ArrayList;
 
 import br.com.projeto.beans.NivelUsuario;
 import br.com.projeto.conexao.Conecta;
-
+/*
+ * @author Michael RM82443
+ * 
+ * */
 
 public class NivelUsuarioDAO {
 	private Connection con;

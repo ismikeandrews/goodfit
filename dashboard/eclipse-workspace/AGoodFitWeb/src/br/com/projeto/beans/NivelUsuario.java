@@ -1,5 +1,8 @@
 package br.com.projeto.beans;
-
+/*
+ * @author Michael RM82443
+ * 
+ * */
 public class NivelUsuario {
 	private int codigo;
 	private String nome;

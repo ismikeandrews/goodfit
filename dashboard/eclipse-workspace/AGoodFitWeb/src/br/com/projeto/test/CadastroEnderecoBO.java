@@ -6,13 +6,17 @@ import javax.swing.JOptionPane;
 import br.com.projeto.beans.Endereco;
 import br.com.projeto.bo.EnderecoBO;
 
+/*
+ * @author Michael RM82443
+ * 
+ * */
+
 public class CadastroEnderecoBO {
 	public static void main(String[] args) {
 		try {
 			EnderecoBO bo = new EnderecoBO();
 			Endereco endereco = new Endereco();
 			
-			endereco.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Código Assinatura")));
 			endereco.setLougradouro(JOptionPane.showInputDialog("Endereco"));
 			endereco.setNumero(JOptionPane.showInputDialog("Numero"));
 			endereco.setComplemento(JOptionPane.showInputDialog("Complemento"));
@@ -24,8 +28,15 @@ public class CadastroEnderecoBO {
 		
 			String x = bo.addEndereco(endereco);
 			
+			
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 	}

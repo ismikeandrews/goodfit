@@ -1,5 +1,9 @@
 package br.com.projeto.beans;
 
+/*
+ * @author Michael RM82443
+ * 
+ * */
 public class Endereco {
 	private int codigo;
 	private String lougradouro;

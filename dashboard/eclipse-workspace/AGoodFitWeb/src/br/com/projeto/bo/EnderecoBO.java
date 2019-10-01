@@ -2,7 +2,10 @@ package br.com.projeto.bo;
 
 import br.com.projeto.beans.Endereco;
 import br.com.projeto.dao.EnderecoDAO;
-
+/*
+ * @author Michael RM82443
+ * 
+ * */
 public class EnderecoBO {
 
 	public String addEndereco(Endereco endereco) throws Exception{		

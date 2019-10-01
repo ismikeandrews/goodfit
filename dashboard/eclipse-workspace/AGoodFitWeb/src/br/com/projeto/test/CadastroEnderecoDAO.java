@@ -5,17 +5,20 @@ import javax.swing.JOptionPane;
 import br.com.projeto.beans.Endereco;
 import br.com.projeto.dao.EnderecoDAO;
 
-
-public class CadastroEndereco {
+/*
+ * @author Michael RM82443
+ * 
+ * */
+public class CadastroEnderecoDAO {
 
 	public static void main(String[] args) {
 		EnderecoDAO dao = null;
-		
+		Endereco endereco = null;
 		
 		try {
 			dao = new EnderecoDAO();
-			Endereco endereco = new Endereco();
-			endereco.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Código Assinatura")));
+			endereco = new Endereco();
+			
 			endereco.setLougradouro(JOptionPane.showInputDialog("Endereco"));
 			endereco.setNumero(JOptionPane.showInputDialog("Numero"));
 			endereco.setComplemento(JOptionPane.showInputDialog("Complemento"));
@@ -25,11 +28,8 @@ public class CadastroEndereco {
 			endereco.setCidade(JOptionPane.showInputDialog("Cidade"));
 			endereco.setEstado(JOptionPane.showInputDialog("Estado"));
 			
-			if(dao.addEndereco(new Endereco()) == 0){
-				System.out.println("Usuario não cadastrado");
-			}else {
-				System.out.println("usuario cadastrado");
-			}
+			dao.addEndereco(endereco);
+
 			
 			
 		}catch(Exception e) {

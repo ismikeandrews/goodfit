@@ -8,6 +8,10 @@ import br.com.projeto.beans.Endereco;
 import br.com.projeto.conexao.Conecta;
 import br.com.projeto.conexao.Conecta;
 
+/*
+ * @author Michael RM82443
+ * 
+ * */
 public class EnderecoDAO {
 	private Connection con;
 	private PreparedStatement stmt;
@@ -42,18 +46,17 @@ public class EnderecoDAO {
 		}
 	}
 	
-	public int addEndereco(Endereco en) throws Exception{
+	public int addEndereco(Endereco endereco) throws Exception{
 		stmt = con.prepareStatement
-				("INSERT INTO tbEndereco (codEndereco, lougradouroEndereco, numeroEndereco, complementoEndereco, cepEndereco, bairroEndereco, zonaEndereco, cidadeEndereco, estadoEndereco) VALUES (?,?,?,?,?,?,?,?,?)");
-		stmt.setInt(1, en.getCodigo());
-		stmt.setString(2, en.getLougradouro());
-		stmt.setString(3, en.getNumero());
-		stmt.setString(4, en.getComplemento());
-		stmt.setString(5, en.getCep());
-		stmt.setString(6, en.getBairro());
-		stmt.setString(7, en.getZona());
-		stmt.setString(8, en.getCidade());
-		stmt.setString(9, en.getEstado());
+				("INSERT INTO tbEndereco (cepEndereco, logradouroEndereco, numeroEndereco, complementoEndereco, bairroEndereco, zonaEndereco, cidadeEndereco, estadoEndereco) VALUES (?,?,?,?,?,?,?,?)");
+		stmt.setString(1, endereco.getCep());
+		stmt.setString(2, endereco.getLougradouro());
+		stmt.setString(3, endereco.getNumero());
+		stmt.setString(4, endereco.getComplemento());
+		stmt.setString(5, endereco.getBairro());
+		stmt.setString(6, endereco.getZona());
+		stmt.setString(7, endereco.getCidade());
+		stmt.setString(8, endereco.getEstado());
 		
 		return stmt.executeUpdate();
 	}
