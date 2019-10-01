@@ -3,6 +3,7 @@ package br.com.projeto.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import br.com.projeto.beans.NivelUsuario;
 import br.com.projeto.conexao.Conecta;
@@ -16,22 +17,27 @@ public class NivelUsuarioDAO {
 	public NivelUsuarioDAO() throws Exception{
 		con = Conecta.getConnection();
 	}
-	
-	public NivelUsuario todosNivelUsuario() throws Exception{
-		stmt = (PreparedStatement) con.prepareStatement
-				("select * from tbNivelUsuario");
-		rs = stmt.executeQuery();
-		
-		if(rs.next()) {
-			return new NivelUsuario(
-					rs.getInt("codNivelUsuario"),
-					rs.getString("nomeNivelUsuario")
-					);
-		}else {
-			return new NivelUsuario();
-		}
-	}
-	
+	//ignore essa parte 
+//	public ArrayList<NivelUsuario> todosNivelUsuario (NivelUsuario nivelUsuario){
+//		
+//		String sql = "select * from tbNivelUsuario";
+//		ArrayList<NivelUsuario> lista = new ArrayList<NivelUsuario>();
+//		
+//		try {
+//			PreparedStatement estrutura = con.prepareStatement(sql);
+//			ResultSet resultadoDado = estrutura.executeQuery();
+//			while(resultadoDado.next()) {
+//				NivelUsuario nu = new NivelUsuario();
+//				nu.setCodigo(resultadoDado.getInt("codNivelUsuario"));
+//				nu.setNome(resultadoDado.getString("nomeNivelUsuario"));
+//				lista.add(nu);
+//			}
+//		}catch(Exception e) {
+//			
+//		}
+//		
+//	}
+	/////////////////
 	
 	
 	public NivelUsuario getNivelUsuario(int cod) throws Exception{

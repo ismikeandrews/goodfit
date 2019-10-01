@@ -1,7 +1,9 @@
 package br.com.projeto.servelet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,17 +34,21 @@ public class Niveis extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		 
-		NivelUsuario nu = new NivelUsuario();
+
 		 
 		 try {
+			NivelUsuario nu = new NivelUsuario();
 			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
-			nuDAO.todosNivelUsuario();
+			
+			ArrayList<NivelUsuario> listaResul = nuDAO.todosNivelUsuario(nu);
+			
+			request.setAttribute("listaResul", listaResul);
+			RequestDispatcher saida = request.getRequestDispatcher("listaResul");
+		    saida.forward(request, response);
 		 }catch(Exception e) {
 			 
 		 }
-	     request.setAttribute("niveis", nu); 
-	     request.getRequestDispatcher("niveis.jsp").forward(request, response);
-	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
