@@ -5,26 +5,34 @@ import br.com.projeto.dao.UsuarioDAO;
 
 public class UsuarioBO {
 	
-	public String novoUsuario(Usuario objUsuario) throws  Exception{
-		if(objUsuario.getCodigo()<=0) {
+	public String novoUsuario(Usuario novoUsuario) throws  Exception{
+		if(novoUsuario.getCodigo()<=0) {
 			return "Codigo Invalido";
 		}
-		if(objUsuario.getLogin().length()>30) {
+		
+		//validações com login
+		if((novoUsuario.getLogin().length() > 30) || (novoUsuario.getLogin().length() == 0) {
 			return "Nome inálido";
 		}
-		if(objUsuario.getSenha().length()>50) {
+		novoUsuario.setLogin(novoUsuario.getLogin().toUpperCase());
+		
+		//validações com senha
+		if((novoUsuario.getSenha().length() > 50) || (novoUsuario.getSenha().length() == 0)) {
 			return "senha invalida";
 		}
-		objUsuario.setLogin(objUsuario.getLogin().toUpperCase());
 		
-		UsuarioDAO dao = new UsuarioDAO();
-		Usuario  usu = dao.getUsuario(objUsuario.getCodigo());
+		//validações com email
+		if((novoUsuario.getEmail().length() > 150) || (novoUsuario.getEmail().length() == 0)) {
+			return "Email invalida";
+		}
 		
-		if (usu.getCodigo()==0) {
-			return dao.addUsuario(objUsuario) + "Usuario Cadastrado"; 
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		Usuario usuario = usuarioDAO.getUsuario(novoUsuario.getCodigo());
+		
+		if ((usuario.getCodigo() == 0) || (usuario.getUsuarioByEmail(novoUsuario.getEmail())) == 0 ) {
+			return usuarioDAO.addUsuario(novoUsuario) + "Usuario Cadastrado"; 
 		}else {
-			return "usuario já existe";
+			return "Usuário já existe";
 		}
 	}
-	
 }

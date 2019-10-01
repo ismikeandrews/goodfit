@@ -4,14 +4,16 @@ public class Usuario {
 	private int codigo;
 	private String login;
 	private String senha;
+	private String email;
 	private NivelUsuario nivel;
 	private Endereco endereco;
 	
-	public Usuario(int codigo, String login, String senha, NivelUsuario nivel, Endereco endereco) {
+	public Usuario(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
 		super();
 		this.codigo = codigo;
 		this.login = login;
 		this.senha = senha;
+		this.email = email;
 		this.nivel = nivel;
 		this.endereco = endereco;
 	}
@@ -21,13 +23,14 @@ public class Usuario {
 	}
 	
 	public String getTudo() {
-		return  codigo+"\n"+login+"\n"+senha+"\n"+nivel.getTudo()+"\n"+endereco.getTudo();
+		return  codigo+"\n"+login+"\n"+senha+"\n"+email+"\n"+nivel.getTudo()+"\n"+endereco.getTudo();
 	}
 	
-	public void setTudo(int codigo, String login, String senha, NivelUsuario nivel, Endereco endereco) {
+	public void setTudo(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
 		this.codigo = codigo;
 		this.login = login;
 		this.senha = senha;
+		this.email = email;
 		this.nivel = nivel;
 		this.endereco = endereco;
 	}
@@ -54,6 +57,14 @@ public class Usuario {
 	
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public String getEmail(){
+		return email;
+	}
+	
+	public void setEmail(String email){
+		this.email = email;
 	}
 	
 	public NivelUsuario getNivel() {
