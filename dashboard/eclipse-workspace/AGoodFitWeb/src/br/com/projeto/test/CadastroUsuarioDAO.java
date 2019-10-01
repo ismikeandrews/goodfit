@@ -2,19 +2,19 @@ package br.com.projeto.test;
 
 import javax.swing.JOptionPane;
 
-import br.com.projeto.beans.Usuario;
+import br.com.projeto.beans.Usuarioas;
 import br.com.projeto.dao.EnderecoDAO;
 import br.com.projeto.dao.NivelUsuarioDAO;
-import br.com.projeto.dao.UsuarioDAO;
+import br.com.projeto.dao.UsuarioasDAO;
 
 public class CadastroUsuarioDAO {
 
 	public static void main(String[] args) {
-		UsuarioDAO dao = null;
-		Usuario usu = null;
+		UsuarioasDAO dao = null;
+		Usuarioas usu = null;
 		try {
-			dao = new UsuarioDAO();
-			usu = new Usuario();
+			dao = new UsuarioasDAO();
+			usu = new Usuarioas();
 			
 			usu.setEmail(JOptionPane.showInputDialog("Digite seu email"));
 			usu.setEndereco(new EnderecoDAO().getEndereco(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do seu Endereco"))));

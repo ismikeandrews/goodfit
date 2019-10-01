@@ -1,6 +1,6 @@
 package br.com.projeto.beans;
 
-public class Usuario {
+public class Usuarioas {
 	private int codigo;
 	private String login;
 	private String senha;
@@ -8,7 +8,7 @@ public class Usuario {
 	private NivelUsuario nivel;
 	private Endereco endereco;
 	
-	public Usuario(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
+	public Usuarioas(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
 		super();
 		this.codigo = codigo;
 		this.login = login;
@@ -18,7 +18,7 @@ public class Usuario {
 		this.endereco = endereco;
 	}
 
-	public Usuario() {
+	public Usuarioas() {
 		super();
 	}
 	

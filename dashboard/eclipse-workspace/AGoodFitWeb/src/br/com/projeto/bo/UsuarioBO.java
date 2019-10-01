@@ -1,10 +1,10 @@
 package br.com.projeto.bo;
 
-import br.com.projeto.beans.Usuario;
-import br.com.projeto.dao.UsuarioDAO;
+import br.com.projeto.beans.Usuarioas;
+import br.com.projeto.dao.UsuarioasDAO;
 
 public class UsuarioBO {
-	public String novoUsuario(Usuario novoUsuario) throws  Exception{
+	public String novoUsuario(Usuarioas novoUsuario) throws  Exception{
 		if(novoUsuario.getCodigo()<=0) {
 			return "Codigo Invalido";
 		}
@@ -25,8 +25,8 @@ public class UsuarioBO {
 			return "Email invalida";
 		}
 		
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		Usuario usuario = usuarioDAO.getUsuario(novoUsuario.getCodigo());
+		UsuarioasDAO usuarioDAO = new UsuarioasDAO();
+		Usuarioas usuario = usuarioDAO.getUsuario(novoUsuario.getCodigo());
 		
 		if ((usuario.getCodigo() == 0) || (usuarioDAO.getUsuarioByEmail(novoUsuario.getEmail())) == 0 ) {
 			return usuarioDAO.addUsuario(novoUsuario) + "Usuario Cadastrado"; 
