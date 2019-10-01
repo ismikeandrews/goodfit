@@ -26,114 +26,59 @@
                 Dados Pessoais
             </div>
             <div class="form-inputs">
-                <div class="form-input-email">
-                  <input id="nome" type="nome" placeholder="Nome" class="form-input-item @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
-
-                  @error('nome')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
+                <div class="form-input-nome">
+                  <input id="nome" type="text" placeholder="Nome" class="form-input-item" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
                 </div>
             </div>
             <div class="form-inputs">
-                <div class="form-input-senha">
-                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+              <div class="form-input-email">
+                  <input id="email" type="email" placeholder="E-mail" class="form-input-item" name="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-inputs">
+                <div class="form-input-telefone">
+                    <input id="telefone" type="tel" placeholder="Telefone" class="form-input-item" name="telefone" required autocomplete="telefone">
                 </div>
             </div>
             <div class="form-inputs">
-                <div class="form-input-email">
-                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                  @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
-                </div>
+              <div class="form-input-data-nascimento">
+                  <input id="data-nascimento" type="date" placeholder="Data de nascimento" class="form-input-item" name="data-nascimento" required autocomplete="data-nascimento">
+              </div>
             </div>
             <div class="form-inputs">
-                <div class="form-input-senha">
-                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
+              <div class="form-input-rg">
+                  <input id="rg" type="text" placeholder="RG" class="form-input-item" name="rg" required autocomplete="rg">
+              </div>
             </div>
             <div class="form-inputs">
-                <div class="form-input-email">
-                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                  @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
-                </div>
-            </div>
-            <div class="form-inputs">
-                <div class="form-input-senha">
-                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="form-inputs">
-                <div class="form-input-email">
-                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                  @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
-                </div>
+              <div class="form-input-cpf">
+                  <input id="cpf" type="text" placeholder="CPF" class="form-input-item" name="cpf" required autocomplete="cpf">
+              </div>
             </div>
 
 
             <div class="form-legend">
-                Dados Pessoais
+                Senha
             </div>
             <div class="form-inputs">
-                <div class="form-input-email">
-                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                  @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
-                </div>
+              <div class="form-inputs">
+                  <div class="form-input-senha">
+                      <input id="senha" type="password" placeholder="Senha" class="form-input-item" name="senha" required autocomplete="senha">
+                  </div>
+              </div>
             </div>
 
             <div class="form-inputs">
-                <div class="form-input-senha">
-                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
+              <div class="form-inputs">
+                  <div class="form-input-confirmar-senha">
+                      <input id="confirmar-senha" type="password" placeholder="Confirmar senha" class="form-input-item" name="confirmar-senha" required autocomplete="confirmar-senha">
+                  </div>
+              </div>
             </div>
 
             <div>
               <button type="submit" class="btn btn-login">
-                {{ __('Entrar') }}
+                Entrar
               </button>
             </div>
 

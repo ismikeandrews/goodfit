@@ -15,7 +15,8 @@
             <h3 class="intro-desc">Entre para acessar a plataforma</h3>
         </div>
 
-        <form class="form">
+        <form class="form" method="post" action="{{ route('login') }}">
+            @csrf
             <div class="form-inputs">
                 <div class="form-input-email">
                   <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
