@@ -49418,17 +49418,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var senha = document.getElementById("senha");
-var confirmar_senha = document.getElementById("confirmar_senha");
-
-function validarSenha() {
-  if (senha.value != confirmar_senha.value) {
-    confirmar_senha.setCustomValidity("Senhas diferentes!");
-  } else {
-    confirmar_senha.setCustomValidity('');
-  }
-} // senha.onchange = validarSenha;
-// confirmar_senha.onkeyup = validarSenha;
+// let senha = document.getElementById("senha");
+// let confirmar_senha = document.getElementById("confirmar_senha");
+//
+// function validarSenha(){
+//   if(senha.value != confirmar_senha.value) {
+//     confirmar_senha.setCustomValidity("Senhas diferentes!");
+//   } else {
+//     confirmar_senha.setCustomValidity('');
+//   }
+// }
+//
+// // senha.onchange = validarSenha;
+// // confirmar_senha.onkeyup = validarSenha;
 
 /***/ }),
 

@@ -1,22 +1,23 @@
-<!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
   <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">
-      {{ config('app.name', 'Laravel') }}
+    <a class="menu-logo-link" href="{{ url('/vagas') }}">
+      <div class="menu-logo">
+          <img src="{{asset('images/componentes/logo-menu.svg')}}" alt="Logo - A Good Fit" class="logo-img">
+      </div>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-      <span class="navbar-toggler-icon"></span>
+    <button class="menu-nav" data-toggle="collapse" data-target="#menu-nav-links" aria-controls="menu-nav-links" aria-expanded="false">
+      <span class="menu-nav-burg"></span>
     </button>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-      <!-- Left Side Of Navbar -->
-      <!-- <ul class="navbar-nav mr-auto">
-
-      </ul> -->
+    <div class="collapse menu-nav-collapse" id="menu-nav-links">
 
       <!-- Right Side Of Navbar -->
-      <!-- <ul class="navbar-nav ml-auto"> -->
+      <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
-        <!-- @guest
+        @guest
         <li class="nav-item">
           <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         </li>
@@ -47,4 +48,4 @@
     </ul>
   </div>
 </div>
-</nav> -->
+</nav>

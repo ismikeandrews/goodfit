@@ -28,7 +28,7 @@
   <div id="app">
 
   <div id="app">
-      @include('navBar')
+      @include('menu')
       <main>
         @yield('content')
       </main>
