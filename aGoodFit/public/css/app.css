@@ -9,6 +9,7 @@ body {
 
 .container {
   max-width: 100%;
+  overflow-x: hidden;
   padding: 20px;
 }
 
@@ -10698,6 +10699,7 @@ a.text-dark:focus {
   top: 0;
   transform: translate(50%, -50%);
   width: 330px;
+  z-index: 1;
 }
 
 .logo {
@@ -10837,3 +10839,4 @@ a.text-dark:focus {
   margin: 45px auto -40px;
   text-align: center;
 }
+

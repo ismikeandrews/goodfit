@@ -28,7 +28,8 @@
   <div id="app">
 
   <div id="app">
-      @include('menu')
+  <!-- if ((Route::has('ologinho') or (Route::has('cadastro'))) -->
+        @include('menu')
       <main>
         @yield('content')
       </main>
