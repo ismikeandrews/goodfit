@@ -13,6 +13,110 @@ body {
   padding: 20px;
 }
 
+.container-menu {
+  background: #04B2D9;
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 25px;
+  z-index: 3;
+}
+
+.menu-nav {
+  background: transparent;
+  border: none;
+  height: 25px;
+  left: 5px;
+  position: relative;
+  top: 2px;
+  width: 25px;
+}
+
+.menu-nav-burg {
+  background: #fff;
+  display: block;
+  height: 3px;
+  position: relative;
+  right: 7px;
+  top: 2px;
+  width: 25px;
+  z-index: 7;
+}
+
+.menu-nav-burg:before {
+  background: #fff;
+  content: "";
+  display: block;
+  height: 3px;
+  right: 0px;
+  position: absolute;
+  top: 8px;
+  width: 25px;
+}
+
+.menu-nav-burg:after {
+  background: #fff;
+  content: "";
+  display: block;
+  height: 3px;
+  right: 0px;
+  position: absolute;
+  bottom: 8px;
+  width: 25px;
+}
+
+.menu-logo {
+  text-align: center;
+}
+
+.menu-logo-img {
+  width: 100px;
+}
+
+.menu-nav-collapse {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: all ease 0.5s;
+  opacity: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.menu-nav-collapse-bar {
+  background: #04B2D9;
+  height: 0;
+  transition: height ease 0.5s;
+  width: 65px;
+  z-index: 6;
+}
+
+.menu-nav-collapse.is-active {
+  opacity: 1;
+  z-index: 5;
+}
+
+.menu-nav-collapse.is-active .menu-nav-collapse-bar {
+  height: 100vh;
+}
+
+.menu-nav-list {
+  position: absolute;
+  left: 30px;
+  top: 50px;
+  width: 100%;
+  z-index: 7;
+}
+
+.menu-nav-list-link-item {
+  background-color: #ffffff;
+  height: 65px;
+  margin: 40px 0;
+  padding: 20px;
+  width: 80%;
+}
+
 .btn {
   border-radius: 0;
   font: 14px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
