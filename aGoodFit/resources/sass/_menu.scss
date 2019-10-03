@@ -10,9 +10,11 @@
   background: transparent;
   border: none;
   height: 25px;
+  outline: none !important;
   position: relative;
   top: 2px;
   width: 25px;
+  z-index: 30;
 }
 
 .menu-nav-burg {
@@ -100,8 +102,10 @@
 .menu-nav-list {
   position: absolute;
   left: 30px;
-  top: 50px;
+  top: 50%;
   width: 100%;
+  transform: translateY(-50%);
+  transition: width ease 0.5s;
   z-index: 7;
 }
 
@@ -120,14 +124,20 @@
   height: 65px;
   justify-content: space-between;
   margin: 40px 0;
-  padding: 20px;
+  overflow: hidden;
   position: relative;
-  width: 85%;
+  transition: all .4s ease;
+  width: 0;
 
   &-text {
     font: 18px/21px $font-semibold;
     margin: auto;
-    width: 180px;
+    width: 75%;
+  }
+
+  &.is-active {
+    padding: 20px;
+    width: 85%;
   }
 }
 

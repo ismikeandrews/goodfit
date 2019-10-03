@@ -1,11 +1,19 @@
 const menu = document.querySelector('#menu-burg');
 const menuCollapse = document.querySelector('#menu-collapse');
-
-console.log(menu)
-console.log(menuCollapse)
+const menuItems = document.querySelectorAll('.menu-nav-list-link-item');
 
 menu.addEventListener('click', function() {
-    console.log(menu)
-    console.log(menuCollapse)
     menuCollapse.classList.toggle('is-active');
+
+    if (menuCollapse.classList.contains('is-active')) {
+        menuItems.forEach((elem, idx) => {
+            setTimeout(function(){
+                elem.classList.add('is-active');
+            }, idx * 250);
+        });
+    } else {
+        menuItems.forEach(elem => {
+            elem.classList.remove('is-active');
+        });
+    }
 });

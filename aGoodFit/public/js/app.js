@@ -49361,10 +49361,10 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-var app = new Vue({
-  el: '#app'
-});
+// ISSO ESTÁ QUEBRANDO O JAVASCRIPT, TIRA ISSO!!!
+// const app = new Vue({
+//     el: '#app',
+// });
 
 /***/ }),
 
@@ -49514,12 +49514,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var menu = document.querySelector('#menu-burg');
 var menuCollapse = document.querySelector('#menu-collapse');
-console.log(menu);
-console.log(menuCollapse);
+var menuItems = document.querySelectorAll('.menu-nav-list-link-item');
 menu.addEventListener('click', function () {
-  console.log(menu);
-  console.log(menuCollapse);
   menuCollapse.classList.toggle('is-active');
+
+  if (menuCollapse.classList.contains('is-active')) {
+    menuItems.forEach(function (elem, idx) {
+      setTimeout(function () {
+        elem.classList.add('is-active');
+      }, idx * 250);
+    });
+  } else {
+    menuItems.forEach(function (elem) {
+      elem.classList.remove('is-active');
+    });
+  }
 });
 
 /***/ }),
@@ -49542,8 +49551,8 @@ menu.addEventListener('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
