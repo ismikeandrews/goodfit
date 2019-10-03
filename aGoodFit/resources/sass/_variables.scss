@@ -14,36 +14,13 @@ $azul_secondary: #0468BF;
 $azul_tertiary: #0339A6;
 $azul_dark: #023373;
 
+// Sizes
+@mixin MQ($size) {
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Body
-$body-bg: #f2f2f2;
-
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$small: 380px;
+$medium: 500px;
+$large: 900px;

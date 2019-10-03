@@ -61,11 +61,9 @@
                 Senha
             </div>
             <div class="form-inputs">
-              <div class="form-inputs">
-                  <div class="form-input-senha">
-                      <input id="senha" type="password" placeholder="Senha" class="form-input-item" name="senha" required autocomplete="senha">
-                  </div>
-              </div>
+                <div class="form-input-senha">
+                    <input id="senha" type="password" placeholder="Senha" class="form-input-item" name="senha" required autocomplete="senha">
+                </div>
             </div>
 
             <div class="form-inputs">

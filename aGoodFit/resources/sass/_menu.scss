@@ -2,7 +2,9 @@
   background: $azul-primary;
   display: flex;
   justify-content: space-between;
-  padding: 13px 25px;
+  padding: 13px 0;
+  position: fixed;
+  width: 100%;
   z-index: 3;
 }
 
@@ -10,9 +12,10 @@
   background: transparent;
   border: none;
   height: 25px;
+  left: 25px;
   outline: none !important;
-  position: relative;
-  top: 2px;
+  position: fixed;
+  top: 15px;
   width: 25px;
   z-index: 30;
 }
@@ -58,6 +61,10 @@
   }
 }
 
+.menu-perfil {
+  right: 25px;
+  position: absolute;
+}
 
 
 
@@ -103,7 +110,7 @@
   position: absolute;
   left: 30px;
   top: 50%;
-  width: 100%;
+  width: 90%;
   transform: translateY(-50%);
   transition: width ease 0.5s;
   z-index: 7;
@@ -112,6 +119,7 @@
 .menu-nav-list-link {
   color: $azul-secondary;
   fill: $azul-secondary;
+  text-decoration: none;
 
   &:nth-child(odd) {
     color: $azul-primary;
@@ -138,8 +146,20 @@
   }
 
   &.is-active {
-    padding: 20px;
-    width: 85%;
+    padding: 0 20px;
+    width: 97%;
+    
+    @include MQ($medium){
+      width: 85%;
+    }
+    
+    @include MQ($small){
+      width: 80%;
+    }
+  }
+
+  @include MQ($small){
+    margin: 30px 0;
   }
 }
 

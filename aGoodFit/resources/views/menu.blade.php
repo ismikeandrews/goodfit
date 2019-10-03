@@ -74,19 +74,19 @@
     </div>
 
     <div class="menu-content">
-      <a class="menu-logo-link" href="{{ url('/vagas') }}">
-        <div class="menu-logo">
+      <div class="menu-logo">
+        <a class="menu-logo-link" href="{{ url('/vagas') }}">
             <img src="{{asset('images/componentes/logo-menu.svg')}}" alt="Logo - A Good Fit" class="menu-logo-img">
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
 
     <div class="menu-content">
-      <a class="menu-perfil-link" href="{{ url('/perfil') }}">
-        <div class="menu-perfil">
-            <img src="{{asset('images/componentes/perfil-foto.svg')}}" alt="Imagem do seu perfil" class="menu-perfil-img">
-        </div>
-      </a>
+      <div class="menu-perfil">
+        <a class="menu-perfil-link" href="{{ url('/perfil') }}">  
+          <img src="{{asset('images/componentes/perfil-foto.svg')}}" alt="Imagem do seu perfil" class="menu-perfil-img">
+        </a>
+      </div>
     </div>
-</div>
+  </div>
 </nav>
