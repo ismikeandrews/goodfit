@@ -111,9 +111,11 @@
 
 .menu-nav-list-link {
   color: $azul-secondary;
+  fill: $azul-secondary;
 
   &:nth-child(odd) {
     color: $azul-primary;
+    fill: $azul-primary;
   }
 }
 
@@ -141,10 +143,3 @@
   }
 }
 
-.menu-item-svg path {
-  fill: $azul-primary;
-
-  &:nth-child(odd) {
-    fill: #ed145b;
-  }
-}

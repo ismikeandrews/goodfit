@@ -114,10 +114,12 @@ body {
 
 .menu-nav-list-link {
   color: #0468BF;
+  fill: #0468BF;
 }
 
 .menu-nav-list-link:nth-child(odd) {
   color: #04B2D9;
+  fill: #04B2D9;
 }
 
 .menu-nav-list-link-item {
@@ -144,14 +146,6 @@ body {
   width: 85%;
 }
 
-.menu-item-svg path {
-  fill: #04B2D9;
-}
-
-.menu-item-svg path:nth-child(odd) {
-  fill: #ed145b;
-}
-
 .btn {
   border-radius: 0;
   font: 14px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
@@ -175,8 +169,9 @@ body {
 .form-input-item {
   border: 1px solid #aeaeae;
   font: 15px "Raleway Medium", "Montserrat Medium", "sans-serif";
-  padding: 15px 0px 15px 15px;
   margin: 10px 0;
+  outline: none !important;
+  padding: 15px 0px 15px 15px;
   width: 100%;
 }
 

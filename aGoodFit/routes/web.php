@@ -28,6 +28,15 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 });
 
+Route::get('/curriculo', function () {
+    return view('curriculo');
+});
+
+
+
+
+
+
 
 
 
