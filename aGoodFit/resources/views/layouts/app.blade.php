@@ -27,7 +27,7 @@
 <body>
   <div id="app">
     <!-- colocar a autenticação da sessão -->
-      @include('menu')
+      <!-- @include('menu') -->
     <main>
       @yield('content')
     </main>

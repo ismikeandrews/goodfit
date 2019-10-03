@@ -29,7 +29,7 @@ Route::get('/cadastro', function () {
 });
 
 Route::get('/curriculo', function () {
-    return view('curriculo');
+    return view('curriculo/curriculo');
 });
 
 
