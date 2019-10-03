@@ -58,12 +58,22 @@ public class UsuarioDAO {
 	
 	public int addUsuario(Usuario usu) throws Exception{
 		stmt = con.prepareStatement
+<<<<<<< HEAD
 				("INSERT INTO tbUsuario (loginUsuario, password, email, codNivelUsuario, codEndereco) VALUES (?,?,?,?,?)");
 		stmt.setString(1, usu.getLogin());
 		stmt.setString(2, usu.getSenha());
 		stmt.setString(3, usu.getEmail());
 		stmt.setInt(4, usu.getNivel().getCodigo());
 		stmt.setInt(5, usu.getEndereco().getCodigo());
+=======
+				("INSERT INTO tbUsuario (codUsuario, loginUsuario, password, email, codNivelUsuario, codEndereco) VALUES (?,?,?,?,?,?)");
+		stmt.setInt(1, usu.getCodUsuario());
+		stmt.setString(2, usu.getLogin());
+		stmt.setString(3, usu.getSenha());
+		stmt.setString(4, usu.getEmail());
+		stmt.setInt(5, usu.getNivel().getCodigo());
+		stmt.setInt(6, usu.getEndereco().getCodigo());
+>>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
 		
 		return stmt.executeUpdate();
 	}

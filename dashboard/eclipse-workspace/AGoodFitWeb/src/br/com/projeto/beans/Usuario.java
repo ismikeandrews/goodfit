@@ -3,16 +3,23 @@ package br.com.projeto.beans;
 
 public class Usuario {
 	private int codUsuario;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
 	private String login;
 	private String senha;
 	private String email;
 	private NivelUsuario nivel;
 	private Endereco endereco;
 	
+<<<<<<< HEAD
 
 	public Usuario(int codUsuario, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
 
+=======
+	public Usuario(int codUsuario, String login, String senha, String email, NivelUsuario nivel, Endereco endereco) {
+>>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
 		super();
 		this.codUsuario = codUsuario;
 		this.login = login;
