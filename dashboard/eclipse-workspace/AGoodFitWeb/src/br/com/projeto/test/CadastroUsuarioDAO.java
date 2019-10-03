@@ -2,34 +2,36 @@ package br.com.projeto.test;
 
 import javax.swing.JOptionPane;
 
-import br.com.projeto.beans.Usuarioas;
+import br.com.projeto.beans.Usuario;
 import br.com.projeto.dao.EnderecoDAO;
 import br.com.projeto.dao.NivelUsuarioDAO;
-import br.com.projeto.dao.UsuarioasDAO;
+import br.com.projeto.dao.UsuarioDAO;
 
 public class CadastroUsuarioDAO {
 
 	public static void main(String[] args) {
-		UsuarioasDAO dao = null;
-		Usuarioas usu = null;
 		try {
-			dao = new UsuarioasDAO();
-			usu = new Usuarioas();
+			UsuarioDAO dao = new UsuarioDAO();
+			Usuario usuario = new Usuario();
+			EnderecoDAO endDAO = new EnderecoDAO();
+			NivelUsuarioDAO nuDAO = new NivelUsuarioDAO();
 			
-			usu.setEmail(JOptionPane.showInputDialog("Digite seu email"));
-			usu.setEndereco(new EnderecoDAO().getEndereco(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do seu Endereco"))));
-			usu.setLogin(JOptionPane.showInputDialog("Digite o seu login"));
-			usu.setNivel(new NivelUsuarioDAO().getNivelUsuario(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do nivel de usuario"))));
-			usu.setSenha(JOptionPane.showInputDialog("Digite uma senha"));
 			
-			dao.addUsuario(usu);
+			usuario.setEmail(JOptionPane.showInputDialog("Email"));
+			usuario.setLogin(JOptionPane.showInputDialog("Usuario"));
+			usuario.setSenha(JOptionPane.showInputDialog("Senha"));
+			usuario.setEndereco(endDAO.getEndereco(Integer.parseInt(JOptionPane.showInputDialog("Codigo do endereco"))));
+			usuario.setNivel(nuDAO.getNivelUsuario(Integer.parseInt(JOptionPane.showInputDialog("Codigo do Nivel de Usuario"))));
+			dao.addUsuario(usuario);
+			
+					
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			try {
 				
 			}catch(Exception e) {
-				
+				e.printStackTrace();
 			}
 		}
 	}

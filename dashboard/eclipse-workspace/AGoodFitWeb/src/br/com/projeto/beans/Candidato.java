@@ -1,8 +1,7 @@
 package br.com.projeto.beans;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
-public class Candidato extends Usuario {
+public class Candidato extends Usuario{
 	private int codCandidato;
 	private String nome;
 	private String cpf;
@@ -15,9 +14,9 @@ public class Candidato extends Usuario {
 		super();
 	}
 	
-	public Candidato(int codCandidato, String nome, String cpf, String rg,
-			String dataNasc, String descricao, Usuario usuario) {
-		super(usuario.getCodUsuario(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getNivel(), usuario.getEndereco());
+	public Candidato(int codUsuario, String login, String senha, String email, NivelUsuario nivel, Endereco endereco,
+			int codCandidato, String nome, String cpf, String rg, String dataNasc, String descricao, Usuario usuario) {
+		super(codUsuario, login, senha, email, nivel, endereco);
 		this.codCandidato = codCandidato;
 		this.nome = nome;
 		this.cpf = cpf;

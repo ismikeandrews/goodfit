@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
-
 import br.com.projeto.beans.Candidato;
 import br.com.projeto.beans.Usuario;
 import br.com.projeto.conexao.Conecta;
@@ -26,7 +24,25 @@ public class CandidatoDAO {
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
-	
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			Usuario usuario = usuarioDAO.getUsuario(rs.getInt("codUsuario"));
+			
+			
+			return new Candidato(
+					usuario.getCodUsuario(),
+					usuario.getLogin(),
+					usuario.getSenha(),
+					usuario.getEmail(),
+					usuario.getNivel(),
+					usuario.getEndereco(),
+					rs.getInt("codCandidato"),
+					rs.getString("nome"),
+					rs.getString("cpf"),
+					rs.getString("rg"),
+					rs.getString("dataNasc"),
+					rs.getString("descricao"),
+					usuario
+					);
 		}else {
 			return new Candidato();
 		}
@@ -34,16 +50,14 @@ public class CandidatoDAO {
 	
 	public int addCandidato(Candidato cand) throws Exception{
 		stmt = con.prepareStatement
-				("INSERT INTO tbCandidato (nome, cpf, rg, dataNasc, descricao, codUsuario) VALUES (?,?,?,?,?,?)");
+				("INSERT INTO tbCandidato (nomeCandidato, cpfCandidato, rgCandidato, dataNascimentoCandidato, descricaoCandidato, codUsuario) VALUES (?,?,?,?,?,?)");
 		stmt.setString(1, cand.getNome());
 		stmt.setString(2, cand.getCpf());
 		stmt.setString(3, cand.getRg());
 		stmt.setString(4, cand.getDataNasc());
 		stmt.setString(5, cand.getDescricao());
 		stmt.setInt(6, cand.getUsuario().getCodUsuario());
-
-		
-		
+	
 		return stmt.executeUpdate();
 	}
 	
