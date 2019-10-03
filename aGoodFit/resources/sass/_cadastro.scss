@@ -50,3 +50,12 @@
         text-align: center;
     }
 }
+
+.btn-cadastro {
+    float: right;
+    width: 35%;
+
+    @include MQ($medium){        
+        width: 100%;
+    }
+}

@@ -5,9 +5,9 @@
   padding: 13px 0;
   position: fixed;
   width: 100%;
-  z-index: 3;
 }
 
+/* MENU FIXO */
 .menu-nav {
   background: transparent;
   border: none;
@@ -17,7 +17,7 @@
   position: fixed;
   top: 15px;
   width: 25px;
-  z-index: 30;
+  z-index: 5;
 }
 
 .menu-nav-burg {
@@ -28,7 +28,6 @@
   right: 7px;
   top: 2px;
   width: 25px;
-  z-index: 7;
 
   &:before {
     background: #fff;
@@ -64,19 +63,10 @@
 .menu-perfil {
   right: 25px;
   position: absolute;
+  z-index: -1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* MENU LATERAL */
 .menu-nav-collapse {
   background-color: rgba(0,0,0,0.5);
   height: 100vh;
@@ -86,19 +76,16 @@
   transition: all ease 0.5s;
   opacity: 0;
   width: 100%;
-  z-index: -1;
 
   &-bar {
     background: $azul-primary;
     height: 0;
     transition: height ease 0.5s;
     width: 70px;
-    z-index: 6;
   }
 
   &.is-active {
     opacity: 1;
-    z-index: 5;
 
     .menu-nav-collapse-bar {
       height: 100vh;
@@ -113,7 +100,6 @@
   width: 90%;
   transform: translateY(-50%);
   transition: width ease 0.5s;
-  z-index: 7;
 }
 
 .menu-nav-list-link {

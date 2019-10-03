@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section section-login">
         <div class="intro">
             <h1 class="intro-title">Seja bem-vindo a <span class="intro-title-span">Good Fit</span></h1>
             <h3 class="intro-desc">Entre para acessar a plataforma</h3>
@@ -49,7 +49,7 @@
               @endif
             </div>
 
-            <div>
+            <div class="login-btn-entrar">
               <button type="submit" class="btn btn-login">
                 {{ __('Entrar') }}
               </button>

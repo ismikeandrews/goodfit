@@ -15,6 +15,15 @@
     }
 }
 
+.section-login {
+    margin: 0 auto;
+    width: 75%;
+    
+    @include MQ($medium){
+        width: 100%;
+    }
+}
+
 .logo {
   display: flex;
   width: 100%;
@@ -30,6 +39,10 @@
         color: $preto;
         font: 21px $font-bold;
         line-height: 25px;
+        
+        @include MQ($small) {
+            font-size: 20px;
+        }
 
         &-span {
             color: $azul_primary;
@@ -59,6 +72,14 @@
         color: $cinza;
         margin: 45px auto -40px;
         text-align: center;
+    }
+}
+
+.login-btn-entrar {
+    margin: 60px 0 50px;
+    
+    @include MQ($medium){        
+        margin: 40px 0 0;
     }
 }
 

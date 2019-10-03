@@ -3,13 +3,8 @@
     border-radius: 0;
     display: block;
     font: 14px $font-semibold;
-    float: right;
     padding: 15px 0;
     margin: 15px auto 10px;
     text-align: center;
-    width: 35%;
-
-    @include MQ($medium){        
-        width: 100%;
-    }
+    width: 100%;
 }

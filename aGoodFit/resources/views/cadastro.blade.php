@@ -73,7 +73,7 @@
             </div>
 
             <div>
-              <button type="submit" class="btn btn-login">
+              <button type="submit" class="btn btn-login btn-cadastro">
                 Entrar
               </button>
             </div>
