@@ -25,7 +25,6 @@ body {
   background: transparent;
   border: none;
   height: 25px;
-  left: 5px;
   position: relative;
   top: 2px;
   width: 25px;
@@ -88,7 +87,7 @@ body {
   background: #04B2D9;
   height: 0;
   transition: height ease 0.5s;
-  width: 65px;
+  width: 70px;
   z-index: 6;
 }
 
@@ -110,11 +109,25 @@ body {
 }
 
 .menu-nav-list-link-item {
-  background-color: #ffffff;
+  align-items: center;
+  background-color: #fff;
+  display: flex;
   height: 65px;
+  justify-content: space-between;
   margin: 40px 0;
   padding: 20px;
-  width: 80%;
+  width: 85%;
+}
+
+.menu-nav-list-link-item-text {
+  color: #04B2D9;
+  font: 18px/21px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin: auto;
+  width: 180px;
+}
+
+.menu-nav-list-link-item-text:nth-child(odd) {
+  color: #0468BF;
 }
 
 .btn {

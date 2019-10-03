@@ -26,15 +26,12 @@
 </head>
 <body>
   <div id="app">
+    <!-- colocar a autenticação da sessão -->
+      @include('menu')
+    <main>
+      @yield('content')
+    </main>
 
-  <div id="app">
-  <!-- if ((Route::has('ologinho') or (Route::has('cadastro'))) -->
-        @include('menu')
-      <main>
-        @yield('content')
-      </main>
-
-    </div>
-</div>
+  </div>
 </body>
 </html>

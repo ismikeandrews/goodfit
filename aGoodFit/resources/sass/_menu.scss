@@ -10,7 +10,6 @@
   background: transparent;
   border: none;
   height: 25px;
-  left: 5px;
   position: relative;
   top: 2px;
   width: 25px;
@@ -28,7 +27,7 @@
 
   &:before {
     background: #fff;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     right: 0px;
@@ -39,7 +38,7 @@
 
   &:after {
     background: #fff;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
     right: 0px;
@@ -72,7 +71,7 @@
 .menu-nav-collapse {
   background-color: rgba(0,0,0,0.5);
   height: 100vh;
-  left: 0;  
+  left: 0;
   position: fixed;
   top: 0;
   transition: all ease 0.5s;
@@ -84,7 +83,7 @@
     background: $azul-primary;
     height: 0;
     transition: height ease 0.5s;
-    width: 65px;
+    width: 70px;
     z-index: 6;
   }
 
@@ -107,9 +106,23 @@
 }
 
 .menu-nav-list-link-item {
-  background-color: #ffffff;
+  align-items: center;
+  background-color: #fff;
+  display: flex;
   height: 65px;
+  justify-content: space-between;
   margin: 40px 0;
   padding: 20px;
-  width: 80%;
+  width: 85%;
+
+  &-text {
+    color: $azul-primary;
+    font: 18px/21px $font-semibold;
+    margin: auto;
+    width: 180px;
+
+    &:nth-child(odd) {
+      color: $azul_secondary;
+    }
+  }
 }

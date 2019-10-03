@@ -4,42 +4,54 @@
       <button id="menu-burg" class="menu-nav">
         <span class="menu-nav-burg"></span>
       </button>
-      
-      <div id="menu-collapse" class="menu-nav-collapse">
+
+      <div id="menu-collapse" class="menu-nav-collapse is-active">
         <div class="menu-nav-collapse-bar">
           <ul class="menu-nav-list">
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
-                <img src="{{asset('images/componentes/menu-vagas.svg')}}" alt="Menu - página de vagas" class="menu-item-img">
-                  Vagas
-                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+                <div class="menu-nav-list-link-item-content">
+                  <img src="{{asset('images/componentes/menu-vagas.svg')}}" alt="Menu - página de vagas" class="menu-item-img">
+                </div>
+                <div class="menu-nav-list-link-item-content">
+                  <p class="menu-nav-list-link-item-text">Vagas</p>
+                </div>
+                <div class="menu-nav-list-link-item-content">
+                  <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+              </div>
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
-                <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
-                  Currículo
-                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+                <div class="menu-nav-list-link-item-content">
+                  <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
+                </div>
+                <div class="menu-nav-list-link-item-content">
+                  <p class="menu-nav-list-link-item-text">Currículo</p>
+                </div>
+                <div class="menu-nav-list-link-item-content">
+                  <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+                </div>
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-candidatura.svg')}}" alt="Menu - página de candidaturas" class="menu-item-img">
-                  Candidaturas
+                  <p class="menu-nav-list-link-item-text">Candidaturas</p>
                 <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-perfil.svg')}}" alt="Menu - página de perfil" class="menu-item-img">
-                  Perfil
+                  <p class="menu-nav-list-link-item-text">Perfil</p>
                 <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
-                <img src="{{asset('images/componentes/menu-sair.svg')}}" alt="Menu - link para sair" class="menu-item-img">
-                  Sair
+                <img src="{{asset('images/componentes/menu-perfil.svg')}}" alt="Menu - link para sair" class="menu-item-img">
+                  <p class="menu-nav-list-link-item-text">Sair</p>
                 <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
               </li>
             </a>
@@ -63,7 +75,6 @@
         </div>
       </a>
     </div>
-    
 
 
 
@@ -71,20 +82,21 @@
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
       <span class="navbar-toggler-icon"></span>
     </button> -->

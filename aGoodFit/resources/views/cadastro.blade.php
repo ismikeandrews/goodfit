@@ -69,11 +69,9 @@
             </div>
 
             <div class="form-inputs">
-              <div class="form-inputs">
-                  <div class="form-input-confirmar-senha">
-                      <input id="confirmar-senha" type="password" placeholder="Confirmar senha" class="form-input-item" name="confirmar-senha" required autocomplete="confirmar-senha">
-                  </div>
-              </div>
+                <div class="form-input-confirmar-senha">
+                    <input id="confirmar-senha" type="password" placeholder="Confirmar senha" class="form-input-item" name="confirmar-senha" required autocomplete="confirmar-senha">
+                </div>
             </div>
 
             <div>
