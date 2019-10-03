@@ -1,11 +1,8 @@
 package br.com.projeto.beans;
 
-<<<<<<< HEAD
-
 public class Candidato extends Usuario{
-=======
-public class Candidato extends Usuario {
->>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
+
+
 	private int codCandidato;
 	private String nome;
 	private String cpf;
@@ -17,17 +14,10 @@ public class Candidato extends Usuario {
 	public Candidato() {
 		super();
 	}
-<<<<<<< HEAD
 	
 	public Candidato(int codUsuario, String login, String senha, String email, NivelUsuario nivel, Endereco endereco,
 			int codCandidato, String nome, String cpf, String rg, String dataNasc, String descricao, Usuario usuario) {
 		super(codUsuario, login, senha, email, nivel, endereco);
-=======
-	public Candidato(int codigo, String login, String senha, String email, NivelUsuario nivel, Endereco endereco,
-			int codCandidato, String nome, String cpf, String rg, String dataNasc, String descricao,
-			Usuario usuario) {
-		super(codigo, login, senha, email, nivel, endereco);
->>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
 		this.codCandidato = codCandidato;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -36,10 +26,7 @@ public class Candidato extends Usuario {
 		this.descricao = descricao;
 		this.usuario = usuario;
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
 	public int getCodCandidato() {
 		return codCandidato;
 	}
