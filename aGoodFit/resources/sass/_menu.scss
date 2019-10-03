@@ -105,6 +105,14 @@
   z-index: 7;
 }
 
+.menu-nav-list-link {
+  color: $azul-secondary;
+
+  &:nth-child(odd) {
+    color: $azul-primary;
+  }
+}
+
 .menu-nav-list-link-item {
   align-items: center;
   background-color: #fff;
@@ -113,16 +121,20 @@
   justify-content: space-between;
   margin: 40px 0;
   padding: 20px;
+  position: relative;
   width: 85%;
 
   &-text {
-    color: $azul-primary;
     font: 18px/21px $font-semibold;
     margin: auto;
     width: 180px;
+  }
+}
 
-    &:nth-child(odd) {
-      color: $azul_secondary;
-    }
+.menu-item-svg path {
+  fill: $azul-primary;
+
+  &:nth-child(odd) {
+    fill: #ed145b;
   }
 }

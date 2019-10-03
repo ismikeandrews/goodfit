@@ -10,49 +10,37 @@
           <ul class="menu-nav-list">
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
-                <div class="menu-nav-list-link-item-content">
-                  <img src="{{asset('images/componentes/menu-vagas.svg')}}" alt="Menu - página de vagas" class="menu-item-img">
-                </div>
-                <div class="menu-nav-list-link-item-content">
+                <img src="{{asset('images/componentes/menu-vagas.svg')}}" alt="Menu - página de vagas" class="menu-item-img">
                   <p class="menu-nav-list-link-item-text">Vagas</p>
-                </div>
-                <div class="menu-nav-list-link-item-content">
-                  <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
-              </div>
+                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-svg">
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
-                <div class="menu-nav-list-link-item-content">
-                  <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
-                </div>
-                <div class="menu-nav-list-link-item-content">
+                <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
                   <p class="menu-nav-list-link-item-text">Currículo</p>
-                </div>
-                <div class="menu-nav-list-link-item-content">
-                  <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
-                </div>
+                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-svg">
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-candidatura.svg')}}" alt="Menu - página de candidaturas" class="menu-item-img">
                   <p class="menu-nav-list-link-item-text">Candidaturas</p>
-                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-svg">
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-perfil.svg')}}" alt="Menu - página de perfil" class="menu-item-img">
                   <p class="menu-nav-list-link-item-text">Perfil</p>
-                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-svg">
               </li>
             </a>
             <a class="menu-nav-list-link" href="#">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-perfil.svg')}}" alt="Menu - link para sair" class="menu-item-img">
                   <p class="menu-nav-list-link-item-text">Sair</p>
-                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-item-img">
+                <img src="{{asset('images/componentes/seta-avancar.svg')}}" alt="Menu - seta para prosseguir" class="menu-itesvgmg">
               </li>
             </a>
           </ul>

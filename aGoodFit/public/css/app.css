@@ -108,6 +108,14 @@ body {
   z-index: 7;
 }
 
+.menu-nav-list-link {
+  color: #0468BF;
+}
+
+.menu-nav-list-link:nth-child(odd) {
+  color: #04B2D9;
+}
+
 .menu-nav-list-link-item {
   align-items: center;
   background-color: #fff;
@@ -116,18 +124,22 @@ body {
   justify-content: space-between;
   margin: 40px 0;
   padding: 20px;
+  position: relative;
   width: 85%;
 }
 
 .menu-nav-list-link-item-text {
-  color: #04B2D9;
   font: 18px/21px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
   margin: auto;
   width: 180px;
 }
 
-.menu-nav-list-link-item-text:nth-child(odd) {
-  color: #0468BF;
+.menu-item-svg path {
+  fill: #04B2D9;
+}
+
+.menu-item-svg path:nth-child(odd) {
+  fill: #ed145b;
 }
 
 .btn {
