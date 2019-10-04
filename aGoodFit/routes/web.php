@@ -37,7 +37,14 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
-Route::get('/curriculo', 'CandidatoController@formularioCurriculo')->middleware('auth');
+
+// Comentado só para testes, descomentar depois
+Route::get('/curriculo', 'CandidatoController@formularioCurriculo');
+// Route::get('/curriculo', 'CandidatoController@formularioCurriculo')->middleware('auth');
+
+
+
+
 // Route::get('/cadastro', 'CandidatoController@formularioCandidato')->middleware('auth');
 // Route::get('/', 'CandidatoController@indexCandidato');
 //cadastros

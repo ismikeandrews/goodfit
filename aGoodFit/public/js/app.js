@@ -98,6 +98,8 @@ __webpack_require__(/*! ./cadastro */ "./resources/js/cadastro.js");
 
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 
+__webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
+
 /***/ }),
 
 /***/ "./resources/js/cadastro.js":
@@ -123,6 +125,23 @@ __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 
 /***/ }),
 
+/***/ "./resources/js/curriculo.js":
+/*!***********************************!*\
+  !*** ./resources/js/curriculo.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var etapa = document.querySelectorAll('.counter-etapas-etapa');
+var btnNext = document.querySelector('.btn-next');
+var fase = 1;
+btnNext.addEventListener('click', function () {
+  etapa[fase].classList.remove('is-disable');
+  fase += 1;
+});
+
+/***/ }),
+
 /***/ "./resources/js/menu.js":
 /*!******************************!*\
   !*** ./resources/js/menu.js ***!
@@ -133,21 +152,24 @@ __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 var menu = document.querySelector('#menu-burg');
 var menuCollapse = document.querySelector('#menu-collapse');
 var menuItems = document.querySelectorAll('.menu-nav-list-link-item');
-menu.addEventListener('click', function () {
-  menuCollapse.classList.toggle('is-active');
 
-  if (menuCollapse.classList.contains('is-active')) {
-    menuItems.forEach(function (elem, idx) {
-      setTimeout(function () {
-        elem.classList.add('is-active');
-      }, idx * 250);
-    });
-  } else {
-    menuItems.forEach(function (elem) {
-      elem.classList.remove('is-active');
-    });
-  }
-});
+if (menu) {
+  menu.addEventListener('click', function () {
+    menuCollapse.classList.toggle('is-active');
+
+    if (menuCollapse.classList.contains('is-active')) {
+      menuItems.forEach(function (elem, idx) {
+        setTimeout(function () {
+          elem.classList.add('is-active');
+        }, idx * 250);
+      });
+    } else {
+      menuItems.forEach(function (elem) {
+        elem.classList.remove('is-active');
+      });
+    }
+  });
+}
 
 /***/ }),
 
@@ -169,8 +191,8 @@ menu.addEventListener('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
