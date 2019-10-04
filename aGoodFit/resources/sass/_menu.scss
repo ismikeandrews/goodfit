@@ -119,7 +119,7 @@
   display: flex;
   height: 65px;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 60px 0;
   overflow: hidden;
   position: relative;
   transition: all .4s ease;
@@ -131,14 +131,19 @@
     width: 75%;
   }
 
+  @include MQ($medium){
+    margin: 40px 0;
+  }
+
   &.is-active {
-    padding: 0 20px;
-    width: 97%;
-    
+    padding: 0 50px 0 110px;
+    width: 80%;
+
     @include MQ($medium){
+      padding: 0 20px;
       width: 85%;
     }
-    
+
     @include MQ($small){
       width: 80%;
     }
@@ -148,4 +153,3 @@
     margin: 30px 0;
   }
 }
-
