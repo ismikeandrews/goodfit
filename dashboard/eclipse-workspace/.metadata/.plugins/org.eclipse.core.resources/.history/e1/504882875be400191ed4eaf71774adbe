@@ -1,0 +1,9 @@
+package br.com.projeto.bo;
+
+public class EnderecoBO {
+
+	public String novoEndereco() {
+		
+	}
+
+}

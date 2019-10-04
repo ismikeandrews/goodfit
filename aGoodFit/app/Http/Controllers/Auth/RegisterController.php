@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/nivelusuario/validar';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -46,30 +46,29 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-          'login' => ['required', 'string', 'max:255', 'unique:tbUsuario,loginUsuario'],
-          'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
-          'nivel' => ['required', 'numeric'],
-          'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+     protected function validator(array $data)
+     {
+         return Validator::make($data, [
+           'login' => ['required', 'string', 'max:255', 'unique:tbUsuario,loginUsuario'],
+           'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
+           'password' => ['required', 'string', 'min:8', 'confirmed'],
+         ]);
+     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
+     /**
+      * Create a new user instance after a valid registration.
+      *
+      * @param  array  $data
+      * @return \App\User
+      */
+     public function create(array $data)
+     {
 
-        return User::create([
-          'loginUsuario' => $data['login'],
-          'email' => $data['email'],
-          'codNivelUsuario' => $data['nivel'],
-          'password' => Hash::make($data['password']),
-        ]);
+         return User::create([
+           'loginUsuario' => $data['login'],
+           'email' => $data['email'],
+           'codNivelUsuario' => $data['codNivelUsuario'],
+           'password' => Hash::make($data['password']),
+         ]);
     }
 }

@@ -1,0 +1,20 @@
+package br.com.projeto.test;
+
+
+import br.com.projeto.beans.Endereco;
+import br.com.projeto.bo.EnderecoBO;
+
+public class CadastroEnderecoBO {
+	public static void main(String[] args) {
+		try {
+			EnderecoBO bo = new EnderecoBO();
+			Endereco end = new Endereco();
+		
+			String x = bo.addEndereco(end);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+}

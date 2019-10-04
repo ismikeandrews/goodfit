@@ -1,0 +1,13 @@
+package br.com.projeto.bo;
+
+import br.com.projeto.beans.Endereco;
+
+public class EnderecoBO {
+
+	public String novoEndereco(Endereco endereco) throws Exception{
+		if() {
+			
+		}
+	}
+
+}

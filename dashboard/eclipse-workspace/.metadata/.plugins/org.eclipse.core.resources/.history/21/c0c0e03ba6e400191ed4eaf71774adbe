@@ -1,0 +1,49 @@
+package br.com.projeto.test;
+
+import javax.swing.JOptionPane;
+
+import br.com.projeto.beans.Usuarioas;
+import br.com.projeto.dao.EnderecoDAO;
+import br.com.projeto.dao.NivelUsuarioDAO;
+import br.com.projeto.dao.UsuarioasDAO;
+
+public class CadastroUsuarioDAO {
+
+	public static void main(String[] args) {
+		try {
+			UsuarioBO usuarioBO = new UsuarioBO();
+			Usuario usuario = new Usuario();
+			
+			Endereco endereco = new Endereco();
+			NivelUsuario nivelUsuario = new NivelUsuario();
+			
+			usuario.setEmail(JOptionPane.showInputDialog("Email"));
+			
+			endereco.setLougradouro(JOptionPane.showInputDialog("Endereco"));
+			endereco.setNumero(JOptionPane.showInputDialog("Numero"));
+			endereco.setComplemento(JOptionPane.showInputDialog("Complemento"));
+			endereco.setCep(JOptionPane.showInputDialog("Cep"));
+			endereco.setZona(JOptionPane.showInputDialog("Zona"));
+			endereco.setBairro(JOptionPane.showInputDialog("Bairro"));
+			endereco.setCidade(JOptionPane.showInputDialog("Cidade"));
+			endereco.setEstado(JOptionPane.showInputDialog("Estado"));
+			usuario.setEndereco(endereco);
+			
+			nivelUsuario.setNome(JOptionPane.showInputDialog("Nível do usuário"));
+			usuario.setNivel(nivelUsuario);
+			usuario.setLogin(JOptionPane.showInputDialog("User"));
+			usuario.setSenha(JOptionPane.showInputDialog("Senha"));
+			
+			usuarioBO.novoUsuario(usuario);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

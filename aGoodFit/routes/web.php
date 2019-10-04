@@ -11,41 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 
 
 /* Caminhos feitos pela Cyntia */
-
-Route::get('/ologinho', function () {
-    return view('login');
-});
-
-Route::get('/cadastro', function () {
-    return view('cadastro');
-});
-
 Route::get('/curriculo', function () {
-    return view('curriculo/curriculo');
+    return view('curriculo');
 });
 
-
-
-
-
-
-
-
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/login', 'Auth\LoginMike@showLoginForm')->name('login');
-// Route::post('/login', 'Auth\LoginMike@login')->name('login.submit');
 
 //Niveis de Usuarios
 Route::prefix('nivelusuario')->group(function() {
@@ -63,10 +45,10 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
-Route::get('/cadastro', 'CandidatoController@formularioCandidato')->middleware('auth');
-Route::get('/', 'CandidatoController@indexCandidato');
+// Route::get('/cadastro', 'CandidatoController@formularioCandidato')->middleware('auth');
+// Route::get('/', 'CandidatoController@indexCandidato');
 //cadastros
-Route::post('/cadastro', 'CandidatoController@novoCandidato');
+// Route::post('/cadastro', 'CandidatoController@novoCandidato');
 //Excluir e Editar dados e Validar
 
 });

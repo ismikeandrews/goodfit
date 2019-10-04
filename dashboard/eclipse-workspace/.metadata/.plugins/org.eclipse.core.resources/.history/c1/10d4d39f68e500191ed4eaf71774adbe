@@ -1,0 +1,28 @@
+package br.com.projeto.test;
+
+import br.com.projeto.beans.Candidato;
+import br.com.projeto.dao.CandidatoDAO;
+
+
+public class CadastroCandidatoDAO {
+	public static void main(String[] args) {
+		CandidatoDAO dao = null;
+		Candidato cand = null;
+		
+		try {
+			dao = new CandidatoDAO();
+			cand = Candidato()
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+}

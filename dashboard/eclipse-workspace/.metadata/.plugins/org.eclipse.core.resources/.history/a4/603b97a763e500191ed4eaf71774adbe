@@ -1,0 +1,49 @@
+package br.com.projeto.test;
+
+import javax.swing.JOptionPane;
+
+import br.com.projeto.beans.Endereco;
+import br.com.projeto.beans.NivelUsuario;
+import br.com.projeto.beans.Usuario;
+import br.com.projeto.dao.EnderecoDAO;
+import br.com.projeto.dao.UsuarioDAO;
+
+public class CadastroUsuarioDAO {
+
+	public static void main(String[] args) {
+		try {
+			UsuarioDAO dao = new UsuarioDAO();
+			Usuario usuario = new Usuario();
+			
+			Endereco endereco = new Endereco();
+			EnderecoDAO endDAO = new EnderecoDAO();
+			NivelUsuario nivelUsuario = new NivelUsuario();
+			
+			
+			
+			
+			
+			
+			nivelUsuario.setNome(JOptionPane.showInputDialog("Nível do usuário"));
+			
+			usuario.setEmail(JOptionPane.showInputDialog("Email"));
+			
+			usuario.setLogin(JOptionPane.showInputDialog("Usuario"));
+			usuario.setSenha(JOptionPane.showInputDialog("Senha"));
+			usuario.setEndereco(endDAO.getEndereco(endereco.getCodigo()));
+			usuario.setNivel(nivelUsuario);
+			dao.addUsuario(usuario);
+			
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}
