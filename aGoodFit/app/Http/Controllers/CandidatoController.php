@@ -12,9 +12,7 @@ use Illuminate\Http\Request;
 class CandidatoController extends Controller
 {
   public function formularioCandidato(){
-    if(Auth::user()->){
-
-    }
+    
     return view('candForm');
   }
 
@@ -40,5 +38,9 @@ class CandidatoController extends Controller
     ]);
 
     return view('candForm')->with('ok', $candidato->save());
+  }
+
+  public function formularioCurriculo(){
+    return view('curriculo.curriculo');
   }
 }

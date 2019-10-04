@@ -13,14 +13,6 @@
 
 
 
-
-
-
-/* Caminhos feitos pela Cyntia */
-Route::get('/curriculo', function () {
-    return view('curriculo');
-});
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -45,6 +37,7 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
+Route::get('/curriculo', 'CandidatoController@formularioCurriculo')->middleware('auth');
 // Route::get('/cadastro', 'CandidatoController@formularioCandidato')->middleware('auth');
 // Route::get('/', 'CandidatoController@indexCandidato');
 //cadastros
