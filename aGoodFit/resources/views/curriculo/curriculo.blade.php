@@ -15,34 +15,34 @@
             <div class="counter-etapas-etapa">
                 <p class="counter-etapas-etapa-1">
                     1
-                </p>    
-            </div> 
+                </p>
+            </div>
             <div class="counter-etapas-etapa is-disable">
                 <p class="counter-etapas-etapa-2">
                     2
-                </p>    
+                </p>
             </div>
             <div class="counter-etapas-etapa is-disable">
                 <p class="counter-etapas-etapa-3">
                     3
-                </p>    
+                </p>
             </div>
             <div class="counter-etapas-etapa is-disable">
                 <p class="counter-etapas-etapa-4">
                     4
-                </p>    
+                </p>
             </div>
             <div class="counter-etapas-etapa is-disable">
                 <p class="counter-etapas-etapa-5">
                     5
-                </p>    
+                </p>
             </div>
         </div>
     </div>
 
     @include('curriculo.curriculo-etapa1')
 
-    <div class="btn btn-next">
+    <div id="btn-next" class="btn btn-next">
         Next
     </div>
   </div>

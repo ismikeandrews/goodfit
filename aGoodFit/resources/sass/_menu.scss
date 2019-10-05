@@ -75,7 +75,7 @@
   top: 0;
   transition: all ease 0.5s;
   opacity: 0;
-  width: 100%;
+  width: 0;
 
   &-bar {
     background: $azul-primary;
@@ -86,20 +86,25 @@
 
   &.is-active {
     opacity: 1;
+    width: 100%;
 
     .menu-nav-collapse-bar {
       height: 100vh;
+    }
+
+    .menu-nav-list {
+      width: 90%;
     }
   }
 }
 
 .menu-nav-list {
-  position: absolute;
   left: 30px;
+  position: absolute;
   top: 50%;
-  width: 90%;
   transform: translateY(-50%);
   transition: width ease 0.5s;
+  width: 0;
 }
 
 .menu-nav-list-link {

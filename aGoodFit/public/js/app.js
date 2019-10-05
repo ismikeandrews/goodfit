@@ -133,12 +133,27 @@ __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
 /***/ (function(module, exports) {
 
 var etapa = document.querySelectorAll('.counter-etapas-etapa');
-var btnNext = document.querySelector('.btn-next');
+var btnNext = document.querySelector('#btn-next');
 var fase = 1;
-btnNext.addEventListener('click', function () {
-  etapa[fase].classList.remove('is-disable');
-  fase += 1;
-});
+
+if (etapa) {
+  btnNext.addEventListener('click', function () {
+    etapa[fase].classList.remove('is-disable');
+    fase += 1;
+  });
+}
+
+var submenu = document.querySelectorAll('.curriculo-etapa1-submenu-item');
+
+if (submenu) {
+  if (submenu.classList.contains('is-active')) {
+    submenu.forEach(function (elem, idx) {
+      elem.classList.remove('is-active');
+    });
+  } else {
+    elem.classList.add('is-active');
+  }
+}
 
 /***/ }),
 
@@ -191,8 +206,8 @@ if (menu) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

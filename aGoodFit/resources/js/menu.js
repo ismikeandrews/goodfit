@@ -5,7 +5,7 @@ const menuItems = document.querySelectorAll('.menu-nav-list-link-item');
 if (menu) {
     menu.addEventListener('click', function() {
         menuCollapse.classList.toggle('is-active');
-    
+
         if (menuCollapse.classList.contains('is-active')) {
             menuItems.forEach((elem, idx) => {
                 setTimeout(function(){

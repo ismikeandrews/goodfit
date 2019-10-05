@@ -94,7 +94,7 @@ a {
   top: 0;
   transition: all ease 0.5s;
   opacity: 0;
-  width: 100%;
+  width: 0;
 }
 
 .menu-nav-collapse-bar {
@@ -106,19 +106,24 @@ a {
 
 .menu-nav-collapse.is-active {
   opacity: 1;
+  width: 100%;
 }
 
 .menu-nav-collapse.is-active .menu-nav-collapse-bar {
   height: 100vh;
 }
 
-.menu-nav-list {
-  position: absolute;
-  left: 30px;
-  top: 50%;
+.menu-nav-collapse.is-active .menu-nav-list {
   width: 90%;
+}
+
+.menu-nav-list {
+  left: 30px;
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
   transition: width ease 0.5s;
+  width: 0;
 }
 
 .menu-nav-list-link {
@@ -432,6 +437,7 @@ a {
   text-align: center;
   transition: border-color ease 2.5s, color ease 2.5s;
   width: 23px;
+  z-index: -1;
 }
 
 .counter-etapas-etapa:before {
@@ -465,5 +471,68 @@ a {
   color: #2a2a2a;
   font: 21px/25px "Raleway Bold", "Montserrat Bold", "sans-serif";
   margin-top: 30px;
+}
+
+.curriculo-etapa1-submenu {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  margin: 30px 0;
+  padding: 7px 0;
+  position: relative;
+  transition: background 0.5 ease-out;
+}
+
+.curriculo-etapa1-submenu.is-active {
+  background: rgba(212, 212, 212, 0.26);
+}
+
+.curriculo-etapa1-submenu:before {
+  background: #C5C5C5;
+  content: "";
+  display: block;
+  height: 50px;
+  right: 50%;
+  position: absolute;
+  top: 25px;
+  transform: translate(50%, -50%);
+  width: 2px;
+}
+
+.curriculo-etapa1-submenu:after {
+  background: #C5C5C5;
+  content: "";
+  display: block;
+  height: 2px;
+  right: 50%;
+  position: absolute;
+  bottom: 0;
+  transform: translate(50%, -50%);
+  width: 100%;
+}
+
+.curriculo-etapa1-submenu-item {
+  text-align: center;
+  width: 50%;
+}
+
+.curriculo-etapa1-submenu-item-icon {
+  width: 33px;
+}
+
+.curriculo-etapa1-content {
+  margin: 40px 0 30px;
+}
+
+.curriculo-etapa1-textarea {
+  border: 0;
+  color: #2a2a2a;
+  font: 15px/20px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  height: 200px;
+  letter-spacing: 1px;
+  max-width: -webkit-fill-available;
+  padding: 15px;
+  resize: none;
+  width: 100%;
 }
 
