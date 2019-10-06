@@ -16,6 +16,7 @@ class CreateTbUsuario extends Migration
       $table->string('email', 150)->unique();
       $table->integer('codNivelUsuario')->unsigned();
       $table->integer('codEndereco')->unsigned()->nullable();
+      $table->string('remember_token', 100)->nullable();
       $table->timestamps();
     });
 
