@@ -1,5 +1,4 @@
 package br.com.projeto.beans;
-
 /*
  * @author Michael RM82443
  * 

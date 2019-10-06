@@ -1,5 +1,8 @@
 package br.com.projeto.beans;
-
+/*
+ * @author Jonatas RMxxxxx
+ * 
+ */
 public class Empresa extends Usuario {
 
 	private int codEmpresa;

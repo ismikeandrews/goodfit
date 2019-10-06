@@ -13,7 +13,7 @@ public class Conexao {
 	public static void main(String[] args) {
 		try {
 			Connection c = DriverManager.getConnection
-					("jdbc:mysql://localhost:8889/fiap", "root", "root");
+					("jdbc:mysql://localhost:8889/agoodfit", "root", "root");
 //					("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL","x","fiap"); Coloque seu rm no lugar do x
 			PreparedStatement stmt = (PreparedStatement) c.prepareStatement
 					("select * from DDD_TB_LOGIN where NM_USUARIO =? AND NM_SENHA =?");

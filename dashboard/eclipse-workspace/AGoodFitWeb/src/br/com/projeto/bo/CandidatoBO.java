@@ -1,6 +1,5 @@
 package br.com.projeto.bo;
 
-<<<<<<< HEAD
 import br.com.projeto.beans.Candidato;
 import br.com.projeto.dao.CandidatoDAO;
 
@@ -69,5 +68,4 @@ public class CandidatoBO {
 			return "Usuário já existe";
 		}
 	}
->>>>>>> 3524192d38ebc28b6cae093b5744bef8f7b306f7
 }

@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 class CandidatoController extends Controller
 {
   public function formularioCandidato(){
-    if(Auth::user()->){
-
-    }
+    
     return view('candForm');
   }
 

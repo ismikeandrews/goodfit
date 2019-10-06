@@ -8,15 +8,7 @@
                 <div class="card-header">Moderador Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ nome }}
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-
-                    You are logged in!
+                    {{Auth::user()->codUsuario}}
                 </div>
             </div>
         </div>

@@ -15,15 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/loginho', function () {
-    return view('login');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/service/{usuario}', 'Sevice\UsuarioService@novoUsuario')->name('service');
+Route::post('/service/{usuario}', 'UsuarioService@novoUsuario')->name('service');
 
 
 //Niveis de Usuarios

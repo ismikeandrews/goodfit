@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 public class Conexao2 {
 	public static Connection getConexao() throws Exception{
 		return DriverManager.getConnection(
-				"jdbc:mysql://localhost:8889/fiap", "root", "root" //altere aqui
+				"jdbc:mysql://localhost:8889/agoodfit", "root", "root" //altere aqui
 				);
 	}
 }
