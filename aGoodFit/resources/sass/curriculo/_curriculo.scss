@@ -53,3 +53,11 @@
         }
     }
 }
+
+.btn-next {
+  bottom: 50px;
+  position: fixed;
+  max-width: 85%;
+  margin: auto;
+  z-index: -1;
+}

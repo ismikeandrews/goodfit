@@ -144,16 +144,24 @@ if (etapa) {
 }
 
 var submenu = document.querySelectorAll('.curriculo-etapa1-submenu-item');
-
-if (submenu) {
-  if (submenu.classList.contains('is-active')) {
-    submenu.forEach(function (elem, idx) {
-      elem.classList.remove('is-active');
-    });
-  } else {
-    elem.classList.add('is-active');
-  }
-}
+var content = document.querySelectorAll('.curriculo-etapa1-content');
+submenu.forEach(function (elem, idx) {
+  submenu[idx].addEventListener('click', function () {
+    if (submenu[0].classList.contains('is-active')) {
+      submenu[0].classList.remove('is-active');
+      submenu[1].classList.add('is-active');
+      content[0].classList.remove('is-active');
+      content[1].classList.add('is-active');
+    } else {
+      submenu.forEach(function (elem) {
+        submenu[0].classList.add('is-active');
+        submenu[1].classList.remove('is-active');
+        content[0].classList.add('is-active');
+        content[1].classList.remove('is-active');
+      });
+    }
+  });
+});
 
 /***/ }),
 

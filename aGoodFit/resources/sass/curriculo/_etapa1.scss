@@ -4,24 +4,24 @@
     margin-top: 30px;
 }
 
+.curriculo-desc {
+    color: $cinza;
+    font: 15px/18px $font-regular;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
 .curriculo-etapa1-submenu {
   align-items: center;
-  background: transparent;
   display: flex;
-  margin: 30px 0;
-  padding: 7px 0;
+  margin: 30px 0 15px;
   position: relative;
-  transition: background .5 ease-out;
-
-  &.is-active {
-    background: rgba(212, 212, 212, 0.26);
-  }
 
   &:before {
     background: #C5C5C5;
     content: "";
     display: block;
-    height: 50px;
+    height: 49px;
     right: 50%;
     position: absolute;
     top: 25px;
@@ -42,8 +42,15 @@
   }
 
   &-item {
+    background: transparent;
+    padding: 7px 0;
     text-align: center;
+    transition: background .7s ease-out;
     width: 50%;
+
+    &.is-active {
+      background: rgba(212, 212, 212, 0.26);
+    }
 
     &-icon {
       width: 33px;
@@ -52,15 +59,29 @@
 }
 
 .curriculo-etapa1-content {
-    margin: 40px 0 30px;
+    opacity: 0;
+    transition: opacity .7s ease-out;
+
+    &.is-active {
+      opacity: 1;
+
+      .curriculo-etapa1-content-text {
+        height: 100%;
+      }
+    }
+}
+
+.curriculo-etapa1-content-text {
+  height: 0;
+  transition: all .3s ease-out;
 }
 
 .curriculo-etapa1-textarea {
   border: 0;
   color: $preto;
   font: 15px/20px $font-semibold;
-  height: 200px;
-  letter-spacing: 1px;
+  height: 220px;
+  letter-spacing: 0.5px;
   max-width: -webkit-fill-available;
   padding: 15px;
   resize: none;

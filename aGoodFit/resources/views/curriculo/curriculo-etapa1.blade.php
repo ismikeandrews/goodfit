@@ -2,6 +2,9 @@
     <div class="curriculo-title">
         Sobre mim
     </div>
+    <div class="curriculo-desc">
+        Explicar o que é essa sessão
+    </div>
 
     <div class="curriculo-etapa1-submenu">
       <div class="curriculo-etapa1-submenu-item is-active">
@@ -13,14 +16,16 @@
       </div>
     </div>
 
-    <div class="curriculo-etapa1-content">
+    <div class="curriculo-etapa1-content is-active">
       <div class="curriculo-etapa1-content-video">
-
+        video
       </div>
+    </div>
 
+    <div class="curriculo-etapa1-content">
       <div class="curriculo-etapa1-content-text">
         <form class="curriculo-etapa1-form" action="index.html" method="post">
-          <textarea class="curriculo-etapa1-textarea">Escreva uma breve descirção sobre você...</textarea>
+          <textarea class="curriculo-etapa1-textarea">Escreva uma breve descrição sobre você...</textarea>
         </form>
       </div>
     </div>
