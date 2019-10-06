@@ -1,0 +1,35 @@
+package br.com.projeto.teste;
+
+import javax.swing.JOptionPane;
+
+import br.com.projeto.beans.Moderador;
+import br.com.projeto.dao.ModeradorDAO;
+import br.com.projeto.dao.UsuarioDAO;
+
+public class CadastroModeradorDAO {
+
+	public static void main(String[] args) {
+		
+		try {
+			ModeradorDAO dao = new ModeradorDAO();;
+			Moderador mod = new Moderador();
+			UsuarioDAO daoUsu = new UsuarioDAO();
+			
+			mod.setNomeModerador(JOptionPane.showInputDialog("Nome"));
+			mod.setCpfModerador(JOptionPane.showInputDialog("CPF"));
+			mod.setUnidade(JOptionPane.showInputDialog("Unidade"));
+			mod.setUsuario(daoUsu.getUsuario(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do usuario"))));
+			dao.addModerador(mod);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

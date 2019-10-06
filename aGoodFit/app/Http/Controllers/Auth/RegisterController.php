@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Candidato;
 
 class RegisterController extends Controller
 {
@@ -64,11 +65,30 @@ class RegisterController extends Controller
      public function create(array $data)
      {
 
-         return User::create([
+         $usuario = User::create([
            'loginUsuario' => $data['login'],
            'email' => $data['email'],
            'codNivelUsuario' => $data['codNivelUsuario'],
            'password' => Hash::make($data['password']),
          ]);
+
+         if($usuario->codNivelUsuario = 2){
+          Validator::make($data, [
+            'nome' => 'required',
+            'cpf' => 'required|min:11|max:11',
+            'rg' => 'required|max:9',
+            'nascimento' => 'required|date|date_format:d-m-Y'
+          ]);
+
+          Candidato::create([
+            'nomeCandidato' => $data['nome'],
+            'cpfCandidato' => $data['cpf'],
+            'rgCandidato' => $data['rg'],
+            'dataNascimentoCandidato' => $data['nascimento'],
+            'codUsuario' => $usuario->codUsuario
+          ]);
+         }
+
+         return $usuario;
     }
 }

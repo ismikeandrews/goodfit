@@ -11,13 +11,9 @@
 |
 */
 
-
-
-Route::get('/', function () {
-    return view('auth.login');
-});
-
 Auth::routes();
+
+Route::get('/', 'CandidatoController@login');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

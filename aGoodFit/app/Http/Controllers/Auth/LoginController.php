@@ -36,19 +36,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    
 }
-
-
-// public function login(Request $request){
-//
-//   $this->validate($request, [
-//     'email' => 'required|email',
-//     'password' => 'required|min:8'
-//   ]);
-//   // dd($request->all());
-//   if(Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
-//     return redirect()->intended(route('/home'));
-//   }
-//
-//   return redirect()->back()->withInput($request->only('email', 'remember'));
-// }

@@ -1,0 +1,13 @@
+package br.com.projeto.teste;
+/*
+ * @author Cyntia RM
+ * 
+ */
+public class CadastroCandidatoBO {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

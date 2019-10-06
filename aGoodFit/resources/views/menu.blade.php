@@ -29,7 +29,7 @@
                 </svg>
               </li>
             </a>
-            <a class="menu-nav-list-link" href="#">
+            <a class="menu-nav-list-link" href="/candidato/curriculo">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Currículo</p>
@@ -53,7 +53,7 @@
                 </svg>
               </li>
             </a>
-            <a class="menu-nav-list-link" href="#">
+            <a class="menu-nav-list-link" href="/home">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-perfil.svg')}}" alt="Menu - página de perfil" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Perfil</p>

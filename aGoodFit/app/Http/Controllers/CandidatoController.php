@@ -12,8 +12,16 @@ use Illuminate\Http\Request;
 class CandidatoController extends Controller
 {
   public function formularioCandidato(){
-    
+
     return view('candForm');
+  }
+
+  public function login(){
+    if (Auth::check()) {
+      return redirect('/home');
+    }else {
+      return view('auth.login');
+    }
   }
 
   public function novoCandidato(Request $request){

@@ -43,6 +43,11 @@
             <div class="form-inputs">
               <div class="form-input-email">
                   <input id="email" type="email" placeholder="E-mail" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                  @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
               </div>
             </div>
             <div class="form-inputs">
