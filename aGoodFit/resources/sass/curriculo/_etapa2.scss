@@ -1,0 +1,30 @@
+.curriculo-etapa2 {
+    margin-top: 20px;
+}
+
+.curriculo-etapa2-content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &-item {
+        border: 4px solid #ccc;
+        border-radius: 30px;
+        margin: 10px 0;
+        text-align: center;
+        padding: 30px 0;
+        width: 48%;
+
+        &:first-child {
+            margin-right: 20px;
+        }
+
+        &.is-active {
+            border-color: $azul-primary;
+        }
+    }
+}
+
+.curriculo-habilidades-icon {
+    width: 90px;
+}

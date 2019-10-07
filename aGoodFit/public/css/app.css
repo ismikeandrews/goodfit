@@ -190,7 +190,7 @@ a {
 .btn {
   background: #04B2D9;
   border: none;
-  border-radius: 0;
+  border-radius: 30px;
   color: #fff;
   display: block;
   font: 14px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
@@ -511,11 +511,16 @@ a {
 
 .curriculo-btn {
   align-items: center;
-  bottom: 30px;
   display: flex;
   justify-content: center;
   margin: auto;
   position: relative;
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-btn {
+    bottom: 30px;
+  }
 }
 
 .curriculo-btn-item {
@@ -615,11 +620,15 @@ a {
   transition: all 0.3s ease-out;
 }
 
+.curriculo-etapa1-content-video-icon {
+  width: 70px;
+}
+
 .curriculo-etapa1-content-video-desc {
   color: #2a2a2a;
-  font: 16px/20px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  font: 15px/20px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
   letter-spacing: 0.5px;
-  margin: 15px 0;
+  margin: 25px 0;
 }
 
 .curriculo-etapa1-content-text {
@@ -637,5 +646,36 @@ a {
   resize: none;
   transition: all 0.3s ease-out;
   width: 100%;
+}
+
+.curriculo-etapa2 {
+  margin-top: 20px;
+}
+
+.curriculo-etapa2-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.curriculo-etapa2-content-item {
+  border: 4px solid #ccc;
+  border-radius: 30px;
+  margin: 10px 0;
+  text-align: center;
+  padding: 30px 0;
+  width: 48%;
+}
+
+.curriculo-etapa2-content-item:first-child {
+  margin-right: 20px;
+}
+
+.curriculo-etapa2-content-item.is-active {
+  border-color: #04B2D9;
+}
+
+.curriculo-habilidades-icon {
+  width: 90px;
 }
 

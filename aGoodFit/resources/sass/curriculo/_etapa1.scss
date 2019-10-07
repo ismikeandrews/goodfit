@@ -85,11 +85,15 @@
   text-align: center;
   transition: all .3s ease-out;
 
+  &-icon {
+    width: 70px;
+  }
+
   &-desc {
     color: $preto;
-    font: 16px/20px $font-semibold;
+    font: 15px/20px $font-semibold;
     letter-spacing: 0.5px;
-    margin: 15px 0;
+    margin: 25px 0;
   }
 }
 
