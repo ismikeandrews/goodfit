@@ -27,16 +27,6 @@
                     3
                 </p>
             </div>
-            <div class="counter-etapas-etapa is-disable">
-                <p class="counter-etapas-etapa-4">
-                    4
-                </p>
-            </div>
-            <div class="counter-etapas-etapa is-disable">
-                <p class="counter-etapas-etapa-5">
-                    5
-                </p>
-            </div>
         </div>
     </div>
 
@@ -48,12 +38,6 @@
     </div>
     <div class="counter-etapas-content">
       @include('curriculo.curriculo-etapa3')
-    </div>
-    <div class="counter-etapas-content">
-      @include('curriculo.curriculo-etapa4')
-    </div>
-    <div class="counter-etapas-content">
-      @include('curriculo.curriculo-etapa5')
     </div>
 
     <div class="curriculo-btn">

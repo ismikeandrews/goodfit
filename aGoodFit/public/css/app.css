@@ -425,7 +425,7 @@ a {
 
 .counter-etapas {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
@@ -442,17 +442,25 @@ a {
   z-index: -1;
 }
 
+.counter-etapas-etapa:first-child {
+  margin-right: 90px;
+}
+
+.counter-etapas-etapa:last-child {
+  margin-left: 90px;
+}
+
 .counter-etapas-etapa:before {
   background: #04B2D9;
   content: "";
   display: block;
   height: 2px;
-  right: 52px;
+  right: 70px;
   position: absolute;
   transform: translate(50%, -50%);
   transition: background ease 1s;
   top: 50%;
-  width: 58px;
+  width: 90px;
   z-index: -1;
 }
 
@@ -516,6 +524,7 @@ a {
 
 .curriculo-btn-item.is-disable {
   background: rgba(4, 178, 217, 0.34);
+  pointer-events: none;
 }
 
 .curriculo-etapa1-submenu {
@@ -558,7 +567,7 @@ a {
 }
 
 .curriculo-etapa1-submenu-item.is-active {
-  background: rgba(212, 212, 212, 0.26);
+  background: rgba(212, 212, 212, 0.47);
 }
 
 .curriculo-etapa1-submenu-item-icon {

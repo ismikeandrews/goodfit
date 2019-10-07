@@ -158,46 +158,46 @@ var etapa = document.querySelectorAll('.counter-etapas-etapa');
 var etapaContent = document.querySelectorAll('.counter-etapas-content');
 var btnAvancar = document.querySelector('#btn-avancar');
 var btnVoltar = document.querySelector('#btn-voltar');
-/* Curriculo - Botão Avançar */
-
-var linha = 1;
+var linha = 0;
 var conteudo = 0;
 
 if (etapa) {
+  /* Curriculo - Botão Avançar */
   btnAvancar.addEventListener('click', function () {
-    etapa[linha].classList.remove('is-disable');
-    etapaContent[conteudo].classList.remove('is-active');
-    linha += 1;
-    conteudo += 1;
-    etapaContent[conteudo].classList.add('is-active');
-  }); // btnAvancar.addEventListener('click', function() {
-  //   etapaContent.forEach((elem, idx) => {
-  //     if (etapaContent[idx].classList.contains('is-active')) {
-  //       etapaContent[idx].classList.remove('is-active');
-  //       idx += 1;
-  //       etapa[idx].classList.remove('is-disable');
-  //       etapaContent[idx].classList.add('is-active');
-  //     }
-  //   });
-  // });
+    if (!(etapa.length === linha)) {
+      etapa[linha + 1].classList.remove('is-disable');
+      etapaContent[conteudo].classList.remove('is-active');
+      linha += 1;
+      conteudo += 1;
+      etapaContent[conteudo].classList.add('is-active');
+    }
 
+    if (etapa.length - 1 === linha) {
+      btnAvancar.innerHTML = 'Concluir';
+    }
+
+    if (linha > 0) {
+      btnVoltar.classList.remove('is-disable');
+    }
+  });
   /* Curriculo - Botão Voltar */
 
   btnVoltar.addEventListener('click', function () {
-    etapaContent.forEach(function (elem, idx) {
-      if (idx > 0) {
-        btnVoltar.classList.remove('is-disable');
+    if (etapa.length - 1 === linha) {
+      btnAvancar.innerHTML = 'Avançar';
+    }
 
-        if (etapaContent[idx].classList.contains('is-active')) {
-          etapa[idx].classList.add('is-disable');
-          etapaContent[idx].classList.remove('is-active');
-          idx -= 1;
-          etapaContent[idx].classList.add('is-active');
-        }
-      } else {
-        btnVoltar.classList.add('is-disable');
-      }
-    });
+    if (linha > 0) {
+      etapa[linha].classList.add('is-disable');
+      etapaContent[conteudo].classList.remove('is-active');
+      linha -= 1;
+      conteudo -= 1;
+      etapaContent[conteudo].classList.add('is-active');
+    }
+
+    if (linha === 0) {
+      btnVoltar.classList.add('is-disable');
+    }
   });
 }
 
@@ -252,8 +252,8 @@ if (menu) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
