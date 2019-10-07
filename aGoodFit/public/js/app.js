@@ -133,14 +133,25 @@ __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
 /***/ (function(module, exports) {
 
 var etapa = document.querySelectorAll('.counter-etapas-etapa');
-var btnNext = document.querySelector('#btn-next');
-var fase = 1;
+var etapaContent = document.querySelectorAll('.counter-etapas-content');
+var btnAvancar = document.querySelector('#btn-avancar');
+var linha = 1;
+var conteudo = 0;
 
 if (etapa) {
-  btnNext.addEventListener('click', function () {
-    etapa[fase].classList.remove('is-disable');
-    fase += 1;
-  });
+  btnAvancar.addEventListener('click', function () {
+    etapa[linha].classList.remove('is-disable');
+    etapaContent[conteudo].classList.remove('is-active');
+    linha += 1;
+    conteudo += 1;
+    etapaContent[conteudo].classList.add('is-active');
+  }); // btnVoltar.addEventListener('click', function() {
+  //     etapa[linha].classList.add('is-disable');
+  //     etapaContent[conteudo].classList.add('is-active');
+  //     linha -= 1;
+  //     conteudo -= 1;
+  //     etapaContent[conteudo].classList.remove('is-active');
+  // });
 }
 
 var submenu = document.querySelectorAll('.curriculo-etapa1-submenu-item');

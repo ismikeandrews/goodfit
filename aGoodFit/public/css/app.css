@@ -468,24 +468,49 @@ a {
   background: #C5C5C5;
 }
 
-.btn-next {
-  bottom: 50px;
-  position: fixed;
-  max-width: 85%;
-  margin: auto;
-}
-
 .curriculo-title {
   color: #2a2a2a;
   font: 21px/25px "Raleway Bold", "Montserrat Bold", "sans-serif";
-  margin-top: 30px;
 }
 
 .curriculo-desc {
   color: #828181;
   font: 15px/18px "Raleway Regular", "Montserrat Regular", "sans-serif";
   letter-spacing: 0.5px;
+}
+
+.counter-etapas-content {
+  height: 0;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  width: 0;
+}
+
+.counter-etapas-content.is-active {
+  height: 100%;
+  opacity: 1;
+  width: 100%;
+}
+
+.counter-etapas-content.is-active .curriculo-title {
+  margin-top: 30px;
+}
+
+.counter-etapas-content.is-active .curriculo-desc {
   margin-top: 10px;
+}
+
+.curriculo-btn {
+  align-items: center;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+}
+
+.curriculo-btn-item {
+  width: 48%;
 }
 
 .curriculo-etapa1-submenu {
@@ -546,30 +571,27 @@ a {
 }
 
 .curriculo-etapa1-content.is-active .curriculo-etapa1-content-video {
-  height: 100%;
-  margin: 50px auto;
-  padding: 60px 0;
+  height: 100px;
+  margin: 30px auto;
+  padding: 50px 10px;
 }
 
-.curriculo-etapa1-content.is-active .curriculo-etapa1-content-text {
-  height: 100%;
+.curriculo-etapa1-content.is-active .curriculo-etapa1-textarea {
+  height: 165px;
+  margin-bottom: 50px;
 }
 
 .box-hidden {
   background: #F2F2F2;
-  height: 125px;
-  position: fixed;
+  height: 50px;
+  position: absolute;
   right: -10px;
   width: 105%;
   z-index: 0;
 }
 
-.box-hidden:first-child {
-  top: -50px;
-}
-
 .box-hidden:last-child {
-  bottom: 10px;
+  bottom: 0;
 }
 
 .curriculo-etapa1-content-video {
@@ -587,19 +609,19 @@ a {
 }
 
 .curriculo-etapa1-content-text {
-  height: 0;
-  transition: all 0.3s ease-out;
+  margin: 10px 0;
 }
 
 .curriculo-etapa1-textarea {
   border: 0;
   color: #2a2a2a;
   font: 15px/20px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
-  height: 220px;
+  height: 0;
   letter-spacing: 0.5px;
   max-width: -webkit-fill-available;
   padding: 15px;
   resize: none;
+  transition: all 0.3s ease-out;
   width: 100%;
 }
 

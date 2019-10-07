@@ -40,10 +40,29 @@
         </div>
     </div>
 
-    @include('curriculo.curriculo-etapa1')
+    <div class="counter-etapas-content is-active">
+      @include('curriculo.curriculo-etapa1')
+    </div>
+    <div class="counter-etapas-content">
+      @include('curriculo.curriculo-etapa2')
+    </div>
+    <div class="counter-etapas-content">
+      @include('curriculo.curriculo-etapa3')
+    </div>
+    <div class="counter-etapas-content">
+      @include('curriculo.curriculo-etapa4')
+    </div>
+    <div class="counter-etapas-content">
+      @include('curriculo.curriculo-etapa5')
+    </div>
 
-    <div id="btn-next" class="btn btn-next">
-        Next
+    <div class="curriculo-btn">
+      <div id="btn-voltar" class="btn curriculo-btn-item">
+          Voltar
+      </div>
+      <div id="btn-avancar" class="btn curriculo-btn-item">
+          Avançar
+      </div>
     </div>
   </div>
 </section>

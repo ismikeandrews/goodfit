@@ -67,7 +67,7 @@
             </a>
             <a href="{{ route('logout') }}" class="menu-nav-list-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <li class="menu-nav-list-link-item">
-                <img src="{{asset('images/componentes/menu-perfil.svg')}}" alt="Menu - link para sair" class="menu-item-img">
+                <img src="{{asset('images/componentes/menu-sair.svg')}}" alt="Menu - link para sair" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Sair</p>
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="13.244" height="11" viewBox="0 0 13.244 11" class="menu-item-svg">

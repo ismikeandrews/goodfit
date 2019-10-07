@@ -54,9 +54,47 @@
     }
 }
 
-.btn-next {
-  bottom: 50px;
-  position: fixed;
-  max-width: 85%;
+.curriculo-title {
+    color: $preto;
+    font: 21px/25px $font-bold;
+}
+
+.curriculo-desc {
+    color: $cinza;
+    font: 15px/18px $font-regular;
+    letter-spacing: 0.5px;
+}
+
+.counter-etapas-content{
+  height: 0;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  width: 0;
+
+    &.is-active {
+      height: 100%;
+      opacity: 1;
+      width: 100%;
+
+      .curriculo-title {
+          margin-top: 30px;
+      }
+
+      .curriculo-desc {
+          margin-top: 10px;
+      }
+    }
+}
+
+.curriculo-btn {
+  align-items: center;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
   margin: auto;
+  position: relative;
+
+  &-item {
+    width: 48%;
+  }
 }

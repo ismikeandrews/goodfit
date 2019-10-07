@@ -1,12 +1,25 @@
 const etapa = document.querySelectorAll('.counter-etapas-etapa');
-const btnNext = document.querySelector('#btn-next');
-let fase = 1;
+const etapaContent = document.querySelectorAll('.counter-etapas-content');
+const btnAvancar = document.querySelector('#btn-avancar');
+let linha = 1;
+let conteudo = 0;
 
 if (etapa) {
-  btnNext.addEventListener('click', function() {
-      etapa[fase].classList.remove('is-disable');
-      fase += 1;
+  btnAvancar.addEventListener('click', function() {
+      etapa[linha].classList.remove('is-disable');
+      etapaContent[conteudo].classList.remove('is-active');
+      linha += 1;
+      conteudo += 1;
+      etapaContent[conteudo].classList.add('is-active');
   });
+
+  // btnVoltar.addEventListener('click', function() {
+  //     etapa[linha].classList.add('is-disable');
+  //     etapaContent[conteudo].classList.add('is-active');
+  //     linha -= 1;
+  //     conteudo -= 1;
+  //     etapaContent[conteudo].classList.remove('is-active');
+  // });
 }
 
 
