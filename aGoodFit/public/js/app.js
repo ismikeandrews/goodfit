@@ -132,28 +132,7 @@ __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var etapa = document.querySelectorAll('.counter-etapas-etapa');
-var etapaContent = document.querySelectorAll('.counter-etapas-content');
-var btnAvancar = document.querySelector('#btn-avancar');
-var linha = 1;
-var conteudo = 0;
-
-if (etapa) {
-  btnAvancar.addEventListener('click', function () {
-    etapa[linha].classList.remove('is-disable');
-    etapaContent[conteudo].classList.remove('is-active');
-    linha += 1;
-    conteudo += 1;
-    etapaContent[conteudo].classList.add('is-active');
-  }); // btnVoltar.addEventListener('click', function() {
-  //     etapa[linha].classList.add('is-disable');
-  //     etapaContent[conteudo].classList.add('is-active');
-  //     linha -= 1;
-  //     conteudo -= 1;
-  //     etapaContent[conteudo].classList.remove('is-active');
-  // });
-}
-
+/* Curriculo - Submenu etapas */
 var submenu = document.querySelectorAll('.curriculo-etapa1-submenu-item');
 var content = document.querySelectorAll('.curriculo-etapa1-content');
 submenu.forEach(function (elem, idx) {
@@ -173,6 +152,54 @@ submenu.forEach(function (elem, idx) {
     }
   });
 });
+/* Curriculo - Botões */
+
+var etapa = document.querySelectorAll('.counter-etapas-etapa');
+var etapaContent = document.querySelectorAll('.counter-etapas-content');
+var btnAvancar = document.querySelector('#btn-avancar');
+var btnVoltar = document.querySelector('#btn-voltar');
+/* Curriculo - Botão Avançar */
+
+var linha = 1;
+var conteudo = 0;
+
+if (etapa) {
+  btnAvancar.addEventListener('click', function () {
+    etapa[linha].classList.remove('is-disable');
+    etapaContent[conteudo].classList.remove('is-active');
+    linha += 1;
+    conteudo += 1;
+    etapaContent[conteudo].classList.add('is-active');
+  }); // btnAvancar.addEventListener('click', function() {
+  //   etapaContent.forEach((elem, idx) => {
+  //     if (etapaContent[idx].classList.contains('is-active')) {
+  //       etapaContent[idx].classList.remove('is-active');
+  //       idx += 1;
+  //       etapa[idx].classList.remove('is-disable');
+  //       etapaContent[idx].classList.add('is-active');
+  //     }
+  //   });
+  // });
+
+  /* Curriculo - Botão Voltar */
+
+  btnVoltar.addEventListener('click', function () {
+    etapaContent.forEach(function (elem, idx) {
+      if (idx > 0) {
+        btnVoltar.classList.remove('is-disable');
+
+        if (etapaContent[idx].classList.contains('is-active')) {
+          etapa[idx].classList.add('is-disable');
+          etapaContent[idx].classList.remove('is-active');
+          idx -= 1;
+          etapaContent[idx].classList.add('is-active');
+        }
+      } else {
+        btnVoltar.classList.add('is-disable');
+      }
+    });
+  });
+}
 
 /***/ }),
 

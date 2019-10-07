@@ -57,7 +57,7 @@
     </div>
 
     <div class="curriculo-btn">
-      <div id="btn-voltar" class="btn curriculo-btn-item">
+      <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
           Voltar
       </div>
       <div id="btn-avancar" class="btn curriculo-btn-item">

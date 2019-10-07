@@ -197,6 +197,7 @@ a {
   padding: 15px 0;
   margin: 15px auto 10px;
   text-align: center;
+  transition: all 0.5s ease-out;
   width: 100%;
 }
 
@@ -511,6 +512,10 @@ a {
 
 .curriculo-btn-item {
   width: 48%;
+}
+
+.curriculo-btn-item.is-disable {
+  background: rgba(4, 178, 217, 0.34);
 }
 
 .curriculo-etapa1-submenu {
