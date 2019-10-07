@@ -20,7 +20,7 @@
     height: 23px;
     position: relative;
     text-align: center;
-    transition: border-color ease 2.5s, color ease 2.5s;
+    transition: border-color ease 2s, color ease 2s;
     width: 23px;
     z-index: -1;
 
@@ -76,6 +76,7 @@
 .counter-etapas-content{
   height: 0;
   opacity: 0;
+  overflow: hidden;
   transition: opacity 1s ease-out;
   width: 0;
 
@@ -96,18 +97,21 @@
 
 .curriculo-btn {
   align-items: center;
-  bottom: 30px;
   display: flex;
   justify-content: center;
   margin: auto;
   position: relative;
 
-  &-item {
-    width: 48%;
-
-    &.is-disable {
-      background: rgba(4, 178, 217, 0.34);
-      pointer-events: none;
+    @include MQ($small) {
+        bottom: 30px;
     }
-  }
+
+    &-item {
+        width: 48%;
+
+        &.is-disable {
+            background: rgba(4, 178, 217, 0.34);
+            pointer-events: none;
+        }
+    }
 }

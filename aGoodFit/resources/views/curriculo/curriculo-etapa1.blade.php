@@ -18,9 +18,9 @@
 
     <div class="curriculo-etapa1-content is-active">
       <div class="curriculo-etapa1-content-video">
-        <img src="{{asset('images/componentes/etapa1-video.svg')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-submenu-item-icon">
+        <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">
         <p class="curriculo-etapa1-content-video-desc">
-          Faça o upload de um vídeo sobre você
+          Clique para enviar um vídeo sobre você
         </p>
       </div>
     </div>
