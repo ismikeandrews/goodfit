@@ -222,6 +222,65 @@ a {
   width: 100%;
 }
 
+.curriculo-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.curriculo-content-item {
+  margin: 10px auto;
+  text-align: center;
+  width: 48%;
+}
+
+.curriculo-content-item:first-child {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-content {
+    display: block;
+  }
+
+  .curriculo-content-item {
+    width: 80%;
+  }
+
+  .curriculo-content-item:first-child {
+    margin: auto;
+  }
+}
+
+.curriculo-content-item-label {
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  color: #ccc;
+  display: block;
+  padding: 20px 0;
+  transition: all 0.5s ease-out;
+}
+
+.curriculo-content-item-label-icon {
+  width: 90px;
+}
+
+.curriculo-content-item-label-desc {
+  font: 15px/19px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin-top: 10px;
+}
+
+.curriculo-checkbox {
+  position: absolute;
+  left: -9999px;
+}
+
+.curriculo-checkbox:checked + .curriculo-content-item-label {
+  background: rgba(4, 178, 217, 0.25);
+  border-color: #04B2D9;
+  color: #0096b7;
+}
+
 .container-login {
   position: relative;
 }
@@ -488,6 +547,10 @@ a {
   letter-spacing: 0.5px;
 }
 
+.curriculo-desc span {
+  font-family: "Raleway Bold", "Montserrat Bold", "sans-serif";
+}
+
 .counter-etapas-content {
   height: 0;
   opacity: 0;
@@ -615,7 +678,7 @@ a {
 }
 
 .curriculo-etapa1-content-video {
-  border: 2px dotted #828181;
+  border: 2px dotted #b5b5b5;
   height: 0;
   text-align: center;
   transition: all 0.3s ease-out;
@@ -653,40 +716,19 @@ a {
   margin-top: 20px;
 }
 
-.curriculo-etapa2-content {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 380px) {
+  .curriculo-etapa2 {
+    margin: 20px 0 50px;
+  }
 }
 
-.curriculo-etapa2-content-item {
-  margin: 10px 0;
-  text-align: center;
-  width: 48%;
+.curriculo-etapa3 {
+  margin-top: 20px;
 }
 
-.curriculo-etapa2-content-item:first-child {
-  margin-right: 20px;
-}
-
-.curriculo-habilidades-item {
-  border: 4px solid #ccc;
-  border-radius: 30px;
-  display: block;
-  padding: 30px 0;
-  transition: border-color 0.5s ease-out;
-}
-
-.curriculo-habilidades-icon {
-  width: 90px;
-}
-
-.curriculo-habilidades-checkbox {
-  position: absolute;
-  left: -9999px;
-}
-
-.curriculo-habilidades-checkbox:checked + .curriculo-habilidades-item {
-  border-color: #04B2D9;
+@media screen and (max-width: 380px) {
+  .curriculo-etapa3 {
+    margin: 20px 0 50px;
+  }
 }
 

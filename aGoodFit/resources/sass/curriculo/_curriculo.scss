@@ -71,6 +71,10 @@
     color: $cinza;
     font: 15px/18px $font-regular;
     letter-spacing: 0.5px;
+
+    & span {
+        font-family: $font-bold;
+    }
 }
 
 .counter-etapas-content{
