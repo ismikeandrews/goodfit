@@ -27,9 +27,10 @@
           Dados Pessoais
         </div>
 
-        <form class="form" method="POST" action="{{ route('register') }}">
+        <form enctype="multipart/form-data" class="form" method="POST" action="{{ route('register') }}">
           @csrf
             <input id="codNivelUsuario" name="codNivelUsuario" type="hidden" value="2">
+            <input type="file" name="foto">
             <div class="form-inputs">
                 <div class="form-input-nome">
                   <input id="nome" type="text" placeholder="Nome" class="form-input-item @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" autocomplete="nome" autofocus>
