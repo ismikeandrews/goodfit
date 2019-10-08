@@ -38,7 +38,7 @@ class CandidatoController extends Controller
       $foto = $request->file('foto');
       $nome = time() . '.' . $foto->getClientOriginalExtension();
 
-      Image::make($foto)->save(public_path('/images/candidatos/'.$nome));
+      Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
 
       DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
     }

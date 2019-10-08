@@ -286,7 +286,7 @@ a {
 }
 
 .container-login:after {
-  background: url(/images/logo-bg.svg?270147600bbedad57114bca408fa1105) center no-repeat;
+  background: url(/images/logo-bg.svg?432fd8c1f5e4ebc1e4cbfbc117e2b012) center no-repeat;
   content: "";
   display: block;
   height: 330px;
@@ -310,7 +310,8 @@ a {
 }
 
 .logo {
-  display: flex;
+  display: block;
+  text-align: center;
   width: 100%;
 }
 

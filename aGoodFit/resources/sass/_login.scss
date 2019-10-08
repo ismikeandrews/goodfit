@@ -18,14 +18,15 @@
 .section-login {
     margin: 0 auto;
     width: 75%;
-    
+
     @include MQ($medium){
         width: 100%;
     }
 }
 
 .logo {
-  display: flex;
+  display: block;
+  text-align: center;
   width: 100%;
 
     &-img {
@@ -39,7 +40,7 @@
         color: $preto;
         font: 21px $font-bold;
         line-height: 25px;
-        
+
         @include MQ($small) {
             font-size: 20px;
         }
@@ -77,8 +78,8 @@
 
 .login-btn-entrar {
     margin: 60px 0 50px;
-    
-    @include MQ($medium){        
+
+    @include MQ($medium){
         margin: 40px 0 0;
     }
 }
