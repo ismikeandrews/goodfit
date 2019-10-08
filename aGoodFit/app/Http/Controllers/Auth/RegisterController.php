@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+use Image;
 use App\Candidato;
 
 class RegisterController extends Controller
@@ -64,7 +66,6 @@ class RegisterController extends Controller
       */
      public function create(array $data)
      {
-
          $usuario = User::create([
            'loginUsuario' => $data['login'],
            'email' => $data['email'],
@@ -80,13 +81,20 @@ class RegisterController extends Controller
             'nascimento' => 'required|date|date_format:d-m-Y'
           ]);
 
+          $foto = $data['foto'];
+          $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
+
+          Image::make($foto)->save(public_path('/images/candidatos/'.$nomeFoto));
+
           Candidato::create([
             'nomeCandidato' => $data['nome'],
             'cpfCandidato' => $data['cpf'],
+            'fotoCandidato' => $nomeFoto,
             'rgCandidato' => $data['rg'],
             'dataNascimentoCandidato' => $data['nascimento'],
             'codUsuario' => $usuario->codUsuario
           ]);
+          DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nomeFoto]);
          }
 
          return $usuario;
