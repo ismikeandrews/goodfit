@@ -20,7 +20,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Niveis de Usuarios
 Route::prefix('nivelusuario')->group(function() {
 //paginas
-Route::get('/escolha', 'NivelUsuarioController@escolhaNivelUsuario');
 Route::get('/cadastro', 'NivelUsuarioController@formularioNivelUsuario');
 Route::get('/', 'NivelUsuarioController@niveisUsuario');
 //cadastros
@@ -33,18 +32,11 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
-
+Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
 // Comentado só para testes, descomentar depois
 Route::get('/curriculo', 'CandidatoController@formularioCurriculo');
 // Route::get('/curriculo', 'CandidatoController@formularioCurriculo')->middleware('auth');
 
-
-
-
-// Route::get('/cadastro', 'CandidatoController@formularioCandidato')->middleware('auth');
-// Route::get('/', 'CandidatoController@indexCandidato');
-//cadastros
-// Route::post('/cadastro', 'CandidatoController@novoCandidato');
 //Excluir e Editar dados e Validar
 
 });

@@ -11,12 +11,12 @@ class CreateTbCandidato extends Migration
 
     Schema::create('tbCandidato', function(Blueprint $table){
       $table->increments('codCandidato');
-      $table->string('fotoCandidato')->nullable();
+      $table->string('fotoCandidato')->default('padrao.jpg');
       $table->string('nomeCandidato', 150);
       $table->string('cpfCandidato', 11)->unique();
       $table->string('rgCandidato', 20)->unique();
       $table->date('dataNascimentoCandidato');
-      $table->text('descricaoCandidato');
+      $table->text('descricaoCandidato')->nullable();
       $table->integer('codUsuario')->unsigned();
       $table->timestamps();
     });

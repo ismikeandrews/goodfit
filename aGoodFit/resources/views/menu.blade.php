@@ -96,7 +96,7 @@
 
     <div class="menu-content">
       <div class="menu-perfil">
-        <a class="menu-perfil-link" href="{{ url('/perfil') }}">
+        <a class="menu-perfil-link" href="/candidato/configuracoes">
           <img src="{{asset('images/componentes/perfil-foto.svg')}}" alt="Imagem do seu perfil" class="menu-perfil-img">
         </a>
       </div>

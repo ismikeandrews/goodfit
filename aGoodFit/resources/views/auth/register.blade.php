@@ -40,25 +40,6 @@
             </div>
 
             <div class="form-group row">
-              <label for="nivel" class="col-md-4 col-form-label text-md-right">Nivel Usuario</label>
-
-              <div class="col-md-6">
-                <select id="nivel" class="form-control @error('nivel') is-invalid @enderror" name="nivel" value="{{ old('nivel') }}"  autocomplete="nivel">
-                  <option value="">Selecione</option>
-                  @foreach($niveis as $nivel)
-                  <option value="{{ $nivel->codNivelUsuario }}">{{ $nivel->nomeNivelUsuario }}</option>
-                  @endforeach
-                </select>
-
-                @error('nivel')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-              </div>
-            </div>
-
-            <div class="form-group row">
               <label for="password" class="col-md-4 col-form-label text-md-right">Senha</label>
 
               <div class="col-md-6">
