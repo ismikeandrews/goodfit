@@ -11,6 +11,18 @@
 |
 */
 
+
+
+
+/* Rota feita para testes da Cyntia, trocar link depois */
+Route::get('/cadastro/qr-code', function () {
+    return view('cadastroQR');
+});
+
+
+
+
+
 Auth::routes();
 
 Route::get('/', 'CandidatoController@login');
