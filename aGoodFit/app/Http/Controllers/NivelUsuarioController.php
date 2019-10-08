@@ -49,7 +49,7 @@ class NivelUsuarioController extends Controller
     if($codNivelUsuario == 1){
       return redirect('auth.registerMod');
     }elseif ($codNivelUsuario == 2) {
-      return view('auth.cadastroCand');
+      return view('auth.cadastro-candidato');
     }elseif ($codNivelUsuario == 3) {
       return redirect('/empresa/form');
     }
