@@ -2,7 +2,8 @@
     position: relative;
 
     &:after {
-        background: url('../images/componentes/logo-bg.svg') center no-repeat;
+        background: url('../images/componentes/logo-bg.png') center no-repeat;
+        background-size: 335px;
         content: '';
         display: block;
         height: 330px;
