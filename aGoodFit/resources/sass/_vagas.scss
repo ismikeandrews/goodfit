@@ -1,0 +1,85 @@
+* {margin: 0 auto; padding: 0;}
+
+.container {
+  width: 100%;
+}
+
+.logo-enterprise {
+  position: relative;
+  background-color: #d62718;
+}
+
+.logo-enterprise img {
+  width: 100%;
+}
+
+/*BUTTONS*/
+.buttons{
+  position: relative;
+  left: 80px;
+  top: -30px;
+}
+
+/*CONTENT*/
+.content {
+  padding: 0 30px 0 30px;
+}
+
+.content h1 {
+  padding: 10px 0 10px 0;
+  font-family: Raleway Bold;
+}
+
+.content p {
+  font-size: 14px;
+  font-family: Raleway Light;
+  line-height: 1.5;
+}
+
+.content a {
+  font-family: Raleway Regular;
+  text-decoration: none;
+  color: #04B2D9;
+}
+
+/*TAGS*/
+.tags {
+  padding: 20px;
+  text-align: center;
+}
+
+.tags p {
+  border: 1px solid #04B2D9;
+  color: #04B2D9;
+  display: inline;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+/*ABOUT*/
+.about {
+  padding-bottom: 30px;
+}
+.about-title {
+  font-family: Raleway SemiBold;
+  padding: 10px 0 10px 0;
+  color: #04B2D9;
+  text-transform: uppercase;
+}
+
+.about p {
+  font-family: Raleway Regular;
+  font-size: 14px;
+}
+
+.about ul {
+  text-decoration: none;
+}
+
+.about ul li {
+  font-family: Raleway Regular;
+  font-size: 14px;
+  line-height: 1.5;
+  list-style: none;
+}
