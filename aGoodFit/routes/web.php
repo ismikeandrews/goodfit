@@ -33,6 +33,7 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 Route::prefix('candidato')->group(function() {
 //paginas
 Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
+Route::post('/configuracoes', 'CandidatoController@atualizarPerfil');
 // Comentado só para testes, descomentar depois
 Route::get('/curriculo', 'CandidatoController@formularioCurriculo');
 // Route::get('/curriculo', 'CandidatoController@formularioCurriculo')->middleware('auth');

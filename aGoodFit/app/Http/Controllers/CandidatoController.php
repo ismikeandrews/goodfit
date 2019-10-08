@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Candidato;
 use App\NivelUsuario;
 use App\Usuario;
+use Illuminate\Support\Facades\DB;
+use Image;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -21,9 +23,29 @@ class CandidatoController extends Controller
 
   public function config(){
     $usuario = Auth::user();
-    $candidato = Candidato::where('codUsuario', $usuario->codUsuario);
+    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     return view('configPerfil')
-    ->with('usu', $usuario);
+    ->with('candidato', $candidato)
+    ->with('usuario', $usuario);
+  }
+
+  public function atualizarPerfil(Request $request){
+    $usuario = Auth::user();
+    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+
+    if($request->hasFile('foto')) {
+
+      $foto = $request->file('foto');
+      $nome = time() . '.' . $foto->getClientOriginalExtension();
+
+      Image::make($foto)->save(public_path('/images/candidatos/'.$nome));
+
+      DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
+    }
+
+    return view('configPerfil')
+    ->with('candidato', $candidato)
+    ->with('usuario', $usuario);
   }
 
   public function formularioCurriculo(){
