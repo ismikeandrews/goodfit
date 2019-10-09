@@ -286,12 +286,8 @@ a {
 }
 
 .container-login:after {
-<<<<<<< HEAD
-  background: url(/images/logo-bg.svg?432fd8c1f5e4ebc1e4cbfbc117e2b012) center no-repeat;
-=======
   background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
   background-size: 335px;
->>>>>>> 9de538eda55a167c56b9e64c04fffd60019f4946
   content: "";
   display: block;
   height: 330px;
@@ -690,6 +686,10 @@ a {
 
 .box-hidden:last-child {
   bottom: 0;
+}
+
+.curriculo-video {
+  display: none;
 }
 
 .curriculo-etapa1-content-video {

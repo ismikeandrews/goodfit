@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Candidato;
 use App\NivelUsuario;
 use App\Usuario;
@@ -9,9 +7,7 @@ use Illuminate\Support\Facades\DB;
 use File;
 use Image;
 use Auth;
-
 use Illuminate\Http\Request;
-
 class CandidatoController extends Controller
 {
   public function login(){
@@ -21,7 +17,6 @@ class CandidatoController extends Controller
       return view('auth.login');
     }
   }
-
   public function config(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
@@ -29,12 +24,10 @@ class CandidatoController extends Controller
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
   }
-
   public function atualizarPerfil(Request $request){
 
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-
     if($request->hasFile('foto')) {
       $foto = $request->file('foto');
       $nome = time() . '.' . $foto->getClientOriginalExtension();
@@ -48,7 +41,7 @@ class CandidatoController extends Controller
          unlink($file);
       }
     }
-    
+
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
 
     return view('configPerfil')
@@ -58,6 +51,20 @@ class CandidatoController extends Controller
 
   //colocar no controller curriculo
   public function formularioCurriculo(){
-    return view('curriculo.curriculo');
+    $habilidades = DB::table('tbAdicional')
+        ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
+        ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
+        ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
+        ->orderBy('tbAdicional.nomeAdicional', 'ASC')
+        ->get();
+    $categorias = DB::table('tbCategoria')
+      ->select('tbCategoria.codCategoria', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria')
+      ->orderBy('tbCategoria.nomeCategoria')
+      ->get();
+    $dados = [
+      'habilidades' => $habilidades,
+      'categorias'  => $categorias
+    ];
+    return view('curriculo.curriculo', $dados);
   }
 }
