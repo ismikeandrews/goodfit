@@ -17,7 +17,7 @@
       <div id="menu-collapse" class="menu-nav-collapse">
         <div class="menu-nav-collapse-bar">
           <ul class="menu-nav-list">
-            <a class="menu-nav-list-link" href="#">
+            <a class="menu-nav-list-link" href="{{ url('/candidato/vagas') }}">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-vagas.svg')}}" alt="Menu - página de vagas" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Vagas</p>
@@ -29,7 +29,7 @@
                 </svg>
               </li>
             </a>
-            <a class="menu-nav-list-link" href="/candidato/curriculo">
+            <a class="menu-nav-list-link" href="/curriculo/formulario">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Currículo</p>
@@ -41,7 +41,7 @@
                 </svg>
               </li>
             </a>
-            <a class="menu-nav-list-link" href="#">
+            <a class="menu-nav-list-link" href="candidatura/status">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-candidatura.svg')}}" alt="Menu - página de candidaturas" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Candidaturas</p>

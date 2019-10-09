@@ -41,7 +41,16 @@ Route::post('/cadastro', 'NivelUsuarioController@novoNivel');
 Route::get('/deletar/{codNivelUsuario}', 'NivelUsuarioController@deletarNivel');
 Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 });
+//Curriculo
+Route::prefix('curriculo')->group(function() {
 
+Route::post('/formulario', 'CurriculoController@novoCurriculo');
+Route::get('/formulario', 'CurriculoController@formularioCurriculo');
+
+
+//Excluir e Editar dados e Validar
+
+});
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas

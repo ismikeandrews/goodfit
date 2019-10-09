@@ -49,27 +49,6 @@ class CandidatoController extends Controller
     ->with('usuario', $usuario);
   }
 
-  public function formularioCurriculo(){
-    $habilidades = DB::table('tbAdicional')
-        ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
-        ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
-        ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
-        ->orderBy('tbAdicional.nomeAdicional', 'ASC')
-        ->get();
-    $categorias = DB::table('tbCategoria')
-      ->select('tbCategoria.codCategoria', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria')
-      ->orderBy('tbCategoria.nomeCategoria')
-      ->get();
-    $dados = [
-      'habilidades' => $habilidades,
-      'categorias'  => $categorias
-    ];
-
-    $usuario = Auth::user();
-    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    return view('curriculo.curriculo', $dados)->with('candidato', $candidato);
-  }
-
   public function paginaVagas(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
