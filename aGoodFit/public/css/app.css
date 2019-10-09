@@ -747,59 +747,120 @@ a {
   }
 }
 
-.logo-enterprise {
-  position: relative;
-  background-color: #d62718;
+.vagas {
+  padding-top: 30px;
 }
 
-.logo-enterprise img {
-  width: 100%;
+.vagas-empresa {
+  padding-top: 20px;
 }
 
-/*BUTTONS*/
-
-.buttons {
-  position: relative;
-  left: 80px;
-  top: -30px;
-}
-
-/*CONTENT*/
-
-.content {
-  padding: 0 30px 0 30px;
-}
-
-.content h1 {
-  padding: 10px 0 10px 0;
-  font-family: Raleway Bold;
-}
-
-.content p {
-  font-size: 14px;
-  font-family: Raleway Light;
-  line-height: 1.5;
-}
-
-.content a {
-  font-family: Raleway Regular;
-  text-decoration: none;
-  color: #04B2D9;
-}
-
-/*TAGS*/
-
-.tags {
-  padding: 20px;
+.vagas-empresa-logo {
+  display: block;
+  padding: 30px 0 70px;
+  margin: auto;
   text-align: center;
 }
 
-.tags p {
-  border: 1px solid #04B2D9;
+.vagas-empresa-logo-mc {
+  background: #ef2b2f;
+}
+
+.vagas-empresa-logo-img {
+  width: 40%;
+}
+
+@media screen and (max-width: 500px) {
+  .vagas-empresa-logo-img {
+    width: 80%;
+  }
+}
+
+.vagas-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: -70px 0 0;
+}
+
+.vagas-btn-item {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 2px 2px 20px 2px #717171;
+  display: flex;
+  width: 80px;
+  margin: 0 5px;
+  height: 80px;
+  text-align: center;
+}
+
+.vagas-btn-icon {
+  margin: auto;
+  width: 30px;
+}
+
+.container-vagas {
+  margin: -40px 0 0;
+  background: #fff;
+  border-radius: 30px 30px;
+  padding-top: 80px;
+}
+
+.vagas-content-title {
+  color: #2a2a2a;
+  font: 20px/22px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  margin: 0 auto 10px;
+  text-align: center;
+  width: 85%;
+}
+
+.vagas-content-desc {
+  align-items: center;
+  display: flex;
+}
+
+.vagas-content-desc-icon {
+  margin: 10px 20px 10px 0;
+  width: 50px;
+}
+
+.vagas-content-desc-nome {
   color: #04B2D9;
-  display: inline;
-  padding: 5px;
-  border-radius: 5px;
+  font: 20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+}
+
+.vagas-content-desc-local {
+  color: #828181;
+  font: 18px/20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+}
+
+.vagas-content-tags {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vagas-content-tags-item {
+  border: 1px solid #04B2D9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 15px 0;
+  width: 50%;
+}
+
+.vagas-content-tags-item:first-child {
+  margin-right: 10px;
+}
+
+.vagas-content-tags-item-icon {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.vagas-content-tags-item-text {
+  color: #828181;
+  font: 15px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
 }
 
 /*ABOUT*/
@@ -831,55 +892,175 @@ a {
   list-style: none;
 }
 
-/*INTRO*/
-
-.intro {
-  padding: 20px;
+.aprovado {
+  background-color: #63DE9A;
 }
 
-.intro-title {
-  font-family: Raleway Bold;
-  font-size: 25px;
+.andamento {
+  background-color: #FDCF67;
 }
 
-.intro-description {
-  font-family: Raleway Light;
-  font-size: 15px;
-  padding: 10px 0 10px 0;
+.finalizado {
+  background-color: #F06A47;
 }
 
-/*MENU*/
-
-.menu-item {
-  display: inline;
-  padding: 20px 35px 10px 30px;
+.status {
+  padding-top: 60px;
 }
 
-.icon-one {
-  border-bottom: 3px solid #6DD9F1;
+.status-header {
+  background: #fff;
+  padding-top: 25px;
 }
 
-.icon-two {
-  border-bottom: 3px solid #63DE9A;
+.status-header-content {
+  padding: 0 30px;
 }
 
-.icon-three {
-  border-bottom: 3px solid #FDCF67;
+.status-header-content-title {
+  color: #2a2a2a;
+  font: 21px "Raleway Bold", "Montserrat Bold", "sans-serif";
 }
 
-.icon-for {
-  border-bottom: 3px solid #F06A47;
+.status-header-content-desc {
+  color: #828181;
+  font: 15px "Raleway Light", "Montserrat Light", "sans-serif";
+  margin: 10px 0 25px;
 }
 
-.menu-item img {
-  width: 35px;
-  height: 35px;
+.status-header-menu-content {
+  display: flex;
+  text-align: center;
 }
 
-/*CARDS*/
+.status-header-menu-content-item {
+  padding-bottom: 10px;
+  width: 25%;
+}
 
-.cards {
-  background: #F2F2F2;
-  width: 100%;
+.status-header-menu-content-item:nth-child(1) {
+  border-bottom: 4px solid #6DD9F1;
+}
+
+.status-header-menu-content-item:nth-child(2) {
+  border-bottom: 4px solid #63DE9A;
+}
+
+.status-header-menu-content-item:nth-child(3) {
+  border-bottom: 4px solid #FDCF67;
+}
+
+.status-header-menu-content-item:nth-child(4) {
+  border-bottom: 4px solid #F06A47;
+}
+
+.status-box {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  margin: 0 auto 20px;
+  max-width: 550px;
+  position: relative;
+}
+
+.status-box-desc {
+  align-items: center;
+  display: flex;
+  padding: 20px 0;
+}
+
+.status-box-desc-img {
+  padding-right: 20px;
+  width: 20%;
+}
+
+.status-box-desc-img-icon {
+  width: 80px;
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-desc-img-icon {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-desc-img {
+    padding-right: 10px;
+  }
+}
+
+.status-box-desc-content {
+  width: 80%;
+}
+
+.status-box-desc-content-title {
+  color: #2a2a2a;
+  font: 16px "Raleway Bold", "Montserrat Bold", "sans-serif";
+}
+
+.status-box-desc-content-nome {
+  color: #04B2D9;
+  font: 15px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin: 5px 0;
+}
+
+.status-box-desc-content-status {
+  align-items: center;
+  display: flex;
+  margin: 5px 0;
+}
+
+.status-box-desc-content-status-cor {
+  border-radius: 50%;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
+}
+
+.status-box-desc-content-status-text {
+  color: #2a2a2a;
+  font: 14px "Raleway Bold", "Montserrat Bold", "sans-serif";
+}
+
+.status-box-qtd {
+  color: #2a2a2a;
+  font: 22px/15px "Montserrat Bold", "sans-serif";
+  padding: 0 5px;
+  text-align: right;
+  width: 18%;
+}
+
+.status-box-qtd span {
+  color: #828181;
+  font: 12px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+}
+
+.status-box-qtd:before {
+  background: #E1E1E1;
+  content: "";
+  height: 100%;
+  right: 100px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+@media screen and (max-width: 500px) {
+  .status-box-qtd:before {
+    right: 55px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-qtd:before {
+    right: 45px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .status-box-qtd {
+    text-align: center;
+  }
 }
 
