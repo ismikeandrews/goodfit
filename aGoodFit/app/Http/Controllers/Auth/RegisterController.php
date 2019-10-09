@@ -86,7 +86,7 @@ class RegisterController extends Controller
              Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nomeFoto));
            }
            else {
-             $nomeFoto = 'perfil.jpg';
+             $nomeFoto = 'perfil.png';
            }
 
           Candidato::create([

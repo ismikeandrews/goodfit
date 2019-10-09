@@ -28,11 +28,10 @@ class CandidatoController extends Controller
 
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+
     if($request->hasFile('foto')) {
       $foto = $request->file('foto');
       $nome = time() . '.' . $foto->getClientOriginalExtension();
-
-      Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
     }
 
     if ($candidato->fotoCandidato !== 'perfil.jpg') {
@@ -42,6 +41,7 @@ class CandidatoController extends Controller
       }
     }
 
+    Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
 
     return view('configPerfil')
@@ -49,22 +49,9 @@ class CandidatoController extends Controller
     ->with('usuario', $usuario);
   }
 
-  //colocar no controller curriculo
-  public function formularioCurriculo(){
-    $habilidades = DB::table('tbAdicional')
-        ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
-        ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
-        ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
-        ->orderBy('tbAdicional.nomeAdicional', 'ASC')
-        ->get();
-    $categorias = DB::table('tbCategoria')
-      ->select('tbCategoria.codCategoria', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria')
-      ->orderBy('tbCategoria.nomeCategoria')
-      ->get();
-    $dados = [
-      'habilidades' => $habilidades,
-      'categorias'  => $categorias
-    ];
-    return view('curriculo.curriculo', $dados);
+  public function paginaVagas(){
+    $usuario = Auth::user();
+    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+    return view('vagas')->with('candidato', $candidato);
   }
 }

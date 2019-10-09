@@ -10,6 +10,7 @@ class CreateTbCategoria extends Migration
     Schema::disableForeignKeyConstraints();
     Schema::create('tbCategoria', function(Blueprint $table){
       $table->increments('codCategoria');
+      $table->string('imagemCategoria');
       $table->string('nomeCategoria', 100)->unique();
       $table->timestamps();
     });
