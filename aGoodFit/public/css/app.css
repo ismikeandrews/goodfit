@@ -286,7 +286,12 @@ a {
 }
 
 .container-login:after {
+<<<<<<< HEAD
   background: url(/images/logo-bg.svg?432fd8c1f5e4ebc1e4cbfbc117e2b012) center no-repeat;
+=======
+  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
+  background-size: 335px;
+>>>>>>> 9de538eda55a167c56b9e64c04fffd60019f4946
   content: "";
   display: block;
   height: 330px;
@@ -409,25 +414,30 @@ a {
   margin-left: 5px;
 }
 
-.container {
+.container-cadastro {
   padding: 20px 30px;
 }
 
+.icon-voltar-cadastro,
 .section-cadastro {
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 .intro-desc {
   color: #828181;
-  font: 14px "Raleway Light", "Montserrat Light", "sans-serif";
+  font: 15px "Raleway Light", "Montserrat Light", "sans-serif";
   letter-spacing: 0.5px;
   margin: 5px 0 15px;
+}
+
+.cadastro-intro {
+  padding: 20px 0 10px;
 }
 
 .cadastro-perfil {
   align-items: center;
   display: flex;
-  margin: 30px 0 20px;
+  margin: 10px 0 20px;
 }
 
 .cadastro-perfil-img {
@@ -444,6 +454,10 @@ a {
   color: #828181;
   font: 15px/15px "Raleway Medium", "Montserrat Medium", "sans-serif";
   width: 70%;
+}
+
+.perfil-img {
+  display: none;
 }
 
 .label {
@@ -731,5 +745,141 @@ a {
   .curriculo-etapa3 {
     margin: 20px 0 50px;
   }
+}
+
+.logo-enterprise {
+  position: relative;
+  background-color: #d62718;
+}
+
+.logo-enterprise img {
+  width: 100%;
+}
+
+/*BUTTONS*/
+
+.buttons {
+  position: relative;
+  left: 80px;
+  top: -30px;
+}
+
+/*CONTENT*/
+
+.content {
+  padding: 0 30px 0 30px;
+}
+
+.content h1 {
+  padding: 10px 0 10px 0;
+  font-family: Raleway Bold;
+}
+
+.content p {
+  font-size: 14px;
+  font-family: Raleway Light;
+  line-height: 1.5;
+}
+
+.content a {
+  font-family: Raleway Regular;
+  text-decoration: none;
+  color: #04B2D9;
+}
+
+/*TAGS*/
+
+.tags {
+  padding: 20px;
+  text-align: center;
+}
+
+.tags p {
+  border: 1px solid #04B2D9;
+  color: #04B2D9;
+  display: inline;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/*ABOUT*/
+
+.about {
+  padding-bottom: 30px;
+}
+
+.about-title {
+  font-family: Raleway SemiBold;
+  padding: 10px 0 10px 0;
+  color: #04B2D9;
+  text-transform: uppercase;
+}
+
+.about p {
+  font-family: Raleway Regular;
+  font-size: 14px;
+}
+
+.about ul {
+  text-decoration: none;
+}
+
+.about ul li {
+  font-family: Raleway Regular;
+  font-size: 14px;
+  line-height: 1.5;
+  list-style: none;
+}
+
+/*INTRO*/
+
+.intro {
+  padding: 20px;
+}
+
+.intro-title {
+  font-family: Raleway Bold;
+  font-size: 25px;
+}
+
+.intro-description {
+  font-family: Raleway Light;
+  font-size: 15px;
+  padding: 10px 0 10px 0;
+}
+
+/*MENU*/
+
+.menu-item {
+  display: inline;
+  padding: 20px 35px 10px 30px;
+}
+
+.icon-one {
+  border-bottom: 3px solid #6DD9F1;
+}
+
+.icon-two {
+  border-bottom: 3px solid #63DE9A;
+}
+
+.icon-three {
+  border-bottom: 3px solid #FDCF67;
+}
+
+.icon-for {
+  border-bottom: 3px solid #F06A47;
+}
+
+.menu-item img {
+  width: 35px;
+  height: 35px;
+}
+
+/*CARDS*/
+
+.cards {
+  background: #F2F2F2;
+  width: 100%;
 }
 

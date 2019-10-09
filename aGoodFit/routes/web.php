@@ -15,8 +15,8 @@
 
 
 /* Rota feita para testes da Cyntia, trocar link depois */
-Route::get('/cadastro/qr-code', function () {
-    return view('cadastroQR');
+Route::get('/vagas', function () {
+    return view('vagas');
 });
 
 

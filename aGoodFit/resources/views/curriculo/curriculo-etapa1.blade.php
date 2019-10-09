@@ -18,7 +18,14 @@
 
     <div class="curriculo-etapa1-content is-active">
       <div class="curriculo-etapa1-content-video">
-        <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">
+          
+          <input id="" name="" type="hidden" value="2"> <!--Mike help aqui-->
+          <label for='arquivo-video'>
+            <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">
+          </label>
+          <input id='arquivo-video' type="file" name="video" class="curriculo-video">
+        
+        
         <p class="curriculo-etapa1-content-video-desc">
           Clique para enviar um vídeo sobre você
         </p>

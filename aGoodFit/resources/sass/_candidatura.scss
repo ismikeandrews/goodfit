@@ -1,0 +1,38 @@
+/*INTRO*/
+.intro {
+	padding: 20px;
+}
+
+.intro-title {
+	font-family: Raleway Bold;
+	font-size: 25px;
+}
+
+.intro-description {
+	font-family: Raleway Light;
+	font-size: 15px;
+	padding: 10px 0 10px 0;
+}
+
+
+/*MENU*/
+.menu-item {
+	display: inline;
+	padding: 20px 35px 10px 30px;
+}
+
+.icon-one {border-bottom: 3px solid #6DD9F1;}
+.icon-two {border-bottom: 3px solid #63DE9A;}
+.icon-three {border-bottom: 3px solid #FDCF67;}
+.icon-for {border-bottom: 3px solid #F06A47;}
+
+.menu-item img {
+	width: 35px;
+	height: 35px;
+}
+
+/*CARDS*/
+.cards{
+	background: #F2F2F2;
+	width: 100%;
+}
