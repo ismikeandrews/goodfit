@@ -1,54 +1,125 @@
-.logo-enterprise {
-  position: relative;
-  background-color: #d62718;
+.vagas {
+  padding-top: 30px;
+
+  &-empresa {
+    padding-top: 20px;
+
+    &-logo {
+      display: block;
+      padding: 30px 0 70px;
+      margin: auto;
+      text-align: center;
+
+      &-mc {
+        background: #ef2b2f;
+      }
+
+      &-img {
+        width: 40%;
+
+        @include MQ($medium) {
+          width: 80%;
+        }
+      }
+    }
+  }
 }
 
-.logo-enterprise img {
-  width: 100%;
+.vagas-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: -70px 0 0;
+
+  &-item {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 2px 20px 2px #717171;
+    display: flex;
+    width: 80px;
+    margin: 0 5px;
+    height: 80px;
+    text-align: center;
+  }
+
+  &-icon {
+    margin: auto;
+    width: 30px;
+  }
 }
 
-/*BUTTONS*/
-.buttons{
-  position: relative;
-  left: 80px;
-  top: -30px;
+.container-vagas {
+  margin: -40px 0 0;
+  background: #fff;
+  border-radius: 30px 30px;
+  padding-top: 80px;
 }
 
-/*CONTENT*/
-.content {
-  padding: 0 30px 0 30px;
+.vagas-content {
+  &-title {
+    color: $preto;
+    font: 20px/22px $font-bold;
+    margin: 0 auto 10px;
+    text-align: center;
+    width: 85%;
+  }
+  
+  &-desc {
+    align-items: center;
+    display: flex;
+
+    &-icon {
+      margin: 10px 20px 10px 0;
+      width: 50px;
+    }
+
+    &-nome {
+      color: $azul-primary;
+      font: 20px $font-regular;
+    }
+    
+    &-local {
+      color: $cinza;
+      font: 18px/20px $font-regular;
+    }
+  }
 }
 
-.content h1 {
-  padding: 10px 0 10px 0;
-  font-family: Raleway Bold;
+.vagas-content-tags {
+  display: flex;
+  justify-content: space-between;
+
+  &-item {
+    border: 1px solid $azul-primary;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 15px 0;
+    width: 50%;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &-icon {
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    &-text {
+      color: $cinza;
+      font: 15px $font-semibold;
+    }
+  }
 }
 
-.content p {
-  font-size: 14px;
-  font-family: Raleway Light;
-  line-height: 1.5;
-}
 
-.content a {
-  font-family: Raleway Regular;
-  text-decoration: none;
-  color: #04B2D9;
-}
 
-/*TAGS*/
-.tags {
-  padding: 20px;
-  text-align: center;
-}
 
-.tags p {
-  border: 1px solid #04B2D9;
-  color: #04B2D9;
-  display: inline;
-  padding: 5px;
-  border-radius: 5px;
-}
+
+
+
 
 
 /*ABOUT*/
