@@ -88,7 +88,7 @@
 
     <div class="menu-content">
       <div class="menu-logo">
-        <a class="menu-logo-link" href="{{ url('/vagas') }}">
+        <a class="menu-logo-link" href="{{ url('/candidato/vagas') }}">
             <img src="{{asset('images/componentes/logo-menu.svg')}}" alt="Logo - A Good Fit" class="menu-logo-img">
         </a>
       </div>
@@ -97,7 +97,7 @@
     <div class="menu-content">
       <div class="menu-perfil">
         <a class="menu-perfil-link" href="/candidato/configuracoes">
-          <img src="{{asset('images/componentes/perfil-foto.svg')}}" alt="Imagem do seu perfil" class="menu-perfil-img">
+          <img src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Imagem do seu perfil" class="menu-perfil-img">
         </a>
       </div>
     </div>

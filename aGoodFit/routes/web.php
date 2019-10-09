@@ -15,9 +15,7 @@
 
 
 /* Rota feita para testes da Cyntia, trocar link depois */
-Route::get('/vagas', function () {
-    return view('vagas');
-});
+
 Route::get('/status', function () {
     return view('status');
 });
@@ -47,6 +45,7 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
+Route::get('/vagas', 'CandidatoController@paginaVagas')->middleware('auth');
 Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
 Route::post('/configuracoes', 'CandidatoController@atualizarPerfil');
 // Comentado só para testes, descomentar depois
