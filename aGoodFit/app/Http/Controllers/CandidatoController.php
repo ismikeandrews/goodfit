@@ -6,6 +6,7 @@ use App\Candidato;
 use App\NivelUsuario;
 use App\Usuario;
 use Illuminate\Support\Facades\DB;
+use File;
 use Image;
 use Auth;
 
@@ -30,24 +31,32 @@ class CandidatoController extends Controller
   }
 
   public function atualizarPerfil(Request $request){
+
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
     if($request->hasFile('foto')) {
-
       $foto = $request->file('foto');
       $nome = time() . '.' . $foto->getClientOriginalExtension();
 
       Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
-
-      DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
     }
+
+    if ($candidato->fotoCandidato !== 'perfil.jpg') {
+      $file = public_path('images/candidatos/' . $candidato->fotoCandidato);
+      if (File::exists($file)) {
+         unlink($file);
+      }
+    }
+    
+    DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
 
     return view('configPerfil')
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
   }
 
+  //colocar no controller curriculo
   public function formularioCurriculo(){
     return view('curriculo.curriculo');
   }
