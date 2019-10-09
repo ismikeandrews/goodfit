@@ -14,25 +14,25 @@
             <h3 class="intro-desc">Preencha os dados cadastrais</h3>
         </div>
 
-        <div class="cadastro-perfil">
-            <div class="cadastro-perfil-img">
-                <input id="codNivelUsuario" name="codNivelUsuario" type="hidden" value="2">
-                <label for='arquivo-foto'>
-                    <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
-                </label>
-                <input id='arquivo-foto' type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png, .svg">
-            </div>
-            <div class="cadastro-perfil-desc">
-                Clique no ícone para inserir sua imagem
-            </div>
-        </div>
-
-        <div class="form-legend">
-          Dados Pessoais
-        </div>
-
         <form enctype="multipart/form-data" class="form" method="POST" action="{{ route('register') }}">
           @csrf
+            <div class="cadastro-perfil">
+                <div class="cadastro-perfil-img">
+                    <label for='arquivo-foto'>
+                        <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
+                    </label>
+                    <input id='arquivo-foto' type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png">
+                </div>
+                <div class="cadastro-perfil-desc">
+                    Clique no ícone para inserir sua imagem
+                </div>
+            </div>
+
+            <div class="form-legend">
+              Dados Pessoais
+            </div>
+
+            <input id="codNivelUsuario" name="codNivelUsuario" type="hidden" value="2">
             <div class="form-inputs">
                 <div class="form-input-nome">
                   <input id="nome" type="text" placeholder="Nome" class="form-input-item @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" autocomplete="nome" autofocus>
@@ -65,7 +65,7 @@
             </div>
             <div class="form-inputs">
               <div class="form-input-data-nascimento">
-                  <input id="data-nascimento" type="date" placeholder="Data de nascimento" class="form-input-item @error('nascimento') is-invalid @enderror" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
+                  <input id="data-nascimento" type="date" placeholder="dd/mm/AAAA" class="form-input-item @error('nascimento') is-invalid @enderror" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
                   @error('nascimento')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
