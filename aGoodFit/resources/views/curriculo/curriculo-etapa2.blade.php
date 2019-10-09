@@ -4,7 +4,8 @@
 <div class="curriculo-desc">
     Eu sou bom com<span>...</span>
 </div>
-
+<form class="curriculo-form" action="/curriculo/formulario" method="post">
+  @csrf
 <div class="curriculo-etapa2">
     @foreach ($habilidades as $habilidade)
         <div class="curriculo-content-item">
@@ -18,3 +19,5 @@
         </div>
     @endforeach
 </div>
+<button type="submit" name="button">Envie</button>
+</form>

@@ -16,13 +16,6 @@
 
 /* Rota feita para testes da Cyntia, trocar link depois */
 
-Route::get('/status', function () {
-    return view('status');
-});
-
-
-
-
 
 Auth::routes();
 
@@ -46,6 +39,7 @@ Route::prefix('curriculo')->group(function() {
 
 Route::post('/formulario', 'CurriculoController@novoCurriculo');
 Route::get('/formulario', 'CurriculoController@formularioCurriculo');
+Route::get('/status', 'CurriculoController@paginaStatus');
 
 
 //Excluir e Editar dados e Validar

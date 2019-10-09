@@ -30,6 +30,12 @@ class CurriculoController extends Controller
     return view('curriculo.curriculo', $dados)->with('candidato', $candidato);
   }
 
+  public function paginaStatus(){
+    $usuario = Auth::user();
+    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+    return view('status')->with('candidato', $candidato);
+  }
+
   public function novoCurriculo(Request $request){
     dd($request);
   }
