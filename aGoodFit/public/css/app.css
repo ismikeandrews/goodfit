@@ -753,17 +753,14 @@ a {
 
 .vagas-empresa {
   padding-top: 20px;
+  position: relative;
 }
 
 .vagas-empresa-logo {
   display: block;
-  padding: 30px 0 70px;
+  padding-bottom: 10px;
   margin: auto;
   text-align: center;
-}
-
-.vagas-empresa-logo-mc {
-  background: #ef2b2f;
 }
 
 .vagas-empresa-logo-img {
@@ -772,7 +769,7 @@ a {
 
 @media screen and (max-width: 500px) {
   .vagas-empresa-logo-img {
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -780,7 +777,9 @@ a {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: -70px 0 0;
+  margin-top: -80px;
+  position: relative;
+  z-index: 3;
 }
 
 .vagas-btn-item {
@@ -788,10 +787,17 @@ a {
   border-radius: 50%;
   box-shadow: 2px 2px 20px 2px #717171;
   display: flex;
-  width: 80px;
-  margin: 0 5px;
   height: 80px;
+  margin: 0 5px;
   text-align: center;
+  width: 80px;
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-btn-item {
+    height: 65px;
+    width: 65px;
+  }
 }
 
 .vagas-btn-icon {
@@ -799,11 +805,24 @@ a {
   width: 30px;
 }
 
+@media screen and (max-width: 380px) {
+  .vagas-btn-icon {
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-btn {
+    margin-top: -65px;
+  }
+}
+
 .container-vagas {
-  margin: -40px 0 0;
   background: #fff;
   border-radius: 30px 30px;
+  margin: -40px 0 0;
   padding-top: 80px;
+  position: absolute;
 }
 
 .vagas-content-title {
@@ -829,9 +848,21 @@ a {
   font: 20px "Raleway Regular", "Montserrat Regular", "sans-serif";
 }
 
+@media screen and (max-width: 380px) {
+  .vagas-content-desc-nome {
+    font-size: 18px;
+  }
+}
+
 .vagas-content-desc-local {
   color: #828181;
   font: 18px/20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-content-desc-local {
+    font-size: 16px;
+  }
 }
 
 .vagas-content-tags {
@@ -863,17 +894,17 @@ a {
   font: 15px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
 }
 
-/*ABOUT*/
-
-.about {
-  padding-bottom: 30px;
+.vagas-content-sobre-title {
+  font: 18px/25px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  color: #04B2D9;
+  margin: 15px 0 5px;
+  text-transform: uppercase;
 }
 
-.about-title {
-  font-family: Raleway SemiBold;
-  padding: 10px 0 10px 0;
-  color: #04B2D9;
-  text-transform: uppercase;
+.vagas-content-sobre-desc {
+  color: #2a2a2a;
+  font: 15px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  letter-spacing: 0.5px;
 }
 
 .about p {

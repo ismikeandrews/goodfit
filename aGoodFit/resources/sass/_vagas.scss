@@ -3,22 +3,19 @@
 
   &-empresa {
     padding-top: 20px;
+    position: relative;
 
     &-logo {
       display: block;
-      padding: 30px 0 70px;
+      padding-bottom: 10px;
       margin: auto;
       text-align: center;
-
-      &-mc {
-        background: #ef2b2f;
-      }
 
       &-img {
         width: 40%;
 
         @include MQ($medium) {
-          width: 80%;
+          width: 100%;
         }
       }
     }
@@ -29,30 +26,46 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: -70px 0 0;
+  margin-top: -80px;
+  position: relative;
+  z-index: 3;
 
   &-item {
     background: #fff;
     border-radius: 50%;
     box-shadow: 2px 2px 20px 2px #717171;
     display: flex;
-    width: 80px;
-    margin: 0 5px;
     height: 80px;
+    margin: 0 5px;
     text-align: center;
+    width: 80px;
+
+    @include MQ($small) {
+      height: 65px;
+      width: 65px;
+    }
   }
 
   &-icon {
     margin: auto;
     width: 30px;
+    
+    @include MQ($small) {
+      width: 25px;
+    }
+  }
+
+  @include MQ($small) {
+    margin-top: -65px;
   }
 }
 
 .container-vagas {
-  margin: -40px 0 0;
   background: #fff;
   border-radius: 30px 30px;
+  margin: -40px 0 0;
   padding-top: 80px;
+  position: absolute;
 }
 
 .vagas-content {
@@ -76,11 +89,19 @@
     &-nome {
       color: $azul-primary;
       font: 20px $font-regular;
+      
+      @include MQ($small) {
+        font-size: 18px;
+      }
     }
     
     &-local {
       color: $cinza;
       font: 18px/20px $font-regular;
+
+      @include MQ($small) {
+        font-size: 16px;
+      }
     }
   }
 }
@@ -121,16 +142,19 @@
 
 
 
+.vagas-content-sobre {
+  &-title {
+    font: 18px/25px $font-bold;
+    color: $azul-primary;
+    margin: 15px 0 5px;
+    text-transform: uppercase;
+  }
 
-/*ABOUT*/
-.about {
-  padding-bottom: 30px;
-}
-.about-title {
-  font-family: Raleway SemiBold;
-  padding: 10px 0 10px 0;
-  color: #04B2D9;
-  text-transform: uppercase;
+  &-desc {
+    color: $preto;
+    font: 15px/23px $font-regular;
+    letter-spacing: 0.5px;
+  }
 }
 
 .about p {
