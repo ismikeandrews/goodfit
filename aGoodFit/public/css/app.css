@@ -754,6 +754,7 @@ a {
 .vagas-empresa {
   padding-top: 20px;
   position: relative;
+  z-index: -1;
 }
 
 .vagas-empresa-logo {
@@ -779,7 +780,6 @@ a {
   justify-content: center;
   margin-top: -80px;
   position: relative;
-  z-index: 3;
 }
 
 .vagas-btn-item {
@@ -823,6 +823,7 @@ a {
   margin: -40px 0 0;
   padding-top: 80px;
   position: absolute;
+  z-index: -1;
 }
 
 .vagas-content-title {
