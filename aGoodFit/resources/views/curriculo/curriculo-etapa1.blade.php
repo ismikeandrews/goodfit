@@ -17,7 +17,7 @@
     </div>
 
     <div class="curriculo-etapa1-content is-active">       
-        <input id="" name="" type="hidden" accept=".mp4, .avi, .mkv, .ogg, .ogm, .mpg, .mpeg, .vob, .bvcd, .bsvcd"> <!--Mike help aqui-->
+        <input id="" name="" type="hidden"> <!--Mike help aqui-->
         <label for='arquivo-video'>
           <div class="curriculo-etapa1-content-video">
             <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">
@@ -27,7 +27,7 @@
             </p>
           </div>
         </label>
-        <input id='arquivo-video' type="file" name="video" class="curriculo-video">
+        <input id='arquivo-video' type="file" name="video" class="curriculo-video" accept=".mp4, .avi, .mkv, .ogg, .ogm, .mpg, .mpeg, .vob, .bvcd, .bsvcd">
     </div>
 
     <div class="curriculo-etapa1-content">

@@ -16,11 +16,11 @@
 
         <div class="cadastro-perfil">
             <div class="cadastro-perfil-img">
-                <input id="codNivelUsuario" name="codNivelUsuario" type="hidden" value="2" accept=".jpg, .jpeg, .png, .svg">
+                <input id="codNivelUsuario" name="codNivelUsuario" type="hidden" value="2">
                 <label for='arquivo-foto'>
                     <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
                 </label>
-                <input id='arquivo-foto' type="file" name="foto" class="perfil-img">
+                <input id='arquivo-foto' type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png, .svg">
             </div>
             <div class="cadastro-perfil-desc">
                 Clique no ícone para inserir sua imagem

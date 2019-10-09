@@ -45,6 +45,7 @@ if (etapa) {
     if (linha > 0) {
       btnVoltar.classList.remove('is-disable');
     }
+    window.scroll(0, 0);
   });
   
   /* Curriculo - Botão Voltar */
@@ -62,5 +63,6 @@ if (etapa) {
     if (linha === 0) {
       btnVoltar.classList.add('is-disable');
     }
+    window.scroll(0, 0);
   });
 }

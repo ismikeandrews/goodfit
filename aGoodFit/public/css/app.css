@@ -234,10 +234,6 @@ a {
   width: 48%;
 }
 
-.curriculo-content-item:first-child {
-  margin-right: 20px;
-}
-
 @media screen and (max-width: 380px) {
   .curriculo-content {
     display: block;
@@ -728,6 +724,8 @@ a {
 }
 
 .curriculo-etapa2 {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
@@ -738,6 +736,8 @@ a {
 }
 
 .curriculo-etapa3 {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
