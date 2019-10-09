@@ -18,6 +18,9 @@
 Route::get('/vagas', function () {
     return view('vagas');
 });
+Route::get('/status', function () {
+    return view('status');
+});
 
 
 
