@@ -49,33 +49,46 @@
 			</div>
 
 			<div class="vagas-content-sobre">
-				<h3 class="vagas-content-sobre-title">Descrição</h3>
-				<p class="vagas-content-sobre-desc">
-					Auxiliar no pré-preparodos alimentos solicitados pelos clientes, seguindo os procedimentosoperacionais padronizados determinados pelo Outback, mantendo sempre aconfidencialidade dos ingredientes e procedimentos envolvidos durante oprocesso, agilizando a finalização dos produtos garantindo a qualidade Outback.
-				</p>
+				<div class="vagas-content-sobre-desc">
+					<h3 class="vagas-content-sobre-title">Descrição</h3>
+					<p class="vagas-content-sobre-text">
+						Auxiliar no pré-preparodos alimentos solicitados pelos clientes, seguindo os procedimentosoperacionais padronizados determinados pelo Outback, mantendo sempre aconfidencialidade dos ingredientes e procedimentos envolvidos durante oprocesso, agilizando a finalização dos produtos garantindo a qualidade Outback.
+					</p>
+				</div>
+				
+				<div class="vagas-content-sobre-requisitos">
+					<h3 class="vagas-content-sobre-title">Requisitos</h3>
+					<div class="vagas-content-sobre-requisitos-item">
+						<div class="curriculo-content-item">
+							<div class="curriculo-content-item-label">
+								<img src='{{asset("images/icones/habilidades/comunicativo.png")}}' alt="Requisito - Comunicativo" class="curriculo-content-item-label-icon">
+								<p class="curriculo-content-item-label-desc">
+									Comunicativo
+								</p>
+							</div>
+						</div>
+					
+						<div class="curriculo-content-item">
+							<div class="curriculo-content-item-label">
+								<img src='{{asset("images/icones/habilidades/relacionamento.png")}}' alt="Requisito - Bom relacionamento" class="curriculo-content-item-label-icon">
+								<p class="curriculo-content-item-label-desc">
+									Relacionamento
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-				<h3 class="vagas-content-sobre-title">Requisitos</h3>
-					<ul>
-						<li>- Certificado no Google Ads avançado</li>
-						<li>- Certificado no Google Analytics avançado</li>
-						<li>- Experiência comprovada em gerenciamento</li>
-						<li>- Perfil analítico</li>
+				<div class="vagas-content-sobre-beneficios">
+					<h3 class="vagas-content-sobre-title">Benefícios</h3>
+					<ul class="vagas-content-sobre-beneficios-list">
+						<li class="vagas-content-sobre-beneficios-list-item">VT</li>
+						<li class="vagas-content-sobre-beneficios-list-item">VR / VA</li>
+						<li class="vagas-content-sobre-beneficios-list-item">Convênio Médico</li>
+						<li class="vagas-content-sobre-beneficios-list-item">Convênio Odontológico</li>
+						<li class="vagas-content-sobre-beneficios-list-item">Happy Hour</li>
 					</ul>
-
-				<h3 class="vagas-content-sobre-title">Desejável</h3>
-					<ul>
-						<li>- Conhecimento de estratégias de Marketing</li>
-						<li>- Ensino Superior completo ou cursando</li>
-					</ul>
-
-				<h3 class="vagas-content-sobre-title">Benefícios</h3>
-				<ul>
-					<li>- VT</li>
-					<li>- VR / VA</li>
-					<li>- Convênio Médico</li>
-					<li>- Convênio Odontológico</li>
-					<li>- Happy Hour</li>
-				</ul>
+				</div>
 			</div>
 		</div>
 	</div>

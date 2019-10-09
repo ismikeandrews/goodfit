@@ -136,40 +136,47 @@
   }
 }
 
-
-
-
-
-
-
-
 .vagas-content-sobre {
   &-title {
     font: 18px/25px $font-bold;
     color: $azul-primary;
-    margin: 15px 0 5px;
+    margin: 30px 0 5px;
     text-transform: uppercase;
   }
 
-  &-desc {
+  &-text {
     color: $preto;
     font: 15px/23px $font-regular;
     letter-spacing: 0.5px;
+    max-height: 90px;
+    overflow-y: auto;
   }
-}
 
-.about p {
-  font-family: Raleway Regular;
-  font-size: 14px;
-}
+  &-requisitos-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
 
-.about ul {
-  text-decoration: none;
-}
+  &-beneficios-list {
+    &-item {
+      color: $preto;
+      font: 20px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
+      margin: 13px 25px 0;
+      position: relative;
 
-.about ul li {
-  font-family: Raleway Regular;
-  font-size: 14px;
-  line-height: 1.5;
-  list-style: none;
+      &:before {
+        border: 1px solid $azul-primary;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: 10px;
+        left: -30px;
+        position: absolute;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 10px;
+      }
+    }
+  }
 }

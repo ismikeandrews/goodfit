@@ -898,30 +898,42 @@ a {
 .vagas-content-sobre-title {
   font: 18px/25px "Raleway Bold", "Montserrat Bold", "sans-serif";
   color: #04B2D9;
-  margin: 15px 0 5px;
+  margin: 30px 0 5px;
   text-transform: uppercase;
 }
 
-.vagas-content-sobre-desc {
+.vagas-content-sobre-text {
   color: #2a2a2a;
   font: 15px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
   letter-spacing: 0.5px;
+  max-height: 90px;
+  overflow-y: auto;
 }
 
-.about p {
-  font-family: Raleway Regular;
-  font-size: 14px;
+.vagas-content-sobre-requisitos-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
 }
 
-.about ul {
-  text-decoration: none;
+.vagas-content-sobre-beneficios-list-item {
+  color: #2a2a2a;
+  font: 20px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  margin: 13px 25px 0;
+  position: relative;
 }
 
-.about ul li {
-  font-family: Raleway Regular;
-  font-size: 14px;
-  line-height: 1.5;
-  list-style: none;
+.vagas-content-sobre-beneficios-list-item:before {
+  border: 1px solid #04B2D9;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 10px;
+  left: -30px;
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 10px;
 }
 
 .aprovado {
