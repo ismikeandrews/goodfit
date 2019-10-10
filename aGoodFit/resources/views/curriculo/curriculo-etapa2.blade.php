@@ -11,7 +11,7 @@
         <div class="curriculo-select-arrow">
             <div class="curriculo-select js-curriculo-parent">
               <label class="curriculo-content-item-label curriculo-select-box">
-                  <img src='{{asset("images/icones/requisitos/escolaridade.png")}}' alt="Requisito - Nível de escolaridade" class="curriculo-content-item-label-icon">
+                  <img src='{{asset("images/icones/requisitos/escolaridade.png")}}' alt="Requisito - Nível de escolaridade" class="curriculo-content-item-label-icon curriculo-select-box-icon">
                   <div class="curriculo-select-content js-curriculo-text">
                     Escolaridade
                   </div>
@@ -35,7 +35,7 @@
         <div class="curriculo-select-arrow">
             <div class="curriculo-select js-curriculo-parent">
               <label class="curriculo-content-item-label curriculo-select-box">
-                  <img src='{{asset("images/icones/requisitos/alfabetizacao.png")}}' alt="Requisito - Nível de alfabetização" class="curriculo-content-item-label-icon">
+                  <img src='{{asset("images/icones/requisitos/alfabetizacao.png")}}' alt="Requisito - Nível de alfabetização" class="curriculo-content-item-label-icon curriculo-select-box-icon">
                   <div class="curriculo-select-content js-curriculo-text">
                     Alfabetização
                   </div>

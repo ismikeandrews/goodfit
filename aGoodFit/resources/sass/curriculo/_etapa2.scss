@@ -17,6 +17,10 @@
 .curriculo-select-box {
     background: $branco;
     position: relative;
+
+    &-icon {
+        padding-bottom: 25px;
+    }
 }
   
 .curriculo-select-content {
@@ -27,7 +31,7 @@
     position: absolute;
     width: 100%;
 }
-  
+
 .curriculo-select-list {
     background: #e8e8e8;
     border-radius: 0 0 20px 20px;
@@ -39,7 +43,7 @@
     z-index: -1;
 
     @include MQ($medium) {
-        width: 98%;
+        width: 100%;
     }
 
     &.is-active {
@@ -60,7 +64,7 @@
         }
 
         &:last-child {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
     }
 }
@@ -69,7 +73,7 @@
     position: relative;
   
     &:after {
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         border-bottom-color: $cinza;
         border-right-color: $cinza;
         content: "";

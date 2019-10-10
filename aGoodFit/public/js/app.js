@@ -265,7 +265,7 @@ listCurriculoParent.forEach(function (elem, idx) {
     } else {
       listCurriculo.classList.add('is-active');
       var height = listCurriculoContent.offsetHeight;
-      listCurriculo.style.height = "".concat(height, "px");
+      listCurriculo.style.height = "".concat(height + 40, "px");
     }
 
     listCurriculoAll.forEach(function (elem, idx) {

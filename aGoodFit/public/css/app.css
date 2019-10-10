@@ -770,6 +770,10 @@ a {
   position: relative;
 }
 
+.curriculo-select-box-icon {
+  padding-bottom: 25px;
+}
+
 .curriculo-select-content {
   bottom: 0;
   color: #ababab;
@@ -792,7 +796,7 @@ a {
 
 @media screen and (max-width: 500px) {
   .curriculo-select-list {
-    width: 98%;
+    width: 100%;
   }
 }
 
@@ -815,7 +819,7 @@ a {
 }
 
 .curriculo-select-list-item:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .curriculo-select-arrow {
@@ -823,7 +827,7 @@ a {
 }
 
 .curriculo-select-arrow:after {
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-bottom-color: #828181;
   border-right-color: #828181;
   content: "";
