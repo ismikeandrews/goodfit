@@ -19,7 +19,13 @@ Route::get('/cadastro/qr-code', function () {
     return view('cadastroQR');
 });
 
+Route::get('/teste', function () {
+    return view('vagas');
+});
 
+Route::get('/candidatura', function () {
+    return view('candidatura');
+});
 
 
 
