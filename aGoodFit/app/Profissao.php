@@ -11,6 +11,6 @@ class Profissao extends Model
     protected $fillable = ['nomeProfissao', 'codCategoria'];
 
     public function Categoria(){
-    	return $this->hasOne(Categoria::class, 'codProfissao', 'codCategoria');
+    	return $this->hasMany(Categoria::class, 'codCategoria', 'codProfissao');
     }
 }

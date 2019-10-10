@@ -42,25 +42,24 @@ class CurriculoController extends Controller
   public function novoCurriculo(Request $request){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    $this->validate($request, [
-      'descricao' => 'string'
-    ]);
-
+    
     $curriculo = Curriculo::create([
       'videoCurriculo' => $request->input('videoCandidato'),
       'descricaoCandidato' => $request->input('descricaoCandidato'),
       'codCandidato' => $candidato->codCandidato,
     ]);
+
     foreach ($request->habilidades as $key) {
       AdicionalCurriculo::create([
         'codAdicional' => $key,
-        'codCurriculo' =>$curriculo->codCurriculo,
+        'codCurriculo' => $curriculo->codCurriculo,
       ]);
     }
+
     foreach ($request->categorias as $key) {
       CargoCurriculo::create([
-        'codCargo' => $key,
-        'codCurriculo' =>$curriculo->codCurriculo,
+        'codProfissao' => $key,
+        'codCurriculo' => $curriculo->codCurriculo,
       ]);
     }
     return redirect('/home');
