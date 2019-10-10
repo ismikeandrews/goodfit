@@ -1,0 +1,9 @@
+.curriculo-etapa3 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    @include MQ($small) {
+        margin: 20px 0 50px
+    }
+}
