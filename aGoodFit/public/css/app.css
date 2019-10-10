@@ -80,9 +80,26 @@ a {
 }
 
 .menu-perfil {
-  right: 25px;
+  bottom: 0;
   position: absolute;
+  right: 15px;
   z-index: -1;
+}
+
+@media screen and (max-width: 380px) {
+  .menu-perfil {
+    bottom: 7px;
+  }
+}
+
+.menu-perfil-img {
+  width: 50px;
+}
+
+@media screen and (max-width: 380px) {
+  .menu-perfil-img {
+    width: 40px;
+  }
 }
 
 /* MENU LATERAL */
@@ -209,6 +226,7 @@ a {
 }
 
 .form-inputs {
+  border-radius: 10px;
   display: block;
   padding-right: 15px;
 }
@@ -934,6 +952,34 @@ a {
   top: 50%;
   transform: translate(50%, -50%);
   width: 10px;
+}
+
+.container-perfil {
+  padding-top: 80px;
+}
+
+.content-perfil-image {
+  display: block;
+  text-align: center;
+}
+
+.content-perfil-image-img {
+  border: 5px solid #04B2D9;
+  border-radius: 50%;
+  height: 200px;
+  margin: 30px auto 20px;
+  width: 200px;
+}
+
+.content-perfil-input-foto {
+  display: none;
+}
+
+.form-input-item-perfil {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  margin: 10px 0;
 }
 
 .aprovado {
