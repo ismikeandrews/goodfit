@@ -33,8 +33,8 @@ Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 //Curriculo
 Route::prefix('curriculo')->group(function() {
 
-Route::post('/formulario', 'CurriculoController@novoCurriculo');
-Route::get('/formulario', 'CurriculoController@formularioCurriculo');
+Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
+Route::get('/formulario', 'CurriculoController@formularioCurriculo')->middleware('auth');
 Route::get('/status', 'CurriculoController@paginaStatus');
 
 
@@ -47,9 +47,8 @@ Route::prefix('candidato')->group(function() {
 Route::get('/vagas', 'CandidatoController@paginaVagas')->middleware('auth');
 Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
 Route::post('/configuracoes', 'CandidatoController@atualizarPerfil');
-// Comentado só para testes, descomentar depois
-Route::get('/curriculo', 'CandidatoController@formularioCurriculo');
-// Route::get('/curriculo', 'CandidatoController@formularioCurriculo')->middleware('auth');
+
+
 
 //Excluir e Editar dados e Validar
 

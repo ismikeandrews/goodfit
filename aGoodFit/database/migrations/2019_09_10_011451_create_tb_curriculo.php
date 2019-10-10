@@ -11,7 +11,8 @@ class CreateTbCurriculo extends Migration
 
     Schema::create('tbCurriculo', function(Blueprint $table){
       $table->increments('codCurriculo');
-      $table->text('videoCurriculo');
+      $table->string('videoCurriculo');
+      $table->string('descricaoCandidato')->nullable();
       $table->integer('codCandidato')->unsigned();
       $table->timestamps();
     });
