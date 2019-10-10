@@ -80,6 +80,6 @@ class CurriculoController extends Controller
         'codCurriculo' => $curriculo->codCurriculo,
       ]);
     }
-    return redirect('/home');
+    return redirect('/candidato/vagas');
   }
 }
