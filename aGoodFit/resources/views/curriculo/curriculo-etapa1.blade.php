@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="curriculo-etapa1-content is-active">       
+    <div class="curriculo-etapa1-content is-active">
         <input id="" name="" type="hidden"> <!--Mike help aqui-->
         <label for='arquivo-video'>
           <div class="curriculo-etapa1-content-video">
@@ -27,14 +27,12 @@
             </p>
           </div>
         </label>
-        <input id='arquivo-video' type="file" name="video" class="curriculo-video" accept=".mp4, .avi, .mkv, .ogg, .ogm, .mpg, .mpeg, .vob, .bvcd, .bsvcd">
+        <input id='arquivo-video' type="file" name="videoCandidato" class="curriculo-video" accept=".mp4, .avi, .mkv, .ogg, .ogm, .mpg, .mpeg, .vob, .bvcd, .bsvcd">
     </div>
 
     <div class="curriculo-etapa1-content">
       <div class="curriculo-etapa1-content-text">
-        <form class="curriculo-etapa1-form" action="index.html" method="post">
-          <textarea class="curriculo-etapa1-textarea" placeholder="Escreva uma breve descrição sobre você..."></textarea>
-        </form>
+          <textarea name="descricaoCandidato" class="curriculo-etapa1-textarea" placeholder="Escreva uma breve descrição sobre você..."></textarea>
       </div>
       <div class="box-hidden">
       </div>
