@@ -1,19 +1,19 @@
 <div class="curriculo-title">
-    Objetivo profissional
-  </div>
-  <div class="curriculo-desc">
-    Gostaria de trabalhar com<span>...</span>
-  </div>
-  <div class="curriculo-etapa3">
-    @foreach ($categorias as $categoria)
-    <div class="curriculo-content-item">
-        <input value="{{$categoria->codCategoria}}" type="checkbox" id="objetivo-{{$categoria->nomeCategoria}}" class="curriculo-checkbox" name="categorias[]"/>
-        <label class="curriculo-content-item-label" for="objetivo-{{$categoria->nomeCategoria}}">
-          <img src='{{asset("images/icones/profissao/$categoria->imagemCategoria")}}' alt="Objetivo Profissional - {{$categoria->nomeCategoria}}" class="curriculo-content-item-label-icon">
-          <p class="curriculo-content-item-label-desc">
-            {{$categoria->nomeCategoria}}
-          </p>
-        </label>
-    </div>
+    Habilidades
+</div>
+<div class="curriculo-desc">
+    Eu sou bom com<span>...</span>
+</div>
+<div class="curriculo-etapa3">
+    @foreach ($habilidades as $habilidade)
+        <div class="curriculo-content-item">
+          <input value="{{$habilidade->codAdicional}}" type="checkbox" id="habilidade-{{$habilidade->nomeAdicional}}" class="curriculo-checkbox" name="habilidades[]"/>
+            <label class="curriculo-content-item-label" for="habilidade-{{$habilidade->nomeAdicional}}">
+                <img src='{{asset("images/icones/habilidades/$habilidade->imagemAdicional")}}' alt="Habilidades - Bom com {{$habilidade->nomeAdicional}}" class="curriculo-content-item-label-icon">
+                <p class="curriculo-content-item-label-desc">
+                    {{$habilidade->nomeAdicional}}
+                </p>
+            </label>
+        </div>
     @endforeach
-  </div>
+</div>

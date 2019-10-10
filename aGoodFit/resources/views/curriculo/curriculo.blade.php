@@ -47,7 +47,7 @@
         @include('curriculo.curriculo-etapa3')
       </div>
       <div class="counter-etapas-content">
-        @include('curriculo.curriculo-etapa-extra')
+        @include('curriculo.curriculo-etapa4')
       </div>
 
       <!-- <button type="submit" name="button">enviar</button> -->

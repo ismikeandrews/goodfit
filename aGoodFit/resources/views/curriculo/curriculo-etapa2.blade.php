@@ -1,19 +1,56 @@
 <div class="curriculo-title">
-    Habilidades
-</div>
+    Requisitos
+  </div>
 <div class="curriculo-desc">
-    Eu sou bom com<span>...</span>
+   Formações básicas em<span>...</span>
 </div>
+
 <div class="curriculo-etapa2">
-    @foreach ($habilidades as $habilidade)
-        <div class="curriculo-content-item">
-          <input value="{{$habilidade->codAdicional}}" type="checkbox" id="habilidade-{{$habilidade->nomeAdicional}}" class="curriculo-checkbox" name="habilidades[]"/>
-            <label class="curriculo-content-item-label" for="habilidade-{{$habilidade->nomeAdicional}}">
-                <img src='{{asset("images/icones/habilidades/$habilidade->imagemAdicional")}}' alt="Habilidades - Bom com {{$habilidade->nomeAdicional}}" class="curriculo-content-item-label-icon">
-                <p class="curriculo-content-item-label-desc">
-                    {{$habilidade->nomeAdicional}}
-                </p>
-            </label>
+
+    <div class="curriculo-content-item curriculo-content-item-etapa-2" id="requisito-escolaridade">
+        <div class="curriculo-select-arrow">
+            <div class="curriculo-select js-curriculo-parent">
+              <label class="curriculo-content-item-label curriculo-select-box">
+                  <img src='{{asset("images/icones/requisitos/escolaridade.png")}}' alt="Requisito - Nível de escolaridade" class="curriculo-content-item-label-icon">
+                  <div class="curriculo-select-content js-curriculo-text">
+                    Escolaridade
+                  </div>
+              </label>
+              
+              <div class="curriculo-select-list js-curriculo-list">
+                <div class="curriculo-select-list-content js-curriculo-list-content">
+                  @foreach ($escolaridades as $escolaridade)
+                    <div data-value="{{$escolaridade->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
+                        {{$escolaridade->nomeAdicional}}
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
         </div>
-    @endforeach
+    </div>
+
+
+    <div class="curriculo-content-item curriculo-content-item-etapa-2" id="requisito-alfabetizacao">
+        <div class="curriculo-select-arrow">
+            <div class="curriculo-select js-curriculo-parent">
+              <label class="curriculo-content-item-label curriculo-select-box">
+                  <img src='{{asset("images/icones/requisitos/alfabetizacao.png")}}' alt="Requisito - Nível de alfabetização" class="curriculo-content-item-label-icon">
+                  <div class="curriculo-select-content js-curriculo-text">
+                    Alfabetização
+                  </div>
+              </label>
+              
+              <div class="curriculo-select-list js-curriculo-list">
+                <div class="curriculo-select-list-content js-curriculo-list-content">
+                  @foreach ($alfabetizacoes as $alfabetizacao)
+                    <div data-value="{{$alfabetizacao->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
+                        {{$alfabetizacao->nomeAdicional}}
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
 </div>
