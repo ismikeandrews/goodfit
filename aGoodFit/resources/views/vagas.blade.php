@@ -10,11 +10,17 @@
 	</div>
 
 	<div class="vagas-btn">
+		<div class="vagas-btn-item vagas-btn-side-item">
+			<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Recusar vaga" class="vagas-btn-side-icon">
+		</div>
 		<div class="vagas-btn-item">
 			<img src="{{asset('images/componentes/vagas-x.svg')}}" alt="Recusar vaga" class="vagas-btn-icon">
 		</div>
 		<div class="vagas-btn-item">
 			<img src="{{asset('images/componentes/vagas-check.svg')}}" alt="Aceitar vaga" class="vagas-btn-icon">
+		</div>
+		<div class="vagas-btn-item vagas-btn-side-item">
+			<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Aceitar vaga" class="vagas-btn-side-icon">
 		</div>
 	</div>
 		

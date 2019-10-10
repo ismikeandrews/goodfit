@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 body {
   background: #F2F2F2;
   font-family: "Raleway Regular", "Montserrat Regular", "sans-serif";
@@ -885,6 +887,7 @@ a {
   justify-content: center;
   margin-top: -80px;
   position: relative;
+  /* Botões de prev e next */
 }
 
 .vagas-btn-item {
@@ -920,6 +923,28 @@ a {
   .vagas-btn {
     margin-top: -65px;
   }
+}
+
+.vagas-btn-side-item {
+  align-items: center;
+  height: 40px;
+  justify-content: center;
+  margin: 10px;
+  width: 40px;
+}
+
+.vagas-btn-side-item:first-child {
+  margin-right: 20px;
+}
+
+.vagas-btn-side-item:last-child {
+  margin-left: 20px;
+  transform: rotate(180deg);
+}
+
+.vagas-btn-side-icon {
+  height: 25px;
+  width: 25px;
 }
 
 .container-vagas {
