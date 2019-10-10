@@ -37,6 +37,12 @@ class CurriculoController extends Controller
   }
 
   public function novoCurriculo(Request $request){
-    dd($request);
+    $this->validate($request, [
+      'descricao' => 'string'
+    ]);
+
+    $curriculo = Curriculo::create([
+      '' => $request->input('titulo'),
+    ]);
   }
 }

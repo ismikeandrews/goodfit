@@ -765,6 +765,18 @@ a {
   }
 }
 
+.curriculo-etapa3 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-etapa3 {
+    margin: 20px 0 50px;
+  }
+}
+
 .vagas {
   padding-top: 30px;
 }

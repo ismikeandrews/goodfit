@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
 
   <!-- CSRF Token -->
+  <meta name="theme-color" content="#444444">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>GoodFit</title>

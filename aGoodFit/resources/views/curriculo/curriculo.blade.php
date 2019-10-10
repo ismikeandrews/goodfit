@@ -27,10 +27,16 @@
                     3
                 </p>
             </div>
+            <div class="counter-etapas-etapa is-disable">
+                <p class="counter-etapas-etapa-4">
+                  4
+                </p>
+            </div>
         </div>
     </div>
 
-
+    <form class="curriculo-form" action="/curriculo/formulario" method="post">
+      @csrf
       <div class="counter-etapas-content is-active">
         @include('curriculo.curriculo-etapa1')
       </div>
@@ -40,7 +46,12 @@
       <div class="counter-etapas-content">
         @include('curriculo.curriculo-etapa3')
       </div>
+      <div class="counter-etapas-content">
+        @include('curriculo.curriculo-etapa-extra')
+      </div>
       
+      <button type="submit" name="button"> enviar </button>
+    </form>
 
     <div class="curriculo-btn">
       <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
