@@ -93,11 +93,14 @@ a {
 }
 
 .menu-perfil-img {
+  border-radius: 50%;
+  height: 50px;
   width: 50px;
 }
 
 @media screen and (max-width: 380px) {
   .menu-perfil-img {
+    height: 40px;
     width: 40px;
   }
 }
@@ -797,8 +800,14 @@ a {
   overflow: hidden;
   position: absolute;
   transition: all 0.5s ease;
-  width: 98%;
+  width: 99%;
   z-index: -1;
+}
+
+@media screen and (max-width: 500px) {
+  .curriculo-select-list {
+    width: 98%;
+  }
 }
 
 .curriculo-select-list.is-active {
@@ -1036,17 +1045,44 @@ a {
   padding-top: 80px;
 }
 
+.content-perfil {
+  margin: 30px 0 50px;
+}
+
 .content-perfil-image {
   display: block;
   text-align: center;
+  height: 200px;
+  margin: auto;
+  width: 200px;
+}
+
+@media screen and (max-width: 380px) {
+  .content-perfil-image {
+    height: 150px;
+    width: 150px;
+  }
 }
 
 .content-perfil-image-img {
   border: 5px solid #04B2D9;
   border-radius: 50%;
   height: 200px;
-  margin: 30px auto 20px;
+  margin: 0 auto;
   width: 200px;
+}
+
+@media screen and (max-width: 380px) {
+  .content-perfil-image-img {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+.content-perfil-desc {
+  color: #A2A2A2;
+  font: 16px/20px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin: 10px;
 }
 
 .content-perfil-input-foto {
@@ -1056,8 +1092,10 @@ a {
 .form-input-item-perfil {
   background: transparent;
   border: none;
-  font-size: 18px;
-  margin: 10px 0;
+  color: #2a2a2a;
+  font: 20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  margin: 5px 0 10px;
+  padding: 5px 0 30px;
 }
 
 .aprovado {
