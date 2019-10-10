@@ -3,7 +3,7 @@
         Sobre mim
     </div>
     <div class="curriculo-desc">
-        Explicar o que é essa sessão
+        Fale um pouco sobre você através de um vídeo ou por escrito<span>...</span>
     </div>
 
     <div class="curriculo-etapa1-submenu">
@@ -17,7 +17,6 @@
     </div>
 
     <div class="curriculo-etapa1-content is-active">
-        <input id="" name="" type="hidden"> <!--Mike help aqui-->
         <label for='arquivo-video'>
           <div class="curriculo-etapa1-content-video">
             <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">

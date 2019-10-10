@@ -519,6 +519,7 @@ a {
   color: #04B2D9;
   font: 17px/21px "Raleway Bold", "Montserrat Bold", "sans-serif";
   height: 23px;
+  margin: 0 20px;
   position: relative;
   text-align: center;
   transition: border-color ease 2s, color ease 2s;
@@ -526,25 +527,17 @@ a {
   z-index: -1;
 }
 
-.counter-etapas-etapa:first-child {
-  margin-right: 90px;
-}
-
-.counter-etapas-etapa:last-child {
-  margin-left: 90px;
-}
-
 .counter-etapas-etapa:before {
   background: #04B2D9;
   content: "";
   display: block;
   height: 2px;
-  right: 70px;
+  right: 45px;
   position: absolute;
   transform: translate(50%, -50%);
   transition: background ease 1s;
   top: 50%;
-  width: 90px;
+  width: 45px;
   z-index: -1;
 }
 
@@ -765,16 +758,89 @@ a {
   }
 }
 
-.curriculo-etapa3 {
+.curriculo-etapa4 {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin: 20px 0 20px;
 }
 
-@media screen and (max-width: 380px) {
-  .curriculo-etapa3 {
-    margin: 20px 0 50px;
-  }
+.curriculo-content-item-etapa-4 {
+  width: 75%;
+  padding-bottom: 200px;
+  transition: padding 0.5s ease-out;
+  z-index: 0;
+}
+
+.curriculo-etapa-4-icon {
+  margin-bottom: 20px;
+}
+
+.curriculo-select-box {
+  background: #F2F2F2;
+  position: relative;
+}
+
+.curriculo-select-content {
+  bottom: 0;
+  color: #ababab;
+  font: 15px/19px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  padding: 110px 0 10px;
+  position: absolute;
+  width: 100%;
+}
+
+.curriculo-select-list {
+  background: #e8e8e8;
+  border-radius: 0 0 20px 20px;
+  height: 0;
+  margin-top: -13px;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.5s ease;
+  width: 98%;
+  z-index: -1;
+}
+
+.curriculo-select-list.is-active {
+  border: 2px solid #ccc;
+  border-top: none;
+  height: auto;
+  max-height: 400px;
+}
+
+.curriculo-select-list-item {
+  background: transparent;
+  color: #828181;
+  font: 15px/19px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin: 15px 0;
+  padding-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.curriculo-select-list-item:first-child {
+  margin-top: 30px;
+}
+
+.curriculo-select-list-item:last-child {
+  margin-bottom: 10px;
+}
+
+.curriculo-select-arrow {
+  position: relative;
+}
+
+.curriculo-select-arrow:after {
+  border: 1px solid transparent;
+  border-bottom-color: #828181;
+  border-right-color: #828181;
+  content: "";
+  height: 10px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-out;
+  width: 10px;
 }
 
 .vagas {

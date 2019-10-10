@@ -100,6 +100,10 @@ __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 
 __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
 
+__webpack_require__(/*! ./requisitos */ "./resources/js/requisitos.js");
+
+__webpack_require__(/*! ./vagas */ "./resources/js/vagas.js");
+
 /***/ }),
 
 /***/ "./resources/js/cadastro.js":
@@ -235,6 +239,50 @@ if (menu) {
     }
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/requisitos.js":
+/*!************************************!*\
+  !*** ./resources/js/requisitos.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var listCurriculoParent = document.querySelectorAll('.js-curriculo-parent');
+var listCurriculoContentAll = document.querySelectorAll('.js-curriculo-list');
+listCurriculoParent.forEach(function (elem, idx) {
+  var listCurriculoText = elem.querySelector('.js-curriculo-text');
+  var listCurriculoContent = elem.querySelector('.js-curriculo-list');
+  var listCurriculoItem = elem.querySelectorAll('.js-curriculo-list-item');
+  listCurriculoText.addEventListener('click', function () {
+    listCurriculoContent.classList.toggle('is-active');
+    listCurriculoContentAll.forEach(function (elem, idx) {
+      if (elem !== listCurriculoContent && elem.classList.contains('is-active')) {
+        elem.classList.remove('is-active');
+      }
+    });
+  });
+  listCurriculoItem.forEach(function (elem, idx) {
+    elem.addEventListener('click', function () {
+      var dataValue = elem.getAttribute('data-value');
+      var dataText = elem.innerHTML;
+      listCurriculoText.innerHTML = "".concat(dataText);
+      listCurriculoContent.classList.remove('is-active');
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/vagas.js":
+/*!*******************************!*\
+  !*** ./resources/js/vagas.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
