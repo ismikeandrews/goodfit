@@ -30,7 +30,7 @@
 
   &-item {
     background: transparent;
-    padding: 7px 0;
+    padding: 9px 0;
     text-align: center;
     transition: background .7s ease-out;
     width: 50%;
@@ -47,6 +47,7 @@
 
 .curriculo-etapa1-content {
     opacity: 0;
+    margin-bottom: 30px;
     position: relative;
     transition: opacity .7s ease-out;
 
@@ -55,28 +56,24 @@
 
       .curriculo-etapa1-content-video {
         height: 100px;
-        margin: 30px auto;
-        padding: 50px 10px;
+        margin: 30px auto -5px;
+        padding: 40px 10px 150px;
       }
 
       .curriculo-etapa1-textarea {
-        height: 165px;
-        margin-bottom: 50px;
+        height: 230px;
       }
     }
 }
 
 .box-hidden {
   background: $branco;
+  bottom: 5px;
   height: 50px;
   position: absolute;
   right: -10px;
   width: 105%;
   z-index: 0;
-
-  &:last-child {
-    bottom: 0;
-  }
 }
 
 .curriculo-video {
@@ -102,7 +99,7 @@
 }
 
 .curriculo-etapa1-content-text {
-    margin: 10px 0;
+    margin: -20px 0 5px;
 }
 
 .curriculo-etapa1-textarea {

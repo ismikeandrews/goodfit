@@ -18,21 +18,13 @@
               </label>
               
               <div class="curriculo-select-list js-curriculo-list">
-                  <div data-value="Ensino Fundamental I" class="curriculo-select-list-item js-curriculo-list-item">
-                      Ensino Fundamental I
-                  </div>
-                  <div data-value="Ensino Fundamental II" class="curriculo-select-list-item js-curriculo-list-item">
-                      Ensino Fundamental II
-                  </div>
-                  <div data-value="Ensino Médio" class="curriculo-select-list-item js-curriculo-list-item">
-                      Ensino Médio
-                  </div>
-                  <div data-value="Graduação" class="curriculo-select-list-item js-curriculo-list-item">
-                      Graduação
-                  </div>
-                  <div data-value="Pós Graduação" class="curriculo-select-list-item js-curriculo-list-item">
-                      Pós Graduação
-                  </div>
+                <div class="curriculo-select-list-content js-curriculo-list-content">
+                  @foreach ($escolaridades as $escolaridade)
+                    <div data-value="{{$escolaridade->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
+                        {{$escolaridade->nomeAdicional}}
+                    </div>
+                  @endforeach
+                </div>
               </div>
             </div>
         </div>
@@ -50,15 +42,11 @@
                 </label>
                 
                 <div class="curriculo-select-list js-curriculo-list">
-                    <div data-value="Analfabeto" class="curriculo-select-list-item js-curriculo-list-item">
-                        Analfabeto
-                    </div>
-                    <div data-value="Semi Analfabeto" class="curriculo-select-list-item js-curriculo-list-item">
-                        Semi Analfabeto
-                    </div>
-                    <div data-value="Alfabetizado" class="curriculo-select-list-item js-curriculo-list-item">
-                        Alfabetizado
-                    </div>
+                    @foreach ($alfabetizacoes as $alfabetizacao)
+                      <div data-value="{{$alfabetizacao->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
+                          {{$alfabetizacao->nomeAdicional}}
+                      </div>
+                    @endforeach
                 </div>
             </div>
         </div>

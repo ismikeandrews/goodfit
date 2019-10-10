@@ -167,8 +167,9 @@ var conteudo = 0;
 
 if (etapa) {
   /* Curriculo - Botão Avançar */
-  btnAvancar.addEventListener('click', function () {
-    if (!(etapa.length === linha)) {
+  btnAvancar.addEventListener('click', function (e) {
+    if (!(etapa.length - 1 === linha)) {
+      e.preventDefault();
       etapa[linha + 1].classList.remove('is-disable');
       etapaContent[conteudo].classList.remove('is-active');
       linha += 1;
@@ -178,6 +179,7 @@ if (etapa) {
 
     if (etapa.length - 1 === linha) {
       btnAvancar.innerHTML = 'Concluir';
+      btnAvancar.type = 'submit';
     }
 
     if (linha > 0) {
@@ -250,16 +252,26 @@ if (menu) {
 /***/ (function(module, exports) {
 
 var listCurriculoParent = document.querySelectorAll('.js-curriculo-parent');
-var listCurriculoContentAll = document.querySelectorAll('.js-curriculo-list');
+var listCurriculoAll = document.querySelectorAll('.js-curriculo-list');
 listCurriculoParent.forEach(function (elem, idx) {
   var listCurriculoText = elem.querySelector('.js-curriculo-text');
-  var listCurriculoContent = elem.querySelector('.js-curriculo-list');
+  var listCurriculo = elem.querySelector('.js-curriculo-list');
+  var listCurriculoContent = elem.querySelector('.js-curriculo-list-content');
   var listCurriculoItem = elem.querySelectorAll('.js-curriculo-list-item');
   listCurriculoText.addEventListener('click', function () {
-    listCurriculoContent.classList.toggle('is-active');
-    listCurriculoContentAll.forEach(function (elem, idx) {
-      if (elem !== listCurriculoContent && elem.classList.contains('is-active')) {
+    if (listCurriculo.classList.contains('is-active')) {
+      listCurriculo.classList.remove('is-active');
+      listCurriculo.style.height = '0';
+    } else {
+      listCurriculo.classList.add('is-active');
+      var height = listCurriculoContent.offsetHeight;
+      listCurriculo.style.height = "".concat(height, "px");
+    }
+
+    listCurriculoAll.forEach(function (elem, idx) {
+      if (elem !== listCurriculo && elem.classList.contains('is-active')) {
         elem.classList.remove('is-active');
+        listCurriculo.style.height = '0';
       }
     });
   });
@@ -268,7 +280,8 @@ listCurriculoParent.forEach(function (elem, idx) {
       var dataValue = elem.getAttribute('data-value');
       var dataText = elem.innerHTML;
       listCurriculoText.innerHTML = "".concat(dataText);
-      listCurriculoContent.classList.remove('is-active');
+      listCurriculo.classList.remove('is-active');
+      listCurriculo.style.height = '0';
     });
   });
 });
@@ -304,8 +317,8 @@ listCurriculoParent.forEach(function (elem, idx) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vison\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

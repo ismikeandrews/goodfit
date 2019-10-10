@@ -62,7 +62,7 @@
 }
 
 .menu-perfil {
-  bottom: 0;
+  bottom: 5px;
   position: absolute;
   right: 15px;
   z-index: -1;
@@ -73,8 +73,8 @@
 
   &-img {
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 
     @include MQ($small) {
       height: 40px;

@@ -16,26 +16,26 @@
     border: 2px solid $azul-primary;
     border-radius: 100%;
     color: $azul-primary;
-    font: 17px/21px $font-bold;
-    height: 23px;
-    margin: 0 20px;
+    font: 17px/19px $font-bold;    
+    height: 25px;
+    margin: 0 25px;
     position: relative;
     text-align: center;
     transition: border-color ease 2s, color ease 2s;
-    width: 23px;
+    width: 25px;
     z-index: -1;
 
     &:before {
         background: $azul-primary;
-        content: '';
+        content: "";
         display: block;
         height: 2px;
-        right: 45px;
+        right: 48px;
         position: absolute;
         transform: translate(50%, -50%);
         transition: background ease 1s;
         top: 50%;
-        width: 45px;
+        width: 50px;
         z-index: -1;
     }
 
@@ -100,10 +100,11 @@
   position: relative;
 
     @include MQ($small) {
-        bottom: 30px;
+        bottom: 70px;
     }
 
     &-item {
+        outline: none;
         width: 48%;
 
         &.is-disable {

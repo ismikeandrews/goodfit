@@ -19,13 +19,31 @@ class CurriculoController extends Controller
         ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
         ->orderBy('tbAdicional.nomeAdicional', 'ASC')
         ->get();
+
     $categorias = DB::table('tbCategoria')
       ->select('tbCategoria.codCategoria', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria')
       ->orderBy('tbCategoria.nomeCategoria')
       ->get();
+
+    $escolaridades = DB::table('tbAdicional')
+      ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
+      ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
+      ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Escolaridade')
+      ->orderBy('tbAdicional.grauAdicional', 'ASC')
+      ->get();
+
+    $niveisAlfabetizacao = DB::table('tbAdicional')
+      ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
+      ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
+      ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Alfabetização')
+      ->orderBy('tbAdicional.grauAdicional', 'ASC')
+      ->get();
+
     $dados = [
-      'habilidades' => $habilidades,
-      'categorias'  => $categorias
+      'habilidades'     => $habilidades,
+      'categorias'      => $categorias,
+      'escolaridades'   => $escolaridades,
+      'alfabetizacoes'  => $niveisAlfabetizacao
     ];
 
     $usuario = Auth::user();

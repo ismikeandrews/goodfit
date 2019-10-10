@@ -31,8 +31,9 @@ let conteudo = 0;
 
 if (etapa) {
   /* Curriculo - Botão Avançar */
-  btnAvancar.addEventListener('click', function() {
-    if (!(etapa.length === linha)) {
+  btnAvancar.addEventListener('click', function(e) {
+    if (!((etapa.length - 1) === linha)) {
+      e.preventDefault();
       etapa[linha + 1].classList.remove('is-disable');
       etapaContent[conteudo].classList.remove('is-active');
       linha += 1;
@@ -40,7 +41,8 @@ if (etapa) {
       etapaContent[conteudo].classList.add('is-active');
     }
     if (etapa.length - 1 === linha){
-      btnAvancar.innerHTML = 'Concluir'
+      btnAvancar.innerHTML = 'Concluir';
+      btnAvancar.type = 'submit';
     }
     if (linha > 0) {
       btnVoltar.classList.remove('is-disable');

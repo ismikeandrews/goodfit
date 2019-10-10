@@ -50,17 +50,18 @@
         @include('curriculo.curriculo-etapa-extra')
       </div>
 
-      <button type="submit" name="button">enviar</button>
+      <!-- <button type="submit" name="button">enviar</button> -->
+
+      <div class="curriculo-btn">
+        <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
+            Voltar
+        </div>
+        <button id="btn-avancar" class="btn curriculo-btn-item">
+            Avançar
+        </button>
+      </div>
     </form>
 
-    <div class="curriculo-btn">
-      <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
-          Voltar
-      </div>
-      <div id="btn-avancar" class="btn curriculo-btn-item">
-          Avançar
-      </div>
-    </div>
   </div>
 </section>
 
