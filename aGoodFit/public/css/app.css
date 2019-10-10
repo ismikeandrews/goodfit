@@ -755,10 +755,28 @@ a {
   margin: 20px 0 30px;
 }
 
+@media screen and (max-width: 380px) {
+  .curriculo-etapa2 {
+    margin: 20px 0 80px;
+  }
+}
+
 .curriculo-content-item-etapa-2 {
   margin-bottom: 20px;
   width: 75%;
   z-index: 0;
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-content-item-etapa-2 {
+    margin: 0 auto 30px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-content-item-etapa-2:first-child {
+    margin: 0 auto 30px;
+  }
 }
 
 .curriculo-etapa-2-icon {
