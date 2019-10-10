@@ -62,9 +62,22 @@
 }
 
 .menu-perfil {
-  right: 25px;
+  bottom: 0;
   position: absolute;
+  right: 15px;
   z-index: -1;
+
+  @include MQ($small) {
+    bottom: 7px;
+  }
+
+  &-img {
+    width: 50px;
+
+    @include MQ($small) {
+      width: 40px;
+    }
+  }
 }
 
 /* MENU LATERAL */

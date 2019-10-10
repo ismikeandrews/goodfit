@@ -1,38 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Pagina de configuracoes</h1>
-<a href="/home">voltar</a>
-<br>
-<img src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="">
-<br>
-<form enctype="multipart/form-data"  action="/candidato/configuracoes" method="post">
-  @csrf
-  <input type="file" name="foto" accept="image/jpeg">
-  <br>
-  nome
-  <br>
-  <input type="text" name="" value="{{$candidato->nomeCandidato}}">
-  <br>
-  cpf
-  <br>
-  <input type="text" name="" value="{{$candidato->cpfCandidato}}">
-  <br>
-  rg
-  <br>
-  <input type="text" name="" value="{{$candidato->rgCandidato}}">
-  <br>
-  data de nascimento
-  <br>
-  <input type="text" name="" value="{{$candidato->dataNascimentoCandidato}}">
-  <br>
-  login
-  <br>
-  <input type="text" name="" value="{{$usuario->loginUsuario}}">
-  <br>
-  email
-  <br>
-  <input type="text" name="" value="{{$usuario->email}}">
-  <input type="submit" value="Enviar">
-</form>
+
+<div class="container container-perfil">
+	<div class="icon-voltar">
+		<a href="javascript:history.back()">
+			<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
+		</a>
+	</div>
+
+	<form enctype="multipart/form-data"  action="/candidato/configuracoes" method="post">
+		@csrf
+
+		<div class="content-perfil">
+			<label class="content-perfil-image" for='selecao-arquivo'>
+				<img class="content-perfil-image-img" src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Foto Perfil">
+			</label>
+			<input id='selecao-arquivo' type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
+		</div>
+
+		<div class="content-perfil-image">
+			<input class="form-input-item form-input-item-perfil" type="text" name="name" value="{{$candidato->nomeCandidato}}">
+			
+			<input class="form-input-item form-input-item-perfil" type="number" name="name" value="{{$candidato->cpfCandidato}}">
+			
+			<input class="form-input-item form-input-item-perfil" type="number" name="name" value="{{$candidato->rgCandidato}}">
+			
+			<input class="form-input-item form-input-item-perfil" type="text" name="name" value="{{$candidato->dataNascimentoCandidato}}">
+			
+			<input class="form-input-item form-input-item-perfil" type="text" name="name" value="{{$usuario->loginUsuario}}">
+			
+			<input class="form-input-item form-input-item-perfil" type="text" name="name" value="{{$usuario->email}}">
+
+			<input class="btn btn-perfil-salvar" type="submit" value="Salvar">
+		</div>
+
+	</form>
+</div>
 @endsection

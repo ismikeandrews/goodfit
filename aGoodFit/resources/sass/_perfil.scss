@@ -1,0 +1,29 @@
+.container-perfil {
+    padding-top: 80px;
+}
+
+.content-perfil {
+    &-image {
+        display: block;
+        text-align: center;
+        
+        &-img {
+            border: 5px solid #04B2D9;
+            border-radius: 50%;
+            height: 200px;
+            margin: 30px auto 20px;
+            width: 200px;
+        }
+    }
+}
+
+.content-perfil-input-foto {
+    display: none;
+}
+
+.form-input-item-perfil {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    margin: 10px 0;
+}

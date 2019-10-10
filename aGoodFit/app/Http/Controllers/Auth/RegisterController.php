@@ -79,7 +79,7 @@ class RegisterController extends Controller
          ]);
 
          if($usuario->codNivelUsuario = 2){
-
+          
            if (Arr::has($data, 'foto')) {
              $foto = $data['foto'];
              $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();

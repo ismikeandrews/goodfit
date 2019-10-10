@@ -13,10 +13,6 @@
 
 
 
-
-/* Rota feita para testes da Cyntia, trocar link depois */
-
-
 Auth::routes();
 
 Route::get('/', 'CandidatoController@login');
