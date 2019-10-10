@@ -10,12 +10,8 @@ class Curriculo extends Model
 
     protected $primaryKey = 'codCurriculo';
 
-    protected $fillable = 
-    ['videoCurriculo', 'codObjetivoProfissional', 'codCandidato'];
-
-    public function ObjetivoProfissional(){
-    	return $this->hasOne(Profissao::class, 'codCurriculo', 'codObjetivoProfissional');
-    }
+    protected $fillable =
+    ['videoCurriculo', 'codCandidato'];
 
     public function Candidato(){
     	return $this->hasOne(Candidato::class, 'codCurriculo', 'codCandidato');
