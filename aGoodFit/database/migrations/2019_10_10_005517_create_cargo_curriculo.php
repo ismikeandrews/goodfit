@@ -17,7 +17,7 @@ class CreateCargoCurriculo extends Migration
 
       Schema::create('tbCargoCurriculo', function (Blueprint $table) {
         $table->bigIncrements('codCargoCurriculo');
-        $table->integer('codProfissao')->unsigned();
+        $table->integer('codCargo')->unsigned();
         $table->integer('codCurriculo')->unsigned();
         $table->timestamps();
       });
@@ -39,7 +39,7 @@ class CreateCargoCurriculo extends Migration
     {
       Schema::disableForeignKeyConstraints();
       Schema::table('tbCargoCurriculo', function (Blueprint $table) {
-          $table->dropForeign(['codProfissao']);
+          $table->dropForeign(['codCargo']);
           $table->dropForeign(['codCurriculo']);
           $table->dropIfExists('tbCargoCurriculo');
         });

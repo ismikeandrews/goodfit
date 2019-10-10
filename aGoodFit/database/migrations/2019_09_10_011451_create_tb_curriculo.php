@@ -11,14 +11,13 @@ class CreateTbCurriculo extends Migration
 
     Schema::create('tbCurriculo', function(Blueprint $table){
       $table->increments('codCurriculo');
-      $table->text('videoCurriculo');
-      $table->integer('codObjetivoProfissional')->unsigned();
+      $table->string('videoCurriculo');
+      $table->string('descricaoCandidato')->nullable();
       $table->integer('codCandidato')->unsigned();
       $table->timestamps();
     });
 
     Schema::table('tbCurriculo', function($table){
-      $table->foreign('codObjetivoProfissional')->references('codProfissao')->on('tbProfissao');
       $table->foreign('codCandidato')->references('codCandidato')->on('tbCandidato');
     });
 
@@ -28,7 +27,6 @@ class CreateTbCurriculo extends Migration
   public function down(){
     Schema::disableForeignKeyConstraints();
     Schema::table('tbCurriculo', function (Blueprint $table) {
-        $table->dropForeign(['codObjetivoProfissional']);
         $table->dropForeign(['codCandidato']);
         $table->dropIfExists('tbCurriculo');
       });
