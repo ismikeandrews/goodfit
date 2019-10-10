@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/curriculo/formulario';
 
     /**
      * Create a new controller instance.
@@ -37,5 +37,5 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    
+
 }

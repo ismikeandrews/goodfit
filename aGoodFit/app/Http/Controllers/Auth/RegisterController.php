@@ -32,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/curriculo/formulario';
 
     /**
      * Create a new controller instance.
@@ -79,7 +79,7 @@ class RegisterController extends Controller
          ]);
 
          if($usuario->codNivelUsuario = 2){
-          
+
            if (Arr::has($data, 'foto')) {
              $foto = $data['foto'];
              $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
