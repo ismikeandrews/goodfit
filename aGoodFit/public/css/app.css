@@ -531,6 +531,12 @@ a {
   z-index: -1;
 }
 
+@media screen and (max-width: 380px) {
+  .counter-etapas-etapa {
+    margin: 0 20px;
+  }
+}
+
 .counter-etapas-etapa:before {
   background: #04B2D9;
   content: "";
@@ -543,6 +549,13 @@ a {
   top: 50%;
   width: 50px;
   z-index: -1;
+}
+
+@media screen and (max-width: 380px) {
+  .counter-etapas-etapa:before {
+    right: 43px;
+    width: 40px;
+  }
 }
 
 .counter-etapas-etapa:first-child:before {
@@ -739,40 +752,16 @@ a {
 .curriculo-etapa2 {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 380px) {
-  .curriculo-etapa2 {
-    margin: 20px 0 50px;
-  }
-}
-
-.curriculo-etapa3 {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 380px) {
-  .curriculo-etapa3 {
-    margin: 20px 0 50px;
-  }
-}
-
-.curriculo-etapa4 {
-  display: flex;
-  flex-wrap: wrap;
   margin: 20px 0 30px;
 }
 
-.curriculo-content-item-etapa-4 {
+.curriculo-content-item-etapa-2 {
   margin-bottom: 20px;
   width: 75%;
   z-index: 0;
 }
 
-.curriculo-etapa-4-icon {
+.curriculo-etapa-2-icon {
   margin-bottom: 20px;
 }
 
@@ -845,6 +834,30 @@ a {
   transform: rotate(45deg);
   transition: transform 0.2s ease-out;
   width: 10px;
+}
+
+.curriculo-etapa3 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-etapa3 {
+    margin: 20px 0 50px;
+  }
+}
+
+.curriculo-etapa4 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 380px) {
+  .curriculo-etapa4 {
+    margin: 20px 0 50px;
+  }
 }
 
 .vagas {

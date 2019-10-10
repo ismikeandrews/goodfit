@@ -1,9 +1,84 @@
 .curriculo-etapa2 {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin: 20px 0 30px;
+}
 
-    @include MQ($small) {
-        margin: 20px 0 50px
+.curriculo-content-item-etapa-2 {
+    margin-bottom: 20px;
+    width: 75%;
+    z-index: 0;
+}
+
+.curriculo-etapa-2-icon {
+    margin-bottom: 20px;
+}
+
+.curriculo-select-box {
+    background: $branco;
+    position: relative;
+}
+  
+.curriculo-select-content {
+    bottom: 0;
+    color: #ababab;
+    font: 15px/19px $font-semibold;
+    padding: 110px 0 10px;
+    position: absolute;
+    width: 100%;
+}
+  
+.curriculo-select-list {
+    background: #e8e8e8;
+    border-radius: 0 0 20px 20px;
+    height: 0;
+    margin-top: -13px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    width: 99%;
+    z-index: -1;
+
+    @include MQ($medium) {
+        width: 98%;
+    }
+
+    &.is-active {
+        border: 2px solid #ccc;
+        border-top: none;
+    }
+
+    &-item {
+        background: transparent;
+        color: $cinza;
+        font: 15px/19px $font-semibold;
+        margin: 15px 0;
+        padding-left: 10px;
+        transition: background .3s ease;
+
+        &:first-child {
+            margin-top: 30px;
+        }
+
+        &:last-child {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.curriculo-select-arrow {
+    position: relative;
+  
+    &:after {
+        border: 1px solid transparent;
+        border-bottom-color: $cinza;
+        border-right-color: $cinza;
+        content: "";
+        height: 10px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease-out;
+        width: 10px;
     }
 }
