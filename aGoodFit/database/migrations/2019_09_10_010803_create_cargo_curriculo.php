@@ -17,13 +17,13 @@ class CreateCargoCurriculo extends Migration
 
       Schema::create('tbCargoCurriculo', function (Blueprint $table) {
         $table->bigIncrements('codCargoCurriculo');
-        $table->integer('codProfissao')->unsigned();
+        $table->integer('codCategoria')->unsigned();
         $table->integer('codCurriculo')->unsigned();
         $table->timestamps();
       });
 
       Schema::table('tbCargoCurriculo', function($table){
-        $table->foreign('codProfissao')->references('codProfissao')->on('tbProfissao');
+        $table->foreign('codCategoria')->references('codCategoria')->on('tbCategoria');
         $table->foreign('codCurriculo')->references('codCurriculo')->on('tbCurriculo');
       });
 

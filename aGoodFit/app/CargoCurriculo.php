@@ -10,7 +10,7 @@ class CargoCurriculo extends Model
 {
   protected $table = 'tbCargoCurriculo';
 
-  protected $fillable = ['codProfissao', 'codCurriculo'];
+  protected $fillable = ['codCategoria', 'codCurriculo'];
 
   public function Cargo(){
     return $this->hasOne(Profissao::class, 'codCargoCurriculo', 'codProfissao');

@@ -42,7 +42,7 @@ class CurriculoController extends Controller
   public function novoCurriculo(Request $request){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    
+
     $curriculo = Curriculo::create([
       'videoCurriculo' => $request->input('videoCandidato'),
       'descricaoCandidato' => $request->input('descricaoCandidato'),
@@ -58,7 +58,7 @@ class CurriculoController extends Controller
 
     foreach ($request->categorias as $key) {
       CargoCurriculo::create([
-        'codProfissao' => $key,
+        'codCategoria' => $key,
         'codCurriculo' => $curriculo->codCurriculo,
       ]);
     }

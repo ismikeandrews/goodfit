@@ -12,14 +12,21 @@ class CreateTbCategoria extends Migration
       $table->increments('codCategoria');
       $table->string('imagemCategoria');
       $table->string('nomeCategoria', 100)->unique();
+      $table->integer('codProfissao')->unsigned();
       $table->timestamps();
+    });
+    Schema::table('tbCategoria', function($table){
+      $table->foreign('codProfissao')->references('codProfissao')->on('tbProfissao');
     });
     Schema::enableForeignKeyConstraints();
   }
 
   public function down(){
     Schema::disableForeignKeyConstraints();
-    Schema::dropIfExists('tbCategoria');
+    Schema::table('tbCategoria', function (Blueprint $table) {
+        $table->dropForeign(['tbProfissao']);
+        $table->dropIfExists('codCategoria');
+      });
     Schema::enableForeignKeyConstraints();
   }
 }

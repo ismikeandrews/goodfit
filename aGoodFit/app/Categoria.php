@@ -9,5 +9,9 @@ class Categoria extends Model
     protected $table = 'tbCategoria';
 
     protected $fillable =
-    ['nomeCategoria'];
+    ['nomeCategoria', 'codProfissao'];
+
+    public function Profissao(){
+    	return $this->hasMany(Profissao::class, 'codProfissao', 'codCategoria');
+    }
 }
