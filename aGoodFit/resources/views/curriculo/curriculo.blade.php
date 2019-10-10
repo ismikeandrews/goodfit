@@ -35,7 +35,8 @@
         </div>
     </div>
 
-
+    <form class="curriculo-form" action="/curriculo/formulario" method="post">
+      @csrf
       <div class="counter-etapas-content is-active">
         @include('curriculo.curriculo-etapa1')
       </div>
@@ -49,6 +50,8 @@
         @include('curriculo.curriculo-etapa-extra')
       </div>
       
+      <button type="submit" name="button"> enviar </button>
+    </form>
 
     <div class="curriculo-btn">
       <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
