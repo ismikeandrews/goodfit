@@ -234,10 +234,6 @@ a {
   width: 48%;
 }
 
-.curriculo-content-item:first-child {
-  margin-right: 20px;
-}
-
 @media screen and (max-width: 380px) {
   .curriculo-content {
     display: block;
@@ -286,7 +282,8 @@ a {
 }
 
 .container-login:after {
-  background: url(/images/logo-bg.svg?270147600bbedad57114bca408fa1105) center no-repeat;
+  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
+  background-size: 335px;
   content: "";
   display: block;
   height: 330px;
@@ -310,7 +307,8 @@ a {
 }
 
 .logo {
-  display: flex;
+  display: block;
+  text-align: center;
   width: 100%;
 }
 
@@ -408,25 +406,30 @@ a {
   margin-left: 5px;
 }
 
-.container {
+.container-cadastro {
   padding: 20px 30px;
 }
 
+.icon-voltar-cadastro,
 .section-cadastro {
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 .intro-desc {
   color: #828181;
-  font: 14px "Raleway Light", "Montserrat Light", "sans-serif";
+  font: 15px "Raleway Light", "Montserrat Light", "sans-serif";
   letter-spacing: 0.5px;
   margin: 5px 0 15px;
+}
+
+.cadastro-intro {
+  padding: 20px 0 10px;
 }
 
 .cadastro-perfil {
   align-items: center;
   display: flex;
-  margin: 30px 0 20px;
+  margin: 10px 0 20px;
 }
 
 .cadastro-perfil-img {
@@ -443,6 +446,10 @@ a {
   color: #828181;
   font: 15px/15px "Raleway Medium", "Montserrat Medium", "sans-serif";
   width: 70%;
+}
+
+.perfil-img {
+  display: none;
 }
 
 .label {
@@ -677,6 +684,10 @@ a {
   bottom: 0;
 }
 
+.curriculo-video {
+  display: none;
+}
+
 .curriculo-etapa1-content-video {
   border: 2px dotted #b5b5b5;
   height: 0;
@@ -713,6 +724,8 @@ a {
 }
 
 .curriculo-etapa2 {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
@@ -723,12 +736,375 @@ a {
 }
 
 .curriculo-etapa3 {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 @media screen and (max-width: 380px) {
   .curriculo-etapa3 {
     margin: 20px 0 50px;
+  }
+}
+
+.vagas {
+  padding-top: 30px;
+}
+
+.vagas-empresa {
+  padding-top: 20px;
+  position: relative;
+  z-index: -1;
+}
+
+.vagas-empresa-logo {
+  display: block;
+  padding-bottom: 10px;
+  margin: auto;
+  text-align: center;
+}
+
+.vagas-empresa-logo-img {
+  width: 40%;
+}
+
+@media screen and (max-width: 500px) {
+  .vagas-empresa-logo-img {
+    width: 100%;
+  }
+}
+
+.vagas-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: -80px;
+  position: relative;
+}
+
+.vagas-btn-item {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 2px 2px 20px 2px #717171;
+  display: flex;
+  height: 80px;
+  margin: 0 5px;
+  text-align: center;
+  width: 80px;
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-btn-item {
+    height: 65px;
+    width: 65px;
+  }
+}
+
+.vagas-btn-icon {
+  margin: auto;
+  width: 30px;
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-btn-icon {
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-btn {
+    margin-top: -65px;
+  }
+}
+
+.container-vagas {
+  background: #fff;
+  border-radius: 30px 30px;
+  margin: -40px 0 0;
+  padding-top: 80px;
+  position: absolute;
+  z-index: -1;
+}
+
+.vagas-content-title {
+  color: #2a2a2a;
+  font: 20px/22px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  margin: 0 auto 10px;
+  text-align: center;
+  width: 85%;
+}
+
+.vagas-content-desc {
+  align-items: center;
+  display: flex;
+}
+
+.vagas-content-desc-icon {
+  margin: 10px 20px 10px 0;
+  width: 50px;
+}
+
+.vagas-content-desc-nome {
+  color: #04B2D9;
+  font: 20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-content-desc-nome {
+    font-size: 18px;
+  }
+}
+
+.vagas-content-desc-local {
+  color: #828181;
+  font: 18px/20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+}
+
+@media screen and (max-width: 380px) {
+  .vagas-content-desc-local {
+    font-size: 16px;
+  }
+}
+
+.vagas-content-tags {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vagas-content-tags-item {
+  border: 1px solid #04B2D9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 15px 0;
+  width: 50%;
+}
+
+.vagas-content-tags-item:first-child {
+  margin-right: 10px;
+}
+
+.vagas-content-tags-item-icon {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.vagas-content-tags-item-text {
+  color: #828181;
+  font: 15px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+}
+
+.vagas-content-sobre-title {
+  font: 18px/25px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  color: #04B2D9;
+  margin: 30px 0 5px;
+  text-transform: uppercase;
+}
+
+.vagas-content-sobre-text {
+  color: #2a2a2a;
+  font: 15px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  letter-spacing: 0.5px;
+  max-height: 90px;
+  overflow-y: auto;
+}
+
+.vagas-content-sobre-requisitos-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.vagas-content-sobre-beneficios-list-item {
+  color: #2a2a2a;
+  font: 20px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  margin: 13px 25px 0;
+  position: relative;
+}
+
+.vagas-content-sobre-beneficios-list-item:before {
+  border: 1px solid #04B2D9;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 10px;
+  left: -30px;
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 10px;
+}
+
+.aprovado {
+  background-color: #63DE9A;
+}
+
+.andamento {
+  background-color: #FDCF67;
+}
+
+.finalizado {
+  background-color: #F06A47;
+}
+
+.status {
+  padding-top: 60px;
+}
+
+.status-header {
+  background: #fff;
+  padding-top: 25px;
+}
+
+.status-header-content {
+  padding: 0 30px;
+}
+
+.status-header-content-title {
+  color: #2a2a2a;
+  font: 21px "Raleway Bold", "Montserrat Bold", "sans-serif";
+}
+
+.status-header-content-desc {
+  color: #828181;
+  font: 15px "Raleway Light", "Montserrat Light", "sans-serif";
+  margin: 10px 0 25px;
+}
+
+.status-header-menu-content {
+  display: flex;
+  text-align: center;
+}
+
+.status-header-menu-content-item {
+  padding-bottom: 10px;
+  width: 25%;
+}
+
+.status-header-menu-content-item:nth-child(1) {
+  border-bottom: 4px solid #6DD9F1;
+}
+
+.status-header-menu-content-item:nth-child(2) {
+  border-bottom: 4px solid #63DE9A;
+}
+
+.status-header-menu-content-item:nth-child(3) {
+  border-bottom: 4px solid #FDCF67;
+}
+
+.status-header-menu-content-item:nth-child(4) {
+  border-bottom: 4px solid #F06A47;
+}
+
+.status-box {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  margin: 0 auto 20px;
+  max-width: 550px;
+  position: relative;
+}
+
+.status-box-desc {
+  align-items: center;
+  display: flex;
+  padding: 20px 0;
+}
+
+.status-box-desc-img {
+  padding-right: 20px;
+  width: 20%;
+}
+
+.status-box-desc-img-icon {
+  width: 80px;
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-desc-img-icon {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-desc-img {
+    padding-right: 10px;
+  }
+}
+
+.status-box-desc-content {
+  width: 80%;
+}
+
+.status-box-desc-content-title {
+  color: #2a2a2a;
+  font: 16px "Raleway Bold", "Montserrat Bold", "sans-serif";
+}
+
+.status-box-desc-content-nome {
+  color: #04B2D9;
+  font: 15px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin: 5px 0;
+}
+
+.status-box-desc-content-status {
+  align-items: center;
+  display: flex;
+  margin: 5px 0;
+}
+
+.status-box-desc-content-status-cor {
+  border-radius: 50%;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
+}
+
+.status-box-desc-content-status-text {
+  color: #2a2a2a;
+  font: 14px "Raleway Bold", "Montserrat Bold", "sans-serif";
+}
+
+.status-box-qtd {
+  color: #2a2a2a;
+  font: 22px/15px "Montserrat Bold", "sans-serif";
+  padding: 0 5px;
+  text-align: right;
+  width: 18%;
+}
+
+.status-box-qtd span {
+  color: #828181;
+  font: 12px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+}
+
+.status-box-qtd:before {
+  background: #E1E1E1;
+  content: "";
+  height: 100%;
+  right: 100px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+@media screen and (max-width: 500px) {
+  .status-box-qtd:before {
+    right: 55px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-qtd:before {
+    right: 45px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .status-box-qtd {
+    text-align: center;
   }
 }
 

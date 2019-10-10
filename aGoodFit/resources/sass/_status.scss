@@ -1,0 +1,160 @@
+.aprovado {
+	background-color: #63DE9A;
+}
+
+.andamento {
+	background-color: #FDCF67;
+}
+
+.finalizado {
+	background-color: #F06A47;
+}
+
+.status {
+	padding-top: 60px;
+	
+	&-header {
+		background: #fff;
+    	padding-top: 25px;
+
+		&-content {
+			padding: 0 30px;
+
+			&-title {
+				color: $preto;
+				font: 21px $font-bold;
+			}
+			
+			&-desc {
+				color: $cinza;
+				font: 15px $font-light;
+				margin: 10px 0 25px;
+			}
+		}
+	}
+}
+
+.status-header-menu-content {
+	display: flex;
+	text-align: center;
+
+	&-item {
+		padding-bottom: 10px;
+		width: 25%;
+
+		&:nth-child(1) {
+			border-bottom: 4px solid #6DD9F1;
+		}
+
+		&:nth-child(2) {
+			border-bottom: 4px solid #63DE9A;
+		}
+
+		&:nth-child(3) {
+			border-bottom: 4px solid #FDCF67;
+		}
+
+		&:nth-child(4) {
+			border-bottom: 4px solid #F06A47;
+		}
+	}
+}
+
+.status-box {
+    align-items: center;
+	background: #fff;
+	display: flex;
+	margin: 0 auto 20px;
+    max-width: 550px;
+	position: relative;
+
+	&-desc {
+		align-items: center;
+		display: flex;
+		padding: 20px 0;
+
+		&-img {
+			padding-right: 20px;
+			width: 20%;
+
+			&-icon {
+				width: 80px;
+
+				@include MQ($small) {
+					width: 60px;
+				}
+			}
+
+			@include MQ($small) {
+				padding-right: 10px;
+			}
+		}
+
+		&-content {
+			width: 80%;
+			
+			&-title {
+				color: $preto;
+				font: 16px $font-bold;
+			}
+
+			&-nome {
+				color: $azul-primary;
+				font: 15px $font-semibold;
+				margin: 5px 0;
+			}
+
+			&-status {
+				align-items: center;
+				display: flex;
+				margin: 5px 0;
+
+				&-cor {
+					border-radius: 50%;
+					height: 10px;
+					margin-right: 5px;
+					width: 10px;
+				}
+
+				&-text {
+					color: $preto;
+					font: 14px $font-bold;
+				}
+			}
+		}
+	}
+
+	&-qtd {
+		color: $preto;
+		font: 22px/15px "Montserrat Bold", "sans-serif";
+		padding: 0 5px;
+		text-align: right;
+		width: 18%;
+		
+		& span {
+			color: $cinza;
+			font: 12px $font-semibold;
+		}
+
+		&:before {
+			background: #E1E1E1;
+			content: '';
+			height: 100%;
+			right: 100px;
+			position: absolute;
+			top: 0;
+			width: 1px;
+
+			@include MQ($medium) {
+				right: 55px;
+			}
+			
+			@include MQ($small) {
+				right: 45px;
+			}
+		}
+		@include MQ($medium) {
+			text-align: center;
+		}
+	}
+}

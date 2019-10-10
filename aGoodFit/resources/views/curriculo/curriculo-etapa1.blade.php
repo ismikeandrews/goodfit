@@ -16,13 +16,18 @@
       </div>
     </div>
 
-    <div class="curriculo-etapa1-content is-active">
-      <div class="curriculo-etapa1-content-video">
-        <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">
-        <p class="curriculo-etapa1-content-video-desc">
-          Clique para enviar um vídeo sobre você
-        </p>
-      </div>
+    <div class="curriculo-etapa1-content is-active">       
+        <input id="" name="" type="hidden"> <!--Mike help aqui-->
+        <label for='arquivo-video'>
+          <div class="curriculo-etapa1-content-video">
+            <img src="{{asset('images/icones/video.png')}}" alt="Currículo - Descrição sobre mim em forma de vídeo" class="curriculo-etapa1-content-video-icon">
+
+            <p class="curriculo-etapa1-content-video-desc">
+              Clique para enviar um vídeo sobre você
+            </p>
+          </div>
+        </label>
+        <input id='arquivo-video' type="file" name="video" class="curriculo-video" accept=".mp4, .avi, .mkv, .ogg, .ogm, .mpg, .mpeg, .vob, .bvcd, .bsvcd">
     </div>
 
     <div class="curriculo-etapa1-content">

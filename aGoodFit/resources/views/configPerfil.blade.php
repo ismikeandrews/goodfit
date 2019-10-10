@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container content-perfil">
 		<div class="icon-voltar">
 	      	<a href="/home">

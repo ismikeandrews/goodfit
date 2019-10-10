@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 use Image;
 use App\Candidato;
 
@@ -55,6 +56,10 @@ class RegisterController extends Controller
            'login' => ['required', 'string', 'max:255', 'unique:tbUsuario,loginUsuario'],
            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
            'password' => ['required', 'string', 'min:8', 'confirmed'],
+           'nome' => ['required'],
+           'cpf' => ['required', 'min:11', 'max:11'],
+           'rg' => ['required', 'max:9'],
+           'nascimento' => ['required']
          ]);
      }
 
@@ -74,17 +79,15 @@ class RegisterController extends Controller
          ]);
 
          if($usuario->codNivelUsuario = 2){
-          Validator::make($data, [
-            'nome' => 'required',
-            'cpf' => 'required|min:11|max:11',
-            'rg' => 'required|max:9',
-            'nascimento' => 'required|date|date_format:d-m-Y'
-          ]);
-
-          $foto = $data['foto'];
-          $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
-
-          Image::make($foto)->save(public_path('/images/candidatos/'.$nomeFoto));
+          
+           if (Arr::has($data, 'foto')) {
+             $foto = $data['foto'];
+             $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
+             Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nomeFoto));
+           }
+           else {
+             $nomeFoto = 'perfil.png';
+           }
 
           Candidato::create([
             'nomeCandidato' => $data['nome'],

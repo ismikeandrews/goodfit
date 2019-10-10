@@ -13,22 +13,6 @@
 
 
 
-
-/* Rota feita para testes da Cyntia, trocar link depois */
-Route::get('/cadastro/qr-code', function () {
-    return view('cadastroQR');
-});
-
-Route::get('/teste', function () {
-    return view('vagas');
-});
-
-Route::get('/candidatura', function () {
-    return view('candidatura');
-});
-
-
-
 Auth::routes();
 
 Route::get('/', 'CandidatoController@login');
@@ -46,10 +30,21 @@ Route::post('/cadastro', 'NivelUsuarioController@novoNivel');
 Route::get('/deletar/{codNivelUsuario}', 'NivelUsuarioController@deletarNivel');
 Route::get('/validar/{codNivelUsuario}', 'NivelUsuarioController@validarNivel');
 });
+//Curriculo
+Route::prefix('curriculo')->group(function() {
 
+Route::post('/formulario', 'CurriculoController@novoCurriculo');
+Route::get('/formulario', 'CurriculoController@formularioCurriculo');
+Route::get('/status', 'CurriculoController@paginaStatus');
+
+
+//Excluir e Editar dados e Validar
+
+});
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
+Route::get('/vagas', 'CandidatoController@paginaVagas')->middleware('auth');
 Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
 Route::post('/configuracoes', 'CandidatoController@atualizarPerfil');
 // Comentado só para testes, descomentar depois

@@ -10,6 +10,7 @@ class CreateTbAdicional extends Migration
     Schema::disableForeignKeyConstraints();
     Schema::create('tbAdicional', function(Blueprint $table){
       $table->increments('codAdicional');
+      $table->string('imagemAdicional');
       $table->string('nomeAdicional', 100)->unique();
       $table->integer('grauAdicional');
       $table->integer('codTipoAdicional')->unsigned();

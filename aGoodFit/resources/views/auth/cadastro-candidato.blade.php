@@ -3,34 +3,36 @@
 @section('content')
 
 <section class="container container-cadastro">
-    <div class="icon-voltar">
+    <div class="icon-voltar icon-voltar-cadastro">
       <a href="/">
         <img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
       </a>
     </div>
 
     <div class="section section-cadastro">
-        <div class="intro">
+        <div class="cadastro-intro">
             <h3 class="intro-desc">Preencha os dados cadastrais</h3>
-        </div>
-
-        <div class="cadastro-perfil">
-            <div class="cadastro-perfil-img">
-                <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil" class="perfil-img">
-            </div>
-            <div class="cadastro-perfil-desc">
-                Clique no ícone para inserir sua imagem
-            </div>
-        </div>
-
-        <div class="form-legend">
-          Dados Pessoais
         </div>
 
         <form enctype="multipart/form-data" class="form" method="POST" action="{{ route('register') }}">
           @csrf
+            <div class="cadastro-perfil">
+                <div class="cadastro-perfil-img">
+                    <label for='arquivo-foto'>
+                        <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
+                    </label>
+                    <input id='arquivo-foto' type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png">
+                </div>
+                <div class="cadastro-perfil-desc">
+                    Clique no ícone para inserir sua imagem
+                </div>
+            </div>
+
+            <div class="form-legend">
+              Dados Pessoais
+            </div>
+
             <input id="codNivelUsuario" name="codNivelUsuario" type="hidden" value="2">
-            <input type="file" name="foto">
             <div class="form-inputs">
                 <div class="form-input-nome">
                   <input id="nome" type="text" placeholder="Nome" class="form-input-item @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" autocomplete="nome" autofocus>
@@ -63,7 +65,7 @@
             </div>
             <div class="form-inputs">
               <div class="form-input-data-nascimento">
-                  <input id="data-nascimento" type="date" placeholder="Data de nascimento" class="form-input-item @error('nascimento') is-invalid @enderror" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
+                  <input id="data-nascimento" type="date" placeholder="dd/mm/AAAA" class="form-input-item @error('nascimento') is-invalid @enderror" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
                   @error('nascimento')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
