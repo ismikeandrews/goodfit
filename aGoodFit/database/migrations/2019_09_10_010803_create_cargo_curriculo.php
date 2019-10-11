@@ -39,7 +39,6 @@ class CreateCargoCurriculo extends Migration
     {
       Schema::disableForeignKeyConstraints();
       Schema::table('tbCargoCurriculo', function (Blueprint $table) {
-          $table->dropForeign(['codProfissao']);
           $table->dropForeign(['codCurriculo']);
           $table->dropIfExists('tbCargoCurriculo');
         });

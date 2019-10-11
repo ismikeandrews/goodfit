@@ -16,7 +16,7 @@
                     Escolaridade
                   </div>
               </label>
-              
+
               <div class="curriculo-select-list js-curriculo-list">
                 <div class="curriculo-select-list-content js-curriculo-list-content">
                   @foreach ($escolaridades as $escolaridade)
@@ -40,7 +40,7 @@
                       Alfabetização
                     </div>
                 </label>
-                
+
                 <div class="curriculo-select-list js-curriculo-list">
                     @foreach ($alfabetizacoes as $alfabetizacao)
                       <div data-value="{{$alfabetizacao->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
