@@ -13,13 +13,11 @@ class CreateTbResponsavel extends Migration
       $table->increments('codResponsavel');
       $table->string('nomeResponsavel', 150);
       $table->integer('codCandidato')->unsigned();
-      $table->integer('codUsuario')->unsigned();
       $table->timestamps();
     });
 
     Schema::table('tbResponsavel', function($table){
       $table->foreign('codCandidato')->references('codCandidato')->on('tbCandidato');
-      $table->foreign('codUsuario')->references('codUsuario')->on('tbUsuario');
     });
 
     Schema::enableForeignKeyConstraints();
@@ -29,7 +27,6 @@ class CreateTbResponsavel extends Migration
     Schema::disableForeignKeyConstraints();
     Schema::table('tbResponsavel', function (Blueprint $table) {
         $table->dropForeign(['codCandidato']);
-        $table->dropForeign(['codUsuario']);
         $table->dropIfExists('tbResponsavel');
       });
     Schema::enableForeignKeyConstraints();
