@@ -2,12 +2,26 @@
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0 30px;
+
+    @include MQ($small){
+        margin: 20px 0 80px;
+    }
 }
 
 .curriculo-content-item-etapa-2 {
     margin-bottom: 20px;
     width: 75%;
     z-index: 0;
+
+    @include MQ($small) {
+        margin: 0 auto 30px;
+    }
+
+    &:first-child {
+        @include MQ($small) {
+            margin: 0 auto 30px;
+        }
+    }
 }
 
 .curriculo-etapa-2-icon {

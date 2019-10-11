@@ -5,7 +5,7 @@
 <section class="vagas">
 	<div class="vagas-empresa">
 		<div class="vagas-empresa-logo">
-			<img src="{{asset('images/componentes/empresa-outback.png')}}" alt="Vagas - Outback" class="vagas-empresa-logo-img">
+			<img src="{{asset('images/componentes/empresa-colegio.jpg')}}" alt="Vagas - Outback" class="vagas-empresa-logo-img">
 		</div>
 	</div>
 
@@ -27,19 +27,19 @@
 	<div class="container container-vagas">
 		<div class="vagas-content">
 			<h1 class="vagas-content-title">
-				Cozinheiro
+				Professor de Língua Portuguesa
 			</h1>
 
 			<div class="vagas-content-desc">
 				<img src="{{asset('images/icones/empresa.png')}}" alt="Nome da empresa" class="vagas-content-desc-icon">
 				<p class="vagas-content-desc-nome">
-					Outback Steakhouse Restaurantes Brasil S.a.
+					Colégio Evoluir
 				</p>
 			</div>
 			<div class="vagas-content-desc">
 				<img src="{{asset('images/icones/local.png')}}" alt="Endereço da empresa" class="vagas-content-desc-icon">
 				<p class="vagas-content-desc-local">
-					Rua Engenheiro Camilo Oliveti 295 loja B6A - Vila Itapegica, Guarulhos
+					Rua Romão Puiggari, 757 - Vila das Merces, São Paulo - SP, 04164-000
 				</p>
 			</div>
 
@@ -50,7 +50,7 @@
 				</div>
 				<div class="vagas-content-tags-item">
 					<img src="{{asset('images/componentes/vagas-qtd.svg')}}" alt="Endereço da empresa" class="vagas-content-tags-item-icon">
-					<p class="vagas-content-tags-item-text">300 vagas</p>
+					<p class="vagas-content-tags-item-text">2 vagas</p>
 				</div>
 			</div>
 
@@ -58,7 +58,7 @@
 				<div class="vagas-content-sobre-desc">
 					<h3 class="vagas-content-sobre-title">Descrição</h3>
 					<p class="vagas-content-sobre-text">
-						Auxiliar no pré-preparodos alimentos solicitados pelos clientes, seguindo os procedimentosoperacionais padronizados determinados pelo Outback, mantendo sempre aconfidencialidade dos ingredientes e procedimentos envolvidos durante oprocesso, agilizando a finalização dos produtos garantindo a qualidade Outback.
+						Irá ministrar aulas de português para ensino médio e acompanhar o desenvolvimento dos alunos, elaborar e corrigir provas, entre outras atividades da função.
 					</p>
 				</div>
 				
@@ -76,9 +76,9 @@
 					
 						<div class="curriculo-content-item">
 							<div class="curriculo-content-item-label">
-								<img src='{{asset("images/icones/habilidades/relacionamento.png")}}' alt="Requisito - Bom relacionamento" class="curriculo-content-item-label-icon">
+								<img src='{{asset("images/icones/habilidades/escrita.png")}}' alt="Requisito - Boa escrita" class="curriculo-content-item-label-icon">
 								<p class="curriculo-content-item-label-desc">
-									Relacionamento
+									Escrita
 								</p>
 							</div>
 						</div>
