@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CargoCurriculo;
 use App\AdicionalCurriculo;
+use Illuminate\Support\Facades\Validator;
 use App\Curriculo;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -39,15 +40,16 @@ class CurriculoController extends Controller
       ->orderBy('tbAdicional.grauAdicional', 'ASC')
       ->get();
 
-    $dados = [
-      'habilidades'     => $habilidades,
-      'categorias'      => $categorias,
-      'escolaridades'   => $escolaridades,
-      'alfabetizacoes'  => $niveisAlfabetizacao
-    ];
-
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+
+    $dados = [
+      'habilidades' => $habilidades,
+      'categorias' => $categorias,
+      'escolaridades' => $escolaridades,
+      'alfabetizacoes' => $niveisAlfabetizacao
+    ];
+
     return view('curriculo.curriculo', $dados)->with('candidato', $candidato);
   }
 
@@ -58,6 +60,7 @@ class CurriculoController extends Controller
   }
 
   public function novoCurriculo(Request $request){
+
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
