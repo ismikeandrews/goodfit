@@ -10,12 +10,4 @@ class ModeradorController extends Controller
     return view('modForm');
   }
 
-  public function cadastroModerador(Request $request){
-    $this->validate($request, [
-    'nomeAdministrador' => 'required',
-    'cpfAdministrador' => 'required',
-  ]);
-
-
-  }
 }

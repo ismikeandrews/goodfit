@@ -1,13 +1,15 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 use App\Candidato;
 use App\NivelUsuario;
 use App\Usuario;
-use Illuminate\Support\Facades\DB;
 use File;
 use Image;
 use Auth;
 use Illuminate\Http\Request;
+
 class CandidatoController extends Controller
 {
   public function login(){
@@ -20,7 +22,7 @@ class CandidatoController extends Controller
   public function config(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    return view('configPerfil')
+    return view('auth.configPerfil')
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
   }
@@ -29,23 +31,42 @@ class CandidatoController extends Controller
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
-    if($request->hasFile('foto')) {
-      $foto = $request->file('foto');
-      $nome = time() . '.' . $foto->getClientOriginalExtension();
-    }
+    $this->validate($request, [
+      'nome' => 'string|required',
+      'rg' => ['max:9', 'min:9','string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      'cpf' => ['max:11', 'min:11', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      'dataNascimentoCandidato' => 'date|required|before:2003-10-14',
+      'foto' => 'file|image',
+      'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
+      'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
+    ]);
 
-    if ($candidato->fotoCandidato !== 'perfil.jpg') {
-      $file = public_path('images/candidatos/' . $candidato->fotoCandidato);
-      if (File::exists($file)) {
-         unlink($file);
+    if ($request->hasFile("foto")) {
+      if ($candidato->fotoCandidato !== 'perfil.png') {
+        $foto = public_path('images/candidatos/' . $candidato->fotoCandidato);
+        if (File::exists($foto)) {
+           unlink($foto);
+        }
       }
+      $foto = $request->foto;
+      $nome = time() . '.' . $foto->getClientOriginalExtension();
+      Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
+      DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
     }
 
-    Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
-    DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
+    DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
+    ->update([
+      'nomeCandidato' => $request->nome,
+      'cpfCandidato' => $request->cpf,
+      'rgCandidato' => $request->rg,
+      'dataNascimentoCandidato' => $request->dataNascimentoCandidato,
+      'codUsuario' => $usuario->codUsuario,
+    ]);
 
-    return view('configPerfil')
-    ->with('candidato', $candidato)
-    ->with('usuario', $usuario);
+    $usuario->loginUsuario = $request->input('login');
+    $usuario->email = $request->input('email');
+    $usuario->save();
+
+    return redirect('/home');
   }
 }

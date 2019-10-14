@@ -21,6 +21,11 @@
                     <label for='arquivo-foto'>
                         <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
                     </label>
+                    @error('foto')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                     <input id='arquivo-foto' type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png">
                 </div>
                 <div class="cadastro-perfil-desc">

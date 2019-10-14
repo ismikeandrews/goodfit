@@ -49,9 +49,6 @@
       <div class="counter-etapas-content">
         @include('curriculo.curriculo-etapa4')
       </div>
-
-      <!-- <button type="submit" name="button">enviar</button> -->
-
       <div class="curriculo-btn">
         <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
             Voltar
