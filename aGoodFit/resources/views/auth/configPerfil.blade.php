@@ -16,6 +16,12 @@
 				<img class="content-perfil-image-img" src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Foto Perfil">
 			</label>
 			<input id='selecao-arquivo' type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
+			@error('foto')
+			<span class="invalid-feedback" role="alert">
+				<strong>{{ $message }}</strong>
+			</span>
+			<br>
+			@enderror
 		</div>
 
 		<div class="content-perfil-desc">
@@ -69,7 +75,7 @@
 			@enderror
 			<input class="btn btn-perfil-salvar" type="submit" value="Salvar">
 		</div>
-
+		<a href="/endereco/formulario">Pagina de endereco</a>
 	</form>
 </div>
 @endsection

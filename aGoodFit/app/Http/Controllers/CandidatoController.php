@@ -22,7 +22,7 @@ class CandidatoController extends Controller
   public function config(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    return view('configPerfil')
+    return view('auth.configPerfil')
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
   }
@@ -35,7 +35,8 @@ class CandidatoController extends Controller
       'nome' => 'string|required',
       'rg' => ['max:9', 'min:9','string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'cpf' => ['max:11', 'min:11', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      'dataNascimentoCandidato' => 'date|required',
+      'dataNascimentoCandidato' => 'date|required|before:2003-10-14',
+      'foto' => 'file|image',
       'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
       'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
     ]);
