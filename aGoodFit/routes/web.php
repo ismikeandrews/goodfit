@@ -37,6 +37,15 @@ Route::get('/status', 'CurriculoController@paginaStatus')->middleware('auth');
 Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
 });
 
+//Endereco
+Route::prefix('endereco')->group(function() {
+//Paginas
+Route::get('/formulario', 'EnderecoController@formularioEnderecoCand')->middleware('auth');
+
+//Novo Curriculo
+Route::post('/formulario', 'EnderecoController@novoEndereco')->middleware('auth');
+});
+
 /******** Rotas Dashboard**********/
 
 //Niveis de Usuarios
