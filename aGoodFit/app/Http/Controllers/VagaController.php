@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class VagaController extends Controller
 {
-    public function viewVagas(){
+    public function paginaVagas(){
         $usuario = Auth::user();
         $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 

@@ -17,7 +17,7 @@
       <div id="menu-collapse" class="menu-nav-collapse">
         <div class="menu-nav-collapse-bar">
           <ul class="menu-nav-list">
-            <a class="menu-nav-list-link" href="{{ url('/candidato/vagas') }}">
+            <a class="menu-nav-list-link" href="{{ url('/vagas/') }}">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-vagas.svg')}}" alt="Menu - página de vagas" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Vagas</p>
@@ -88,7 +88,7 @@
 
     <div class="menu-content">
       <div class="menu-logo">
-        <a class="menu-logo-link" href="{{ url('/candidato/vagas') }}">
+        <a class="menu-logo-link" href="{{ url('/vagas/') }}">
             <img src="{{asset('images/componentes/logo-menu.svg')}}" alt="Logo - A Good Fit" class="menu-logo-img">
         </a>
       </div>
