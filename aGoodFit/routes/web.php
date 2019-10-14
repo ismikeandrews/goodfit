@@ -44,12 +44,9 @@ Route::get('/status', 'CurriculoController@paginaStatus')->middleware('auth');
 //Candidato
 Route::prefix('candidato')->group(function() {
 //paginas
-Route::get('/vagas', 'CandidatoController@paginaVagas')->middleware('auth');
 Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
 Route::post('/configuracoes', 'CandidatoController@atualizarPerfil');
-
-
-
 //Excluir e Editar dados e Validar
-
 });
+
+Route::get('/vagas', 'VagaController@viewVagas')->middleware('auth');

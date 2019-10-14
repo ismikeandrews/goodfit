@@ -2,18 +2,89 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Candidato;
+use App\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VagaController extends Controller
 {
     public function viewVagas(){
+        $usuario = Auth::user();
+        $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+
         $vagas = DB::table('tbVaga')
-            ->select('tbVaga.codVaga', 'tbVaga.descricaoVaga', 'tbVaga.cargaHorariaVaga', 'tbVaga.quantidadeVaga', 'tbProfissao.nomeProfissao', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria', 'tbEndereco.cepEndereco', 'tbEndereco.logradouroEndereco', 'tbEndereco.numeroEndereco', 'tbEndereco.logradouroEndereco', 'tbEndereco.numeroEndereco', 'tbEndereco.complementoEndereco', 'tbRegimeContratacao.nomeRegimeContratacao')
-            ->join('tbProfissao', 'tbVaga.codCargo', '=', 'tbProfissao.codProfissao')
-            ->join('tbCategoria', 'tbProfissao.codCategoria', '=', 'tbCategoria.codCategoria')
-            ->join('tbEndereco', 'tbVaga.codEndereco', '=', 'tbEndereco.codEndereco')
-            ->join('tbRegimeContratacao', 'tbVaga.codRegimeContratacao', '=', 'tbRegimeContratacao.codRegimeContratacao')
+            ->select(
+                'tbVaga.codVaga',
+                'tbVaga.descricaoVaga',
+                'tbVaga.cargaHorariaVaga',
+                'tbVaga.quantidadeVaga',
+                'tbProfissao.nomeProfissao',
+                'tbCategoria.nomeCategoria',
+                'tbCategoria.imagemCategoria',
+                'tbEndereco.cepEndereco',
+                'tbEndereco.logradouroEndereco',
+                'tbEndereco.numeroEndereco',
+                'tbEndereco.complementoEndereco',
+                'tbRegimeContratacao.nomeRegimeContratacao',
+                'tbEmpresa.nomeFantasiaEmpresa'
+            )
+            ->join(
+                'tbProfissao',
+                'tbVaga.codProfissao', '=', 'tbProfissao.codProfissao')
+            ->join(
+                'tbCategoria',
+                'tbProfissao.codCategoria', '=', 'tbCategoria.codCategoria')
+            ->join(
+                'tbCargoCurriculo',
+                'tbCategoria.codCategoria', '=', 'tbCargoCurriculo.codCategoria')
+            ->join(
+                'tbCurriculo',
+                'tbCargoCurriculo.codCurriculo', '=', 'tbCurriculo.codCurriculo')
+            ->join(
+                'tbEndereco',
+                'tbVaga.codEndereco', '=', 'tbEndereco.codEndereco')
+            ->join(
+                'tbRegimeContratacao',
+                'tbVaga.codRegimeContratacao', '=', 'tbRegimeContratacao.codRegimeContratacao')
+            ->join(
+                'tbEmpresa',
+                'tbVaga.codEmpresa', '=', 'tbEmpresa.codEmpresa')
+            ->where('tbCurriculo.codCandidato', '=', $candidato->codCandidato)
             ->orderBy('tbProfissao.nomeProfissao', 'ASC')
-            ->get();   
+            ->get();
+
+        foreach ($vagas as $vaga){
+            $requisitos = DB::table('tbRequisitoVaga')
+                ->select(
+                    'tbRequisitoVaga.obrigatoriedadeRequisitoVaga',
+                    'tbAdicional.imagemAdicional',
+                    'tbAdicional.nomeAdicional'
+                )
+                ->join('tbAdicional', 'tbRequisitoVaga.codAdicional',  '=', 'tbAdicional.codAdicional')
+                ->where('tbRequisitoVaga.codVaga', '=', $vaga->codVaga)
+                ->orderBy('tbAdicional.nomeAdicional', 'ASC')
+                ->get();
+
+            $vaga->requisitos = $requisitos;
+        }
+
+        foreach ($vagas as $vaga){
+            $beneficios = DB::table('tbBeneficio')
+                ->select('tbBeneficio.nomeBeneficio')
+                ->where('tbBeneficio.codVaga', '=', $vaga->codVaga)
+                ->orderBy('tbBeneficio.nomeBeneficio', 'ASC')
+                ->get();
+
+            $vaga->beneficios = $beneficios;
+        }
+
+        $dados = [
+            'vagas'     => $vagas,
+            'candidato' => $candidato
+        ];
+
+        return view('vagas', $dados);
     }
 }

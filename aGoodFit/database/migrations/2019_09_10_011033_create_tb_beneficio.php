@@ -12,8 +12,6 @@ class CreateTbBeneficio extends Migration
     Schema::create('tbBeneficio', function(Blueprint $table){
       $table->increments('codBeneficio');
       $table->string('nomeBeneficio', 150);
-      $table->text('descricaoBeneficio');
-      $table->double('valorBeneficio');
       $table->integer('codVaga')->unsigned();
       $table->timestamps();
     });

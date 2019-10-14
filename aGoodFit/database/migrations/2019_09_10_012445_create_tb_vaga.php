@@ -15,6 +15,7 @@ class CreateTbVaga extends Migration
       $table->double('salarioVaga');
       $table->time('cargaHorariaVaga');
       $table->integer('quantidadeVaga');
+      $table->integer('codEmpresa')->unsigned();
       $table->integer('codProfissao')->unsigned();
       $table->integer('codEndereco')->unsigned();
       $table->integer('codRegimeContratacao')->unsigned();
@@ -22,6 +23,7 @@ class CreateTbVaga extends Migration
     });
 
     Schema::table('tbVaga', function($table){
+      $table->foreign('codEmpresa')->references('codEmpresa')->on('tbEmpresa');
       $table->foreign('codProfissao')->references('codProfissao')->on('tbProfissao');
       $table->foreign('codEndereco')->references('codEndereco')->on('tbEndereco');
       $table->foreign('codRegimeContratacao')->references('codRegimeContratacao')->on('tbRegimeContratacao');
@@ -33,6 +35,7 @@ class CreateTbVaga extends Migration
   public function down(){
     Schema::disableForeignKeyConstraints();
     Schema::table('tbVaga', function (Blueprint $table) {
+        $table->dropForeign(['codEmpresa']);
         $table->dropForeign(['codProfissao']);
         $table->dropForeign(['codEndereco']);
         $table->dropForeign(['codRegimeContratacao']);

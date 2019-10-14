@@ -48,10 +48,4 @@ class CandidatoController extends Controller
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
   }
-
-  public function paginaVagas(){
-    $usuario = Auth::user();
-    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    return view('vagas')->with('candidato', $candidato);
-  }
 }
