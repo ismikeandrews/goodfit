@@ -14,12 +14,20 @@ use Illuminate\Support\Facades\DB;
 class CurriculoController extends Controller
 {
   public function formularioCurriculo(){
+    $usuario = Auth::user();
+
+    $candidato = DB::table('tbCandidato')
+    ->where('codUsuario', $usuario->codUsuario)->first();
+
+    $curriculo = DB::table('tbCurriculo')
+    ->where('codCandidato', $candidato->codCandidato)->first();
+
     $habilidades = DB::table('tbAdicional')
-        ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
-        ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
-        ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
-        ->orderBy('tbAdicional.nomeAdicional', 'ASC')
-        ->get();
+      ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
+      ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
+      ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
+      ->orderBy('tbAdicional.nomeAdicional', 'ASC')
+      ->get();
 
     $categorias = DB::table('tbCategoria')
       ->select('tbCategoria.codCategoria', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria')
@@ -40,17 +48,30 @@ class CurriculoController extends Controller
       ->orderBy('tbAdicional.grauAdicional', 'ASC')
       ->get();
 
-    $usuario = Auth::user();
-    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+      $dados = [
+        'habilidades' => $habilidades,
+        'categorias' => $categorias,
+        'escolaridades' => $escolaridades,
+        'alfabetizacoes' => $niveisAlfabetizacao
+      ];
 
-    $dados = [
-      'habilidades' => $habilidades,
-      'categorias' => $categorias,
-      'escolaridades' => $escolaridades,
-      'alfabetizacoes' => $niveisAlfabetizacao
-    ];
+    if ($curriculo != null) {
+      $cargos = DB::table('tbCargoCurriculo')
+      ->where('codCurriculo', $curriculo->codCurriculo)->get();
 
-    return view('curriculo.curriculo', $dados)->with('candidato', $candidato);
+      $adicionais = DB::table('tbAdicionalCurriculo')
+      ->where('codCurriculo', $curriculo->codCurriculo)->get();
+
+      return view('curriculo.editarCurriculo', $dados)
+      ->with('candidato', $candidato)
+      ->with('curriculo', $curriculo)
+      ->with('adicionais', $adicionais)
+      ->with('cargos', $cargos);
+    }
+    else {
+      return view('curriculo.curriculo', $dados)
+      ->with('candidato', $candidato);
+    }
   }
 
   public function paginaStatus(){
