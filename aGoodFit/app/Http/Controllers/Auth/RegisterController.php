@@ -75,6 +75,7 @@ class RegisterController extends Controller
          $usuario = User::create([
            'loginUsuario' => $data['login'],
            'email' => $data['email'],
+           'fotoUsuario' => $data['foto'],
            'codNivelUsuario' => $data['codNivelUsuario'],
            'password' => Hash::make($data['password']),
          ]);
@@ -93,7 +94,6 @@ class RegisterController extends Controller
           Candidato::create([
             'nomeCandidato' => $data['nome'],
             'cpfCandidato' => $data['cpf'],
-            'fotoCandidato' => $nomeFoto,
             'rgCandidato' => $data['rg'],
             'dataNascimentoCandidato' => $data['nascimento'],
             'codUsuario' => $usuario->codUsuario
