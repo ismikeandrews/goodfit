@@ -11,7 +11,6 @@ class CreateTbCandidato extends Migration
 
     Schema::create('tbCandidato', function(Blueprint $table){
       $table->increments('codCandidato');
-      $table->string('fotoCandidato')->nullable();
       $table->string('nomeCandidato', 150);
       $table->string('cpfCandidato', 11)->unique();
       $table->string('rgCandidato', 20)->unique();
