@@ -13,7 +13,7 @@
 		@csrf
 		<div class="content-perfil">
 			<label class="content-perfil-image" for='selecao-arquivo'>
-				<img class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Foto Perfil">
+				<img class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{$usuario->fotoUsuario}}" alt="Foto Perfil">
 			</label>
 			<input id='selecao-arquivo' type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
 			@error('foto')

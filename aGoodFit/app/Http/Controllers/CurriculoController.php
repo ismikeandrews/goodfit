@@ -70,7 +70,7 @@ class CurriculoController extends Controller
     }
     else {
       return view('curriculo.curriculo', $dados)
-      ->with('candidato', $candidato);
+      ->with('usuario', $usuario);
     }
   }
 
@@ -128,7 +128,7 @@ class CurriculoController extends Controller
   public function paginaStatus(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    return view('status')->with('candidato', $candidato);
+    return view('status')->with('usuario', $usuario);
   }
 
   public function novoCurriculo(Request $request){

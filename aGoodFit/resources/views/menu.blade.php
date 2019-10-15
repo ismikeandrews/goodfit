@@ -97,7 +97,7 @@
     <div class="menu-content">
       <div class="menu-perfil">
         <a class="menu-perfil-link" href="/candidato/configuracoes">
-          <img src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Imagem do seu perfil" class="menu-perfil-img">
+          <img src="/images/candidatos/{{$usuario->fotoUsuario}}" alt="Imagem do seu perfil" class="menu-perfil-img">
         </a>
       </div>
     </div>

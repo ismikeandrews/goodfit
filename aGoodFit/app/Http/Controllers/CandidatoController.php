@@ -42,8 +42,8 @@ class CandidatoController extends Controller
     ]);
 
     if ($request->hasFile("foto")) {
-      if ($candidato->fotoCandidato !== 'perfil.png') {
-        $foto = public_path('images/candidatos/' . $candidato->fotoCandidato);
+      if ($usuario->fotoUsuario !== 'perfil.png') {
+        $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
         if (File::exists($foto)) {
            unlink($foto);
         }
@@ -51,7 +51,7 @@ class CandidatoController extends Controller
       $foto = $request->foto;
       $nome = time() . '.' . $foto->getClientOriginalExtension();
       Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
-      DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nome]);
+      DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
 
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)

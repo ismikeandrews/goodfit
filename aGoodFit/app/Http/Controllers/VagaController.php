@@ -76,7 +76,6 @@ class VagaController extends Controller
                 ->where('tbBeneficio.codVaga', '=', $vaga->codVaga)
                 ->orderBy('tbBeneficio.nomeBeneficio', 'ASC')
                 ->get();
-
             $vaga->beneficios = $beneficios;
         }
 
@@ -85,6 +84,6 @@ class VagaController extends Controller
             'candidato' => $candidato
         ];
 
-        return view('vagas', $dados);
+        return view('vagas', $dados)->with('usuario', $usuario);
     }
 }

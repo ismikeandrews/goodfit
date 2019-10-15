@@ -22,7 +22,7 @@ class User extends Authenticatable
   protected $primaryKey = 'codUsuario';
 
   protected $fillable = [
-    'loginUsuario', 'email', 'password', 'codNivelUsuario'
+    'loginUsuario', 'fotoUsuario', 'email', 'password', 'codNivelUsuario'
   ];
 
   /**

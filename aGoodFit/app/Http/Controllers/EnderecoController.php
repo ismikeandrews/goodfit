@@ -15,6 +15,6 @@ class EnderecoController extends Controller
     ->where('codUsuario', $usuario->codUsuario)->first();
 
     return view('endereco.endereco-candidato')
-    ->with('candidato', $candidato);
+    ->with('usuario', $usuario);
   }
 }

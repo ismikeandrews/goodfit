@@ -11,7 +11,7 @@ class CreateTbUsuario extends Migration
 
     Schema::create('tbUsuario', function(Blueprint $table){
       $table->increments('codUsuario');
-      $table->string('fotoUsuario')->nullable();
+      $table->string('fotoUsuario')->default('perfil.png');
       $table->string('loginUsuario', 50)->unique();
       $table->text('password');
       $table->string('email', 150)->unique();

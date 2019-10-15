@@ -27,7 +27,6 @@ class HomeController extends Controller
     public function index()
     {
       $usuario = Auth::user();
-      $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-        return view('home')->with('candidato', $candidato);
+        return view('home')->with('usuario', $usuario);
     }
 }
