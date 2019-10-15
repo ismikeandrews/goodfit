@@ -223,10 +223,12 @@ if (etapa) {
 var menu = document.querySelector('#menu-burg');
 var menuCollapse = document.querySelector('#menu-collapse');
 var menuItems = document.querySelectorAll('.menu-nav-list-link-item');
+var menuBarras = document.querySelector('.menu-nav-burg');
 
 if (menu) {
   menu.addEventListener('click', function () {
     menuCollapse.classList.toggle('is-active');
+    menuBarras.classList.toggle('is-active');
 
     if (menuCollapse.classList.contains('is-active')) {
       menuItems.forEach(function (elem, idx) {
@@ -317,8 +319,8 @@ listCurriculoParent.forEach(function (elem, idx) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

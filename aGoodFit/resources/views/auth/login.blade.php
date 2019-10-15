@@ -19,10 +19,10 @@
             @csrf
             <div class="form-inputs">
                 <div class="form-input-email">
-                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
 
                   @error('email')
-                  <span class="invalid-feedback" role="alert">
+                  <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
                   @enderror
@@ -31,10 +31,10 @@
 
             <div class="form-inputs">
                 <div class="form-input-senha">
-                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <input id="password" type="password" placeholder="Senha" class="form-input-item @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
 
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="erro" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror

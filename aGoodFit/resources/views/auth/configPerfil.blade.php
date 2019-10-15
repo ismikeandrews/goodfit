@@ -13,11 +13,11 @@
 		@csrf
 		<div class="content-perfil">
 			<label class="content-perfil-image" for='selecao-arquivo'>
-				<img class="content-perfil-image-img" src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Foto Perfil">
+				<img class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{$candidato->fotoCandidato}}" alt="Foto Perfil">
 			</label>
 			<input id='selecao-arquivo' type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
 			@error('foto')
-			<span class="invalid-feedback" role="alert">
+			<span class="erro erro-center" role="alert">
 				<strong>{{ $message }}</strong>
 			</span>
 			<br>
@@ -25,57 +25,69 @@
 		</div>
 
 		<div class="content-perfil-desc">
-			Nome
-			<input class="form-input-item form-input-item-perfil" type="text" name="nome" value="{{$candidato->nomeCandidato}}">
-			@error('nome')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
-			<br>
-			@enderror
-			CPF
-			<input class="form-input-item form-input-item-perfil" type="text" name="cpf" value="{{$candidato->cpfCandidato}}">
-			@error('cpf')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
-			<br>
-			@enderror
-			RG
-			<input class="form-input-item form-input-item-perfil" type="text" name="rg" value="{{$candidato->rgCandidato}}">
-			@error('rg')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
-			<br>
-			@enderror
-			Data de nascimento
-			<input class="form-input-item form-input-item-perfil" type="text" name="dataNascimentoCandidato" value="{{$candidato->dataNascimentoCandidato}}">
-			@error('dataNascimentoCandidato')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
-			<br>
-			@enderror
-			Login
-			<input class="form-input-item form-input-item-perfil" type="text" name="login" value="{{$usuario->loginUsuario}}">
-			@error('login')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
-			<br>
-			@enderror
-			E-mail
-			<input class="form-input-item form-input-item-perfil" type="text" name="email" value="{{$usuario->email}}">
-			@error('email')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
-			<br>
-			@enderror
+			<div class="content-perfil-desc-item">
+				Nome
+				<input class="form-input-item form-input-item-perfil" type="text" name="nome" value="{{$candidato->nomeCandidato}}">
+				@error('nome')
+					<span class="erro" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+
+			<div class="content-perfil-desc-item">
+				CPF
+				<input class="form-input-item form-input-item-perfil" type="text" name="cpf" value="{{$candidato->cpfCandidato}}">
+				@error('cpf')
+				<span class="erro" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+
+			<div class="content-perfil-desc-item">
+				RG
+				<input class="form-input-item form-input-item-perfil" type="text" name="rg" value="{{$candidato->rgCandidato}}">
+				@error('rg')
+				<span class="erro" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+
+			<div class="content-perfil-desc-item">
+				Data de nascimento
+				<input class="form-input-item form-input-item-perfil" type="text" name="dataNascimentoCandidato" value="{{$candidato->dataNascimentoCandidato}}">
+				@error('dataNascimentoCandidato')
+				<span class="erro" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+
+			<div class="content-perfil-desc-item">
+				Login
+				<input class="form-input-item form-input-item-perfil" type="text" name="login" value="{{$usuario->loginUsuario}}">
+				@error('login')
+				<span class="erro" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+
+			<div class="content-perfil-desc-item">
+				E-mail
+				<input class="form-input-item form-input-item-perfil" type="text" name="email" value="{{$usuario->email}}">
+				@error('email')
+				<span class="erro" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+
 			<input class="btn btn-perfil-salvar" type="submit" value="Salvar">
 		</div>
-		<a href="/endereco/formulario">Pagina de endereco</a>
+		<a href="/endereco/formulario">Página de endereco</a>
 	</form>
 </div>
 @endsection

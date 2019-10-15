@@ -14,3 +14,13 @@ body {
 a {
   text-decoration: none;
 }
+
+.erro {
+  color: #e41930;
+
+  &-center {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+}

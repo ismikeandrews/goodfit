@@ -28,6 +28,7 @@
   position: relative;
   right: 7px;
   top: 2px;
+  transition: background-color .5s ease-out;
   width: 25px;
 
   &:before {
@@ -38,18 +39,34 @@
     right: 0px;
     position: absolute;
     top: 8px;
+    transition: all .5s ease-out;
     width: 25px;
   }
 
   &:after {
     background: #fff;
+    bottom: 8px;
     content: '';
     display: block;
     height: 3px;
     right: 0px;
     position: absolute;
-    bottom: 8px;
+    transition: all .5s ease-out;
     width: 25px;
+  }
+
+  &.is-active {
+    background: transparent;
+
+    &:before {
+      top: -2px;
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      bottom: 2px;
+      transform: rotate(45deg);
+    }
   }
 }
 
@@ -159,15 +176,11 @@
 
   &.is-active {
     padding: 0 50px 0 110px;
-    width: 80%;
+    width: 100%;
 
     @include MQ($medium){
       padding: 0 20px;
-      width: 85%;
-    }
-
-    @include MQ($small){
-      width: 80%;
+      width: 90%;
     }
   }
 

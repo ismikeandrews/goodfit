@@ -3,38 +3,47 @@
 }
 
 .content-perfil {
-    margin: 30px 0 50px;
-    
+    margin: 30px 0;
+
     &-image {
         display: block;
         text-align: center;
         height: 200px;
-        margin: auto;
+        margin: 0 auto 20px;
         width: 200px;
 
         @include MQ($small) {
             height: 150px;
             width: 150px;
         }
-        
+
         &-img {
             border: 5px solid $azul-primary;
             border-radius: 50%;
             height: 200px;
             margin: 0 auto;
+            transition: border-color .5s ease-out;
             width: 200px;
 
             @include MQ($small) {
                 height: 150px;
                 width: 150px;
             }
+
+            &-erro {
+              border: 5px solid #e41930;
+            }
         }
     }
-    
+
     &-desc {
         color: #A2A2A2;
         font: 16px/20px $font-semibold;
         margin: 10px;
+
+        &-item {
+          margin-bottom: 20px;
+        }
     }
 }
 
@@ -48,5 +57,5 @@
     color: $preto;
     font: 20px $font-regular;
     margin: 5px 0 10px;
-    padding: 5px 0 30px;
+    padding: 5px 0 0px;
 }
