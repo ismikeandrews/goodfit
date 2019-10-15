@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
 
   <!-- CSRF Token -->
-  <meta name="theme-color" content="#444444">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>GoodFit</title>
 
   <!-- Scripts -->
+  <script src="http://ajax.googlepis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
 
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">

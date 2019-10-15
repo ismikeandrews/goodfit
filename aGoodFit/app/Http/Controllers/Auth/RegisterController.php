@@ -58,7 +58,7 @@ class RegisterController extends Controller
            'password' => ['required', 'string', 'min:8', 'confirmed'],
            'nome' => ['required'],
            'cpf' => ['required', 'min:11', 'max:11', 'unique:tbCandidato,cpfCandidato'],
-           'rg' => ['required', 'max:9', 'unique:tbCandidato,rgCandidato'],
+           'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
            'nascimento' => ['required', 'before:2003-10-14', 'date'],
            'foto' => ['image', 'file']
          ]);
