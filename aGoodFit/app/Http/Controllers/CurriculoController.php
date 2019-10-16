@@ -15,7 +15,6 @@ class CurriculoController extends Controller
 {
   public function formularioCurriculo(){
     $usuario = Auth::user();
-
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();
 
@@ -67,10 +66,10 @@ class CurriculoController extends Controller
       ->with('curriculo', $curriculo)
       ->with('adicionais', $adicionais)
       ->with('cargos', $cargos);
+
     }
     else {
-      return view('curriculo.curriculo', $dados)
-      ->with('usuario', $usuario);
+      return view('curriculo.curriculo', $dados);
     }
   }
 
@@ -120,15 +119,12 @@ class CurriculoController extends Controller
       return redirect('/vagas');
     }
     else {
-      return view('curriculo.curriculo', $dados)
-      ->with('usuario', $usuario);
+      return view('curriculo.curriculo', $dados);
     }
   }
 
   public function paginaStatus(){
-    $usuario = Auth::user();
-    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    return view('status')->with('usuario', $usuario);
+    return view('status');
   }
 
   public function novoCurriculo(Request $request){

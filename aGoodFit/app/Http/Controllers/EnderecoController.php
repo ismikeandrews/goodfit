@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\DB;
 class EnderecoController extends Controller
 {
   public function formularioEnderecoCand(){
-    $usuario = Auth::user();
-    $candidato = DB::table('tbCandidato')
-    ->where('codUsuario', $usuario->codUsuario)->first();
-
-    return view('endereco.endereco-candidato')
-    ->with('usuario', $usuario);
+  
+    return view('endereco.endereco-candidato');
   }
 }
