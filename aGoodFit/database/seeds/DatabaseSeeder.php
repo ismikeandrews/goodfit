@@ -85,7 +85,6 @@ class DatabaseSeeder extends Seeder
         'cpfCandidato' => '12345678901',
         'rgCandidato' => '123',
         'dataNascimentoCandidato' => '1998-05-22',
-        'descricaoCandidato' => null,
         'codUsuario' => 2,
     		),
     	));
