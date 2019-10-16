@@ -72,25 +72,24 @@ class RegisterController extends Controller
       */
      public function create(array $data)
      {
+         if (Arr::has($data, 'foto')) {
+           $foto = $data['foto'];
+           $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
+           Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nomeFoto));
+         }
+         else {
+           $nomeFoto = 'perfil.png';
+         }
+
          $usuario = User::create([
            'loginUsuario' => $data['login'],
            'email' => $data['email'],
-           'fotoUsuario' => $data['foto'],
+           'fotoUsuario' => $nomeFoto,
            'codNivelUsuario' => $data['codNivelUsuario'],
            'password' => Hash::make($data['password']),
          ]);
 
          if($usuario->codNivelUsuario = 2){
-
-           if (Arr::has($data, 'foto')) {
-             $foto = $data['foto'];
-             $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
-             Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nomeFoto));
-           }
-           else {
-             $nomeFoto = 'perfil.png';
-           }
-
           Candidato::create([
             'nomeCandidato' => $data['nome'],
             'cpfCandidato' => $data['cpf'],
@@ -98,9 +97,8 @@ class RegisterController extends Controller
             'dataNascimentoCandidato' => $data['nascimento'],
             'codUsuario' => $usuario->codUsuario
           ]);
-          DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->update(['fotoCandidato' => $nomeFoto]);
          }
-
+         
          return $usuario;
     }
 }
