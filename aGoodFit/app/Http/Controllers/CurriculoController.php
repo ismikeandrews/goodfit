@@ -121,7 +121,7 @@ class CurriculoController extends Controller
     }
     else {
       return view('curriculo.curriculo', $dados)
-      ->with('candidato', $candidato);
+      ->with('usuario', $usuario);
     }
   }
 
