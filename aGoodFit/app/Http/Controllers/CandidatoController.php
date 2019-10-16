@@ -33,7 +33,7 @@ class CandidatoController extends Controller
 
     $this->validate($request, [
       'nome' => 'string|required',
-      'rg' => ['max:9', 'min:9','string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      'rg' => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'cpf' => ['max:11', 'min:11', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'dataNascimentoCandidato' => 'date|required|before:2003-10-14',
       'foto' => 'file|image',
