@@ -37,12 +37,6 @@ class VagaController extends Controller
                 'tbCategoria',
                 'tbProfissao.codCategoria', '=', 'tbCategoria.codCategoria')
             ->join(
-                'tbCargoCurriculo',
-                'tbCategoria.codCategoria', '=', 'tbCargoCurriculo.codCategoria')
-            ->join(
-                'tbCurriculo',
-                'tbCargoCurriculo.codCurriculo', '=', 'tbCurriculo.codCurriculo')
-            ->join(
                 'tbEndereco',
                 'tbVaga.codEndereco', '=', 'tbEndereco.codEndereco')
             ->join(
@@ -51,7 +45,6 @@ class VagaController extends Controller
             ->join(
                 'tbEmpresa',
                 'tbVaga.codEmpresa', '=', 'tbEmpresa.codEmpresa')
-            ->where('tbCurriculo.codCandidato', '=', $candidato->codCandidato)
             ->orderBy('tbProfissao.nomeProfissao', 'ASC')
             ->get();
 
