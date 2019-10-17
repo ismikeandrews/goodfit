@@ -8,7 +8,7 @@ Editar o curriculo
 <br>
 {{$curriculo->videoCurriculo}}
 <br>
-{{$curriculo->descricaoCandidato}}
+{{$curriculo->descricaoCurriculo}}
 @foreach($cargos as $cargo)
   {{ $cargo->codCategoria }}
   <br>

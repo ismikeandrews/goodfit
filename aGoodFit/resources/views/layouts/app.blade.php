@@ -10,10 +10,6 @@
 
   <title>GoodFit</title>
 
-  <!-- Scripts -->
-  <script src="http://ajax.googlepis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="{{ asset('js/app.js') }}" defer></script>
-
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,6 +20,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <!-- Styles -->
+  <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
 </head>
@@ -35,5 +32,10 @@
     </main>
 
   </div>
+
+  <!-- Scripts -->
+  <script src="{{ asset('https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js')}}"></script>
+  <script src="{{ asset('js/croppie.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

@@ -12,10 +12,28 @@
 	<form enctype="multipart/form-data"  action="/candidato/configuracoes" method="post">
 		@csrf
 		<div class="content-perfil">
-			<label class="content-perfil-image" for='selecao-arquivo'>
+			<label class="content-perfil-image" id="abrirModal">
 				<img class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{Auth::user()->fotoUsuario}}" alt="Foto Perfil">
 			</label>
 			<input id='selecao-arquivo' type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
+
+			<div id="modal-cortar" class="modal">
+				<div class="modal-conteudo">
+					<div class="modal-conteudo-header">
+						<span id="modal-fechar" class="modal-conteudo-header-fechar">&times;</span>
+						<h2>Foto</h2>
+					</div>
+					<div class="modal-conteudo-body">
+						<label for="selecao-arquivo">
+							<button type="button" name="button">Escolher uma foto</button>
+						</label>
+					</div>
+					<div class="modal-conteudo-footer">
+						<h3>Footer</h3>
+					</div>
+				</div>
+			</div>
+
 			@error('foto')
 			<span class="erro erro-center" role="alert">
 				<strong>{{ $message }}</strong>

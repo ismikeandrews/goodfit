@@ -1181,6 +1181,86 @@ a {
   padding: 5px 0 0px;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-conteudo {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.17);
+  -webkit-animation-name: modalAberto;
+          animation-name: modalAberto;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.modal-conteudo-header {
+  background-color: #04B2D9;
+  padding: 15px;
+  color: #fff;
+}
+
+.modal-conteudo-header h2 {
+  margin: 0;
+}
+
+.modal-conteudo-header-fechar {
+  color: #fff;
+  float: right;
+  font-size: 30px;
+}
+
+.modal-conteudo-header-fechar:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-conteudo-body {
+  padding: 10px 20px;
+}
+
+.modal-conteudo-footer {
+  background-color: #04B2D9;
+  padding: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-conteudo-footer h3 {
+  margin: 0;
+}
+
+@-webkit-keyframes modalAberto {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalAberto {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .aprovado {
   background-color: #63DE9A;
 }

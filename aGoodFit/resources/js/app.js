@@ -1,7 +1,8 @@
 /* Importando JavaScript */
+require('./modal');
 require('./cadastro');
 require('./menu');
-require('./curriculo');
+// require('./curriculo'); com problema
 require('./requisitos');
 
 
