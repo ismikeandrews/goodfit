@@ -26,6 +26,32 @@ class CandidatoController extends Controller
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
   }
+
+  public function atualizarFoto(Request $request){
+    $usuario = Auth::user();
+    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+    
+    if ($request->hasFile("foto")) {
+      if ($usuario->fotoUsuario !== 'perfil.png') {
+        $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
+        if (File::exists($foto)) {
+           unlink($foto);
+        }
+      }
+      $foto = $request->foto;
+
+      $image_array_1 = explode(";", $foto);
+
+      $image_array_2 = explode(",", $image_array_1[1]);
+
+      $foto = base64_decode($image_array_2[1]);
+
+      $nome = time() . '.' . $foto->getClientOriginalExtension();
+      Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
+      DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
+    }
+  }
+
   public function atualizarPerfil(Request $request){
 
     $usuario = Auth::user();
@@ -40,19 +66,6 @@ class CandidatoController extends Controller
       'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
       'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
     ]);
-
-    if ($request->hasFile("foto")) {
-      if ($usuario->fotoUsuario !== 'perfil.png') {
-        $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
-        if (File::exists($foto)) {
-           unlink($foto);
-        }
-      }
-      $foto = $request->foto;
-      $nome = time() . '.' . $foto->getClientOriginalExtension();
-      Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
-      DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
-    }
 
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
     ->update([

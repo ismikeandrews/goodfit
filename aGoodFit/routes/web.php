@@ -25,6 +25,7 @@ Route::prefix('candidato')->group(function() {
 Route::get('/configuracoes', 'CandidatoController@config')->middleware('auth');
 //Validar e editar
 Route::post('/configuracoes', 'CandidatoController@atualizarPerfil')->middleware('auth');
+Route::post('/configuracoes/foto', 'CandidatoController@atualizarFoto')->middleware('auth');
 });
 
 //Curriculo

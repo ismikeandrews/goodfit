@@ -10,7 +10,7 @@
 	</div>
 
 	<form enctype="multipart/form-data"  action="/candidato/configuracoes" method="post">
-		<input name="csrfToken" value="{{ csrf_token() }}" type="hidden">
+		@csrf
 		<div class="content-perfil">
 			<label class="content-perfil-image" for="selecao-arquivo">
 				<img id="foto-perfil" class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{Auth::user()->fotoUsuario}}" alt="Foto Perfil">

@@ -1,3 +1,10 @@
+@guest
+
+
+@if (Route::has('register'))
+@endif
+
+@else
 <nav class="menu">
   <div class="container-menu">
 
@@ -96,3 +103,4 @@
 
   </div>
 </nav>
+@endguest

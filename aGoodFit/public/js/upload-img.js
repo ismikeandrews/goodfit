@@ -25,26 +25,26 @@ $(document).ready(function(){
     reader.readAsDataURL(this.files[0]);
     $('#modal-cortar').toggle('show');
   });
-  
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
 
   $('.crop_image').click(function(event){
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
      $image_crop.croppie('result', {
        type: 'canvas',
        size: 'viewport'
      }).then(function(response){
 
        $.ajax({
-         url:"/candidato/configuracoes",
+         url:"/candidato/configuracoes/foto",
          type: "POST",
-         data:{"image":  response},
+         data:{"foto":  response, "_token": $('#csrf-token')[0]},
          success:function(data)
          {
-           $('#modal-cortar').modal('hide');
+           $('#modal-cortar').toggle('hide');
            $('#foto-perfil').html(data);
          },
          error:function(jqXHR,  textStatus,  errorThrown )
