@@ -49,7 +49,7 @@
   &-icon {
     margin: auto;
     width: 30px;
-    
+
     @include MQ($small) {
       width: 25px;
     }
@@ -66,7 +66,7 @@
       height: 40px;
       justify-content: center;
       margin: 10px;
-      width: 40px; 
+      width: 40px;
 
       &:first-child {
         margin-right: 20px;
@@ -102,7 +102,7 @@
     text-align: center;
     width: 85%;
   }
-  
+
   &-desc {
     align-items: center;
     display: flex;
@@ -115,12 +115,12 @@
     &-nome {
       color: $azul-primary;
       font: 20px $font-regular;
-      
+
       @include MQ($small) {
         font-size: 18px;
       }
     }
-    
+
     &-local {
       color: $cinza;
       font: 18px/20px $font-regular;

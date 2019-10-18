@@ -1,11 +1,3 @@
-<!-- Comentado só para testes, descomentar depois
-@guest -->
-
-<!-- caso queira colocar um codigo html que seja visivel sem necessitar uma sessao, coloque dentro desse if -->
-<!-- @if (Route::has('register'))
-@endif -->
-
-<!-- @else -->
 <nav class="menu">
   <div class="container-menu">
 
@@ -104,4 +96,3 @@
 
   </div>
 </nav>
-<!-- @endguest -->

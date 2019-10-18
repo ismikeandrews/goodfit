@@ -5,11 +5,11 @@ $(document).ready(function(){
     viewport:{
       width: 200,
       height: 200,
-      type: 'square' //Da pra fazer circle
+      type: 'circle' //Da pra fazer circle
     },
     boundary:{
-      width: 300,
-      height: 300,
+      width: 250,
+      height: 250,
     }
   });
 
@@ -18,31 +18,42 @@ $(document).ready(function(){
     reader.onload = function(event){
       $image_crop.croppie('bind', {
         url:event.target.result
-      }).then(function(){
+      }).then(function(data){
         console.log("Jquery bind feito");
       });
     }
     reader.readAsDataURL(this.files[0]);
-    $('#modal-cortar').modal('show')
+    $('#modal-cortar').toggle('show');
+  });
+  
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
   });
 
-});
+  $('.crop_image').click(function(event){
+     $image_crop.croppie('result', {
+       type: 'canvas',
+       size: 'viewport'
+     }).then(function(response){
 
-$('.crop_image').click(function(event){
-   $image_crop.croppie('result', {
-     type: 'canvas',
-     size: 'viewport'
-   }).then(function(response){
-     $.ajax({
-       url:"upload.php",
-       type: "POST",
-       data:{"image": response},
-       success:function(data)
-       {
-         $('#modal-cortar').modal('hide');
-         $('#foto-perfil').html(data);
-       }
+       $.ajax({
+         url:"/candidato/configuracoes",
+         type: "POST",
+         data:{"image":  response},
+         success:function(data)
+         {
+           $('#modal-cortar').modal('hide');
+           $('#foto-perfil').html(data);
+         },
+         error:function(jqXHR,  textStatus,  errorThrown )
+         {
+           console.log(jqXHR);
+           console.log(textStatus);
+           console.log(errorThrown);
+         }
+       });
      });
-   })
- });
+   });
 });

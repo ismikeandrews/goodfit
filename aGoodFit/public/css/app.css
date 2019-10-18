@@ -1181,6 +1181,14 @@ a {
   padding: 5px 0 0px;
 }
 
+.modal.show {
+  display: block;
+}
+
+.modal.hide {
+  display: none;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -1195,8 +1203,9 @@ a {
 
 .modal-conteudo {
   background-color: #f4f4f4;
-  margin: 20% auto;
-  width: 70%;
+  border-radius: 20px;
+  margin: 15% auto;
+  width: 90%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.17);
   -webkit-animation-name: modalAberto;
           animation-name: modalAberto;
@@ -1204,41 +1213,16 @@ a {
           animation-duration: 1s;
 }
 
-.modal-conteudo-header {
-  background-color: #04B2D9;
-  padding: 15px;
-  color: #fff;
-}
-
-.modal-conteudo-header h2 {
-  margin: 0;
-}
-
 .modal-conteudo-header-fechar {
-  color: #fff;
+  color: #04B2D9;
   float: right;
   font-size: 30px;
-}
-
-.modal-conteudo-header-fechar:hover {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+  position: absolute;
+  right: 10%;
 }
 
 .modal-conteudo-body {
-  padding: 10px 20px;
-}
-
-.modal-conteudo-footer {
-  background-color: #04B2D9;
-  padding: 5px;
-  color: #fff;
-  text-align: center;
-}
-
-.modal-conteudo-footer h3 {
-  margin: 0;
+  padding: 60px 20px 20px;
 }
 
 @-webkit-keyframes modalAberto {
@@ -1258,6 +1242,16 @@ a {
 
   to {
     opacity: 1;
+  }
+}
+
+.modal-btn-cortar {
+  width: 40%;
+}
+
+@media screen and (max-width: 500px) {
+  .modal-btn-cortar {
+    width: 90%;
   }
 }
 

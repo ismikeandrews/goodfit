@@ -1,10 +1,29 @@
 /* Importando JavaScript */
-require('./modal');
-require('./cadastro');
+
+const containerCadastro = document.querySelector('.container-cadastro');
+const containerCurriculo = document.querySelector('.container-curriculo');
+const containerRequisitos = document.querySelector('.container-requisitos');
+const containerVagas = document.querySelector('.container-vagas');
+const containerModal = document.querySelector('.container-modal');
+
 require('./menu');
-// require('./curriculo'); com problema
-require('./requisitos');
 
+if (containerCadastro) {
+  require('./cadastro');
+}
 
+if (containerCurriculo) {
+  require('./curriculo');
+}
 
-require('./vagas');
+if (containerRequisitos) {
+  require('./requisitos');
+}
+
+if (containerVagas) {
+  require('./vagas');
+}
+
+if (containerModal) {
+  require('./modal');
+}

@@ -94,16 +94,33 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 /* Importando JavaScript */
-__webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+var containerCadastro = document.querySelector('.container-cadastro');
+var containerCurriculo = document.querySelector('.container-curriculo');
+var containerRequisitos = document.querySelector('.container-requisitos');
+var containerVagas = document.querySelector('.container-vagas');
+var containerModal = document.querySelector('.container-modal');
 
-__webpack_require__(/*! ./cadastro */ "./resources/js/cadastro.js");
+__webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 
-__webpack_require__(/*! ./menu */ "./resources/js/menu.js"); // require('./curriculo'); com problema
+if (containerCadastro) {
+  __webpack_require__(/*! ./cadastro */ "./resources/js/cadastro.js");
+}
 
+if (containerCurriculo) {
+  __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
+}
 
-__webpack_require__(/*! ./requisitos */ "./resources/js/requisitos.js");
+if (containerRequisitos) {
+  __webpack_require__(/*! ./requisitos */ "./resources/js/requisitos.js");
+}
 
-__webpack_require__(/*! ./vagas */ "./resources/js/vagas.js");
+if (containerVagas) {
+  __webpack_require__(/*! ./vagas */ "./resources/js/vagas.js");
+}
+
+if (containerModal) {
+  __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+}
 
 /***/ }),
 
@@ -127,6 +144,88 @@ __webpack_require__(/*! ./vagas */ "./resources/js/vagas.js");
 //
 // // senha.onchange = validarSenha;
 // // confirmar_senha.onkeyup = validarSenha;
+
+/***/ }),
+
+/***/ "./resources/js/curriculo.js":
+/*!***********************************!*\
+  !*** ./resources/js/curriculo.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* Curriculo - Submenu etapas */
+var submenu = document.querySelectorAll('.curriculo-etapa1-submenu-item');
+var content = document.querySelectorAll('.curriculo-etapa1-content');
+submenu.forEach(function (elem, idx) {
+  submenu[idx].addEventListener('click', function () {
+    if (submenu[0].classList.contains('is-active')) {
+      submenu[0].classList.remove('is-active');
+      submenu[1].classList.add('is-active');
+      content[0].classList.remove('is-active');
+      content[1].classList.add('is-active');
+    } else {
+      submenu.forEach(function (elem) {
+        submenu[0].classList.add('is-active');
+        submenu[1].classList.remove('is-active');
+        content[0].classList.add('is-active');
+        content[1].classList.remove('is-active');
+      });
+    }
+  });
+});
+/* Curriculo - Botões */
+
+var etapa = document.querySelectorAll('.counter-etapas-etapa');
+var etapaContent = document.querySelectorAll('.counter-etapas-content');
+var btnAvancar = document.querySelector('#btn-avancar');
+var btnVoltar = document.querySelector('#btn-voltar');
+var linha = 0;
+var conteudo = 0;
+/* Curriculo - Botão Avançar */
+
+btnAvancar.addEventListener('click', function (e) {
+  if (!(etapa.length - 1 === linha)) {
+    e.preventDefault();
+    etapa[linha + 1].classList.remove('is-disable');
+    etapaContent[conteudo].classList.remove('is-active');
+    linha += 1;
+    conteudo += 1;
+    etapaContent[conteudo].classList.add('is-active');
+  }
+
+  if (etapa.length - 1 === linha) {
+    btnAvancar.innerHTML = 'Concluir';
+    btnAvancar.type = 'submit';
+  }
+
+  if (linha > 0) {
+    btnVoltar.classList.remove('is-disable');
+  }
+
+  window.scroll(0, 0);
+});
+/* Curriculo - Botão Voltar */
+
+btnVoltar.addEventListener('click', function () {
+  if (etapa.length - 1 === linha) {
+    btnAvancar.innerHTML = 'Avançar';
+  }
+
+  if (linha > 0) {
+    etapa[linha].classList.add('is-disable');
+    etapaContent[conteudo].classList.remove('is-active');
+    linha -= 1;
+    conteudo -= 1;
+    etapaContent[conteudo].classList.add('is-active');
+  }
+
+  if (linha === 0) {
+    btnVoltar.classList.add('is-disable');
+  }
+
+  window.scroll(0, 0);
+});
 
 /***/ }),
 
@@ -170,25 +269,27 @@ if (menu) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var modal = document.getElementById("modal-cortar");
-var abrirModal = document.getElementById("abrirModal");
-var fecharModal = document.getElementById("modal-fechar");
-abrirModal.addEventListener('click', openModal);
-fecharModal.addEventListener('click', closeModal);
-window.addEventListener('click', clickOutside);
+var modal = document.querySelector("#modal-cortar");
+var fecharModal = document.querySelector("#modal-fechar");
+var inputFile = document.querySelector('#selecao-arquivo');
 
-function openModal() {
-  modal.style.display = 'block';
-}
+if (modal) {
+  var openModal = function openModal() {
+    modal.style.display = 'block';
+  };
 
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-function clickOutside(e) {
-  if (e.target == modal) {
+  var closeModal = function closeModal() {
     modal.style.display = 'none';
-  }
+  };
+
+  var clickOutside = function clickOutside(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  fecharModal.addEventListener('click', closeModal);
+  window.addEventListener('click', clickOutside);
 }
 
 /***/ }),

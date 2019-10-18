@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="vagas">
+<section class="container-vagas vagas">
 	@foreach ($vagas as $vaga)
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
@@ -24,7 +24,7 @@
 				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Aceitar vaga" class="vagas-btn-side-icon">
 			</div>
 		</div>
-			
+
 		<div class="container container-vagas">
 			<div class="vagas-content">
 				<h1 class="vagas-content-title">
@@ -62,7 +62,7 @@
 							{{ $vaga->descricaoVaga }}
 						</p>
 					</div>
-					
+
 					<div class="vagas-content-sobre-requisitos">
 						<h3 class="vagas-content-sobre-title">Requisitos</h3>
 						<div class="vagas-content-sobre-requisitos-item">

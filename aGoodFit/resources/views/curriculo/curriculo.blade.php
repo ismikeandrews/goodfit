@@ -2,8 +2,8 @@
 
 @section('content')
 
-<section class="curriculo-etapas curriculo-etapa-1">
-  <div class="container">
+<section class="container container-curriculo">
+  <div class="curriculo-etapas curriculo-etapa-1">
     <div class="icon-voltar">
       <a href="javascript:history.back()">
         <img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">

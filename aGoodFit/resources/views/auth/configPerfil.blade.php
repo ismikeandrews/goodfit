@@ -10,27 +10,23 @@
 	</div>
 
 	<form enctype="multipart/form-data"  action="/candidato/configuracoes" method="post">
-		@csrf
+		<input name="csrfToken" value="{{ csrf_token() }}" type="hidden">
 		<div class="content-perfil">
-			<label class="content-perfil-image" id="abrirModal" for="selecao-arquivo">
+			<label class="content-perfil-image" for="selecao-arquivo">
 				<img id="foto-perfil" class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{Auth::user()->fotoUsuario}}" alt="Foto Perfil">
 			</label>
-			<input id='selecao-arquivo' type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
+			<input id="selecao-arquivo" type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
 
-			<div id="modal-cortar" class="modal">
+			<div id="modal-cortar" class="container-modal modal">
 				<div class="modal-conteudo">
 					<div class="modal-conteudo-header">
 						<span id="modal-fechar" class="modal-conteudo-header-fechar">&times;</span>
-						<h2>Foto</h2>
 					</div>
 					<div class="modal-conteudo-body">
-							<div id="image_demo">
+						<div id="image_demo">
 
-							</div>
-							<button type="button" class="btn crop_image" name="button">Cortar e salvar</button>
-					</div>
-					<div class="modal-conteudo-footer">
-						<h3>Footer</h3>
+						</div>
+						<button type="button" class="btn modal-btn-cortar crop_image" name="button">Cortar e salvar</button>
 					</div>
 				</div>
 			</div>
