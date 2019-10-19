@@ -87,6 +87,21 @@ class VagaController extends Controller
         tbEndereco.estadoEndereco,
         tbRegimeContratacao.nomeRegimeContratacao
       ORDER BY Habilidades DESC");
+    
+    foreach ($vagas as $vaga){
+        $requisitos = DB::table('tbRequisitoVaga')
+            ->select(
+                'tbRequisitoVaga.obrigatoriedadeRequisitoVaga',
+                'tbAdicional.imagemAdicional',
+                'tbAdicional.nomeAdicional'
+            )
+            ->join('tbAdicional', 'tbRequisitoVaga.codAdicional',  '=', 'tbAdicional.codAdicional')
+            ->where('tbRequisitoVaga.codVaga', '=', $vaga->codVaga)
+            ->orderBy('tbAdicional.nomeAdicional', 'ASC')
+            ->get();
+
+        $vaga->requisitos = $requisitos;
+    }
 
     foreach ($vagas as $vaga){
       $beneficios = DB::table('tbBeneficio')
