@@ -59,27 +59,13 @@ class VagaController extends Controller
             ->from('tbVaga')
             ->join('tbRequisitoVaga', 'tbRequisitoVaga.codVaga', '=', 'tbRequisitoVaga.codVaga')
             ->join('tbAdicionalCurriculo','tbRequisitoVaga.codAdicional', '=', 'tbAdicionalCurriculo.codAdicional')
-            ->where('tbVaga.quantidadeVaga', '>', 0)
-          })
-        })
+            ->where('tbVaga.quantidadeVaga', '>', 0);
+          });
+        });
       })
-      ->orderBy('tbVaga.codVaga', 'ASC')
+      ->groupBy('tbVaga.codVaga', 'ASC')
       ->orderBy('Habilidades', 'DESC')
       ->get();
-
-    foreach ($vagas as $vaga){
-      $requisitos = DB::table('tbRequisitoVaga')
-      ->select(
-      'tbRequisitoVaga.obrigatoriedadeRequisitoVaga',
-      'tbAdicional.imagemAdicional',
-      'tbAdicional.nomeAdicional'
-      )
-      ->join('tbAdicional', 'tbRequisitoVaga.codAdicional',  '=', 'tbAdicional.codAdicional')
-      ->where('tbRequisitoVaga.codVaga', '=', $vaga->codVaga)
-      ->orderBy('tbAdicional.nomeAdicional', 'ASC')
-      ->get();
-
-      $vaga->requisitos = $requisitos;
     }
 
     foreach ($vagas as $vaga){
