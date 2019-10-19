@@ -15,27 +15,31 @@ class VagaController extends Controller
         $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
         $vagas = DB::table('tbVaga')
-            ->select(
+            ->selectRaw(
+                'COUNT(tbAdicionalCurriculo.codAdicional) AS Habilidades',
                 'tbVaga.codVaga',
                 'tbVaga.descricaoVaga',
+                'tbVaga.salarioVaga',
                 'tbVaga.cargaHorariaVaga',
                 'tbVaga.quantidadeVaga',
+                'tbEmpresa.nomeFantasiaEmpresa',
                 'tbProfissao.nomeProfissao',
-                'tbCategoria.nomeCategoria',
-                'tbCategoria.imagemCategoria',
                 'tbEndereco.cepEndereco',
                 'tbEndereco.logradouroEndereco',
-                'tbEndereco.numeroEndereco',
                 'tbEndereco.complementoEndereco',
-                'tbRegimeContratacao.nomeRegimeContratacao',
-                'tbEmpresa.nomeFantasiaEmpresa'
+                'tbEndereco.numeroEndereco',
+                'tbEndereco.bairroEndereco',
+                'tbEndereco.zonaEndereco',
+                'tbEndereco.cidadeEndereco',
+                'tbEndereco.estadoEndereco',
+                'tbRegimeContratacao.nomeRegimeContratacao'
             )
+            ->join(
+                'tbEmpresa',
+                'tbVaga.codEmpresa', '=', 'tbEmpresa.codEmpresa')
             ->join(
                 'tbProfissao',
                 'tbVaga.codProfissao', '=', 'tbProfissao.codProfissao')
-            ->join(
-                'tbCategoria',
-                'tbProfissao.codCategoria', '=', 'tbCategoria.codCategoria')
             ->join(
                 'tbEndereco',
                 'tbVaga.codEndereco', '=', 'tbEndereco.codEndereco')
@@ -43,9 +47,44 @@ class VagaController extends Controller
                 'tbRegimeContratacao',
                 'tbVaga.codRegimeContratacao', '=', 'tbRegimeContratacao.codRegimeContratacao')
             ->join(
-                'tbEmpresa',
-                'tbVaga.codEmpresa', '=', 'tbEmpresa.codEmpresa')
-            ->orderBy('tbProfissao.nomeProfissao', 'ASC')
+                'tbRequisitoVaga',
+                'tbVaga.codVaga', '=', 'tbRequisitoVaga.codVaga')
+            ->join(
+                'tbAdicionalCurriculo',
+                'tbRequisitoVaga.codAdicional', '=', 'tbAdicionalCurriculo.codAdicional')
+            ->join(
+                'tbCategoria',
+                'tbProfissao.codCategoria', '=', 'tbCategoria.codCategoria')
+            ->join(
+                'tbCargoCurriculo',
+                'tbCategoria.codCategoria', '=', 'tbCargoCurriculo.codCategoria')
+            ->whereNotIn('tbVaga.codVaga', function($query3){
+              $query3 = DB::table('tbVaga')
+                  ->select('tbVaga.codVaga')
+                  ->join(
+                      'tbRequisitoVaga',
+                      'tbVaga.codVaga ', '=', 'tbRequisitoVaga.codVaga')
+                  ->whereNotIn('tbRequisitoVaga.codAdicional', function($query2){
+                    $query2 = DB::table('tbAdicionalCurriculo')
+                        ->select('tbAdicionalCurriculo.codAdicional')
+                        ->where('tbAdicionalCurriculo.codCurriculo', '=', 2)
+                        ->where('tbRequisitoVaga.obrigatoriedadeRequisitoVaga' = 1)
+                        ->whereIn('tbVaga.codVaga', function($query1){
+                          DB::table('tbVaga')
+                          ->select('tbVaga.codVaga')
+                          ->join(
+                              'tbRequisitoVaga',
+                              'tbRequisitoVaga.codVaga', '=', 'tbRequisitoVaga.codVaga')
+                          ->join(
+                              'tbAdicionalCurriculo',
+                              'tbRequisitoVaga.codAdicional', '=', 'tbAdicionalCurriculo.codAdicional')
+                          ->where('tbVaga.quantidadeVaga', '>', 0)
+                        })
+                  })
+
+            })
+            ->orderBy('tbVaga.codVaga', 'ASC')
+            ->orderBy('Habilidades', 'DESC')
             ->get();
 
         foreach ($vagas as $vaga){
