@@ -27,10 +27,6 @@ class CandidatoController extends Controller
     ->with('usuario', $usuario);
   }
 
-  public function atualizarFoto(){
-
-  }
-
   public function atualizarPerfil(Request $request){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
@@ -38,20 +34,14 @@ class CandidatoController extends Controller
     $cpf = $request->cpf;
 	  $regex = '/[^0-9]/';
 	  $cpf = preg_replace($regex, '', $cpf);
-
-    $date = $request->dataNascimentoCandidato;
-	  $regex = '/[^0-9]/';
-	  $data = preg_replace($regex, '-', $date);
-    $parsed = date('Y-m-d', strtotime($data));
-
-
+    $request->cpf = $cpf;
 
     $this->validate($request, [
       'nome' => 'string|required',
       'rg' => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      $cpf => ['max:11', 'min:11', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      $parsed => 'date|required|before:2003-10-14',
+      'cpf' => ['between:14,14', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'foto' => 'sometimes|file|image',
+      'dataNascimentoCandidato' => 'required|before:2003-10-14|date_format:d/m/Y',
       'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
       'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
     ]);
@@ -71,12 +61,21 @@ class CandidatoController extends Controller
       DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
 
+    $cpf = $request->cpf;
+	  $regex = '/[^0-9]/';
+	  $cpf = preg_replace($regex, '', $cpf);
+
+    $date = $request->dataNascimentoCandidato;
+    $regex = '/[^0-9]/';
+    $data = preg_replace($regex, '-', $date);
+    $parsed = date('Y-m-d', strtotime($data));
+
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
     ->update([
       'nomeCandidato' => $request->nome,
-      'cpfCandidato' => $request->cpf,
+      'cpfCandidato' => $cpf,
       'rgCandidato' => $request->rg,
-      'dataNascimentoCandidato' => $request->dataNascimentoCandidato,
+      'dataNascimentoCandidato' => $parsed,
       'codUsuario' => $usuario->codUsuario,
     ]);
 

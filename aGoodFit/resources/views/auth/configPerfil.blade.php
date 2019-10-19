@@ -23,7 +23,7 @@
 					</div>
 					<div class="modal-conteudo-body">
 						<div id="image_demo">
-							
+
 						</div>
 						<button type="button" class="btn modal-btn-cortar crop_image" name="button">Cortar e salvar</button>
 					</div>
