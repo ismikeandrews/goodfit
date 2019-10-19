@@ -8,7 +8,6 @@
 			<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
 		</a>
 	</div>
-
 	<form enctype="multipart/form-data"  action="/candidato/configuracoes" method="post">
 		@csrf
 		<div class="content-perfil">
@@ -24,13 +23,12 @@
 					</div>
 					<div class="modal-conteudo-body">
 						<div id="image_demo">
-
+							
 						</div>
 						<button type="button" class="btn modal-btn-cortar crop_image" name="button">Cortar e salvar</button>
 					</div>
 				</div>
 			</div>
-
 			@error('foto')
 			<span class="erro erro-center" role="alert">
 				<strong>{{ $message }}</strong>
@@ -38,7 +36,6 @@
 			<br>
 			@enderror
 		</div>
-
 		<div class="content-perfil-desc">
 			<div class="content-perfil-desc-item">
 				Nome
@@ -52,7 +49,7 @@
 
 			<div class="content-perfil-desc-item">
 				CPF
-				<input class="form-input-item form-input-item-perfil" type="text" name="cpf" value="{{$candidato->cpfCandidato}}">
+				<input class="form-input-item form-input-item-perfil" type="text" name="cpf" data-mask="000.000.000-00" value="{{$candidato->cpfCandidato}}">
 				@error('cpf')
 				<span class="erro" role="alert">
 					<strong>{{ $message }}</strong>
@@ -72,7 +69,7 @@
 
 			<div class="content-perfil-desc-item">
 				Data de nascimento
-				<input class="form-input-item form-input-item-perfil" type="text" name="dataNascimentoCandidato" value="{{$candidato->dataNascimentoCandidato}}">
+				<input class="form-input-item form-input-item-perfil" type="text" name="dataNascimentoCandidato" data-mask="00/00/0000" value="{{$candidato->dataNascimentoCandidato}}">
 				@error('dataNascimentoCandidato')
 				<span class="erro" role="alert">
 					<strong>{{ $message }}</strong>

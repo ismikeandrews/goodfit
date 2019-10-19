@@ -27,11 +27,36 @@ class CandidatoController extends Controller
     ->with('usuario', $usuario);
   }
 
-  public function atualizarFoto(Request $request){
+  public function atualizarFoto(){
+
+  }
+
+  public function atualizarPerfil(Request $request){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    
-    if ($request->hasFile("foto")) {
+
+    $cpf = $request->cpf;
+	  $regex = '/[^0-9]/';
+	  $cpf = preg_replace($regex, '', $cpf);
+
+    $date = $request->dataNascimentoCandidato;
+	  $regex = '/[^0-9]/';
+	  $data = preg_replace($regex, '-', $date);
+    $parsed = date('Y-m-d', strtotime($data));
+
+
+
+    $this->validate($request, [
+      'nome' => 'string|required',
+      'rg' => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      $cpf => ['max:11', 'min:11', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      $parsed => 'date|required|before:2003-10-14',
+      'foto' => 'sometimes|file|image',
+      'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
+      'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
+    ]);
+
+    if ($request->hasFile("foto")){
       if ($usuario->fotoUsuario !== 'perfil.png') {
         $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
         if (File::exists($foto)) {
@@ -39,33 +64,12 @@ class CandidatoController extends Controller
         }
       }
       $foto = $request->foto;
-
-      $image_array_1 = explode(";", $foto);
-
-      $image_array_2 = explode(",", $image_array_1[1]);
-
-      $foto = base64_decode($image_array_2[1]);
-
       $nome = time() . '.' . $foto->getClientOriginalExtension();
-      Image::make($foto)->resize(300, 300)->save(public_path('/images/candidatos/'.$nome));
+      Image::make($foto)
+      ->fit(300, 300)->rotate(-90)
+      ->save(public_path('/images/candidatos/'.$nome));
       DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
-  }
-
-  public function atualizarPerfil(Request $request){
-
-    $usuario = Auth::user();
-    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-
-    $this->validate($request, [
-      'nome' => 'string|required',
-      'rg' => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      'cpf' => ['max:11', 'min:11', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      'dataNascimentoCandidato' => 'date|required|before:2003-10-14',
-      'foto' => 'file|image',
-      'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
-      'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
-    ]);
 
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
     ->update([

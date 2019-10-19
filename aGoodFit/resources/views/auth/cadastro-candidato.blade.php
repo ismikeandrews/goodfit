@@ -70,7 +70,7 @@
             </div>
             <div class="form-inputs">
               <div class="form-input-data-nascimento">
-                  <input id="data-nascimento" type="date" placeholder="dd/mm/AAAA" class="form-input-item @error('nascimento') is-invalid @enderror" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
+                  <input id="data-nascimento" type="date" placeholder="dd/mm/AAAA" class="form-input-item @error('nascimento') is-invalid @enderror" data-mask="00/00/0000" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
                   @error('nascimento')
                   <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
             </div>
             <div class="form-inputs">
               <div class="form-input-cpf">
-                  <input id="cpf" type="text" placeholder="CPF" class="form-input-item @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" autocomplete="cpf" autofocus>
+                  <input id="cpf" type="text" placeholder="CPF" class="form-input-item @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" data-mask="000.000.000-00" autocomplete="cpf" autofocus>
                   @error('cpf')
                   <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>

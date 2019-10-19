@@ -33,8 +33,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="{{ asset('https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js')}}"></script>
+  <script src="{{ asset('js/jquery.min.js')}}"></script>
+  <script src="{{ asset('js/jquery.mask.js') }}" defer></script>
   <script src="{{ asset('js/upload-img.js') }}" defer></script>
+  <script src="{{ asset('js/mascaras.js') }}" defer></script>
   <script src="{{ asset('js/croppie.js') }}" defer></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
 </body>

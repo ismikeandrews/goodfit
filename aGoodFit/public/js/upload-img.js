@@ -37,15 +37,17 @@ $(document).ready(function(){
        type: 'canvas',
        size: 'viewport'
      }).then(function(response){
-
        $.ajax({
-         url:"/candidato/configuracoes/foto",
+         url:"/candidato/configuracoes",
          type: "POST",
-         data:{"foto":  response, "_token": $('#csrf-token')[0]},
+         data:{
+           "_token": $('#csrf-token')[0],
+           "foto":  response,
+         },
          success:function(data)
          {
+           console.log("to aqui")
            $('#modal-cortar').toggle('hide');
-           $('#foto-perfil').html(data);
          },
          error:function(jqXHR,  textStatus,  errorThrown )
          {
@@ -56,4 +58,15 @@ $(document).ready(function(){
        });
      });
    });
+
+   function load_images()
+   {
+     $.ajax({
+       url: "nome da rota",
+       success:function(data)
+       {
+          $('#fazerodisplaydaimg').html(data);
+       }
+     });
+   }
 });
