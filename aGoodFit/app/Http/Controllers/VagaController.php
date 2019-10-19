@@ -83,7 +83,7 @@ class VagaController extends Controller
                   })
 
             })
-            ->orderBy('tbVaga.codVaga', 'ASC')
+            ->groupBy('tbVaga.codVaga', 'ASC')
             ->orderBy('Habilidades', 'DESC')
             ->get();
 
