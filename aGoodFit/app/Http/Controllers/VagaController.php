@@ -14,59 +14,79 @@ class VagaController extends Controller
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
-    $vagas = DB::table('tbVaga')
-    ->selectRaw(
-      'COUNT(tbAdicionalCurriculo.codAdicional) AS Habilidades',
-      'tbVaga.codVaga',
-      'tbVaga.descricaoVaga',
-      'tbVaga.salarioVaga',
-      'tbVaga.cargaHorariaVaga',
-      'tbVaga.quantidadeVaga',
-      'tbEmpresa.nomeFantasiaEmpresa',
-      'tbProfissao.nomeProfissao',
-      'tbEndereco.cepEndereco',
-      'tbEndereco.logradouroEndereco',
-      'tbEndereco.complementoEndereco',
-      'tbEndereco.numeroEndereco',
-      'tbEndereco.bairroEndereco',
-      'tbEndereco.zonaEndereco',
-      'tbEndereco.cidadeEndereco',
-      'tbEndereco.estadoEndereco',
-      'tbRegimeContratacao.nomeRegimeContratacao'
+    $vagas = DB::select("
+      SELECT
+      COUNT(tbAdicionalCurriculo.codAdicional) AS 'Habilidades',
+      tbVaga.codVaga,
+        tbVaga.descricaoVaga,
+        tbVaga.salarioVaga,
+        tbVaga.cargaHorariaVaga,
+        tbVaga.quantidadeVaga,
+        tbEmpresa.nomeFantasiaEmpresa,
+        tbProfissao.nomeProfissao,
+        tbEndereco.cepEndereco,
+        tbEndereco.logradouroEndereco,
+        tbEndereco.complementoEndereco,
+        tbEndereco.numeroEndereco,
+        tbEndereco.bairroEndereco,
+        tbEndereco.zonaEndereco,
+        tbEndereco.cidadeEndereco,
+        tbEndereco.estadoEndereco,
+        tbRegimeContratacao.nomeRegimeContratacao
+      FROM tbVaga
+      INNER JOIN tbEmpresa
+        ON tbVaga.codEmpresa = tbEmpresa.codEmpresa
+      INNER JOIN tbProfissao
+        ON tbVaga.codProfissao = tbProfissao.codProfissao
+      INNER JOIN tbEndereco
+        ON tbVaga.codEndereco = tbEndereco.codEndereco
+      INNER JOIN tbRegimeContratacao
+        ON tbVaga.codRegimeContratacao = tbRegimeContratacao.codRegimeContratacao
+      INNER JOIN tbRequisitoVaga
+        ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+      INNER JOIN tbAdicionalCurriculo
+        ON tbRequisitoVaga.codAdicional = tbAdicionalCurriculo.codAdicional
+      INNER JOIN tbCategoria
+        ON tbProfissao.codCategoria = tbCategoria.codCategoria
+      INNER JOIN tbCargoCurriculo
+        ON tbCategoria.codCategoria = tbCargoCurriculo.codCategoria
+      WHERE tbVaga.codVaga NOT IN (
+        SELECT tbVaga.codVaga
+          FROM tbVaga
+          INNER JOIN tbRequisitoVaga
+          ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+        WHERE tbRequisitoVaga.codAdicional NOT IN (
+          SELECT tbAdicionalCurriculo.codAdicional
+              FROM tbAdicionalCurriculo
+              WHERE tbAdicionalCurriculo.codCurriculo = 1
+          ) AND tbRequisitoVaga.obrigatoriedadeRequisitoVaga = 1
+      ) AND tbVaga.codVaga IN (
+        SELECT tbVaga.codVaga
+          FROM tbVaga
+          INNER JOIN tbRequisitoVaga
+          ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+        INNER JOIN tbAdicionalCurriculo
+          ON tbRequisitoVaga.codAdicional = tbAdicionalCurriculo.codAdicional
       )
-      ->join('tbEmpresa', 'tbVaga.codEmpresa', '=', 'tbEmpresa.codEmpresa')
-      ->join('tbProfissao', 'tbVaga.codProfissao', '=', 'tbProfissao.codProfissao')
-      ->join('tbEndereco', 'tbVaga.codEndereco', '=', 'tbEndereco.codEndereco')
-      ->join('tbRegimeContratacao', 'tbVaga.codRegimeContratacao', '=', 'tbRegimeContratacao.codRegimeContratacao')
-      ->join('tbRequisitoVaga', 'tbVaga.codVaga', '=', 'tbRequisitoVaga.codVaga')
-      ->join('tbAdicionalCurriculo', 'tbRequisitoVaga.codAdicional', '=', 'tbAdicionalCurriculo.codAdicional')
-      ->join('tbCategoria', 'tbProfissao.codCategoria', '=', 'tbCategoria.codCategoria')
-      ->join('tbCargoCurriculo', 'tbCategoria.codCategoria', '=', 'tbCargoCurriculo.codCategoria')
-      ->whereNotIn('tbVaga.codVaga', function($query3){
-        $query3
-        ->select('tbVaga.codVaga')
-        ->from('tbVaga')
-        ->join('tbRequisitoVaga', 'tbVaga.codVaga ', '=', 'tbRequisitoVaga.codVaga')
-        ->whereNotIn('tbRequisitoVaga.codAdicional', function($query2){
-          $query2
-          ->select('tbAdicionalCurriculo.codAdicional')
-          ->from('tbAdicionalCurriculo')
-          ->where('tbAdicionalCurriculo.codCurriculo', '=', 2)
-          ->where('tbRequisitoVaga.obrigatoriedadeRequisitoVaga', '=', 1)
-          ->whereIn('tbVaga.codVaga', function($query1){
-            $query1
-            ->select('tbVaga.codVaga')
-            ->from('tbVaga')
-            ->join('tbRequisitoVaga', 'tbRequisitoVaga.codVaga', '=', 'tbRequisitoVaga.codVaga')
-            ->join('tbAdicionalCurriculo','tbRequisitoVaga.codAdicional', '=', 'tbAdicionalCurriculo.codAdicional')
-            ->where('tbVaga.quantidadeVaga', '>', 0);
-          });
-        });
-      })
-      ->groupBy('tbVaga.codVaga', 'ASC')
-      ->orderBy('Habilidades', 'DESC')
-      ->get();
-    }
+      AND tbVaga.quantidadeVaga > 0
+      GROUP BY
+        tbVaga.codVaga,
+        tbVaga.descricaoVaga,
+        tbVaga.salarioVaga,
+        tbVaga.cargaHorariaVaga,
+        tbVaga.quantidadeVaga,
+        tbEmpresa.nomeFantasiaEmpresa,
+        tbProfissao.nomeProfissao,
+        tbEndereco.cepEndereco,
+        tbEndereco.logradouroEndereco,
+        tbEndereco.complementoEndereco,
+        tbEndereco.numeroEndereco,
+        tbEndereco.bairroEndereco,
+        tbEndereco.zonaEndereco,
+        tbEndereco.cidadeEndereco,
+        tbEndereco.estadoEndereco,
+        tbRegimeContratacao.nomeRegimeContratacao
+      ORDER BY Habilidades DESC");
 
     foreach ($vagas as $vaga){
       $beneficios = DB::table('tbBeneficio')
