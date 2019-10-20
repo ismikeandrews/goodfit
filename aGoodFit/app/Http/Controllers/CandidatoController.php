@@ -22,6 +22,8 @@ class CandidatoController extends Controller
   public function config(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+    $candidato->dataNascimentoCandidato = date('d/m/Y', strtotime($candidato->dataNascimentoCandidato));
+
     return view('auth.configPerfil')
     ->with('candidato', $candidato)
     ->with('usuario', $usuario);
@@ -30,11 +32,6 @@ class CandidatoController extends Controller
   public function atualizarPerfil(Request $request){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-
-    $cpf = $request->cpf;
-	  $regex = '/[^0-9]/';
-	  $cpf = preg_replace($regex, '', $cpf);
-    $request->cpf = $cpf;
 
     $this->validate($request, [
       'nome' => 'string|required',
@@ -66,7 +63,6 @@ class CandidatoController extends Controller
 	  $cpf = preg_replace($regex, '', $cpf);
 
     $date = $request->dataNascimentoCandidato;
-    $regex = '/[^0-9]/';
     $data = preg_replace($regex, '-', $date);
     $parsed = date('Y-m-d', strtotime($data));
 

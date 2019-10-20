@@ -57,9 +57,9 @@ class RegisterController extends Controller
            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
            'password' => ['required', 'string', 'min:8', 'confirmed'],
            'nome' => ['required'],
-           'cpf' => ['required', 'min:11', 'max:11', 'unique:tbCandidato,cpfCandidato'],
+           'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
            'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
-           'nascimento' => ['required', 'before:2003-10-14', 'date'],
+           'nascimento' => ['required', 'before:2003-10-14', 'date_format:d/m/Y'],
            'foto' => ['image', 'file']
          ]);
      }
@@ -72,6 +72,7 @@ class RegisterController extends Controller
       */
      public function create(array $data)
      {
+
          if (Arr::has($data, 'foto')) {
            $foto = $data['foto'];
            $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
@@ -90,11 +91,19 @@ class RegisterController extends Controller
          ]);
 
          if($usuario->codNivelUsuario = 2){
+           $cpf = $data['cpf'];
+           $regex = '/[^0-9]/';
+           $cpf = preg_replace($regex, '', $cpf);
+
+           $date = $data['nascimento'];
+           $date = preg_replace($regex, '-', $date);
+           $parsed = date('Y-m-d', strtotime($date));
+
           Candidato::create([
             'nomeCandidato' => $data['nome'],
-            'cpfCandidato' => $data['cpf'],
+            'cpfCandidato' => $cpf,
             'rgCandidato' => $data['rg'],
-            'dataNascimentoCandidato' => $data['nascimento'],
+            'dataNascimentoCandidato' => $parsed,
             'codUsuario' => $usuario->codUsuario
           ]);
          }
