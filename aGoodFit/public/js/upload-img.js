@@ -5,7 +5,7 @@ $(document).ready(function(){
     viewport:{
       width: 200,
       height: 200,
-      type: 'circle' //Da pra fazer circle
+      type: 'circle' //Da pra fazer square
     },
     boundary:{
       width: 250,
@@ -23,7 +23,7 @@ $(document).ready(function(){
       });
     }
     reader.readAsDataURL(this.files[0]);
-    $('#modal-cortar').toggle('show');
+    $('#modal-cortar').toggle('is-active');
   });
 
   $('.crop_image').click(function(event){

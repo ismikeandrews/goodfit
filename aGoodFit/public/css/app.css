@@ -1181,10 +1181,6 @@ a {
   padding: 5px 0 0px;
 }
 
-.modal.show {
-  display: block;
-}
-
 .modal.hide {
   display: none;
 }
