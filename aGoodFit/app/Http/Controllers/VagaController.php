@@ -87,7 +87,7 @@ class VagaController extends Controller
         tbEndereco.estadoEndereco,
         tbRegimeContratacao.nomeRegimeContratacao
       ORDER BY Habilidades DESC");
-    
+
     foreach ($vagas as $vaga){
         $requisitos = DB::table('tbRequisitoVaga')
             ->select(
