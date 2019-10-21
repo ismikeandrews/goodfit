@@ -70,7 +70,7 @@
             </div>
             <div class="form-inputs">
               <div class="form-input-data-nascimento">
-                  <input id="data-nascimento" type="date" placeholder="dd/mm/AAAA" class="form-input-item @error('nascimento') is-invalid @enderror" data-mask="00/00/0000" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
+                  <input id="data-nascimento" type="text" placeholder="dd/mm/AAAA" class="form-input-item @error('nascimento') is-invalid @enderror" data-mask="00/00/0000" name="nascimento" value="{{ old('nascimento') }}" autocomplete="data-nascimento" autofocus>
                   @error('nascimento')
                   <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>
