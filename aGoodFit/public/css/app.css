@@ -908,7 +908,7 @@ a {
 }
 
 .vagas-empresa {
-  padding-top: 20px;
+  padding-top: 10px;
   position: relative;
   z-index: -1;
 }
@@ -921,13 +921,7 @@ a {
 }
 
 .vagas-empresa-logo-img {
-  width: 40%;
-}
-
-@media screen and (max-width: 500px) {
-  .vagas-empresa-logo-img {
-    width: 100%;
-  }
+  width: 100%;
 }
 
 .vagas-btn {
@@ -950,6 +944,24 @@ a {
   width: 80px;
 }
 
+.vagas-btn-item-inscrever {
+  border-radius: 15px;
+  height: 60px;
+  padding: 0 65px;
+  position: relative;
+}
+
+.vagas-btn-item-inscrever-text {
+  color: #04B2D9;
+  font: 18px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  left: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 100%;
+}
+
 @media screen and (max-width: 380px) {
   .vagas-btn-item {
     height: 65px;
@@ -958,8 +970,12 @@ a {
 }
 
 .vagas-btn-icon {
-  margin: auto;
-  width: 30px;
+  left: 50%;
+  margin: 0 3px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 35px;
 }
 
 @media screen and (max-width: 380px) {
@@ -976,10 +992,10 @@ a {
 
 .vagas-btn-side-item {
   align-items: center;
-  height: 40px;
   justify-content: center;
+  height: 50px;
   margin: 10px;
-  width: 40px;
+  width: 50px;
 }
 
 .vagas-btn-side-item:first-child {
@@ -999,9 +1015,13 @@ a {
 .container-vagas {
   background: #fff;
   border-radius: 30px 30px;
+  left: 50%;
   margin: -40px 0 0;
+  max-width: 500px;
   padding-top: 80px;
   position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
   z-index: -1;
 }
 
@@ -1326,6 +1346,13 @@ a {
   align-items: center;
   display: flex;
   padding: 20px 0;
+  width: 80%;
+}
+
+@media screen and (max-width: 500px) {
+  .status-box-desc {
+    width: 95%;
+  }
 }
 
 .status-box-desc-img {
@@ -1334,7 +1361,9 @@ a {
 }
 
 .status-box-desc-img-icon {
-  width: 80px;
+  border-radius: 50%;
+  margin: 0 15px;
+  width: 70px;
 }
 
 @media screen and (max-width: 380px) {
@@ -1350,6 +1379,7 @@ a {
 }
 
 .status-box-desc-content {
+  margin-left: 40px;
   width: 80%;
 }
 
@@ -1407,13 +1437,13 @@ a {
 
 @media screen and (max-width: 500px) {
   .status-box-qtd:before {
-    right: 55px;
+    right: 60px;
   }
 }
 
 @media screen and (max-width: 380px) {
   .status-box-qtd:before {
-    right: 45px;
+    right: 50px;
   }
 }
 

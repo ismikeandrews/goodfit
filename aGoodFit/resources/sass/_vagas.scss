@@ -2,7 +2,7 @@
   padding-top: 30px;
 
   &-empresa {
-    padding-top: 20px;
+    padding-top: 10px;
     position: relative;
     z-index: -1;
 
@@ -13,11 +13,7 @@
       text-align: center;
 
       &-img {
-        width: 40%;
-
-        @include MQ($medium) {
-          width: 100%;
-        }
+        width: 100%;
       }
     }
   }
@@ -40,6 +36,24 @@
     text-align: center;
     width: 80px;
 
+    &-inscrever {
+      border-radius: 15px;
+      height: 60px;
+      padding: 0 65px;
+      position: relative;
+
+      &-text {
+        color: $azul_primary;
+        font: 18px $font-bold;
+        left: 50%;
+        position: absolute;
+        text-transform: uppercase;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        width: 100%;
+      }
+    }
+
     @include MQ($small) {
       height: 65px;
       width: 65px;
@@ -47,8 +61,12 @@
   }
 
   &-icon {
-    margin: auto;
-    width: 30px;
+    left: 50%;
+    margin: 0 3px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 35px;
 
     @include MQ($small) {
       width: 25px;
@@ -63,10 +81,10 @@
   &-side {
     &-item {
       align-items: center;
-      height: 40px;
       justify-content: center;
+      height: 50px;
       margin: 10px;
-      width: 40px;
+      width: 50px;
 
       &:first-child {
         margin-right: 20px;
@@ -88,9 +106,13 @@
 .container-vagas {
   background: #fff;
   border-radius: 30px 30px;
+  left: 50%;
   margin: -40px 0 0;
+  max-width: 500px;
   padding-top: 80px;
   position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
   z-index: -1;
 }
 

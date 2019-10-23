@@ -32,17 +32,17 @@
 	</div>
 
 	<div class="container container-status">
-		<div class="status-box">
+		<!-- <div class="status-box">
 			<div class="status-box-desc">
 				<div class="status-box-desc-img">
 					<img src="{{asset('images/status/empresa.png')}}" alt="Logo MC Donalds" class="status-box-desc-img-icon">
 				</div>
 				<div class="status-box-desc-content">
 					<div class="status-box-desc-content-title">
-						Analista de Performance (Google Adwords)				
+						Analista de Performance (Google Adwords)
 					</div>
 					<div class="status-box-desc-content-nome">
-						Mc Donald's Brasil		
+						Mc Donald's Brasil
 					</div>
 					<div class="status-box-desc-content-status">
 						<div class="status-box-desc-content-status-cor finalizado">
@@ -58,19 +58,19 @@
 				30
 				<span>Vagas</span>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="status-box">
 			<div class="status-box-desc">
 				<div class="status-box-desc-img">
-					<img src="{{asset('images/status/empresa.png')}}" alt="Logo MC Donalds" class="status-box-desc-img-icon">
+					<img src='{{asset("images/componentes/empresa-colegio.jpg")}}' alt="Logo - Colégio Evoluir" class="status-box-desc-img-icon">
 				</div>
 				<div class="status-box-desc-content">
 					<div class="status-box-desc-content-title">
-						Analista de Performance (Google Adwords)				
+						Professor de Matemática
 					</div>
 					<div class="status-box-desc-content-nome">
-						Mc Donald's Brasil		
+						Education & Future
 					</div>
 					<div class="status-box-desc-content-status">
 						<div class="status-box-desc-content-status-cor aprovado">
@@ -88,7 +88,7 @@
 			</div>
 		</div>
 
-		<div class="status-box">
+		<!-- <div class="status-box">
 			<div class="status-box-desc">
 				<div class="status-box-desc-img">
 					<img src="{{asset('images/status/empresa.png')}}" alt="Logo MC Donalds" class="status-box-desc-img-icon">
@@ -98,7 +98,7 @@
 						Analista de Performance (Google Adwords)
 					</div>
 					<div class="status-box-desc-content-nome">
-						Mc Donald's Brasil		
+						Mc Donald's Brasil
 					</div>
 					<div class="status-box-desc-content-status">
 						<div class="status-box-desc-content-status-cor andamento">
@@ -114,7 +114,7 @@
 				30
 				<span>Vagas</span>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </section>
 @endsection
