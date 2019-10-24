@@ -99,7 +99,7 @@
 
 			<input class="btn btn-perfil-salvar" type="submit" value="Salvar">
 		</div>
-		<a href="/endereco/formulario">Página de endereco</a>
+		<!-- <a href="/endereco/formulario">Página de endereco</a> -->
 	</form>
 </div>
 @endsection

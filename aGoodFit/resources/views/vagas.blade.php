@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <section class="container-vagas vagas">
 	@foreach ($vagas as $vaga)
 		<div class="vagas-empresa">
@@ -92,5 +91,10 @@
 			</div>
 		</div>
 	@endforeach
+	@if($vagas == null)
+	<div class="margin">
+		nem uma vaga encontrada no momento :(
+	</div>
+	@endif
 </section>
 @endsection
