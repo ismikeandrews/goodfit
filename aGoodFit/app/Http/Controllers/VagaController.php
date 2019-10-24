@@ -58,7 +58,7 @@ class VagaController extends Controller
         WHERE tbRequisitoVaga.codAdicional NOT IN (
           SELECT tbAdicionalCurriculo.codAdicional
               FROM tbAdicionalCurriculo
-              WHERE tbAdicionalCurriculo.codCurriculo = 1
+              WHERE tbAdicionalCurriculo.codCurriculo = $usuario->codUsuario
           ) AND tbRequisitoVaga.obrigatoriedadeRequisitoVaga = 1
       ) AND tbVaga.codVaga IN (
         SELECT tbVaga.codVaga

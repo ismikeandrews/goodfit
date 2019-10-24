@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
         'fotoUsuario' => 'perfil.png',
         'loginUsuario' => 'Adm',
         'password' => '$2y$10$Wrjg/tHTvKekdW5Qc/k4S.BrIJVVfWe0B1MoJ.EVarRbQMzkrw.Ii',
-        'email' => 'admCandidato@exemple.com',
+        'email' => 'admCandidato@example.com',
         'codNivelUsuario' => 2,
         'codEndereco' => null,
     		),
