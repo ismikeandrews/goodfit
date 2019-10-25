@@ -31,7 +31,6 @@ Route::post('/configuracoes', 'CandidatoController@atualizarPerfil')->middleware
 Route::prefix('curriculo')->group(function() {
 //Paginas
 Route::get('/formulario', 'CurriculoController@formularioCurriculo')->middleware('auth');
-Route::get('/formulario/login', 'CurriculoController@formularioCurriculoLogin')->middleware('auth');
 Route::get('/status', 'CurriculoController@paginaStatus')->middleware('auth');
 //Novo Curriculo
 Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');

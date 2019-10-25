@@ -18,7 +18,7 @@
 
 	@elseif($vagas == null)
 	<div class="vagas-content-null">
-		Nenhuma vaga encontrada 🙁
+		Nenhuma vaga encontrada no momento 🙁
 	</div>
 </section>
 @endif
