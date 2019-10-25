@@ -1,7 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="container-vagas vagas">
+
+@if($curriculo == null)
+<section class="vagas-section-null">
+	<div class="vagas-content-null">
+		 <div class="vagas-content-null-img">
+			 <img src='{{asset("images/componentes/menu-curriculo.svg")}}' alt="Vagas - Outback" class="vagas-null-img">
+		 </div>
+		 <div class="vagas-content-null-text">
+			Para continuar<br> cadastre um currículo
+		</div>
+		<a href="/curriculo/formulario" id="btn-vaga-null" class="btn btn-vagas-null">
+				Cadastro do currículo
+		</a>
+	</div>
+
+	@elseif($vagas == null)
+	<div class="vagas-content-null">
+		Nenhuma vaga encontrada 🙁
+	</div>
+</section>
+@endif
+
+@isset($curriculo)
+	<section class="container-vagas vagas">
 	@foreach ($vagas as $vaga)
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
@@ -91,10 +114,6 @@
 			</div>
 		</div>
 	@endforeach
-	@if($vagas == null)
-	<div class="margin">
-		nem uma vaga encontrada no momento :(
-	</div>
-	@endif
-</section>
+	</section>
+@endisset
 @endsection

@@ -227,3 +227,34 @@
     }
   }
 }
+
+.vagas-section-null {
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.vagas-content-null {
+    color: $azul_secondary;
+    font: 22px $font-semibold;
+    height: 200px;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    position: absolute;
+    width: 100%;
+
+    &-text {
+      margin-top: 30px;
+    }
+}
+
+.btn-vagas-null {
+  bottom: 0;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 50%;
+}
