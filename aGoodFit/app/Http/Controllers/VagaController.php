@@ -15,10 +15,7 @@ class VagaController extends Controller
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
     $curriculo = DB::table('tbCurriculo')->where('codCandidato', $candidato->codCandidato)->first();
-    if ($curriculo == null) {
-      return redirect('/curriculo/formulario');
-    }
-    else {
+    if ($curriculo) {
       $vagas = DB::select("
         SELECT
         COUNT(tbAdicionalCurriculo.codAdicional) AS 'Habilidades',
@@ -122,7 +119,10 @@ class VagaController extends Controller
         'candidato' => $candidato
       ];
 
-      return view('vagas', $dados)->with('usuario', $usuario);
+      return view('vagas', $dados)->with('usuario', $usuario)->with('curriculo', $curriculo);
+    }
+    else {
+      return view('vagas')->with('usuario', $usuario)->with('curriculo', $curriculo);
     }
   }
 }
