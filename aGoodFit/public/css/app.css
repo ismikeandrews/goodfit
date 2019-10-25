@@ -1144,13 +1144,16 @@ a {
 .vagas-content-null {
   color: #0468BF;
   font: 22px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
-  height: 200px;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%);
   top: 50%;
   position: absolute;
   width: 100%;
+}
+
+.vagas-content-null-curriculo {
+  height: 200px;
 }
 
 .vagas-content-null-text {

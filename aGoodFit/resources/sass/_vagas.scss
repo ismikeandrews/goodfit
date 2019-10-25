@@ -237,13 +237,16 @@
 .vagas-content-null {
     color: $azul_secondary;
     font: 22px $font-semibold;
-    height: 200px;
     left: 50%;
     text-align: center;
     transform: translate(-50%,-50%);
     top: 50%;
     position: absolute;
     width: 100%;
+
+    &-curriculo {
+      height: 200px;
+    }
 
     &-text {
       margin-top: 30px;

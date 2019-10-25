@@ -4,7 +4,7 @@
 
 @if($curriculo == null)
 <section class="vagas-section-null">
-	<div class="vagas-content-null">
+	<div class="vagas-content-null vagas-content-null-curriculo">
 		 <div class="vagas-content-null-img">
 			 <img src='{{asset("images/componentes/menu-curriculo.svg")}}' alt="Vagas - Outback" class="vagas-null-img">
 		 </div>
@@ -17,8 +17,13 @@
 	</div>
 
 	@elseif($vagas == null)
+<<<<<<< HEAD
 	<div class="vagas-content-null">
 		Nenhuma vaga encontrada no momento 🙁
+=======
+	<div class="vagas-content-null vagas-content-null-vaga">
+		Nenhuma vaga encontrada 🙁
+>>>>>>> 7a61fcbe71107723c52164295b15c182dd872160
 	</div>
 </section>
 @endif

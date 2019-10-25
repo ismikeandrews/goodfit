@@ -47,30 +47,27 @@ class CurriculoController extends Controller
       ->orderBy('tbAdicional.grauAdicional', 'ASC')
       ->get();
 
-      $dados = [
-        'habilidades' => $habilidades,
-        'categorias' => $categorias,
-        'escolaridades' => $escolaridades,
-        'alfabetizacoes' => $niveisAlfabetizacao
-      ];
+    $dados = [
+      'habilidades' => $habilidades,
+      'categorias' => $categorias,
+      'escolaridades' => $escolaridades,
+      'alfabetizacoes' => $niveisAlfabetizacao
+    ];
 
-    if ($curriculo != null) {
+    if ($curriculo) {
       $cargos = DB::table('tbCargoCurriculo')
       ->where('codCurriculo', $curriculo->codCurriculo)->get();
 
       $adicionais = DB::table('tbAdicionalCurriculo')
       ->where('codCurriculo', $curriculo->codCurriculo)->get();
 
-      return view('curriculo.editarCurriculo', $dados)
-      ->with('candidato', $candidato)
-      ->with('curriculo', $curriculo)
-      ->with('adicionais', $adicionais)
-      ->with('cargos', $cargos);
-
+      $dados['cargos'] = $cargos;
+      $dados['adicionais'] = $adicionais;
+      $dados['curriculo'] = $curriculo;
+      $dados['candidato'] = $candidato;
     }
-    else {
-      return view('curriculo.curriculo', $dados);
-    }
+    
+    return view('curriculo.curriculo', $dados);
   }
 
   public function paginaStatus(){
