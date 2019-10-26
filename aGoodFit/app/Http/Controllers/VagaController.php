@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class VagaController extends Controller
 {
+  /**
+  * Função para mostrar vagas compatíveis com candidato
+  *
+  *
+  * @author Vanessa Amaral Marques
+  **/
   public function paginaVagas(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
