@@ -22,13 +22,13 @@ class StatusController extends Controller
       }
 
       foreach ($candidaturas as $candidatura) {
-        $status = DB::table('tbCandidatura')
-        ->join('tbStatusCandidatura', 'tbCandidatura.codCandidatura', '=', 'tbStatusCandidatura.codStatusCandidatura')
+        $status = DB::table('tbStatusCandidatura')
         ->select('tbStatusCandidatura.nomeStatusCandidatura')
+        ->where('codStatusCandidatura', $candidatura->codStatusCandidatura)
         ->first();
         $candidatura->status = $status;
       }
-
+      
       foreach ($vagas as $vaga){
         $profissao = DB::table('tbProfissao')
         ->select('tbProfissao.nomeProfissao')
@@ -69,7 +69,7 @@ class StatusController extends Controller
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();
     $status = DB::table('tbStatusCandidatura')
-    ->where('codStatusCandidatura', 1)->first();
+    ->where('codStatusCandidatura', 2)->first();
 
     Candidatura::create([
       'codCandidato' => $candidato->codCandidato,

@@ -2,12 +2,11 @@
 
 @section('content')
 <?php
-	if ($curriculo) {
+  if (isset($curriculo)) {
     $page = '/curriculo/formulario/editar';
   }else {
     $page = '/curriculo/formulario';
   }
-
  ?>
 <section class="container container-curriculo">
   <div class="curriculo-etapas curriculo-etapa-1">
