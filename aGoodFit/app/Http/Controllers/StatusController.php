@@ -4,67 +4,52 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Candidatura;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StatusController extends Controller
 {
   public function index(){
-    $usuario = Auth::user();
+    $beneficioController = new BeneficioController;
+    $empresaController   = new EmpresaController;
+    $profissaoController = new ProfissaoController;
+    $vagaController      = new VagaController;
+
+    $usuario   = Auth::user();
+
     $candidato = DB::table('tbCandidato')
-    ->where('codUsuario', $usuario->codUsuario)->first();
+    ->where('codUsuario', $usuario->codUsuario)
+    ->first();
+
     $candidaturas = DB::table('tbCandidatura')
-    ->where('codCandidato', $candidato->codCandidato)->get();
+    ->where('codCandidato', $candidato->codCandidato)
+    ->get();
+
+    $dados = [
+      'candidaturas' => $candidaturas
+    ];
+
     if ($candidaturas->count() > 0) {
       foreach ($candidaturas as $candidatura) {
-        $vagas = DB::table('tbVaga')
-        ->where('codVaga', $candidatura->codVaga)->get();
-      }
-
-      foreach ($candidaturas as $candidatura) {
-        $status = DB::table('tbStatusCandidatura')
-        ->select('tbStatusCandidatura.nomeStatusCandidatura')
-        ->where('codStatusCandidatura', $candidatura->codStatusCandidatura)
-        ->first();
-        $candidatura->status = $status;
+        $vagas               = $vagaController->getVagaByCod($candidatura->codVaga);
+        $candidatura->status = getStatusByCod($candidatura->codStatusCandidatura);
       }
 
       foreach ($vagas as $vaga){
-        $profissao = DB::table('tbProfissao')
-        ->select('tbProfissao.nomeProfissao')
-        ->where('tbProfissao.codProfissao', '=', $vaga->codProfissao)
-        ->first();
-        $vaga->profissao = $profissao;
+        $vaga->profissao  = $profissaoController->getProfissaoByCod($vaga->codProfissao);
+        $vaga->empresa    = $empresaController->getEmpresaByCod($vaga->codEmpresa);
+        $vaga->beneficios = $beneficioController->getBeneficioByVaga($vaga->codVaga);
       }
 
-      foreach ($vagas as $vaga){
-        $empresa = DB::table('tbEmpresa')
-        ->select('tbEmpresa.nomeFantasiaEmpresa')
-        ->where('tbEmpresa.codEmpresa', '=', $vaga->codEmpresa)
-        ->first();
-        $vaga->empresa = $empresa;
-      }
+      $dados['vagas'] = $vagas;
 
-      foreach ($vagas as $vaga){
-        $beneficios = DB::table('tbBeneficio')
-        ->select('tbBeneficio.nomeBeneficio')
-        ->where('tbBeneficio.codVaga', '=', $vaga->codVaga)
-        ->orderBy('tbBeneficio.nomeBeneficio', 'ASC')
-        ->get();
-        $vaga->beneficios = $beneficios;
-      }
-
-      $dados = [
-        'vagas' => $vagas,
-        'candidaturas' => $candidaturas
-      ];
-
-      return view('status', $dados);
     }
-    return view('status')->with('candidaturas', $candidaturas);
+
+    return view('status', $dados);
   }
+
   /**
-    * Função para criar uma nova Candidatura
+    * Função para criar um nova Candidatura
     *
     * @param $codVaga id da vaga selecionada
     *
@@ -72,8 +57,10 @@ class StatusController extends Controller
     **/
   public function novoStatus($codVaga){
     $usuario = Auth::user();
+
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();
+
     $status = DB::table('tbStatusCandidatura')
     ->where('codStatusCandidatura', 2)->first();
 
@@ -83,5 +70,19 @@ class StatusController extends Controller
       'codStatusCandidatura' => $status->codStatusCandidatura
     ]);
     return redirect('/vagas');
+  }
+
+  /**
+    * Função para pegar o status de uma candidatura
+    * 
+    * @param $codStatusCandidatura codigo do status da candidatura
+    *
+    * @author Vanessa Amaral Marques
+    **/
+  public function getStatusByCod(int $codStatusCandidatura){
+    return DB::table('tbStatusCandidatura')
+      ->select('tbStatusCandidatura.nomeStatusCandidatura')
+      ->where('codStatusCandidatura', $codStatusCandidatura)
+      ->get();
   }
 }

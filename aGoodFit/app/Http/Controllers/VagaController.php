@@ -17,10 +17,17 @@ class VagaController extends Controller
   * @author Vanessa Amaral Marques
   **/
   public function paginaVagas(){
+    $beneficioController = new BeneficioController;
+
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
     $curriculo = DB::table('tbCurriculo')->where('codCandidato', $candidato->codCandidato)->first();
+
+    $dados = [
+      'usuario'   => $usuario,
+      'candidato' => $candidato
+    ];
 
     if ($curriculo) {
       $vagas = DB::select("
@@ -99,37 +106,39 @@ class VagaController extends Controller
 
       foreach ($vagas as $vaga){
           $requisitos = DB::table('tbRequisitoVaga')
-              ->select(
-                  'tbRequisitoVaga.obrigatoriedadeRequisitoVaga',
-                  'tbAdicional.imagemAdicional',
-                  'tbAdicional.nomeAdicional'
-              )
-              ->join('tbAdicional', 'tbRequisitoVaga.codAdicional',  '=', 'tbAdicional.codAdicional')
-              ->where('tbRequisitoVaga.codVaga', '=', $vaga->codVaga)
-              ->orderBy('tbAdicional.nomeAdicional', 'ASC')
-              ->get();
+            ->select(
+                'tbRequisitoVaga.obrigatoriedadeRequisitoVaga',
+                'tbAdicional.imagemAdicional',
+                'tbAdicional.nomeAdicional'
+            )
+            ->join('tbAdicional', 'tbRequisitoVaga.codAdicional',  '=', 'tbAdicional.codAdicional')
+            ->where('tbRequisitoVaga.codVaga', '=', $vaga->codVaga)
+            ->orderBy('tbAdicional.nomeAdicional', 'ASC')
+            ->get();
 
           $vaga->requisitos = $requisitos;
-      }
-
-      foreach ($vagas as $vaga){
-        $beneficios = DB::table('tbBeneficio')
-        ->select('tbBeneficio.nomeBeneficio')
-        ->where('tbBeneficio.codVaga', '=', $vaga->codVaga)
-        ->orderBy('tbBeneficio.nomeBeneficio', 'ASC')
-        ->get();
-        $vaga->beneficios = $beneficios;
+          $vaga->beneficios = $beneficioController->getBeneficioByVaga($vaga->codVaga);
       }
 
       $dados = [
         'vagas'     => $vagas,
-        'candidato' => $candidato
+        'curriculo' => $curriculo
       ];
+    }
 
-      return view('vagas', $dados)->with('usuario', $usuario)->with('curriculo', $curriculo);
-    }
-    else {
-      return view('vagas')->with('usuario', $usuario)->with('curriculo', $curriculo);
-    }
+    return view('vagas', $dados);
+  }
+
+  /**
+  * Função para pegar vaga por codigo
+  *
+  * @param $codVaga codigo da vaga
+  *
+  * @author Vanessa Amaral Marques
+  **/
+  public function getVagaByCod(int $codVaga){
+    return DB::table('tbVaga')
+    ->where('codVaga', $codVaga)
+    ->get();
   }
 }
