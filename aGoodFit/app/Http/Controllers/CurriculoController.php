@@ -16,7 +16,7 @@ class CurriculoController extends Controller
     $adicionalController  = new adicionalController;
     $categoriaController  = new categoriaController;
     $habilidadeController = new habilidadeController;
-
+    
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();
