@@ -33,6 +33,8 @@ Route::prefix('curriculo')->group(function() {
 Route::get('/formulario', 'CurriculoController@formularioCurriculo')->middleware('auth');
 //Novo Curriculo
 Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
+//Editar Curriculo
+Route::post('/formulario/editar', 'CurriculoController@editarCurriculo')->middleware('auth');
 });
 
 //Status
