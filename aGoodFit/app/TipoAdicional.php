@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoAdicional extends Model
 {
-    protected $table = 'tbTipoAdicional';
-
-    protected $fillable =
-    ['nomeTipoAdicional', 'escalonavelTipoAdicional'];
+    protected $table      = 'tbTipoAdicional';
+    protected $primaryKey = 'codTipoAdicional';
+    protected $fillable   = ['nomeTipoAdicional', 'escalonavelTipoAdicional'];
 }

@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adicional extends Model
 {
-    protected $table = 'tbAdicional';
-
-    protected $fillable =
-    ['nomeAdicional', 'grauAdicional', 'codTipoAdicional'];
+    protected $table	  = 'tbAdicional';
+    protected $primaryKey = 'codAdicional';
+    protected $fillable   = ['nomeAdicional', 'grauAdicional', 'codTipoAdicional'];
 
     public function TipoAdicional(){
-    	return $this->hasOne(TipoAdicional::class, 'codAdicional', 'codTipoAdicional');
+    	return $this->hasOne(TipoAdicional::class, 'codAdicional', 'codAdicional');
     }
 }

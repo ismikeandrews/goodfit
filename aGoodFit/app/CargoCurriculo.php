@@ -8,15 +8,15 @@ use App\Curriculo;
 
 class CargoCurriculo extends Model
 {
-  protected $table = 'tbCargoCurriculo';
-
-  protected $fillable = ['codCategoria', 'codCurriculo'];
+  protected $table 		= 'tbCargoCurriculo';
+  protected $primaryKey = 'codCargoCurriculo';
+  protected $fillable 	= ['codCategoria', 'codCurriculo'];
 
   public function Cargo(){
-    return $this->hasOne(Profissao::class, 'codCargoCurriculo', 'codProfissao');
+    return $this->hasOne(Profissao::class, 'codProfissao', 'codProfissao');
   }
 
   public function Curriculo(){
-    return $this->hasOne(Curriculo::class, 'codCargoCurriculo', 'codCurriculo');
+    return $this->hasOne(Curriculo::class, 'codCurriculo', 'codCurriculo');
   }
 }

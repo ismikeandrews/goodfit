@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-    protected $table = 'tbCategoria';
-
-    protected $fillable =
-    ['nomeCategoria'];
+    protected $table 	  = 'tbCategoria';
+    protected $primaryKey = 'codCategoria';
+    protected $fillable   = ['nomeCategoria'];
 
 }

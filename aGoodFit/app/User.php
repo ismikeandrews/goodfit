@@ -17,10 +17,8 @@ class User extends Authenticatable
   * @var array
   */
 
-  protected $table = 'tbUsuario';
-
+  protected $table      = 'tbUsuario';
   protected $primaryKey = 'codUsuario';
-
   protected $fillable = [
     'loginUsuario', 'fotoUsuario', 'email', 'password', 'codNivelUsuario'
   ];
@@ -43,6 +41,6 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
   public function nivelUsuario(){
-    return $this->hasOne(NivelUsuario::class, 'codUsuario', 'codNivelUsuario');
+    return $this->hasOne(NivelUsuario::class, 'codNivelUsuario', 'codNivelUsuario');
   }
 }

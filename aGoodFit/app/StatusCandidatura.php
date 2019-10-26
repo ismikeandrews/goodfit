@@ -6,10 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class StatusCandidatura extends Model
 {
-    protected $table = 'tbStatusCandidatura';
-
+    protected $table 	  = 'tbStatusCandidatura';
     protected $primaryKey = 'codStatusCandidatura';
-
-    protected $fillable =
-    ['nomeStatusCandidatura'];
+    protected $fillable   = ['nomeStatusCandidatura'];
 }
