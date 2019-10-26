@@ -72,6 +72,13 @@ class StatusController extends Controller
     return redirect('/vagas');
   }
 
+  /**
+    * Função para pegar o status de uma candidatura
+    * 
+    * @param $codStatusCandidatura codigo do status da candidatura
+    *
+    * @author Vanessa Amaral Marques
+    **/
   public function getStatusByCod(int $codStatusCandidatura){
     return DB::table('tbStatusCandidatura')
       ->select('tbStatusCandidatura.nomeStatusCandidatura')

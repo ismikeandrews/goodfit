@@ -22,6 +22,13 @@ class ProfissaoController extends Controller
     	return view('cadastroProfissao')->with('ok', $profissao->save());
     }
 
+    /**
+    * Função para pegar uma profissao por codigo
+    * 
+    * @param $codProfissao codigo da profissao
+    *
+    * @author Vanessa Amaral Marques
+    **/
     public function getProfissaoByCod(int $codProfissao){
         return DB::table('tbProfissao')
         ->select('tbProfissao.nomeProfissao')
