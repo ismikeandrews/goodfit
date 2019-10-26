@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProfissaoController extends Controller
 {
@@ -19,5 +20,12 @@ class ProfissaoController extends Controller
     	]);
 
     	return view('cadastroProfissao')->with('ok', $profissao->save());
+    }
+
+    public function getProfissaoByCod(int $codProfissao){
+        return DB::table('tbProfissao')
+        ->select('tbProfissao.nomeProfissao')
+        ->where('tbProfissao.codProfissao', '=', $codProfissao)
+        ->get();
     }
 }
