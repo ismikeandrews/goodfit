@@ -85,8 +85,6 @@ class CurriculoController extends Controller
 
       $dados['curriculo'] = $curriculo;
       $dados['candidato'] = $candidato;
-
-      return view('curriculo.editarCurriculo', $dados);
     }
 
     return view('curriculo.curriculo', $dados);
