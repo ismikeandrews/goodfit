@@ -48,21 +48,41 @@ class CurriculoController extends Controller
       ->get();
 
     $dados = [
-      'habilidades' => $habilidades,
-      'categorias' => $categorias,
-      'escolaridades' => $escolaridades,
+      'habilidades'    => $habilidades,
+      'categorias'     => $categorias,
+      'escolaridades'  => $escolaridades,
       'alfabetizacoes' => $niveisAlfabetizacao
     ];
 
     if ($curriculo) {
-      $cargos = DB::table('tbCargoCurriculo')
-      ->where('codCurriculo', $curriculo->codCurriculo)->get();
+      //habilidades de um candidato
+      $habilidadesCandidato = DB::table('tbAdicional')
+      ->select('tbAdicional.codAdicional')
+      ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
+      ->join('tbAdicionalCurriculo', 'tbAdicionalCurriculo.codAdicional', '=', 'tbAdicional.codAdicional')
+      ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
+      ->where('tbAdicionalCurriculo.codCurriculo', '=', $curriculo->codCurriculo)
+      ->orderBy('tbAdicional.nomeAdicional', 'ASC')
+      ->get();
 
-      $adicionais = DB::table('tbAdicionalCurriculo')
-      ->where('codCurriculo', $curriculo->codCurriculo)->get();
+      $candidato->habilidades = [];
+      foreach( $habilidadesCandidato as $habilidadeCandidato ){
+        $candidato->habilidades[] = $habilidadeCandidato->codAdicional;
+      }
 
-      $dados['cargos'] = $cargos;
-      $dados['adicionais'] = $adicionais;
+      //categorias de um candidato
+      $categoriasCandidato = DB::table('tbCategoria')
+      ->select('tbCategoria.codCategoria')
+      ->join('tbCargoCurriculo', 'tbCategoria.codCategoria', '=', 'tbCargoCurriculo.codCategoria')
+      ->where('tbCargoCurriculo.codCurriculo', '=', $curriculo->codCurriculo)
+      ->orderBy('tbCategoria.nomeCategoria')
+      ->get();
+
+      $candidato->categorias = [];
+      foreach( $categoriasCandidato as $categoriaCandidato ){
+        $candidato->categorias[] = $categoriaCandidato->codCategoria;
+      }
+
       $dados['curriculo'] = $curriculo;
       $dados['candidato'] = $candidato;
     }
@@ -76,9 +96,9 @@ class CurriculoController extends Controller
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
     $curriculo = Curriculo::create([
-      'videoCurriculo' => $request->input('videoCandidato'),
+      'videoCurriculo'     => $request->input('videoCandidato'),
       'descricaoCandidato' => $request->input('descricaoCandidato'),
-      'codCandidato' => $candidato->codCandidato,
+      'codCandidato'       => $candidato->codCandidato,
     ]);
 
     foreach ($request->habilidades as $key) {
@@ -95,5 +115,17 @@ class CurriculoController extends Controller
       ]);
     }
     return redirect('/vagas');
+  }
+
+  public function editarCurriculo(Request $request){
+    $usuario   = Auth::user();
+    $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+    $curriculo = DB::table('tbCurriculo')
+    ->where('codCandidato', $candidato->codCandidato)->first();
+
+    $curriculo->videoCurriculo = $request->input('videoCandidato');
+    $curriculo->descricaoCandidato = $request->input('descricaoCandidato');
+
+    $curriculo->save();
   }
 }
