@@ -28,7 +28,7 @@ class StatusController extends Controller
         ->first();
         $candidatura->status = $status;
       }
-      
+
       foreach ($vagas as $vaga){
         $profissao = DB::table('tbProfissao')
         ->select('tbProfissao.nomeProfissao')
@@ -63,7 +63,13 @@ class StatusController extends Controller
     }
     return view('status')->with('candidaturas', $candidaturas);
   }
-
+  /**
+    * Função para criar uma nova Candidatura
+    *
+    * @param $codVaga id da vaga selecionada
+    *
+    * @author Michael Andrews
+    **/
   public function novoStatus($codVaga){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')

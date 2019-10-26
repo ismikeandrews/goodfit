@@ -29,10 +29,17 @@ class CandidatoController extends Controller
     ->with('usuario', $usuario);
   }
 
+  /**
+    * Função para atualizar do perfil
+    *
+    * @param $request dados do formulário
+    *
+    * @author Michael Andrews
+    **/
   public function atualizarPerfil(Request $request){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-
+    //Validacao dos parametros
     $this->validate($request, [
       'nome' => 'string|required',
       'rg' => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
@@ -43,6 +50,7 @@ class CandidatoController extends Controller
       'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
     ]);
 
+    //Tratamento da foto
     if ($request->hasFile("foto")){
       if ($usuario->fotoUsuario !== 'perfil.png') {
         $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
@@ -57,15 +65,15 @@ class CandidatoController extends Controller
       ->save(public_path('/images/candidatos/'.$nome));
       DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
-
+    //Tratamento do cpf
     $cpf = $request->cpf;
 	  $regex = '/[^0-9]/';
 	  $cpf = preg_replace($regex, '', $cpf);
-
+    //Tratamento da data de nascimento
     $date = $request->dataNascimentoCandidato;
     $data = preg_replace($regex, '-', $date);
     $parsed = date('Y-m-d', strtotime($data));
-
+    //realizando o update dos dados do candidato
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
     ->update([
       'nomeCandidato' => $request->nome,
@@ -74,7 +82,7 @@ class CandidatoController extends Controller
       'dataNascimentoCandidato' => $parsed,
       'codUsuario' => $usuario->codUsuario,
     ]);
-
+    //realizando o update dos dados do usuario
     $usuario->loginUsuario = $request->input('login');
     $usuario->email = $request->input('email');
     $usuario->save();

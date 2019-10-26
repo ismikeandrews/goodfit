@@ -28,7 +28,7 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * Pra onde redirecionar após o cadastro
      *
      * @var string
      */
@@ -45,11 +45,15 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+      * Função para validar o parametro
+      *
+      * @param array  $data
+      *
+      * @return \Illuminate\Contracts\Validation\Validator
+      *
+      * @author Michael Andrews
+      **/
+
      protected function validator(array $data)
      {
          return Validator::make($data, [
@@ -65,11 +69,14 @@ class RegisterController extends Controller
      }
 
      /**
-      * Create a new user instance after a valid registration.
-      *
-      * @param  array  $data
-      * @return \App\User
-      */
+       * Função para criar um usuario
+       *
+       * @param array  $data
+       *
+       * @return \App\User
+       *
+       * @author Michael Andrews
+       **/
      public function create(array $data)
      {
 

@@ -60,6 +60,13 @@ class CurriculoController extends Controller
     return view('curriculo.curriculo', $dados);
   }
 
+  /**
+    * Função para cadastro do currículo
+    *
+    * @param $request dados do formulário
+    *
+    * @author Michael Andrews
+    **/
   public function novoCurriculo(Request $request){
     $adicionalController = new adicionalController;
 
@@ -87,7 +94,7 @@ class CurriculoController extends Controller
 
   /**
     * Função para editar o currículo
-    * 
+    *
     * @param $request dados do formulário
     *
     * @author Vanessa Amaral Marques
