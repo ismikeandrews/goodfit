@@ -31,9 +31,16 @@ Route::post('/configuracoes', 'CandidatoController@atualizarPerfil')->middleware
 Route::prefix('curriculo')->group(function() {
 //Paginas
 Route::get('/formulario', 'CurriculoController@formularioCurriculo')->middleware('auth');
-Route::get('/status', 'CurriculoController@paginaStatus')->middleware('auth');
 //Novo Curriculo
 Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
+});
+
+//Status
+Route::prefix('status')->group(function(){
+//paginas
+Route::get('/', 'StatusController@index')->middleware('auth');
+//Novo Status
+Route::get('/{codVaga}', 'StatusController@novoStatus')->middleware('auth');
 });
 
 //Endereco

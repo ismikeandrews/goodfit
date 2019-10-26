@@ -15,6 +15,7 @@ class VagaController extends Controller
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
     $curriculo = DB::table('tbCurriculo')->where('codCandidato', $candidato->codCandidato)->first();
+
     if ($curriculo) {
       $vagas = DB::select("
         SELECT

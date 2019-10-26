@@ -30,91 +30,54 @@
 			</ul>
 		</div>
 	</div>
-
+	@if($candidaturas->count() == 0)
+	<section class="vagas-section-null">
+		<div class="vagas-content-null vagas-content-null-curriculo">
+			 <div class="vagas-content-null-img">
+				 <img src='{{asset("images/componentes/menu-vagas.svg")}}' alt="Vagas - Outback" class="vagas-null-img">
+			 </div>
+			 <div class="vagas-content-null-text">
+				Para continuar<br> inscreva-se em uma vaga
+			</div>
+			<a href="/vagas" id="btn-vaga-null" class="btn btn-vagas-null">
+					Vagas
+			</a>
+		</div>
+	</section>
+	@elseif($candidaturas->count() > 0)
 	<div class="container container-status">
-		<!-- <div class="status-box">
-			<div class="status-box-desc">
-				<div class="status-box-desc-img">
-					<img src="{{asset('images/status/empresa.png')}}" alt="Logo MC Donalds" class="status-box-desc-img-icon">
-				</div>
-				<div class="status-box-desc-content">
-					<div class="status-box-desc-content-title">
-						Analista de Performance (Google Adwords)
-					</div>
-					<div class="status-box-desc-content-nome">
-						Mc Donald's Brasil
-					</div>
-					<div class="status-box-desc-content-status">
-						<div class="status-box-desc-content-status-cor finalizado">
-						</div>
-						<div class="status-box-desc-content-status-text">
-							Finalizado
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="status-box-qtd">
-				30
-				<span>Vagas</span>
-			</div>
-		</div> -->
-
+		@foreach($candidaturas as $candidatura)
 		<div class="status-box">
+			@foreach($vagas as $vaga)
 			<div class="status-box-desc">
 				<div class="status-box-desc-img">
 					<img src='{{asset("images/componentes/empresa-colegio.jpg")}}' alt="Logo - Colégio Evoluir" class="status-box-desc-img-icon">
 				</div>
 				<div class="status-box-desc-content">
 					<div class="status-box-desc-content-title">
-						Professor de Matemática
+						{{$vaga->profissao->nomeProfissao}}
 					</div>
 					<div class="status-box-desc-content-nome">
-						Education & Future
+						{{$vaga->empresa->nomeFantasiaEmpresa}}
 					</div>
 					<div class="status-box-desc-content-status">
 						<div class="status-box-desc-content-status-cor aprovado">
 						</div>
 						<div class="status-box-desc-content-status-text">
-							Aprovado
+							{{$candidatura->status->nomeStatusCandidatura}}
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="status-box-qtd">
-				30
+				{{$vaga->quantidadeVaga}}
 				<span>Vagas</span>
 			</div>
+			@endforeach
 		</div>
-
-		<!-- <div class="status-box">
-			<div class="status-box-desc">
-				<div class="status-box-desc-img">
-					<img src="{{asset('images/status/empresa.png')}}" alt="Logo MC Donalds" class="status-box-desc-img-icon">
-				</div>
-				<div class="status-box-desc-content">
-					<div class="status-box-desc-content-title">
-						Analista de Performance (Google Adwords)
-					</div>
-					<div class="status-box-desc-content-nome">
-						Mc Donald's Brasil
-					</div>
-					<div class="status-box-desc-content-status">
-						<div class="status-box-desc-content-status-cor andamento">
-						</div>
-						<div class="status-box-desc-content-status-text">
-							Em andamento
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="status-box-qtd">
-				30
-				<span>Vagas</span>
-			</div>
-		</div> -->
+		@endforeach
 	</div>
+	@endif
 </section>
 @endsection

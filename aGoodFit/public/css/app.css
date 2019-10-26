@@ -719,6 +719,7 @@ a {
 
 .curriculo-etapa1-content.is-active .curriculo-etapa1-textarea {
   height: 230px;
+  outline: none;
 }
 
 .box-hidden {
@@ -1402,7 +1403,8 @@ a {
 
 @media screen and (max-width: 380px) {
   .status-box-desc-img-icon {
-    width: 60px;
+    margin: 0 10px;
+    width: 50px;
   }
 }
 
@@ -1415,6 +1417,12 @@ a {
 .status-box-desc-content {
   margin-left: 40px;
   width: 80%;
+}
+
+@media screen and (max-width: 380px) {
+  .status-box-desc-content {
+    margin-left: 20px;
+  }
 }
 
 .status-box-desc-content-title {

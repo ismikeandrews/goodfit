@@ -11,6 +11,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+      //Criação dos Status de Candidatura
+      DB::table('tbStatusCandidatura')->insert(array(
+        array(
+          'codStatusCandidatura' => 1,
+          'nomeStatusCandidatura' => 'Aprovado, parabéns!',
+        ),
+        array(
+          'codStatusCandidatura' => 2,
+          'nomeStatusCandidatura' => 'Em análise...',
+        ),
+        array(
+          'codStatusCandidatura' => 3,
+          'nomeStatusCandidatura' => 'Não foi dessa vez',
+        ),
+      ));
+
       //Criação dos niveis de usuario
       DB::table('tbNivelUsuario')->insert(array(
     		array(

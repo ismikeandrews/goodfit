@@ -66,12 +66,8 @@ class CurriculoController extends Controller
       $dados['curriculo'] = $curriculo;
       $dados['candidato'] = $candidato;
     }
-    
-    return view('curriculo.curriculo', $dados);
-  }
 
-  public function paginaStatus(){
-    return view('status');
+    return view('curriculo.curriculo', $dados);
   }
 
   public function novoCurriculo(Request $request){

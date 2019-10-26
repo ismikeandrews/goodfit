@@ -17,20 +17,15 @@
 	</div>
 
 	@elseif($vagas == null)
-<<<<<<< HEAD
 	<div class="vagas-content-null">
 		Nenhuma vaga encontrada no momento 🙁
-=======
-	<div class="vagas-content-null vagas-content-null-vaga">
-		Nenhuma vaga encontrada 🙁
->>>>>>> 7a61fcbe71107723c52164295b15c182dd872160
 	</div>
 </section>
 @endif
 
 @isset($curriculo)
+@foreach ($vagas as $vaga)
 	<section class="container-vagas vagas">
-	@foreach ($vagas as $vaga)
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
 				<img src='{{asset("images/componentes/empresa-colegio.jpg")}}' alt="Vagas - Outback" class="vagas-empresa-logo-img">
@@ -41,12 +36,12 @@
 			<div class="vagas-btn-item vagas-btn-side-item">
 				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Recusar vaga" class="vagas-btn-side-icon">
 			</div>
-			<div class="vagas-btn-item vagas-btn-item-inscrever">
+			<a href="/status/{{$vaga->codVaga}}" class="vagas-btn-item vagas-btn-item-inscrever">
 				<img src="{{asset('images/componentes/vagas-check.svg')}}" alt="Aceitar vaga" class="vagas-btn-icon">
 				<!-- <div class="vagas-btn-item-inscrever-text">
 					Inscreva-se
 				</div> -->
-			</div>
+			</a>
 			<div class="vagas-btn-item vagas-btn-side-item">
 				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Aceitar vaga" class="vagas-btn-side-icon">
 			</div>
@@ -118,7 +113,7 @@
 				</div>
 			</div>
 		</div>
-	@endforeach
 	</section>
+@endforeach
 @endisset
 @endsection

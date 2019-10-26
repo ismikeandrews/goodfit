@@ -88,7 +88,8 @@
 				width: 70px;
 
 				@include MQ($small) {
-					width: 60px;
+					margin: 0 10px;
+					width: 50px;
 				}
 			}
 
@@ -100,6 +101,10 @@
 		&-content {
 			margin-left: 40px;
 			width: 80%;
+
+			@include MQ($small) {
+				margin-left: 20px;
+			}
 
 			&-title {
 				color: $preto;
