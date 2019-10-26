@@ -120,6 +120,7 @@ class CurriculoController extends Controller
   }
 
   public function editarCurriculo(Request $request){
+    dd($request);
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     $curriculo = DB::table('tbCurriculo')
