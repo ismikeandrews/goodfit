@@ -19,9 +19,9 @@
             @csrf
             <div class="form-inputs">
                 <div class="form-input-email">
-                  <input id="email" type="email" placeholder="Email" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
+                  <input id="login" type="text" placeholder="Login" class="form-input-item @error('login') is-invalid @enderror" name="loginUsuario" value="{{ old('login') }}"  autocomplete="login" autofocus>
 
-                  @error('email')
+                  @error('login')
                   <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
