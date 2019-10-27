@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 use Auth;
 use File;
 use Image;
+<<<<<<< HEAD
 use App\Candidato;
+=======
+use App\Candidato
+>>>>>>> 66728af6bb373b25e4053dfff9b0e29db04aafe0
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
