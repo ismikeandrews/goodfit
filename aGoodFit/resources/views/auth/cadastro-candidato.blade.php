@@ -50,7 +50,7 @@
             </div>
             <div class="form-inputs">
               <div class="form-input-email">
-                  <input id="email" type="email" placeholder="E-mail" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                  <input id="email" type="email" placeholder="E-mail" class="form-input-item @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                   @error('email')
                   <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
             </div>
             <div class="form-inputs">
                 <div class="form-input-telefone">
-                    <input id="login" type="text" placeholder="Apelido" class="form-input-item @error('login') is-invalid @enderror" name="login" value="{{ old('login') }}" required autocomplete="login" autofocus>
+                    <input id="login" type="text" placeholder="Apelido" class="form-input-item @error('login') is-invalid @enderror" name="login" value="{{ old('login') }}"  autocomplete="login" autofocus>
                     @error('login')
                     <span class="erro" role="alert">
                       <strong>{{ $message }}</strong>
