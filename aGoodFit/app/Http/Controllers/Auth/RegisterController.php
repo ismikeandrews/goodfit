@@ -84,7 +84,10 @@ class RegisterController extends Controller
          if (Arr::has($data, 'foto')) {
            $foto = $data['foto'];
            $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
-           Image::make($foto)->orientate()->fit(300, 300)->rotate(-90)->save(public_path('/images/candidatos/'.$nomeFoto));
+           Image::make($foto)
+           ->orientate()
+           ->fit(300, 300)
+           ->save(public_path('/images/candidatos/'.$nomeFoto));
          }
          else {
            $nomeFoto = 'perfil.png';
