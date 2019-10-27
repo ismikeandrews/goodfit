@@ -99,6 +99,7 @@ var containerCurriculo = document.querySelector('.container-curriculo');
 var containerRequisitos = document.querySelector('.container-requisitos');
 var containerVagas = document.querySelector('.container-vagas');
 var containerModal = document.querySelector('.container-modal');
+var containerPerfil = document.querySelector('.container-perfil');
 
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 
@@ -108,6 +109,10 @@ if (containerCadastro) {
 
 if (containerCurriculo) {
   __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
+}
+
+if (containerPerfil) {
+  __webpack_require__(/*! ./foto-upload */ "./resources/js/foto-upload.js");
 }
 
 if (containerRequisitos) {
@@ -226,6 +231,29 @@ btnVoltar.addEventListener('click', function () {
 
   window.scroll(0, 0);
 });
+
+/***/ }),
+
+/***/ "./resources/js/foto-upload.js":
+/*!*************************************!*\
+  !*** ./resources/js/foto-upload.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var reader = new FileReader();
+var fotoPerfil = document.getElementById("foto-perfil");
+var selecaoArquivo = document.getElementById("selecao-arquivo");
+
+selecaoArquivo.onchange = function () {
+  reader.onload = function () {
+    if (reader.readyState == 2) {
+      fotoPerfil.src = reader.result;
+    }
+  };
+
+  reader.readAsDataURL(event.target.files[0]);
+};
 
 /***/ }),
 

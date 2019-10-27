@@ -18,15 +18,15 @@
           @csrf
             <div class="cadastro-perfil">
                 <div class="cadastro-perfil-img">
-                    <label for='arquivo-foto'>
-                        <img src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
+                    <label for='selecao-arquivo'>
+                        <img id="foto-perfil" src="{{asset('images/componentes/perfil.svg')}}" alt="Insira sua imagem de perfil">
                     </label>
                     @error('foto')
                     <span class="erro" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <input id='arquivo-foto' type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png">
+                    <input id="selecao-arquivo" type="file" name="foto" class="perfil-img" accept=".jpg, .jpeg, .png">
                 </div>
                 <div class="cadastro-perfil-desc">
                     Clique no ícone para inserir sua imagem
