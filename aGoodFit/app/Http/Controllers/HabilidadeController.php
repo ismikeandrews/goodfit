@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\AdicionalCurriculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

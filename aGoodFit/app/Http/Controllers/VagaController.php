@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Candidato;
-use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

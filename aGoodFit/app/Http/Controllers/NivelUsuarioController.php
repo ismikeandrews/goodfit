@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NivelUsuario;
-use Auth;
+use Illuminate\Support\Facades\DB;
 
 class NivelUsuarioController extends Controller
 {
@@ -29,9 +29,11 @@ class NivelUsuarioController extends Controller
     return view('cadastroNivelUsuario');
   }
 
-  public function niveisUsuario(){
-    $nivel = NivelUsuario::all();
-    return view('niveisCadastrados')->with('niveis', $nivel);
+  public function getUsuarioById(int $codNivelUsuario){
+    return DB::table('tbNivelUsuario')
+    ->select('tbNivelUsuario.nomeNivelUsuario')
+    ->where('tbNivelUsuario.codNivelUsuario', '=', $codNivelUsuario)
+    ->first();
   }
 
   public function deletarNivel($codNivelUsuario){
