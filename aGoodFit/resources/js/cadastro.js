@@ -11,3 +11,10 @@
 //
 // // senha.onchange = validarSenha;
 // // confirmar_senha.onkeyup = validarSenha;
+$(document).ready(function(){
+  $('#senha').complexify({},function(valid, complex){
+    var progress = $('#senha');
+    progress.toggleClass('borda-progresso-valido', valid);
+    progress.toggleClass('borda-progresso-invalido', !valid);
+  });
+});

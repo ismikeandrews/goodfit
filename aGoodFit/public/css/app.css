@@ -513,6 +513,14 @@ a {
   text-align: center;
 }
 
+.borda-progresso-valido {
+  border-color: #63DE9A;
+}
+
+.borda-progresso-invalido {
+  border-color: #F06A47;
+}
+
 .btn-cadastro {
   float: right;
   width: 35%;
