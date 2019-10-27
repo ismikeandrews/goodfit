@@ -96,7 +96,7 @@ class CandidatoController extends Controller
     $usuario->email = $request->input('email');
     $usuario->save();
 
-    return redirect('/home');
+    return redirect('/candidato/configuracoes');
   }
 
   /**
