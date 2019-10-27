@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class EnderecoController extends Controller
 {
   public function formularioEnderecoCand(){
-  
+
     return view('endereco.endereco-candidato');
   }
 }
