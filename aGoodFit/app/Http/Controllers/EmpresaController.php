@@ -9,7 +9,7 @@ class EmpresaController extends Controller
 {
 	/**
     * Função para pegar empresa por codigo
-    * 
+    *
     * @param $codEmpresa codigo da empresa
     *
     * @author Vanessa Amaral Marques
@@ -18,6 +18,6 @@ class EmpresaController extends Controller
     	return DB::table('tbEmpresa')
         ->select('tbEmpresa.nomeFantasiaEmpresa')
         ->where('tbEmpresa.codEmpresa', '=', $codEmpresa)
-        ->get();
+        ->first();
     }
 }

@@ -24,7 +24,7 @@ class ProfissaoController extends Controller
 
     /**
     * Função para pegar uma profissao por codigo
-    * 
+    *
     * @param $codProfissao codigo da profissao
     *
     * @author Vanessa Amaral Marques
@@ -33,6 +33,6 @@ class ProfissaoController extends Controller
         return DB::table('tbProfissao')
         ->select('tbProfissao.nomeProfissao')
         ->where('tbProfissao.codProfissao', '=', $codProfissao)
-        ->get();
+        ->first();
     }
 }
