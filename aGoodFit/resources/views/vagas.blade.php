@@ -28,7 +28,7 @@
 	<section class="container-vagas vagas">
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
-				<img src='{{asset("images/componentes/empresa-colegio.jpg")}}' alt="Vagas - Outback" class="vagas-empresa-logo-img">
+				<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Vagas - Outback" class="vagas-empresa-logo-img">
 			</div>
 		</div>
 

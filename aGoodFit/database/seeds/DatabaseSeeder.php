@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         //uma empresa
     		array(
     		'codUsuario' => 1,
-        'fotoUsuario' => 'perfil.png',
+        'fotoUsuario' => 'empresa-colegio.jpg',
         'loginUsuario' => 'Education & Future',
         'password' => '$2y$10$UGYW4JK2i.8Jv1IQdHpZdu9hX.HwIXukFjpZxYcS5Y.KPEqciHNai',
         'email' =>'education@future.com.br',

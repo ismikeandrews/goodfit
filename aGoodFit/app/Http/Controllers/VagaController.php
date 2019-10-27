@@ -18,6 +18,7 @@ class VagaController extends Controller
   **/
   public function paginaVagas(){
     $beneficioController = new BeneficioController;
+    $usuarioController   = new UsuarioController;
 
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
@@ -25,6 +26,7 @@ class VagaController extends Controller
     $curriculo = DB::table('tbCurriculo')->where('codCandidato', $candidato->codCandidato)->first();
 
     $dados = [
+      'curriculo' => $curriculo,
       'usuario'   => $usuario,
       'candidato' => $candidato
     ];
@@ -38,6 +40,7 @@ class VagaController extends Controller
           tbVaga.salarioVaga,
           tbVaga.cargaHorariaVaga,
           tbVaga.quantidadeVaga,
+          tbEmpresa.codEmpresa,
           tbEmpresa.nomeFantasiaEmpresa,
           tbProfissao.nomeProfissao,
           tbEndereco.cepEndereco,
@@ -91,6 +94,7 @@ class VagaController extends Controller
           tbVaga.salarioVaga,
           tbVaga.cargaHorariaVaga,
           tbVaga.quantidadeVaga,
+          tbEmpresa.codEmpresa,
           tbEmpresa.nomeFantasiaEmpresa,
           tbProfissao.nomeProfissao,
           tbEndereco.cepEndereco,
@@ -117,6 +121,7 @@ class VagaController extends Controller
             ->get();
 
           $vaga->requisitos = $requisitos;
+          $vaga->usuario = $usuarioController->getUsuarioByCod($vaga->codEmpresa);
           $vaga->beneficios = $beneficioController->getBeneficioByVaga($vaga->codVaga);
       }
 

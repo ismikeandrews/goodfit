@@ -51,7 +51,7 @@
 			@foreach($vagas as $vaga)
 			<div class="status-box-desc">
 				<div class="status-box-desc-img">
-					<img src='{{asset("images/componentes/empresa-colegio.jpg")}}' alt="Logo - Colégio Evoluir" class="status-box-desc-img-icon">
+					<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - Colégio Evoluir" class="status-box-desc-img-icon">
 				</div>
 				<div class="status-box-desc-content">
 					<div class="status-box-desc-content-title">
@@ -61,7 +61,7 @@
 						{{$vaga->empresa->nomeFantasiaEmpresa}}
 					</div>
 					<div class="status-box-desc-content-status">
-						<div class="status-box-desc-content-status-cor aprovado">
+						<div class="status-box-desc-content-status-cor @if($candidatura->status->codStatusCandidatura == 1) aprovado @elseif($candidatura->status->codStatusCandidatura == 2) andamento @elseif($candidatura->status->codStatusCandidatura == 3) finalizado @endif">
 						</div>
 						<div class="status-box-desc-content-status-text">
 							{{$candidatura->status->nomeStatusCandidatura}}
