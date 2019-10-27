@@ -18,31 +18,31 @@ return [
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
     'alpha' => 'The :attribute may only contain letters.',
-    'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
+    'alpha_dash' => 'O campo :attribute só pode conter letras, numeros, traços e underlines', //The :attribute may only contain letters, numbers, dashes and underscores.
     'alpha_num' => 'The :attribute may only contain letters and numbers.',
     'array' => 'The :attribute must be an array.',
-    'before' => 'The :attribute must be a date before :date.',
+    'before' => 'O campo :attribute precisa ser uma data antes :date', //The :attribute must be a date before :date.
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
     'between' => [
-        'numeric' => 'The :attribute must be between :min and :max.',
+        'numeric' => 'O :attribute deve estár entre :min e :max. digitos',
         'file' => 'The :attribute must be between :min and :max kilobytes.',
         'string' => 'The :attribute must be between :min and :max characters.',
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
-    'date' => 'The :attribute is not a valid date.',
+    'confirmed' => 'O campo :attribute de confirmação não conferem', //The :attribute confirmation does not match.
+    'date' => 'O campo :attribute não corresponde a uma data valida', //The :attribute is not a valid date.
     'date_equals' => 'The :attribute must be a date equal to :date.',
-    'date_format' => 'The :attribute does not match the format :format.',
+    'date_format' => 'O campo :attribute não corresponde o formato :format', //The :attribute does not match the format :format.
     'different' => 'The :attribute and :other must be different.',
     'digits' => 'The :attribute must be :digits digits.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => 'Precisa ser um :attribute válido', //The :attribute must be a valid email address.
     'ends_with' => 'The :attribute must end with one of the following: :values',
     'exists' => 'The selected :attribute is invalid.',
-    'file' => 'The :attribute must be a file.',
+    'file' => 'O :attribute precisa ser um arquivo', //The :attribute must be a file.
     'filled' => 'The :attribute field must have a value.',
     'gt' => [
         'numeric' => 'The :attribute must be greater than :value.',
@@ -56,7 +56,7 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => 'O campo :attribute precisa ser uma imagem', //The :attribute must be an image.
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -77,17 +77,17 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => 'O campo :attribute deve ter até :max digitos', //The :attribute may not be greater than :max.
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => 'O campo :attribute deve ter até :max characters.',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'O campo :attribute deve ter no minímo :min digitos', //The :attribute must be at least :min.
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'O campo :attribute deve ter no minímo :min characters', //The :attribute must be at least :min characters.
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -95,7 +95,7 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'O campo :attribute é obrigatorio',  //'The :attribute field is required.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -112,7 +112,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'O :attribute já está sendo ultilizado', //The :attribute has already been taken.
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
