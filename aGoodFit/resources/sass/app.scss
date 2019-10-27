@@ -11,12 +11,13 @@
 @import 'components/button';
 @import 'components/form';
 @import 'components/curriculo';
+@import 'components/page-null';
 
 // Login
 @import 'login';
 
 // Cadastro
-@import 'cadastro';
+@import 'cadastro/cadastro';
 
 // Currículo
 @import 'curriculo/curriculo';

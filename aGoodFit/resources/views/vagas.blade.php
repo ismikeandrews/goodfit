@@ -3,21 +3,21 @@
 @section('content')
 
 @if($curriculo == null)
-<section class="vagas-section-null">
-	<div class="vagas-content-null vagas-content-null-curriculo">
-		 <div class="vagas-content-null-img">
-			 <img src='{{asset("images/componentes/menu-curriculo.svg")}}' alt="Vagas - Outback" class="vagas-null-img">
+<section class="page-section-null">
+	<div class="page-content-null page-content-null-curriculo">
+		 <div class="page-content-null-img">
+			 <img src='{{asset("images/componentes/menu-curriculo.svg")}}' alt="Ícone de currículo" class="page-null-img">
 		 </div>
-		 <div class="vagas-content-null-text">
+		 <div class="page-content-null-text">
 			Para continuar<br> cadastre um currículo
 		</div>
-		<a href="/curriculo/formulario" id="btn-vaga-null" class="btn btn-vagas-null">
+		<a href="/curriculo/formulario" class="btn btn-page-null">
 				Cadastro do currículo
 		</a>
 	</div>
 
 	@elseif($vagas == null)
-	<div class="vagas-content-null">
+	<div class="page-content-null">
 		Nenhuma vaga encontrada no momento 🙁
 	</div>
 </section>
@@ -28,13 +28,13 @@
 	<section class="container-vagas vagas">
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
-				<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Vagas - Outback" class="vagas-empresa-logo-img">
+				<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Vagas - {{$vaga->empresa->nomeFantasiaEmpresa}}" class="vagas-empresa-logo-img">
 			</div>
 		</div>
 
 		<div class="vagas-btn">
 			<div class="vagas-btn-item vagas-btn-side-item">
-				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Recusar vaga" class="vagas-btn-side-icon">
+				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Vaga anterior" class="vagas-btn-side-icon">
 			</div>
 			<a href="/status/{{$vaga->codVaga}}" class="vagas-btn-item vagas-btn-item-inscrever">
 				<img src="{{asset('images/componentes/vagas-check.svg')}}" alt="Aceitar vaga" class="vagas-btn-icon">
@@ -43,7 +43,7 @@
 				</div> -->
 			</a>
 			<div class="vagas-btn-item vagas-btn-side-item">
-				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Aceitar vaga" class="vagas-btn-side-icon">
+				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Próxima vaga" class="vagas-btn-side-icon">
 			</div>
 		</div>
 
@@ -54,7 +54,7 @@
 				</h1>
 
 				<div class="vagas-content-desc">
-					<img src="{{asset('images/icones/empresa.png')}}" alt="Nome da empresa" class="vagas-content-desc-icon">
+					<img src="{{asset('images/icones/empresa.png')}}" alt="{{ $vaga->nomeFantasiaEmpresa }}" class="vagas-content-desc-icon">
 					<p class="vagas-content-desc-nome">
 						{{ $vaga->nomeFantasiaEmpresa }}
 					</p>
@@ -68,11 +68,11 @@
 
 				<div class="vagas-content-tags">
 					<div class="vagas-content-tags-item">
-						<img src="{{asset('images/componentes/vagas-periodo.svg')}}" 	alt="Endereço da empresa" class="vagas-content-tags-item-icon">
+						<img src="{{asset('images/componentes/vagas-periodo.svg')}}" alt="Período de trabalho" class="vagas-content-tags-item-icon">
 						<p class="vagas-content-tags-item-text">Tempo Integral</p>
 					</div>
 					<div class="vagas-content-tags-item">
-						<img src="{{asset('images/componentes/vagas-qtd.svg')}}" alt="Endereço da empresa" class="vagas-content-tags-item-icon">
+						<img src="{{asset('images/componentes/vagas-qtd.svg')}}" alt="Quantidade de vagas" class="vagas-content-tags-item-icon">
 						<p class="vagas-content-tags-item-text">{{ $vaga->quantidadeVaga }} vagas</p>
 					</div>
 				</div>

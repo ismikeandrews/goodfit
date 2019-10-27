@@ -31,16 +31,16 @@
 		</div>
 	</div>
 	@if($candidaturas->count() == 0)
-	<section class="vagas-section-null">
-		<div class="vagas-content-null vagas-content-null-curriculo">
-			 <div class="vagas-content-null-img">
-				 <img src='{{asset("images/componentes/menu-vagas.svg")}}' alt="Vagas - Outback" class="vagas-null-img">
+	<section class="page-section-null page-section-null-status">
+		<div class="page-content-null page-content-null-curriculo">
+			 <div class="page-content-null-img">
+				 <img src='{{asset("images/componentes/menu-vagas.svg")}}' alt="Ícone de vagas" class="vagas-null-img">
 			 </div>
-			 <div class="vagas-content-null-text">
+			 <div class="page-content-null-text">
 				Para continuar<br> inscreva-se em uma vaga
 			</div>
-			<a href="/vagas" id="btn-vaga-null" class="btn btn-vagas-null">
-					Vagas
+			<a href="/vagas" class="btn btn-page-null">
+				Vagas
 			</a>
 		</div>
 	</section>
@@ -51,7 +51,7 @@
 			@foreach($vagas as $vaga)
 			<div class="status-box-desc">
 				<div class="status-box-desc-img">
-					<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - Colégio Evoluir" class="status-box-desc-img-icon">
+					<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - {{$vaga->empresa->nomeFantasiaEmpresa}}" class="status-box-desc-img-icon">
 				</div>
 				<div class="status-box-desc-content">
 					<div class="status-box-desc-content-title">

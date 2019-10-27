@@ -1,0 +1,38 @@
+.page-section-null {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+
+    &-status {
+      height: calc(100vh - 300px)
+    }
+}
+  
+.page-content-null {
+    color: $azul_secondary;
+    font: 22px $font-semibold;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    position: absolute;
+    width: 100%;
+
+    &-curriculo {
+      height: 200px;
+    }
+
+    &-text {
+      margin-top: 30px;
+    }
+}
+
+.btn-page-null {
+  bottom: 0;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 50%;
+}
+  

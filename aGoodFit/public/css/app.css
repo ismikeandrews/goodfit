@@ -320,6 +320,44 @@ a {
   color: #0096b7;
 }
 
+.page-section-null {
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.page-section-null-status {
+  height: calc(100vh - 300px);
+}
+
+.page-content-null {
+  color: #0468BF;
+  font: 22px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  position: absolute;
+  width: 100%;
+}
+
+.page-content-null-curriculo {
+  height: 200px;
+}
+
+.page-content-null-text {
+  margin-top: 30px;
+}
+
+.btn-page-null {
+  bottom: 0;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 50%;
+}
+
 .container-login {
   position: relative;
 }
@@ -1142,40 +1180,6 @@ a {
   top: 50%;
   transform: translate(50%, -50%);
   width: 10px;
-}
-
-.vagas-section-null {
-  height: 100vh;
-  position: relative;
-  width: 100%;
-}
-
-.vagas-content-null {
-  color: #0468BF;
-  font: 22px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  position: absolute;
-  width: 100%;
-}
-
-.vagas-content-null-curriculo {
-  height: 200px;
-}
-
-.vagas-content-null-text {
-  margin-top: 30px;
-}
-
-.btn-vagas-null {
-  bottom: 0;
-  left: 50%;
-  margin: auto;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 50%;
 }
 
 .container-perfil {
