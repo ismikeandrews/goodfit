@@ -12,17 +12,10 @@ use Illuminate\Support\Facades\Validator;
 class CurriculoController extends Controller
 {
   public function formularioCurriculo(){
-<<<<<<< HEAD
     $adicionalController  = new adicionalController;
     $categoriaController  = new categoriaController;
     $habilidadeController = new habilidadeController;
-    
-=======
-    $adicionalController  = new AdicionalController;
-    $categoriaController  = new CategoriaController;
-    $habilidadeController = new HabilidadeController;
 
->>>>>>> 2215b1faebbff5b6bc4ee886b1c41468937a2820
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();

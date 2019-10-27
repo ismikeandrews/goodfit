@@ -13,7 +13,7 @@ class HabilidadeController extends Controller
 
 	/**
 	* Função para pegar todas as habilidades
-	* 
+	*
 	*
 	* @author Vanessa Amaral Marques
 	**/
@@ -28,7 +28,7 @@ class HabilidadeController extends Controller
 
 	/**
 	* Função para pegar as habilidades em um curriculo
-	* 
+	*
 	* @param $codCurriculo cod do curriculo do candidato
 	*
 	*
@@ -47,7 +47,7 @@ class HabilidadeController extends Controller
 
 	/**
 	* Função para adicionar habilidades em um curriculo
-	* 
+	*
 	* @param $codAdicional cod do adicional
 	* @param $codCurriculo cod do curriculo do candidato
 	*
@@ -63,7 +63,7 @@ class HabilidadeController extends Controller
 
   /**
   * Função para remover habilidades de um candidato
-  * 
+  *
   * @param $codCurriculo cod do curriculo do candidato
   *
   *
