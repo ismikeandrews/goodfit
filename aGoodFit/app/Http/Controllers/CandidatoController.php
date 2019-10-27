@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 use Auth;
 use File;
 use Image;
-use App\Candidato;
-use App\NivelUsuario;
-use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -56,7 +53,7 @@ class CandidatoController extends Controller
     if ($request->hasFile("foto")){
       if ($usuario->fotoUsuario !== 'perfil.png') {
         $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
-        
+
         if (File::exists($foto)) {
            unlink($foto);
         }
@@ -65,9 +62,10 @@ class CandidatoController extends Controller
       $foto = $request->foto;
       $nome = time() . '.' . $foto->getClientOriginalExtension();
 
-      Image::make($foto)
-      ->fit(300, 300)->rotate(-90)
-      ->save(public_path('/images/candidatos/'.$nome));
+      $image = Image::make($foto);
+      $image->orientate()->fit(300, 300);
+      $image->save(public_path('/images/candidatos/'.$nome));
+
 
       DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
@@ -98,6 +96,32 @@ class CandidatoController extends Controller
     $usuario->save();
 
     return redirect('/home');
+  }
+
+  /**
+  * Função para cadastrar um candidato
+  *
+  * @param array $data array com os dados do formulario
+  * @param int $codUsuario id do usuario recem cadastrado
+  *
+  * @author Michael Andrews
+  **/
+  public function novoCandidato(array $data, int $codUsuario){
+    $cpf = $data['cpf'];
+    $regex = '/[^0-9]/';
+    $cpf = preg_replace($regex, '', $cpf);
+
+    $date = $data['nascimento'];
+    $date = preg_replace($regex, '-', $date);
+    $parsed = date('Y-m-d', strtotime($date));
+
+   Candidato::create([
+     'nomeCandidato' => $data['nome'],
+     'cpfCandidato' => $cpf,
+     'rgCandidato' => $data['rg'],
+     'dataNascimentoCandidato' => $parsed,
+     'codUsuario' => $codUsuario
+   ]);
   }
 
   /**

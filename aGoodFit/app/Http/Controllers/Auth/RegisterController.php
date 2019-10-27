@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Http\Controllers\CandidatoController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -10,7 +11,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Image;
-use App\Candidato;
 
 class RegisterController extends Controller
 {
@@ -73,17 +73,18 @@ class RegisterController extends Controller
        *
        * @param array  $data
        *
-       * @return \App\User
+       * @return $usuario
        *
        * @author Michael Andrews
        **/
      public function create(array $data)
      {
+          $candidatoController = new CandidatoController;
 
          if (Arr::has($data, 'foto')) {
            $foto = $data['foto'];
            $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
-           Image::make($foto)->fit(300, 300)->rotate(-90)->save(public_path('/images/candidatos/'.$nomeFoto));
+           Image::make($foto)->orientate()->fit(300, 300)->rotate(-90)->save(public_path('/images/candidatos/'.$nomeFoto));
          }
          else {
            $nomeFoto = 'perfil.png';
@@ -98,21 +99,7 @@ class RegisterController extends Controller
          ]);
 
          if($usuario->codNivelUsuario = 2){
-           $cpf = $data['cpf'];
-           $regex = '/[^0-9]/';
-           $cpf = preg_replace($regex, '', $cpf);
-
-           $date = $data['nascimento'];
-           $date = preg_replace($regex, '-', $date);
-           $parsed = date('Y-m-d', strtotime($date));
-
-          Candidato::create([
-            'nomeCandidato' => $data['nome'],
-            'cpfCandidato' => $cpf,
-            'rgCandidato' => $data['rg'],
-            'dataNascimentoCandidato' => $parsed,
-            'codUsuario' => $usuario->codUsuario
-          ]);
+           $usuarioCandidato = $candidatoController->novoCandidato($data, $usuario->codUsuario);
          }
 
          return $usuario;
