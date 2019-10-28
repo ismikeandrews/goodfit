@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CurriculoController extends Controller
 {
-  public function formularioCurriculo(){
+  public function index(){
     $adicionalController  = new adicionalController;
     $categoriaController  = new categoriaController;
     $habilidadeController = new habilidadeController;
@@ -96,7 +96,7 @@ class CurriculoController extends Controller
     *
     * @author Vanessa Amaral Marques
     **/
-  public function editarCurriculo(Request $request){
+  public function atualizarCurriculo(Request $request){
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     $curriculo = DB::table('tbCurriculo')

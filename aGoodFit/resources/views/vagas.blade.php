@@ -36,7 +36,7 @@
 			<div class="vagas-btn-item vagas-btn-side-item">
 				<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Vaga anterior" class="vagas-btn-side-icon">
 			</div>
-			<a href="/status/{{$vaga->codVaga}}" class="vagas-btn-item vagas-btn-item-inscrever">
+			<a href="/candidatura/{{$vaga->codVaga}}" class="vagas-btn-item vagas-btn-item-inscrever">
 				<img src="{{asset('images/componentes/vagas-check.svg')}}" alt="Aceitar vaga" class="vagas-btn-icon">
 				<!-- <div class="vagas-btn-item-inscrever-text">
 					Inscreva-se

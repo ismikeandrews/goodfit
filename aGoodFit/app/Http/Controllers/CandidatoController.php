@@ -18,7 +18,7 @@ class CandidatoController extends Controller
       return view('auth.login');
     }
   }
-  public function config(){
+  public function index(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     $candidato->dataNascimentoCandidato = date('d/m/Y', strtotime($candidato->dataNascimentoCandidato));
@@ -70,8 +70,7 @@ class CandidatoController extends Controller
 
       DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
-
-
+    
     //Tratamento do cpf
     $cpf   = $request->cpf;
 	  $cpf   = preg_replace('/[^0-9]/', '', $cpf);

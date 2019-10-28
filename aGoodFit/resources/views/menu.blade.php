@@ -40,7 +40,7 @@
                 </svg>
               </li>
             </a>
-            <a class="menu-nav-list-link" href="/status">
+            <a class="menu-nav-list-link" href="/candidatura">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-candidatura.svg')}}" alt="Menu - página de candidaturas" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Candidaturas</p>
