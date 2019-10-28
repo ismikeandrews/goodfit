@@ -97,7 +97,6 @@ class CurriculoController extends Controller
     * @author Vanessa Amaral Marques
     **/
   public function editarCurriculo(Request $request){
-    dd($request);
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     $curriculo = DB::table('tbCurriculo')
