@@ -68,6 +68,11 @@ class VagaController extends Controller
         INNER JOIN tbCargoCurriculo
           ON tbCategoria.codCategoria = tbCargoCurriculo.codCategoria
         WHERE tbVaga.codVaga NOT IN (
+          SELECT tbCandidatura.codVaga
+          FROM tbCandidatura
+          WHERE tbCandidatura.codCandidato = '$candidato->codCandidato'
+        )
+        AND tbVaga.codVaga NOT IN (
           SELECT tbVaga.codVaga
             FROM tbVaga
             INNER JOIN tbRequisitoVaga
