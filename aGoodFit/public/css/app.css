@@ -265,6 +265,57 @@ a {
   width: 100%;
 }
 
+.radio:checked,
+.radio:not(:checked) {
+  display: none;
+}
+
+.radio:checked + label {
+  color: #04B2D9;
+}
+
+.radio:not(:checked) + label {
+  color: #ababab;
+}
+
+.radio:checked + label,
+.radio:not(:checked) + label {
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  color: #ccc;
+  display: block;
+  padding: 20px 0;
+  text-align: center;
+  transition: all 0.5s ease-out;
+}
+
+@media screen and (max-width: 380px) {
+  .radio:checked + label,
+  .radio:not(:checked) + label {
+    padding: 10px 0;
+  }
+}
+
+.radio-label-icon {
+  width: 90px;
+}
+
+@media screen and (max-width: 380px) {
+  .radio-label-icon {
+    width: 60px;
+  }
+}
+
+.radio-label-desc {
+  font: 17px/22px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
+  margin-top: 10px;
+}
+
+.radio:checked + label {
+  border-color: #04B2D9;
+  color: #04B2D9;
+}
+
 .curriculo-content {
   align-items: center;
   display: flex;
@@ -318,6 +369,120 @@ a {
   background: rgba(4, 178, 217, 0.25);
   border-color: #04B2D9;
   color: #0096b7;
+}
+
+.etapas {
+  padding-top: 45px;
+}
+
+.counter {
+  margin-top: 30px;
+}
+
+.counter-etapas {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.counter-etapas-etapa {
+  border: 2px solid #04B2D9;
+  border-radius: 100%;
+  color: #04B2D9;
+  font: 17px/19px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  height: 25px;
+  margin: 0 25px;
+  position: relative;
+  text-align: center;
+  transition: border-color ease 2s, color ease 2s;
+  width: 25px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 380px) {
+  .counter-etapas-etapa {
+    margin: 0 20px;
+  }
+}
+
+.counter-etapas-etapa:before {
+  background: #04B2D9;
+  content: "";
+  display: block;
+  height: 2px;
+  right: 48px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  transition: background ease 1s;
+  top: 50%;
+  width: 50px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 380px) {
+  .counter-etapas-etapa:before {
+    right: 43px;
+    width: 40px;
+  }
+}
+
+.counter-etapas-etapa:first-child:before {
+  height: 0px;
+}
+
+.counter-etapas-etapa.is-disable {
+  border-color: #C5C5C5;
+  color: #C5C5C5;
+}
+
+.counter-etapas-etapa.is-disable:before {
+  background: #C5C5C5;
+}
+
+.counter-etapas-content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 1s ease-out;
+  width: 0;
+}
+
+.counter-etapas-content.is-active {
+  height: 100%;
+  opacity: 1;
+  width: 100%;
+}
+
+.counter-etapas-content.is-active .curriculo-title {
+  margin-top: 30px;
+}
+
+.counter-etapas-content.is-active .curriculo-desc {
+  margin-top: 10px;
+}
+
+.etapas-btn {
+  display: flex;
+}
+
+@media screen and (max-width: 380px) {
+  .etapas-btn-curriculo {
+    bottom: 70px;
+  }
+}
+
+.etapas-btn-cadastro {
+  margin-top: 20px;
+}
+
+.etapas-btn-item {
+  outline: none;
+  width: 48% !important;
+}
+
+.etapas-btn-item.is-disable {
+  background: rgba(4, 178, 217, 0.34);
+  pointer-events: none;
 }
 
 .page-section-null {
@@ -491,46 +656,22 @@ a {
   padding: 20px 30px;
 }
 
-.icon-voltar-cadastro,
-.section-cadastro {
-  margin-top: 30px;
+.intro {
+  color: #828181;
+  letter-spacing: 0.5px;
+  margin: 15px 0;
+}
+
+.intro-title {
+  font: 25px "Raleway Light", "Montserrat Light", "sans-serif";
 }
 
 .intro-desc {
-  color: #828181;
-  font: 15px "Raleway Light", "Montserrat Light", "sans-serif";
-  letter-spacing: 0.5px;
-  margin: 5px 0 15px;
+  font: 15px "Raleway Regular", "Montserrat Regular", "sans-serif";
 }
 
 .cadastro-intro {
-  padding: 20px 0 10px;
-}
-
-.cadastro-perfil {
-  align-items: center;
-  display: flex;
-  margin: 10px 0 20px;
-}
-
-.cadastro-perfil-img {
-  width: 10%;
-}
-
-@media screen and (max-width: 500px) {
-  .cadastro-perfil-img {
-    width: 25%;
-  }
-}
-
-.cadastro-perfil-desc {
-  color: #828181;
-  font: 15px/15px "Raleway Medium", "Montserrat Medium", "sans-serif";
-  width: 70%;
-}
-
-.perfil-img {
-  display: none;
+  padding: 10px 0;
 }
 
 .label {
@@ -570,72 +711,30 @@ a {
   }
 }
 
-.curriculo-etapas {
-  padding-top: 75px;
+@media screen and (max-width: 380px) {
+  .etapas-cadastro {
+    padding-top: 0;
+  }
 }
 
-.counter {
-  margin-top: 30px;
+.cadastro-etapa1-content-item {
+  margin-bottom: 20px;
 }
 
-.counter-etapas {
+.content-perfil-desc-box {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.counter-etapas-etapa {
-  border: 2px solid #04B2D9;
-  border-radius: 100%;
-  color: #04B2D9;
-  font: 17px/19px "Raleway Bold", "Montserrat Bold", "sans-serif";
-  height: 25px;
-  margin: 0 25px;
-  position: relative;
-  text-align: center;
-  transition: border-color ease 2s, color ease 2s;
-  width: 25px;
-  z-index: -1;
+.content-perfil-desc-box-item {
+  width: 47%;
 }
 
 @media screen and (max-width: 380px) {
-  .counter-etapas-etapa {
-    margin: 0 20px;
+  .content-perfil-desc-box-item {
+    width: 100%;
   }
-}
-
-.counter-etapas-etapa:before {
-  background: #04B2D9;
-  content: "";
-  display: block;
-  height: 2px;
-  right: 48px;
-  position: absolute;
-  transform: translate(50%, -50%);
-  transition: background ease 1s;
-  top: 50%;
-  width: 50px;
-  z-index: -1;
-}
-
-@media screen and (max-width: 380px) {
-  .counter-etapas-etapa:before {
-    right: 43px;
-    width: 40px;
-  }
-}
-
-.counter-etapas-etapa:first-child:before {
-  height: 0px;
-}
-
-.counter-etapas-etapa.is-disable {
-  border-color: #C5C5C5;
-  color: #C5C5C5;
-}
-
-.counter-etapas-etapa.is-disable:before {
-  background: #C5C5C5;
 }
 
 .curriculo-title {
@@ -653,50 +752,8 @@ a {
   font-family: "Raleway Bold", "Montserrat Bold", "sans-serif";
 }
 
-.counter-etapas-content {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: opacity 1s ease-out;
-  width: 0;
-}
-
-.counter-etapas-content.is-active {
-  height: 100%;
-  opacity: 1;
-  width: 100%;
-}
-
-.counter-etapas-content.is-active .curriculo-title {
-  margin-top: 30px;
-}
-
-.counter-etapas-content.is-active .curriculo-desc {
-  margin-top: 10px;
-}
-
-.curriculo-btn {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  position: relative;
-}
-
-@media screen and (max-width: 380px) {
-  .curriculo-btn {
-    bottom: 70px;
-  }
-}
-
 .curriculo-btn-item {
-  outline: none;
-  width: 48%;
-}
-
-.curriculo-btn-item.is-disable {
-  background: rgba(4, 178, 217, 0.34);
-  pointer-events: none;
+  width: 48% !important;
 }
 
 .curriculo-etapa1-submenu {
@@ -825,7 +882,7 @@ a {
 
 @media screen and (max-width: 380px) {
   .curriculo-etapa2 {
-    margin: 20px 0 80px;
+    margin: 20px 0 0;
   }
 }
 
@@ -842,6 +899,10 @@ a {
 }
 
 @media screen and (max-width: 380px) {
+  .curriculo-content-item-etapa-2 {
+    width: 100%;
+  }
+
   .curriculo-content-item-etapa-2:first-child {
     margin: 0 auto 30px;
   }
@@ -1187,7 +1248,7 @@ a {
 }
 
 .content-perfil {
-  margin: 30px 0;
+  margin: 15px 0 30px;
 }
 
 .content-perfil-image {
@@ -1201,8 +1262,13 @@ a {
 @media screen and (max-width: 380px) {
   .content-perfil-image {
     height: 150px;
-    width: 150px;
+    width: 148px;
   }
+}
+
+.content-perfil-image-cadastro {
+  height: 150px;
+  width: 150px;
 }
 
 .content-perfil-image-img {
@@ -1225,6 +1291,11 @@ a {
   border: 5px solid #e41930;
 }
 
+.content-perfil-image-img-cadastro {
+  height: 150px;
+  width: 150px;
+}
+
 .content-perfil-desc {
   color: #A2A2A2;
   font: 16px/20px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
@@ -1242,10 +1313,12 @@ a {
 .form-input-item-perfil {
   background: transparent;
   border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
   color: #2a2a2a;
   font: 20px "Raleway Regular", "Montserrat Regular", "sans-serif";
   margin: 5px 0 10px;
-  padding: 5px 0 0px;
+  padding: 5px 0;
 }
 
 .modal.hide {

@@ -14,7 +14,7 @@ listCurriculoParent.forEach((elem, idx) => {
     } else {
       listCurriculo.classList.add('is-active');
       let height = listCurriculoContent.offsetHeight;
-      listCurriculo.style.height = `${height + 40}px`;
+      listCurriculo.style.height = `${height + 60}px`;
     }
 
     listCurriculoAll.forEach((elem, idx) => {

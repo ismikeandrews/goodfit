@@ -3,7 +3,7 @@
 }
 
 .content-perfil {
-    margin: 30px 0;
+    margin: 15px 0 30px;
 
     &-image {
         display: block;
@@ -14,7 +14,12 @@
 
         @include MQ($small) {
             height: 150px;
-            width: 150px;
+            width: 148px;
+        }
+
+        &-cadastro {
+          height: 150px;
+          width: 150px;
         }
 
         &-img {
@@ -32,6 +37,11 @@
 
             &-erro {
               border: 5px solid #e41930;
+            }
+
+            &-cadastro {
+              height: 150px;
+              width: 150px;
             }
         }
     }
@@ -54,10 +64,12 @@
 .form-input-item-perfil {
     background: transparent;
     border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
     color: $preto;
     font: 20px $font-regular;
     margin: 5px 0 10px;
-    padding: 5px 0 0px;
+    padding: 5px 0;
 }
 
 .modal.hide{

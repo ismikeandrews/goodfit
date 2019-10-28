@@ -9,7 +9,7 @@
   }
  ?>
 <section class="container container-curriculo">
-  <div class="curriculo-etapas curriculo-etapa-1">
+  <div class="etapas etapas-curriculo">
     <div class="icon-voltar">
       <a href="javascript:history.back()">
         <img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
@@ -55,7 +55,7 @@
       <div class="counter-etapas-content">
         @include('curriculo.curriculo-etapa4')
       </div>
-      <div class="curriculo-btn">
+      <div class="etapas-btn etapas-btn-curriculo">
         <div id="btn-voltar" class="btn curriculo-btn-item is-disable">
             Voltar
         </div>

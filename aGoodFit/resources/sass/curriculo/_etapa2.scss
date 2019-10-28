@@ -4,7 +4,7 @@
     margin: 20px 0 30px;
 
     @include MQ($small){
-        margin: 20px 0 80px;
+        margin: 20px 0 0;
     }
 }
 
@@ -17,8 +17,10 @@
         margin: 0 auto 30px;
     }
 
-    &:first-child {
-        @include MQ($small) {
+    @include MQ($small) {
+        width: 100%;
+        
+        &:first-child {
             margin: 0 auto 30px;
         }
     }

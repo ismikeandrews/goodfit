@@ -136,19 +136,6 @@ if (containerModal) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// let senha = document.getElementById("senha");
-// let confirmar_senha = document.getElementById("confirmar_senha");
-//
-// function validarSenha(){
-//   if(senha.value != confirmar_senha.value) {
-//     confirmar_senha.setCustomValidity("Senhas diferentes!");
-//   } else {
-//     confirmar_senha.setCustomValidity('');
-//   }
-// }
-//
-// // senha.onchange = validarSenha;
-// // confirmar_senha.onkeyup = validarSenha;
 $(document).ready(function () {
   $('#senha').complexify({}, function (valid, complex) {
     var progress = $('#senha');
@@ -350,7 +337,7 @@ listCurriculoParent.forEach(function (elem, idx) {
     } else {
       listCurriculo.classList.add('is-active');
       var height = listCurriculoContent.offsetHeight;
-      listCurriculo.style.height = "".concat(height + 40, "px");
+      listCurriculo.style.height = "".concat(height + 60, "px");
     }
 
     listCurriculoAll.forEach(function (elem, idx) {

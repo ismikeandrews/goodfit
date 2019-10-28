@@ -2,44 +2,24 @@
     padding: 20px 30px;
 }
 
-.icon-voltar-cadastro, .section-cadastro {
-    margin-top: 30px;
-}
-
-.intro-desc {
+.intro {
     color: $cinza;
-    font: 15px $font-light;
     letter-spacing: 0.5px;
-    margin: 5px 0 15px;
+    margin: 15px 0;
+
+    &-title {
+        font: 25px $font-light;
+    }
+    
+    &-desc {
+        font: 15px $font-regular;
+    }
 }
 
 .cadastro-intro {
-    padding: 20px 0 10px;
+    padding: 10px 0;
 }
 
-.cadastro-perfil {
-    align-items: center;
-    display: flex;
-    margin: 10px 0 20px;
-
-    &-img {
-        width: 10%;
-
-        @include MQ($medium){
-            width: 25%;
-        }
-    }
-
-    &-desc {
-        color: $cinza;
-        font: 15px/15px $font-medium;
-        width: 70%;
-    }
-}
-
-.perfil-img {
-    display: none
-}
 
 .label {
     font: 11px $font-regular;
