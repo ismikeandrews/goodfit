@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TipoAdicionalController extends Controller
 {
@@ -19,5 +20,12 @@ class TipoAdicionalController extends Controller
     	]);
 
     	return view('cadastroTipoAdicional')->with('ok', $tipoAdicional->save());
+    }
+
+    public function getTipoAdicionalByNome(string $nomeTipoAdicional){
+        return DB::table('tbTipoAdicional')
+        ->select('tbTipoAdicional.codTipoAdicional')
+        ->where('tbTipoAdicional.nomeTipoAdicional', '=', $nomeTipoAdicional)
+        ->first();
     }
 }

@@ -97,13 +97,38 @@ class CurriculoController extends Controller
     * @author Vanessa Amaral Marques
     **/
   public function atualizarCurriculo(Request $request){
+    $adicionalController      = new AdicionalController;
+    $cargoCurriculoController = new CargoCurriculoController;
+    $tipoAdicionalController  = new TipoAdicionalController;
+
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    $curriculo = DB::table('tbCurriculo')
-    ->where('codCandidato', $candidato->codCandidato)->first();
+    
+    DB::table('tbCurriculo')
+    ->where('codCandidato', $candidato->codCandidato)
+    ->update([
+      'descricaoCurriculo' => $request->input('descricaoCurriculo')
+    ]);
 
-    $curriculo->descricaoCandidato = $request->input('descricaoCandidato');
+    $curriculo = $this->getCurriculobyCandidato($candidato->codCandidato);
 
-    $curriculo->save();
+    //atualizando habilidades
+    $codHabilidade = $tipoAdicionalController->getTipoAdicionalByNome('Habilidade')->codTipoAdicional;
+    $adicionalController->removerAdicionalCurriculo($codHabilidade, $curriculo->codCurriculo);
+    foreach ($request->habilidades as $habilidade) {
+      $adicionalController->novoAdicionalCurriculo($habilidade, $curriculo->codCurriculo);
+    }
+
+    //atualizando categorias
+    $cargoCurriculoController->removerCargoByCurriculo($curriculo->codCurriculo);
+    foreach ($request->categorias as $categoria) {
+      $cargoCurriculoController->novoCargoCurriculo($categoria, $curriculo->codCurriculo);
+    }
+  }
+
+  public function getCurriculobyCandidato(int $codCandidato){
+    return DB::table('tbCurriculo')
+    ->where('codCandidato', $codCandidato)
+    ->first();
   }
 }
