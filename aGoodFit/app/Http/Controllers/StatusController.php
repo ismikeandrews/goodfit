@@ -11,6 +11,7 @@ class StatusController extends Controller
 {
   public function index(){
     $beneficioController = new BeneficioController;
+
     $empresaController   = new EmpresaController;
     $profissaoController = new ProfissaoController;
     $usuarioController   = new UsuarioController;
@@ -47,30 +48,6 @@ class StatusController extends Controller
     }
 
     return view('status', $dados);
-  }
-
-  /**
-    * Função para criar um nova Candidatura
-    *
-    * @param $codVaga id da vaga selecionada
-    *
-    * @author Michael Andrews
-    **/
-  public function novoStatus($codVaga){
-    $usuario = Auth::user();
-
-    $candidato = DB::table('tbCandidato')
-    ->where('codUsuario', $usuario->codUsuario)->first();
-
-    $status = DB::table('tbStatusCandidatura')
-    ->where('codStatusCandidatura', 2)->first();
-
-    Candidatura::create([
-      'codCandidato' => $candidato->codCandidato,
-      'codVaga' => intval($codVaga),
-      'codStatusCandidatura' => $status->codStatusCandidatura
-    ]);
-    return redirect('/vagas');
   }
 
   /**

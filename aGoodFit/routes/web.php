@@ -41,8 +41,8 @@ Route::post('/formulario/editar', 'CurriculoController@editarCurriculo')->middle
 Route::prefix('status')->group(function(){
 //paginas
 Route::get('/', 'StatusController@index')->middleware('auth');
-//Novo Status
-Route::get('/{codVaga}', 'StatusController@novoStatus')->middleware('auth');
+//Nova Candidatura
+Route::get('/{codVaga}', 'CandidaturaController@novaCandidatura')->middleware('auth');
 });
 
 //Endereco
