@@ -31,7 +31,7 @@
 
     <div class="curriculo-etapa1-content">
       <div class="curriculo-etapa1-content-text">
-          <textarea name="descricaoCandidato" class="curriculo-etapa1-textarea" placeholder="Escreva uma breve descrição sobre você...">@isset($curriculo){{ $curriculo->descricaoCurriculo }}@endisset</textarea>
+          <textarea name="descricaoCurriculo" class="curriculo-etapa1-textarea" placeholder="Escreva uma breve descrição sobre você...">@isset($curriculo){{ $curriculo->descricaoCurriculo }}@endisset</textarea>
       </div>
       <div class="box-hidden">
       </div>
