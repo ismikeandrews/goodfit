@@ -75,7 +75,7 @@ class CurriculoController extends Controller
 
     $curriculo = Curriculo::create([
       'videoCurriculo'     => $request->input('videoCandidato'),
-      'descricaoCandidato' => $request->input('descricaoCandidato'),
+      'descricaoCurriculo' => $request->input('descricaoCurriculo'),
       'codCandidato'       => $candidato->codCandidato,
     ]);
 

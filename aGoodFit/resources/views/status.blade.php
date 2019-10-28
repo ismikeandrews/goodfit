@@ -69,11 +69,6 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="status-box-qtd">
-				{{$vaga->quantidadeVaga}}
-				<span>Vagas</span>
-			</div>
 			@endforeach
 		</div>
 		@endforeach

@@ -70,7 +70,7 @@ class CandidatoController extends Controller
 
       DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
     }
-    
+
     //Tratamento do cpf
     $cpf   = $request->cpf;
 	  $cpf   = preg_replace('/[^0-9]/', '', $cpf);

@@ -22,7 +22,7 @@ class CandidaturaController extends Controller
 	      'codVaga' => $codVaga,
 	      'codStatusCandidatura' => EM_ANDAMENTO
 	    ]);
-	    
+
 	    return redirect('/vagas');
     }
 }

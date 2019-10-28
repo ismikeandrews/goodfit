@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Image;
 
+define('MODERADOR', 1);
+define('CANDIDATO', 2);
+define('EMPRESA', 3);
 class RegisterController extends Controller
 {
     /*
@@ -56,7 +59,7 @@ class RegisterController extends Controller
 
      protected function validator(array $data)
      {
-         return Validator::make($data, [
+          return Validator::make($data, [
            'login' => ['required', 'alpha_dash', 'string', 'max:50', 'unique:tbUsuario,loginUsuario'],
            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
            'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -101,7 +104,7 @@ class RegisterController extends Controller
            'password' => Hash::make($data['password']),
          ]);
 
-         if($usuario->codNivelUsuario = 2){
+         if($usuario->codNivelUsuario = CANDIDATO){
            $usuarioCandidato = $candidatoController->novoCandidato($data, $usuario->codUsuario);
          }
 
