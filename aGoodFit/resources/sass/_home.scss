@@ -1,0 +1,68 @@
+ .container-home {
+    height: 100vh;
+    position: relative;
+
+    &:before {
+        background: url('../images/componentes/logo-bg.png') center no-repeat;
+        background-size: 450px;
+        content: '';
+        display: block;
+        height: 450px;
+        left: 0px;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%,-50%);
+        width: 450px;
+        z-index: 1;
+    }
+
+    &:after {
+        background: url('../images/componentes/logo-bg.png') center no-repeat;
+        background-size: 450px;
+        content: '';
+        display: block;
+        height: 450px;
+        right: 0px;
+        position: absolute;
+        bottom: 0;
+        transform: rotate(180deg) translate(-50%, -50%);
+        width: 450px;
+        z-index: 1;
+    }
+}
+
+.home-content {
+  &-logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+
+      &-img {
+        margin: 50px auto 30px;
+        width: 360px;
+      }
+  }
+
+  &-desc {
+    &-title {
+      color: $preto;
+      font: 21px $font-bold;
+      line-height: 25px;
+
+      @include MQ($small) {
+        font-size: 20px;
+      }
+
+      &-span {
+        color: $azul_primary;
+      }
+    }
+
+    &-text {
+      color: $cinza;
+      font: 14px $font-light;
+      letter-spacing: 0.5px;
+      margin: 5px 0 15px;
+    }
+  }
+}

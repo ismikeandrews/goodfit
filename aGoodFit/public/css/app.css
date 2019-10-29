@@ -523,6 +523,73 @@ a {
   width: 50%;
 }
 
+.container-home {
+  height: 100vh;
+  position: relative;
+}
+
+.container-home:before {
+  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
+  background-size: 450px;
+  content: "";
+  display: block;
+  height: 450px;
+  left: 0px;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  z-index: 1;
+}
+
+.container-home:after {
+  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
+  background-size: 450px;
+  content: "";
+  display: block;
+  height: 450px;
+  right: 0px;
+  position: absolute;
+  bottom: 0;
+  transform: rotate(180deg) translate(-50%, -50%);
+  width: 450px;
+  z-index: 1;
+}
+
+.home-content-logo {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.home-content-logo-img {
+  margin: 50px auto 30px;
+  width: 360px;
+}
+
+.home-content-desc-title {
+  color: #2a2a2a;
+  font: 21px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  line-height: 25px;
+}
+
+@media screen and (max-width: 380px) {
+  .home-content-desc-title {
+    font-size: 20px;
+  }
+}
+
+.home-content-desc-title-span {
+  color: #04B2D9;
+}
+
+.home-content-desc-text {
+  color: #828181;
+  font: 14px "Raleway Light", "Montserrat Light", "sans-serif";
+  letter-spacing: 0.5px;
+  margin: 5px 0 15px;
+}
+
 .container-login {
   position: relative;
 }

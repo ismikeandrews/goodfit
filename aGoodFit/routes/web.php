@@ -15,6 +15,8 @@
 //Rotas de autenticação
 Auth::routes();
 
+Route::get('/home', 'HomeController@index');
+
 Route::get('/', 'CandidatoController@login');
 
 //Candidato
