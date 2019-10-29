@@ -53,6 +53,13 @@ Route::get('/formulario', 'EnderecoController@index')->middleware('auth');
 Route::post('/formulario', 'EnderecoController@novoEndereco')->middleware('auth');
 });
 
+//Usuario
+Route::prefix('usuario')->group(function() {
+//paginas
+Route::get('/formulario', 'UsuarioController@index');
+//Excluir e Editar dados e Validar
+});
+
 //Vagas
 Route::prefix('vagas')->group(function() {
 //paginas

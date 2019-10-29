@@ -115,16 +115,16 @@ if (containerPerfil) {
   __webpack_require__(/*! ./foto-upload */ "./resources/js/foto-upload.js");
 }
 
+if (containerModal) {
+  __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+}
+
 if (containerRequisitos) {
   __webpack_require__(/*! ./requisitos */ "./resources/js/requisitos.js");
 }
 
 if (containerVagas) {
   __webpack_require__(/*! ./vagas */ "./resources/js/vagas.js");
-}
-
-if (containerModal) {
-  __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
 }
 
 /***/ }),
@@ -291,27 +291,25 @@ if (menu) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var modal = document.querySelector("#modal-cortar");
-var fecharModal = document.querySelector("#modal-fechar");
-var inputFile = document.querySelector('#selecao-arquivo');
+var modal = document.getElementsByClassName('modal')[0];
+var box = document.getElementsByClassName('status-box')[0];
+var close = document.getElementsByClassName('modal-content-header-close')[0];
+box.addEventListener('click', openModal);
+close.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
 
-if (modal) {
-  var openModal = function openModal() {
-    modal.style.display = 'block';
-  };
+function openModal() {
+  modal.style.display = 'block';
+}
 
-  var closeModal = function closeModal() {
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+function outsideClick(e) {
+  if (e.target == modal) {
     modal.style.display = 'none';
-  };
-
-  var clickOutside = function clickOutside(e) {
-    if (e.target == modal) {
-      modal.style.display = 'none';
-    }
-  };
-
-  fecharModal.addEventListener('click', closeModal);
-  window.addEventListener('click', clickOutside);
+  }
 }
 
 /***/ }),

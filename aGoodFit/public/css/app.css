@@ -1388,12 +1388,7 @@ a {
   padding: 5px 0;
 }
 
-.modal.hide {
-  display: none;
-}
-
 .modal {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -1404,11 +1399,12 @@ a {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.modal-conteudo {
+.modal-content {
   background-color: #f4f4f4;
-  border-radius: 20px;
-  margin: 15% auto;
-  width: 90%;
+  border-radius: 10px;
+  margin: 20% auto;
+  width: 100%;
+  height: 100%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.17);
   -webkit-animation-name: modalAberto;
           animation-name: modalAberto;
@@ -1416,16 +1412,44 @@ a {
           animation-duration: 1s;
 }
 
-.modal-conteudo-header-fechar {
+.modal-content-header-close {
   color: #04B2D9;
-  float: right;
+  float: left;
   font-size: 30px;
   position: absolute;
-  right: 10%;
+  left: 10%;
 }
 
-.modal-conteudo-body {
+.modal-content-body {
   padding: 60px 20px 20px;
+  text-align: center;
+}
+
+.modal-content-body-img {
+  width: 60%;
+  margin: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.modal-content-body-fantasia {
+  margin: 18px 0px 4px auto;
+  font-size: 23px;
+  color: #04B2D9;
+}
+
+.modal-content-body-box {
+  position: absolute;
+  float: left;
+  left: 10%;
+  margin: 25px 0;
+  border: 1px #2eb9dc solid;
+  padding: 8px 15px;
+  border-radius: 10px;
+}
+
+.modal-content-body-box-icon {
+  width: 25px;
 }
 
 @-webkit-keyframes modalAberto {

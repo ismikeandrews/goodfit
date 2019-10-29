@@ -47,30 +47,50 @@
 	@elseif($candidaturas->count() > 0)
 	<div class="container container-status">
 		@foreach($candidaturas as $candidatura)
-		<div class="status-box">
 			@foreach($vagas as $vaga)
-			<div class="status-box-desc">
-				<div class="status-box-desc-img">
-					<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - {{$vaga->empresa->nomeFantasiaEmpresa}}" class="status-box-desc-img-icon">
-				</div>
-				<div class="status-box-desc-content">
-					<div class="status-box-desc-content-title">
-						{{$vaga->profissao->nomeProfissao}}
-					</div>
-					<div class="status-box-desc-content-nome">
-						{{$vaga->empresa->nomeFantasiaEmpresa}}
-					</div>
-					<div class="status-box-desc-content-status">
-						<div class="status-box-desc-content-status-cor @if($candidatura->status->codStatusCandidatura == 1) aprovado @elseif($candidatura->status->codStatusCandidatura == 2) andamento @elseif($candidatura->status->codStatusCandidatura == 3) finalizado @endif">
+				<!-- inicio modal -->
+				<div class="container-modal">
+					<div id="modal" class="modal">
+						<div class="modal-content">
+							<span class="modal-content-header-close">
+								<img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
+							</span>
+							<div class="modal-content-body">
+								<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - {{$vaga->empresa->nomeFantasiaEmpresa}}" class="modal-content-body-img">
+								<p class="modal-content-body-fantasia">{{$vaga->empresa->nomeFantasiaEmpresa}}</p>
+								<p class="modal-content-body-profissao">{{$vaga->profissao->nomeProfissao}}</p>
+								<div class="modal-content-body-box">
+									<img src="{{asset('images/componentes/vagas-periodo.svg')}}" alt="Período de trabalho" class="modal-content-body-box-icon">
+									<p class="modal-content-body-box-text">Tempo Integral</p>
+								</div>
+							</div>
 						</div>
-						<div class="status-box-desc-content-status-text">
-							{{$candidatura->status->nomeStatusCandidatura}}
+					</div>
+				</div>
+				<!-- fim modal -->
+				<div class="status-box">
+					<div class="status-box-desc">
+						<div class="status-box-desc-img">
+							<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - {{$vaga->empresa->nomeFantasiaEmpresa}}" class="status-box-desc-img-icon">
+						</div>
+						<div class="status-box-desc-content">
+							<div class="status-box-desc-content-title">
+								{{$vaga->profissao->nomeProfissao}}
+							</div>
+							<div class="status-box-desc-content-nome">
+								{{$vaga->empresa->nomeFantasiaEmpresa}}
+							</div>
+							<div class="status-box-desc-content-status">
+								<div class="status-box-desc-content-status-cor @if($candidatura->status->codStatusCandidatura == 1) aprovado @elseif($candidatura->status->codStatusCandidatura == 2) andamento @elseif($candidatura->status->codStatusCandidatura == 3) finalizado @endif">
+								</div>
+								<div class="status-box-desc-content-status-text">
+									{{$candidatura->status->nomeStatusCandidatura}}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			@endforeach
-		</div>
 		@endforeach
 	</div>
 	@endif

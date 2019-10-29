@@ -1,9 +1,8 @@
 @guest
 
 
-@if (Route::has('register'))
+@if (Route::has('/home'))
 @endif
-
 @else
 <nav class="menu">
   <div class="container-menu">

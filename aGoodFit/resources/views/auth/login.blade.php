@@ -61,7 +61,7 @@
 
             <div class="cadastro-content">
               <div class="cadastro-content-item">
-                <a href="/nivelusuario/validar/2" class="btn btn-cadastrar">
+                <a href="/usuario/formulario" class="btn btn-cadastrar">
                     {{ __('Cadastre-se') }}
                 </a>
               </div>

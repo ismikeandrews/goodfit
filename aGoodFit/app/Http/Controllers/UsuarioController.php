@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
+  public function index(){
+    return view('auth.cadastro-candidato');
+  }
   /**
   * Função para pegar usuario por codigo
   *
