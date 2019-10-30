@@ -1413,35 +1413,26 @@ a {
 }
 
 .modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.3);
+  left: 100%;
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease-out;
+  width: 100%;
+  z-index: 0;
+}
+
+.modal.is-active {
+  left: 0;
+  z-index: 2;
 }
 
 .modal-content {
   background-color: #f4f4f4;
-  border-radius: 10px;
-  margin: 20% auto;
-  width: 100%;
   height: 100%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.17);
-  -webkit-animation-name: modalAberto;
-          animation-name: modalAberto;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-}
-
-.modal-content-header-close {
-  color: #04B2D9;
-  float: left;
-  font-size: 30px;
-  position: absolute;
-  left: 10%;
 }
 
 .modal-content-body {
@@ -1476,26 +1467,6 @@ a {
   width: 25px;
 }
 
-@-webkit-keyframes modalAberto {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes modalAberto {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .modal-btn-cortar {
   width: 40%;
 }
@@ -1504,6 +1475,13 @@ a {
   .modal-btn-cortar {
     width: 90%;
   }
+}
+
+.voltar-svg {
+  fill: #04B2D9;
+  left: 30px;
+  top: 30px;
+  position: absolute;
 }
 
 .aprovado {
