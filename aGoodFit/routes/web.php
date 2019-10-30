@@ -15,7 +15,6 @@
 //Rotas de autenticação
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'CandidatoController@login');
 
@@ -27,6 +26,7 @@ Route::get('/configuracoes', 'CandidatoController@index')->middleware('auth');
 Route::post('/configuracoes', 'CandidatoController@atualizarPerfil')->middleware('auth');
 });
 
+Route::get('/home', 'HomeController@index');
 //Candidatura
 Route::prefix('candidatura')->group(function(){
 //paginas
@@ -42,10 +42,10 @@ Route::prefix('curriculo')->group(function() {
 
 	//Ver Curriculo
 	Route::post('/view', 'CurriculoController@verCurriculo')->middleware('auth');
-	
+
 	//Novo Curriculo
 	Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
-	
+
 	//Editar Curriculo
 	Route::get('/formulario/editar', 'CurriculoController@viewEditar')->middleware('auth');
 });

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!--<section class="container container-cadastro">
+<section class="container container-cadastro">
   <div class="etapas etapas-cadastro">
     <form enctype="multipart/form-data" class="form" method="POST" action="{{ route('register') }}">
       @csrf
@@ -39,16 +39,16 @@
     </div>
 
       <div class="etapas-btn etapas-btn-cadastro">
-        <a href="javascript:history.back()" id="btn-voltar" class="btn etapas-btn-item">
+        <button id="btn-prev" class="btn etapas-btn-item">
             Voltar
-        </a>
-        <button id="btn-avancar" class="btn etapas-btn-item">
+        </button>
+        <button id="btn-next" class="btn etapas-btn-item">
             Avançar
         </button>
       </div>
     </form>
   </div>
-</section>-->
+</section>
 
 
 
@@ -69,7 +69,7 @@
 
 
 
- <section class="container container-cadastro">
+ <!-- <section class="container container-cadastro">
     <div class="icon-voltar icon-voltar-cadastro">
       <a href="/">
         <img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
@@ -195,6 +195,6 @@
 
         </form>
     </div>
-</section>
+</section> -->
 
 @endsection

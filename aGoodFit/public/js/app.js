@@ -136,12 +136,28 @@ if (containerVagas) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
-  $('#senha').complexify({}, function (valid, complex) {
-    var progress = $('#senha');
-    progress.toggleClass('borda-progresso-valido', valid);
-    progress.toggleClass('borda-progresso-invalido', !valid);
-  });
+var btnNext = document.querySelector('#btn-next');
+var btnPrev = document.querySelector('#btn-prev');
+var contents = document.querySelectorAll('.counter-etapas-content');
+var idx = 0;
+var contentsLength = contents.length;
+btnNext.addEventListener('click', function () {
+  if (idx + 1 < contentsLength) {
+    contents[idx].classList.remove('is-active');
+    idx++;
+    contents[idx].classList.add('is-active');
+  } else {
+    console.log('acabou pra frente');
+  }
+});
+btnPrev.addEventListener('click', function () {
+  if (idx - 1 >= 0) {
+    contents[idx].classList.remove('is-active');
+    idx--;
+    contents[idx].classList.add('is-active');
+  } else {
+    console.log('acabou pra trás');
+  }
 });
 
 /***/ }),
