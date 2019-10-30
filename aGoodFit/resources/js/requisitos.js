@@ -30,6 +30,14 @@ listCurriculoParent.forEach((elem, idx) => {
       var dataValue = elem.getAttribute('data-value');
       var dataText = elem.innerHTML;
 
+      if ( elem.classList.contains('js-curriculo-select-requisito-escolaridade') ) {
+        var input = document.querySelector('#input-escolaridade');
+      } else {
+        var input = document.querySelector('#input-alfabetizacao');
+      }
+
+      input.value = dataValue;
+
       listCurriculoText.innerHTML = `${dataText}`;
 
       listCurriculo.classList.remove('is-active');

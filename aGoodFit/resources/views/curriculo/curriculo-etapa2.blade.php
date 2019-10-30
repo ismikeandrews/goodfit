@@ -20,8 +20,9 @@
 
                   <div class="curriculo-select-list js-curriculo-list">
                     <div class="curriculo-select-list-content js-curriculo-list-content">
+                      <input type="hidden" name="escolaridade" id="input-escolaridade">
                       @foreach ($escolaridades as $escolaridade)
-                        <div data-value="{{$escolaridade->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
+                        <div data-value="{{$escolaridade->codAdicional}}" class="curriculo-select-list-item js-curriculo-select-requisito-escolaridade js-curriculo-list-item">
                             {{$escolaridade->nomeAdicional}}
                         </div>
                       @endforeach
@@ -44,8 +45,9 @@
 
                   <div class="curriculo-select-list js-curriculo-list">
                     <div class="curriculo-select-list-content js-curriculo-list-content">
+                      <input type="hidden" name="alfabetizacao" id="input-alfabetizacao">
                       @foreach ($alfabetizacoes as $alfabetizacao)
-                        <div data-value="{{$alfabetizacao->codAdicional}}" class="curriculo-select-list-item js-curriculo-list-item">
+                        <div data-value="{{$alfabetizacao->codAdicional}}" class="curriculo-select-list-item js-curriculo-select-requisito-alfabetizacao js-curriculo-list-item">
                             {{$alfabetizacao->nomeAdicional}}
                         </div>
                       @endforeach

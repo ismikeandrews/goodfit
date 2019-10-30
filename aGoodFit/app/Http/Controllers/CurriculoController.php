@@ -54,6 +54,7 @@ class CurriculoController extends Controller
       $candidato->habilidades   = $this->habilidadeController->getHabilidadesByCurriculo($curriculo->codCurriculo);
       $candidato->categorias    = $this->categoriaController->getCategoriasByCurriculo($curriculo->codCurriculo);
       $curriculo->escolaridade  = $this->adicionalController->getAdicionalByNomeTipoAndCurriculo('Escolaridade', $curriculo->codCurriculo);
+
       $curriculo->alfabetizacao = $this->adicionalController->getAdicionalByNomeTipoAndCurriculo('Alfabetização', $curriculo->codCurriculo);
 
       $dados['curriculo'] = $curriculo;
@@ -81,6 +82,9 @@ class CurriculoController extends Controller
       'descricaoCurriculo' => $request->input('descricaoCurriculo'),
       'codCandidato'       => $candidato->codCandidato,
     ]);
+
+    $this->adicionalController->novoAdicionalCurriculo($request->input('escolaridade'), $curriculo->codCurriculo);
+    $this->adicionalController->novoAdicionalCurriculo($request->input('alfabetizacao'), $curriculo->codCurriculo);
 
     foreach ($request->habilidades as $key) {
       $this->adicionalController->novoAdicionalCurriculo($key, $curriculo->codCurriculo);

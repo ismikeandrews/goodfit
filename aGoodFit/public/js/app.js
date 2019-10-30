@@ -346,6 +346,14 @@ listCurriculoParent.forEach(function (elem, idx) {
     elem.addEventListener('click', function () {
       var dataValue = elem.getAttribute('data-value');
       var dataText = elem.innerHTML;
+
+      if (elem.classList.contains('js-curriculo-select-requisito-escolaridade')) {
+        var input = document.querySelector('#input-escolaridade');
+      } else {
+        var input = document.querySelector('#input-alfabetizacao');
+      }
+
+      input.value = dataValue;
       listCurriculoText.innerHTML = "".concat(dataText);
       listCurriculo.classList.remove('is-active');
       listCurriculo.style.height = '0';
