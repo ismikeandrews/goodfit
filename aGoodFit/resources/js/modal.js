@@ -1,21 +1,18 @@
-const modal = document.getElementsByClassName('modal')[0];
-const box = document.getElementsByClassName('status-box')[0];
-const close = document.getElementsByClassName('modal-content-header-close')[0];
+const modal = document.querySelectorAll('.modal');
+const openModal = document.querySelectorAll('.status-box');
+const closeModal = document.querySelectorAll('.modal-content-header-close');
+const container = document.querySelectorAll('.container');
 
-box.addEventListener('click', openModal);
-close.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
+if (modal) {
+  openModal.forEach((elem, idx) => {
+    elem.addEventListener('click', function() {
+    modal[idx].classList.add('is-active');
+    });
+  });
 
-function openModal(){
-  modal.style.display = 'block';
-}
-
-function closeModal(){
-  modal.style.display = 'none';
-}
-
-function outsideClick(e){
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
+  closeModal.forEach((elem, idx) => {
+    elem.addEventListener('click', function() {
+      modal[idx].classList.remove('is-active');
+    });
+  });
 }

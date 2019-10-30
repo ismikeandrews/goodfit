@@ -291,25 +291,22 @@ if (menu) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var modal = document.getElementsByClassName('modal')[0];
-var box = document.getElementsByClassName('status-box')[0];
-var close = document.getElementsByClassName('modal-content-header-close')[0];
-box.addEventListener('click', openModal);
-close.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
+var modal = document.querySelectorAll('.modal');
+var openModal = document.querySelectorAll('.status-box');
+var closeModal = document.querySelectorAll('.modal-content-header-close');
+var container = document.querySelectorAll('.container');
 
-function openModal() {
-  modal.style.display = 'block';
-}
-
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
+if (modal) {
+  openModal.forEach(function (elem, idx) {
+    elem.addEventListener('click', function () {
+      modal[idx].classList.add('is-active');
+    });
+  });
+  closeModal.forEach(function (elem, idx) {
+    elem.addEventListener('click', function () {
+      modal[idx].classList.remove('is-active');
+    });
+  });
 }
 
 /***/ }),
