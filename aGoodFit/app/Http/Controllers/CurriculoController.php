@@ -11,22 +11,37 @@ use Illuminate\Support\Facades\Validator;
 
 class CurriculoController extends Controller
 {
-  public function index(){
-    $adicionalController  = new adicionalController;
-    $categoriaController  = new categoriaController;
-    $habilidadeController = new habilidadeController;
 
-    $usuario = Auth::user();
+  public $adicionalController;
+  public $cargoCurriculoController;
+  public $categoriaController;
+  public $habilidadeController;
+  public $tipoAdicionalController;
+
+  public function __construct()
+  {
+
+    //Controllers
+    $this->adicionalController      = new adicionalController;
+    $this->cargoCurriculoController = new CargoCurriculoController;
+    $this->categoriaController      = new categoriaController;
+    $this->habilidadeController     = new habilidadeController;
+    $this->tipoAdicionalController  = new TipoAdicionalController;
+  }
+  
+
+  public function index(){
+    $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();
 
     $curriculo = DB::table('tbCurriculo')
     ->where('codCandidato', $candidato->codCandidato)->first();
 
-    $habilidades         = $habilidadeController->getHabilidades();
-    $categorias          = $categoriaController->getCategorias();
-    $escolaridades       = $adicionalController->getAdicionalByNomeTipoAdicional('Escolaridade');
-    $niveisAlfabetizacao = $adicionalController->getAdicionalByNomeTipoAdicional('Alfabetização');
+    $habilidades         = $this->habilidadeController->getHabilidades();
+    $categorias          = $this->categoriaController->getCategorias();
+    $escolaridades       = $this->adicionalController->getAdicionalByNomeTipoAdicional('Escolaridade');
+    $niveisAlfabetizacao = $this->adicionalController->getAdicionalByNomeTipoAdicional('Alfabetização');
 
     $dados = [
       'habilidades'    => $habilidades,
@@ -36,17 +51,10 @@ class CurriculoController extends Controller
     ];
 
     if ($curriculo) {
-      //Habilidades
-      $candidato->habilidades = $habilidadeController->getHabilidadesByCurriculo($curriculo->codCurriculo);
-
-      //Categorias
-      $candidato->categorias = $categoriaController->getCategoriasByCurriculo($curriculo->codCurriculo);
-
-      //Escolaridade
-      $curriculo->escolaridade = $adicionalController->getAdicionalByNomeTipoAndCurriculo('Escolaridade', $curriculo->codCurriculo);
-
-      //Alfabetização
-      $curriculo->alfabetizacao = $adicionalController->getAdicionalByNomeTipoAndCurriculo('Alfabetização', $curriculo->codCurriculo);
+      $candidato->habilidades   = $this->habilidadeController->getHabilidadesByCurriculo($curriculo->codCurriculo);
+      $candidato->categorias    = $this->categoriaController->getCategoriasByCurriculo($curriculo->codCurriculo);
+      $curriculo->escolaridade  = $this->adicionalController->getAdicionalByNomeTipoAndCurriculo('Escolaridade', $curriculo->codCurriculo);
+      $curriculo->alfabetizacao = $this->adicionalController->getAdicionalByNomeTipoAndCurriculo('Alfabetização', $curriculo->codCurriculo);
 
       $dados['curriculo'] = $curriculo;
       $dados['candidato'] = $candidato;
@@ -65,9 +73,6 @@ class CurriculoController extends Controller
     * @author Michael Andrews
     **/
   public function novoCurriculo(Request $request){
-    $adicionalController      = new AdicionalController;
-    $cargoCurriculoController = new CargoCurriculoController;
-
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
@@ -78,20 +83,16 @@ class CurriculoController extends Controller
     ]);
 
     foreach ($request->habilidades as $key) {
-      $adicionalController->novoAdicionalCurriculo($key, $curriculo->codCurriculo);
+      $this->adicionalController->novoAdicionalCurriculo($key, $curriculo->codCurriculo);
     }
 
     foreach ($request->categorias as $key) {
-      $cargoCurriculoController->novoCargoCurriculo($key, $curriculo->codCurriculo);
+      $this->cargoCurriculoController->novoCargoCurriculo($key, $curriculo->codCurriculo);
     }
     return redirect('/vagas');
   }
 
   public function viewEditar(){
-    $adicionalController  = new adicionalController;
-    $categoriaController  = new categoriaController;
-    $habilidadeController = new habilidadeController;
-
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();
@@ -99,10 +100,10 @@ class CurriculoController extends Controller
     $curriculo = DB::table('tbCurriculo')
     ->where('codCandidato', $candidato->codCandidato)->first();
 
-    $habilidades         = $habilidadeController->getHabilidades();
-    $categorias          = $categoriaController->getCategorias();
-    $escolaridades       = $adicionalController->getAdicionalByNomeTipoAdicional('Escolaridade');
-    $niveisAlfabetizacao = $adicionalController->getAdicionalByNomeTipoAdicional('Alfabetização');
+    $habilidades         = $this->habilidadeController->getHabilidades();
+    $categorias          = $this->categoriaController->getCategorias();
+    $escolaridades       = $this->adicionalController->getAdicionalByNomeTipoAdicional('Escolaridade');
+    $niveisAlfabetizacao = $this->adicionalController->getAdicionalByNomeTipoAdicional('Alfabetização');
 
     $dados = [
       'habilidades'    => $habilidades,
@@ -113,22 +114,20 @@ class CurriculoController extends Controller
     ];
 
     //Habilidades
-    $habilidadesCandidato = $habilidadeController->getHabilidadesByCurriculo($curriculo->codCurriculo);
+    $habilidadesCandidato   = $this->habilidadeController->getHabilidadesByCurriculo($curriculo->codCurriculo);
     $candidato->habilidades = [];
     foreach ( $habilidadesCandidato as $habilidade ) {
       $candidato->habilidades[] = $habilidade->codAdicional;
     }
 
-    dd($habilidadesCandidato);
+    $categoriasCandidato   = $this->categoriaController->getCategoriasByCurriculo($curriculo->codCurriculo);
+    $candidato->categorias = [];
+    foreach ( $categoriasCandidato as $categoria ) {
+      $candidato->categorias[] = $categoria->codCategoria;
+    }
 
-    //Categorias
-    $candidato->categorias = $categoriaController->getCategoriasByCurriculo($curriculo->codCurriculo);
-
-    //Escolaridade
-    $curriculo->escolaridade = $adicionalController->getAdicionalByNomeTipoAndCurriculo('Escolaridade', $curriculo->codCurriculo);
-
-    //Alfabetização
-    $curriculo->alfabetizacao = $adicionalController->getAdicionalByNomeTipoAndCurriculo('Alfabetização', $curriculo->codCurriculo);
+    $curriculo->escolaridade  = $this->adicionalController->getAdicionalByNomeTipoAndCurriculo('Escolaridade', $curriculo->codCurriculo);
+    $curriculo->alfabetizacao = $this->adicionalController->getAdicionalByNomeTipoAndCurriculo('Alfabetização', $curriculo->codCurriculo);
 
     $dados['curriculo'] = $curriculo;
     $dados['candidato'] = $candidato;
@@ -144,10 +143,6 @@ class CurriculoController extends Controller
     * @author Vanessa Amaral Marques
     **/
   public function atualizarCurriculo(Request $request){
-    $adicionalController      = new AdicionalController;
-    $cargoCurriculoController = new CargoCurriculoController;
-    $tipoAdicionalController  = new TipoAdicionalController;
-
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     
@@ -160,16 +155,16 @@ class CurriculoController extends Controller
     $curriculo = $this->getCurriculobyCandidato($candidato->codCandidato);
 
     //atualizando habilidades
-    $codHabilidade = $tipoAdicionalController->getTipoAdicionalByNome('Habilidade')->codTipoAdicional;
-    $adicionalController->removerAdicionalCurriculo($codHabilidade, $curriculo->codCurriculo);
+    $codHabilidade = $this->tipoAdicionalController->getTipoAdicionalByNome('Habilidade')->codTipoAdicional;
+    $this->adicionalController->removerAdicionalCurriculo($codHabilidade, $curriculo->codCurriculo);
     foreach ($request->habilidades as $habilidade) {
-      $adicionalController->novoAdicionalCurriculo($habilidade, $curriculo->codCurriculo);
+      $this->adicionalController->novoAdicionalCurriculo($habilidade, $curriculo->codCurriculo);
     }
 
     //atualizando categorias
-    $cargoCurriculoController->removerCargoByCurriculo($curriculo->codCurriculo);
+    $this->cargoCurriculoController->removerCargoByCurriculo($curriculo->codCurriculo);
     foreach ($request->categorias as $categoria) {
-      $cargoCurriculoController->novoCargoCurriculo($categoria, $curriculo->codCurriculo);
+      $this->cargoCurriculoController->novoCargoCurriculo($categoria, $curriculo->codCurriculo);
     }
   }
 
