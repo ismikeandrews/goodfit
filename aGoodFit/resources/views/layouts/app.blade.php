@@ -11,6 +11,7 @@
   <title>GoodFit</title>
 
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+  <link rel="shortcut icon" href="{{ asset('images/componentes/logo.png') }}">
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
