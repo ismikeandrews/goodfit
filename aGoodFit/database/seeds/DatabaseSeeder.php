@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
 
       //Criação do endereco da empresa
       DB::table('tbEndereco')->insert(array(
+        //1
     		array(
     		'codEndereco' => 1,
         'cepEndereco' => '01538001',
@@ -58,11 +59,23 @@ class DatabaseSeeder extends Seeder
         'cidadeEndereco' => 'São Paulo',
         'estadoEndereco' => 'SP',
     		),
+        //2
+        array(
+    		'codEndereco' => 2,
+        'cepEndereco' => '01418100',
+        'logradouroEndereco' => 'Alameda Santos',
+        'numeroEndereco' => '1054',
+        'complementoEndereco' => ' ',
+        'bairroEndereco' => 'Jardim Paulista',
+        'zonaEndereco' => 'Zona Central',
+        'cidadeEndereco' => 'São Paulo',
+        'estadoEndereco' => 'SP',
+    		),
       ));
 
       //Criação de usuarios
       DB::table('tbUsuario')->insert(array(
-        //uma empresa
+        //empresa 1
     		array(
     		'codUsuario' => 1,
         'fotoUsuario' => 'empresa-colegio.jpg',
@@ -72,9 +85,19 @@ class DatabaseSeeder extends Seeder
         'codNivelUsuario' => 3,
         'codEndereco' => 1,
     		),
-        //Um candidato
+        //empresa 2
         array(
     		'codUsuario' => 2,
+        'fotoUsuario' => 'starbucks.png',
+        'loginUsuario' => 'Starbucks',
+        'password' => '$2y$10$UGYW4JK2i.8Jv1IQdHpZdu9hX.HwIXukFjpZxYcS5Y.KPEqciHNai',
+        'email' =>'starbucks@example.com.br',
+        'codNivelUsuario' => 3,
+        'codEndereco' => null,
+    		),
+        //Um candidato
+        array(
+    		'codUsuario' => 3,
         'fotoUsuario' => 'perfil.png',
         'loginUsuario' => 'Adm',
         'password' => '$2y$10$Wrjg/tHTvKekdW5Qc/k4S.BrIJVVfWe0B1MoJ.EVarRbQMzkrw.Ii',
@@ -85,12 +108,21 @@ class DatabaseSeeder extends Seeder
       ));
       //Criação de uma empresa
       DB::table('tbEmpresa')->insert(array(
+        // 1
     		array(
     		'codEmpresa' => 1,
         'razaoSocialEmpresa' => 'Education & Future',
         'nomeFantasiaEmpresa' => 'Education & Future',
         'cnpjEmpresa' => '76627089000182',
         'codUsuario' => 1,
+    		),
+        //2
+        array(
+    		'codEmpresa' => 2,
+        'razaoSocialEmpresa' => 'Starbucks',
+        'nomeFantasiaEmpresa' => 'Starbucks',
+        'cnpjEmpresa' => '07984267010334',
+        'codUsuario' => 2,
     		),
     	));
       //Criacao de um Candidato
@@ -101,7 +133,7 @@ class DatabaseSeeder extends Seeder
         'cpfCandidato' => '12345678901',
         'rgCandidato' => '123',
         'dataNascimentoCandidato' => '1998-05-22',
-        'codUsuario' => 2,
+        'codUsuario' => 3,
     		),
     	));
       //Criacao dos tipos adicionais
@@ -382,10 +414,17 @@ class DatabaseSeeder extends Seeder
     	));
       //Criação da profissao
       DB::table('tbProfissao')->insert(array(
+        //1
     		array(
     		'codProfissao' => 1,
         'nomeProfissao' => 'Professor de Matemática',
         'codCategoria' => 4,
+    		),
+        //2
+        array(
+    		'codProfissao' => 2,
+        'nomeProfissao' => 'Barista',
+        'codCategoria' => 6,
     		),
     	));
       //Criação do regime de contratação
@@ -416,6 +455,7 @@ class DatabaseSeeder extends Seeder
     	));
 
       DB::table('tbVaga')->insert(array(
+        // 1
     		array(
     		'codVaga' => 1,
         'descricaoVaga' => 'Irá ministrar aula, fazer planejamento, preencher relatórios, fazer provas e trabalhos, semanário e trabalhar com projetos.',
@@ -427,9 +467,22 @@ class DatabaseSeeder extends Seeder
         'codEndereco' => 1,
         'codRegimeContratacao' => 1,
     		),
-    	));
+        //2
+        array(
+    		'codVaga' => 2,
+        'descricaoVaga' => 'Ser um partner da Starbucks significa ter a oportunidade de ser mais do que um funcionário!',
+        'salarioVaga' => 3,
+        'cargaHorariaVaga' => '44:00:00',
+        'quantidadeVaga' => 7,
+        'codEmpresa' => 2,
+        'codProfissao' => 2,
+        'codEndereco' => 2,
+        'codRegimeContratacao' => 3,
+    	   ),
+       ));
 
       DB::table('tbRequisitoVaga')->insert(array(
+        //1
     		array(
     		'codRequisitoVaga' => 1,
         'obrigatoriedadeRequisitoVaga' => 0,
@@ -457,6 +510,27 @@ class DatabaseSeeder extends Seeder
         'codAdicional' => 10,
         'codVaga' => 1,
     		),
+        //2
+        array(
+        'codRequisitoVaga' => 5,
+        'obrigatoriedadeRequisitoVaga' => 0,
+        'codAdicional' => 1,
+        'codVaga' => 2,
+        ),
+
+        array(
+        'codRequisitoVaga' => 6,
+        'obrigatoriedadeRequisitoVaga' => 0,
+        'codAdicional' => 3,
+        'codVaga' => 2,
+        ),
+
+        array(
+        'codRequisitoVaga' => 8,
+        'obrigatoriedadeRequisitoVaga' => 1,
+        'codAdicional' => 4,
+        'codVaga' => 2,
+        ),
     	));
     }
 }
