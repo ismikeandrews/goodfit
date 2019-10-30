@@ -11,7 +11,6 @@ class CreateTbRegimeContratacao extends Migration
     Schema::create('tbRegimeContratacao', function(Blueprint $table){
       $table->increments('codRegimeContratacao');
       $table->string('nomeRegimeContratacao', 70)->unique();
-      $table->text('descricaoRegimeContratacao');
       $table->timestamps();
     });
     Schema::enableForeignKeyConstraints();
