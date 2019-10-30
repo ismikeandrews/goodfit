@@ -11,14 +11,12 @@
 
     <div class="home-content">
         <div class="home-content-desc">
-            <h1 class="home-content-desc-title">Seja bem-vindo a <span class="home-content-desc-title-span">Good Fit</span></h1>
-            <h3 class="home-content-desc-text">Entre para acessar a plataforma</h3>
+            <h1 class="home-content-desc-title">EMPREGO PARA <span class="home-content-desc-title-span">TODOS</span></h1>
+            <h3 class="home-content-desc-text">O match perfeito, o que mais combinar com você.</h3>
         </div>
     </div>
 
 
 </section>
-
-
 
 @endsection

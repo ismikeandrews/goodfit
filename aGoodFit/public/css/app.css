@@ -526,6 +526,7 @@ a {
 .container-home {
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .container-home:before {
@@ -542,6 +543,18 @@ a {
   z-index: 1;
 }
 
+@media screen and (max-width: 900px) {
+  .container-home:before {
+    background-size: 400px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container-home:before {
+    background-size: 330px;
+  }
+}
+
 .container-home:after {
   background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
   background-size: 450px;
@@ -556,8 +569,44 @@ a {
   z-index: 1;
 }
 
+@media screen and (max-width: 900px) {
+  .container-home:after {
+    background-size: 400px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container-home:after {
+    background-size: 330px;
+  }
+}
+
+.home-content {
+  margin-top: 170px;
+}
+
+@media screen and (max-width: 900px) {
+  .home-content {
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-content {
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .home-content {
+    margin-top: 60px;
+  }
+}
+
 .home-content-logo {
   display: block;
+  height: 150px;
+  position: relative;
   text-align: center;
   width: 100%;
 }
@@ -567,15 +616,58 @@ a {
   width: 360px;
 }
 
+@media screen and (max-width: 900px) {
+  .home-content-logo-img {
+    margin-top: 60px;
+    position: absolute;
+    right: -10px;
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-content-logo-img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .home-content-logo-img {
+    width: 230px;
+  }
+}
+
+.home-content-desc {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .home-content-desc-title {
   color: #2a2a2a;
-  font: 21px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  font: 65px "Raleway Bold", "Montserrat Bold", "sans-serif";
   line-height: 25px;
+}
+
+@media screen and (max-width: 900px) {
+  .home-content-desc-title {
+    font-size: 55px;
+    line-height: 53px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-content-desc-title {
+    font-size: 45px;
+    line-height: 43px;
+  }
 }
 
 @media screen and (max-width: 380px) {
   .home-content-desc-title {
-    font-size: 20px;
+    font-size: 40px;
+    line-height: 35px;
   }
 }
 
@@ -585,9 +677,24 @@ a {
 
 .home-content-desc-text {
   color: #828181;
-  font: 14px "Raleway Light", "Montserrat Light", "sans-serif";
+  font: 30px "Raleway Light", "Montserrat Light", "sans-serif";
   letter-spacing: 0.5px;
-  margin: 5px 0 15px;
+  margin: 35px 0px 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .home-content-desc-text {
+    font-size: 25px;
+    margin: 40px 0px 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-content-desc-text {
+    font-size: 20px;
+    margin-top: 10px;
+    max-width: 370px;
+  }
 }
 
 .container-login {
