@@ -37,12 +37,17 @@ Route::get('/{codVaga}', 'CandidaturaController@novaCandidatura')->middleware('a
 
 //Curriculo
 Route::prefix('curriculo')->group(function() {
-//Paginas
-Route::get('/formulario', 'CurriculoController@index')->middleware('auth');
-//Novo Curriculo
-Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
-//Editar Curriculo
-Route::post('/formulario/editar', 'CurriculoController@atualizarCurriculo')->middleware('auth');
+	//Paginas
+	Route::get('/formulario', 'CurriculoController@index')->middleware('auth');
+
+	//Ver Curriculo
+	Route::post('/view', 'CurriculoController@verCurriculo')->middleware('auth');
+	
+	//Novo Curriculo
+	Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
+	
+	//Editar Curriculo
+	Route::post('/formulario/editar', 'CurriculoController@atualizarCurriculo')->middleware('auth');
 });
 
 //Endereco

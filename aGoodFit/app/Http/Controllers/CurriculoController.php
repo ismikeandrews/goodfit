@@ -32,28 +32,36 @@ class CurriculoController extends Controller
       'habilidades'    => $habilidades,
       'categorias'     => $categorias,
       'escolaridades'  => $escolaridades,
-      'alfabetizacoes' => $niveisAlfabetizacao
+      'alfabetizacoes' => $niveisAlfabetizacao,
+      'candidato'      => $candidato
     ];
 
     if ($curriculo) {
       //habilidades de um candidato
       $habilidadesCandidato = $habilidadeController->getHabilidadesByCurriculo($curriculo->codCurriculo);
 
-      $candidato->habilidades = [];
+      $curriculo->habilidades = [];
       foreach( $habilidadesCandidato as $habilidadeCandidato ){
-        $candidato->habilidades[] = $habilidadeCandidato->codAdicional;
+        $curriculo->habilidades[] = $habilidadeCandidato->codAdicional;
       }
 
       //categorias de um candidato
       $categoriasCandidato = $categoriaController->getCategoriasByCurriculo($curriculo->codCurriculo);
 
-      $candidato->categorias = [];
+      $curriculo->categorias = [];
       foreach( $categoriasCandidato as $categoriaCandidato ){
-        $candidato->categorias[] = $categoriaCandidato->codCategoria;
+        $curriculo->categorias[] = $categoriaCandidato->codCategoria;
       }
 
+      //Escolaridade
+      $curriculo->escolaridade = $adicionalController->getAdicionalByNomeTipoAndCurriculo('Escolaridade', $curriculo->codCurriculo);
+
+      //Alfabetização
+      $curriculo->alfabetizacao = $adicionalController->getAdicionalByNomeTipoAndCurriculo('Alfabetização', $curriculo->codCurriculo);
+
       $dados['curriculo'] = $curriculo;
-      $dados['candidato'] = $candidato;
+
+      return view('curriculo.view', $dados);
     }
 
     return view('curriculo.curriculo', $dados);

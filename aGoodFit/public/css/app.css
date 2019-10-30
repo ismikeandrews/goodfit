@@ -959,6 +959,10 @@ a {
   z-index: 0;
 }
 
+.curriculo-content-item-etapa-2.view {
+  width: 100%;
+}
+
 @media screen and (max-width: 380px) {
   .curriculo-content-item-etapa-2 {
     margin: 0 auto 30px;
@@ -984,8 +988,20 @@ a {
   position: relative;
 }
 
+.curriculo-select-box.view {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-left: 15px;
+}
+
 .curriculo-select-box-icon {
   padding-bottom: 25px;
+}
+
+.curriculo-select-box-icon.view {
+  padding: 0;
+  width: 60px;
 }
 
 .curriculo-select-content {
@@ -995,6 +1011,14 @@ a {
   padding: 110px 0 10px;
   position: absolute;
   width: 100%;
+}
+
+.curriculo-select-content.view {
+  color: #2a2a2a;
+  margin-left: 20px;
+  padding: 0;
+  position: relative;
+  width: auto;
 }
 
 .curriculo-select-list {

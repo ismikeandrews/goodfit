@@ -27,6 +27,7 @@
                 </svg>
               </li>
             </a>
+            
             <a class="menu-nav-list-link" href="/curriculo/formulario">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">

@@ -13,6 +13,10 @@
     width: 75%;
     z-index: 0;
 
+    &.view{
+        width: 100%;
+    }
+
     @include MQ($small) {
         margin: 0 auto 30px;
     }
@@ -34,8 +38,20 @@
     background: $branco;
     position: relative;
 
+    &.view{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        padding-left: 15px;
+    }
+
     &-icon {
         padding-bottom: 25px;
+
+        &.view {
+            padding: 0;
+            width: 60px;
+        }
     }
 }
   
@@ -46,6 +62,14 @@
     padding: 110px 0 10px;
     position: absolute;
     width: 100%;
+
+    &.view{
+        color: #2a2a2a;
+        margin-left: 20px;
+        padding: 0;
+        position: relative;
+        width: auto;
+    }
 }
 
 .curriculo-select-list {
