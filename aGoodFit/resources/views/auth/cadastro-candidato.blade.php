@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="container container-cadastro">
+<!--<section class="container container-cadastro">
   <div class="etapas etapas-cadastro">
     <form enctype="multipart/form-data" class="form" method="POST" action="{{ route('register') }}">
       @csrf
@@ -48,7 +48,7 @@
       </div>
     </form>
   </div>
-</section>
+</section>-->
 
 
 
@@ -69,7 +69,7 @@
 
 
 
-<!-- <section class="container container-cadastro">
+ <section class="container container-cadastro">
     <div class="icon-voltar icon-voltar-cadastro">
       <a href="/">
         <img src="{{asset('images/componentes/seta-voltar.svg')}}" alt="Voltar" class="icon-voltar-img">
@@ -195,6 +195,6 @@
 
         </form>
     </div>
-</section> -->
+</section>
 
 @endsection
