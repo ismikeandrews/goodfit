@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-	<section class="container container-curriculo">
+	<section class="container container-curriculo view">
+
+		<!--Sobre mim-->
 		<div class="curriculo-title">
 	        Sobre mim
 	    </div>
@@ -46,8 +48,9 @@
 	    <div class="curriculo-title">
         	Requisitos
 	    </div>
+
 	    <div class="curriculo-desc">
-	       Minhas formações básicas em<span>...</span>
+	       	Minhas formações básicas em<span>...</span>
 	    </div>
 
 	    <div class="curriculo-etapa2">
@@ -55,6 +58,7 @@
 	            <div class="curriculo-select">
 	                <label class="curriculo-content-item-label curriculo-select-box view">
 	                    <img src='{{asset("images/icones/requisitos/escolaridade.png")}}' alt="Requisito - Nível de escolaridade" class="curriculo-select-box-icon view">
+
 	                    <div class="curriculo-select-content view">
 	                        <p> <b> Escolaridade </b> </p>
 	                        <p> {{ $curriculo->escolaridade->nomeAdicional }}</p>
@@ -68,6 +72,7 @@
 	            <div class="curriculo-select js-curriculo-parent">
 	            	<label class="curriculo-content-item-label curriculo-select-box view">
 	                    <img src='{{asset("images/icones/requisitos/alfabetizacao.png")}}' alt="Requisito - Nível de alfabetização" class="curriculo-select-box-icon view">
+
 	                    <div class="curriculo-select-content view">
 	                        <p> <b> Alfabetização </b> </p>
 	                        <p> {{ $curriculo->alfabetizacao->nomeAdicional }}</p>
@@ -76,6 +81,58 @@
 	            </div>
 	        </div>
 	    </div>
-	</section>
 
+	    <!--Habilidades-->
+	    <div class="curriculo-title">
+		    Habilidades
+		</div>
+		<div class="curriculo-desc">
+		    Eu sou bom com<span>...</span>
+		</div>
+		<div class="curriculo-etapa3 view">
+		    @foreach ($candidato->habilidades as $habilidade)
+		        <div class="curriculo-content-item">
+		            <label class="curriculo-content-item-label">
+		                <img src='{{asset("images/icones/habilidades/$habilidade->imagemAdicional")}}' alt="Habilidades - Bom com {{$habilidade->nomeAdicional}}" class="curriculo-content-item-label-icon">
+		                <p class="curriculo-content-item-label-desc">
+		                    {{$habilidade->nomeAdicional}}
+		                </p>
+		            </label>
+		        </div>
+		    @endforeach
+		</div>
+
+		<!--Objetivos Profissionais-->
+		<div class="curriculo-title">
+		    Objetivo profissional
+		</div>
+		
+		<div class="curriculo-desc">
+		    Gostaria de trabalhar com<span>...</span>
+		</div>
+		
+		<div class="curriculo-etapa4">
+		    @foreach ($candidato->categorias as $categoria)
+		    <div class="curriculo-content-item">
+		        <label class="curriculo-content-item-label" for="objetivo-{{$categoria->nomeCategoria}}">
+			        <img src='{{asset("images/icones/profissao/$categoria->imagemCategoria")}}' alt="Objetivo Profissional - {{$categoria->nomeCategoria}}" class="curriculo-content-item-label-icon">
+			        
+			        <p class="curriculo-content-item-label-desc">
+			            {{$categoria->nomeCategoria}}
+			        </p>
+		       	</label>
+		    </div>
+		    @endforeach
+		</div>
+
+		<div class="etapas-btn etapas-btn-curriculo">
+	        <button class="btn curriculo-btn-item">
+	            Download
+	        </button>
+
+	        <a href="/curriculo/formulario/editar" class="btn curriculo-btn-item">
+	            Editar
+	        </a>
+	    </div>
+	</section>
 @endsection

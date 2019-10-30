@@ -47,7 +47,7 @@ Route::prefix('curriculo')->group(function() {
 	Route::post('/formulario', 'CurriculoController@novoCurriculo')->middleware('auth');
 	
 	//Editar Curriculo
-	Route::post('/formulario/editar', 'CurriculoController@atualizarCurriculo')->middleware('auth');
+	Route::get('/formulario/editar', 'CurriculoController@viewEditar')->middleware('auth');
 });
 
 //Endereco

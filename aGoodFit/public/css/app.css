@@ -823,6 +823,10 @@ a {
   width: 48% !important;
 }
 
+.container-curriculo.view {
+  padding-top: 100px;
+}
+
 .curriculo-etapa1-submenu {
   align-items: center;
   display: flex;
@@ -1082,6 +1086,10 @@ a {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+}
+
+.curriculo-etapa3.view {
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 380px) {

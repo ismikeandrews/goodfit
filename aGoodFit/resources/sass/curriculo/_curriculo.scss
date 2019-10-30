@@ -16,3 +16,10 @@
 .curriculo-btn-item {
     width: 48% !important;
 }
+
+
+.container-curriculo {
+	&.view {
+		padding-top: 100px;
+	}
+}
