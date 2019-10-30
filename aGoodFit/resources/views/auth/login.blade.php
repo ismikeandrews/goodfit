@@ -21,7 +21,7 @@
                 <div class="form-input-email">
                   <input id="login" type="text" placeholder="Login" class="form-input-item @error('login') is-invalid @enderror" name="loginUsuario" value="{{ old('login') }}"  autocomplete="login" autofocus>
 
-                  @error('login')
+                  @error('loginUsuario')
                   <span class="erro" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
@@ -61,7 +61,7 @@
 
             <div class="cadastro-content">
               <div class="cadastro-content-item">
-                <a href="/nivelusuario/validar/2" class="btn btn-cadastrar">
+                <a href="/usuario/formulario" class="btn btn-cadastrar">
                     {{ __('Cadastre-se') }}
                 </a>
               </div>

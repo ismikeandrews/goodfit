@@ -43,7 +43,25 @@ class AdicionalController extends Controller
     }
 
     /**
-    * Função para pegar adicionar um adicional em um currículo
+    * Função para pegar todos os adicionais pelo nome do tipo e cod do curriculo
+    * 
+    * @param $nomeTipoAdicional nome do tipo
+    * @param $codCurriculo codigo do curriculo
+    *
+    * @author Vanessa Amaral Marques
+    **/
+    public function getAdicionalByNomeTipoAndCurriculo(string $nomeTipoAdicional, int $codCurriculo){
+        return DB::table('tbAdicional')
+          ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
+          ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
+          ->join('tbAdicionalCurriculo', 'tbAdicional.codAdicional', '=', 'tbAdicionalCurriculo.codAdicional')
+          ->where('tbTipoAdicional.nomeTipoAdicional', $nomeTipoAdicional)
+          ->where('tbAdicionalCurriculo.codCurriculo', $codCurriculo)
+          ->first();
+    }
+
+    /**
+    * Função para cadastrar um adicional em um currículo
     * 
     * @param $codAdicional codigo do adicional
     * @param $codCurriculo codigo do curriculo
@@ -55,5 +73,21 @@ class AdicionalController extends Controller
         'codAdicional' => $codAdicional,
         'codCurriculo' => $codCurriculo,
       ]);
+    }
+
+    /**
+    * Função para remover adicionais de um currículo pelo tipo
+    * 
+    * @param $codTipoAdicional codigo do tipo do adicional
+    * @param $codCurriculo codigo do curriculo
+    *
+    * @author Vanessa Amaral Marques
+    **/
+    public function removerAdicionalCurriculo(int $codTipoAdicional, int $codCurriculo){
+        return DB::table('tbAdicionalCurriculo')
+          ->join('tbAdicional', 'tbAdicionalCurriculo.codAdicional', '=', 'tbAdicional.codAdicional')
+          ->where('tbAdicional.codTipoAdicional', '=', $codTipoAdicional)
+          ->where('tbAdicionalCurriculo.codCurriculo', '=', $codCurriculo)
+          ->delete();
     }
 }

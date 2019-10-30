@@ -11,6 +11,14 @@ define('EM_ANDAMENTO', 2);
 
 class CandidaturaController extends Controller
 {
+	/**
+    * Função para cadastrar uma candidatura
+    *
+    * @param $codCategoria codigo da categoria
+    * @param $codCurriculo codigo do curriculo
+    *
+    * @author Vanessa Amaral Marques
+    **/
     public function novaCandidatura(int $codVaga){
     	$usuario = Auth::user();
 
@@ -22,7 +30,7 @@ class CandidaturaController extends Controller
 	      'codVaga' => $codVaga,
 	      'codStatusCandidatura' => EM_ANDAMENTO
 	    ]);
-	    
+
 	    return redirect('/vagas');
     }
 }

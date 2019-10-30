@@ -1,23 +1,18 @@
-const modal = document.querySelector("#modal-cortar");
-const fecharModal = document.querySelector("#modal-fechar");
-const inputFile = document.querySelector('#selecao-arquivo');
+const modal = document.querySelectorAll('.modal');
+const openModal = document.querySelectorAll('.status-box');
+const closeModal = document.querySelectorAll('.modal-content-header-close');
+const container = document.querySelectorAll('.container');
 
 if (modal) {
-  fecharModal.addEventListener('click', closeModal);
-  window.addEventListener('click', clickOutside);
+  openModal.forEach((elem, idx) => {
+    elem.addEventListener('click', function() {
+    modal[idx].classList.add('is-active');
+    });
+  });
 
-  function openModal(){
-    modal.style.display = 'block';
-  }
-
-  function closeModal(){
-    modal.style.display = 'none';
-  }
-
-  function clickOutside(e){
-    if (e.target == modal) {
-      modal.style.display = 'none';
-    }
-  }
-
+  closeModal.forEach((elem, idx) => {
+    elem.addEventListener('click', function() {
+      modal[idx].classList.remove('is-active');
+    });
+  });
 }

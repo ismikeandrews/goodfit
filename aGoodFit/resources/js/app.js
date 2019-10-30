@@ -8,7 +8,6 @@ const containerModal = document.querySelector('.container-modal');
 const containerPerfil = document.querySelector('.container-perfil');
 
 
-
 require('./menu');
 
 if (containerCadastro) {
@@ -23,6 +22,10 @@ if (containerPerfil) {
   require('./foto-upload');
 }
 
+if (containerModal) {
+  require('./modal');
+}
+
 
 if (containerRequisitos) {
   require('./requisitos');
@@ -30,8 +33,4 @@ if (containerRequisitos) {
 
 if (containerVagas) {
   require('./vagas');
-}
-
-if (containerModal) {
-  require('./modal');
 }

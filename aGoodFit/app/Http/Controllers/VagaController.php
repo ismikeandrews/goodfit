@@ -14,7 +14,7 @@ class VagaController extends Controller
   *
   * @author Vanessa Amaral Marques
   **/
-  public function paginaVagas(){
+  public function index(){
     $beneficioController = new BeneficioController;
     $usuarioController   = new UsuarioController;
 

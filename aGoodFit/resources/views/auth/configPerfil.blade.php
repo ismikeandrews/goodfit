@@ -15,20 +15,6 @@
 				<img id="foto-perfil" class="content-perfil-image-img @error('foto') content-perfil-image-img-erro @enderror" src="/images/candidatos/{{Auth::user()->fotoUsuario}}" alt="Foto Perfil">
 			</label>
 			<input id="selecao-arquivo" type="file" name="foto" class="content-perfil-input-foto" accept=".jpg, .jpeg, .png">
-
-			<div id="modal-cortar" class="container-modal modal">
-				<div class="modal-conteudo">
-					<div class="modal-conteudo-header">
-						<span id="modal-fechar" class="modal-conteudo-header-fechar">&times;</span>
-					</div>
-					<div class="modal-conteudo-body">
-						<div id="image_demo">
-
-						</div>
-						<button type="button" class="btn modal-btn-cortar crop_image" name="button">Cortar e salvar</button>
-					</div>
-				</div>
-			</div>
 			@error('foto')
 			<span class="erro erro-center" role="alert">
 				<strong>{{ $message }}</strong>

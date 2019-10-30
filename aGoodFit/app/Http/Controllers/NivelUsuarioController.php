@@ -46,14 +46,4 @@ class NivelUsuarioController extends Controller
     $nivel = NivelUsuario::all();
     return view('escolhaNivel')->with('niveis', $nivel);
   }
-
-  public function validarNivel($codNivelUsuario){
-    if($codNivelUsuario == 1){
-      return redirect('auth.registerMod');
-    }elseif ($codNivelUsuario == 2) {
-      return view('auth.cadastro-candidato');
-    }elseif ($codNivelUsuario == 3) {
-      return redirect('/empresa/form');
-    }
-  }
 }

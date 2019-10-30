@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-  if (isset($curriculo)) {
-    $page = '/curriculo/formulario/editar';
-  }else {
-    $page = '/curriculo/formulario';
-  }
- ?>
+
 <section class="container container-curriculo">
   <div class="etapas etapas-curriculo">
     <div class="icon-voltar">
@@ -41,7 +35,7 @@
         </div>
     </div>
 
-    <form class="curriculo-form" action="{{$page}}" method="post" enctype="multipart/form-data">
+    <form class="curriculo-form" action="/curriculo/formulario @isset($curriculo)/editar @endisset" method="post" enctype="multipart/form-data">
       @csrf
       <div class="counter-etapas-content is-active">
         @include('curriculo.curriculo-etapa1')

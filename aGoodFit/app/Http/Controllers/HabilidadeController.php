@@ -35,7 +35,7 @@ class HabilidadeController extends Controller
 	**/
 	public function getHabilidadesByCurriculo(int $codCurriculo){
 		return DB::table('tbAdicional')
-	      ->select('tbAdicional.codAdicional')
+	      ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional' , 'tbAdicional.imagemAdicional')
 	      ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
 	      ->join('tbAdicionalCurriculo', 'tbAdicionalCurriculo.codAdicional', '=', 'tbAdicional.codAdicional')
 	      ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')

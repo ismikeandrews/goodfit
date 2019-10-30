@@ -43,9 +43,9 @@ class CategoriaController extends Controller
     **/
     public function getCategoriasByCurriculo(int $codCurriculo){
     	return DB::table('tbCategoria')
-	      ->select('tbCategoria.codCategoria')
+	      ->select('tbCategoria.codCategoria', 'tbCategoria.nomeCategoria', 'tbCategoria.imagemCategoria')
 	      ->join('tbCargoCurriculo', 'tbCategoria.codCategoria', '=', 'tbCargoCurriculo.codCategoria')
-	      ->where('tbCargoCurriculo.codCurriculo', '=', $codCurriculo)
+	      ->where('tbCargoCurriculo.codCurriculo', $codCurriculo)
 	      ->orderBy('tbCategoria.nomeCategoria')
 	      ->get();
     }

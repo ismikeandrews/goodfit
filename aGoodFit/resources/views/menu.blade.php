@@ -1,9 +1,8 @@
 @guest
 
 
-@if (Route::has('register'))
+@if (Route::has('/home'))
 @endif
-
 @else
 <nav class="menu">
   <div class="container-menu">
@@ -28,6 +27,7 @@
                 </svg>
               </li>
             </a>
+            
             <a class="menu-nav-list-link" href="/curriculo/formulario">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
@@ -40,7 +40,7 @@
                 </svg>
               </li>
             </a>
-            <a class="menu-nav-list-link" href="/status">
+            <a class="menu-nav-list-link" href="/candidatura">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-candidatura.svg')}}" alt="Menu - página de candidaturas" class="menu-item-img">
                 <p class="menu-nav-list-link-item-text">Candidaturas</p>

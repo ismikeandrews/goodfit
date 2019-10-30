@@ -11,7 +11,6 @@ class StatusController extends Controller
 {
   public function index(){
     $beneficioController = new BeneficioController;
-
     $empresaController   = new EmpresaController;
     $profissaoController = new ProfissaoController;
     $usuarioController   = new UsuarioController;

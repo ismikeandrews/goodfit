@@ -23,4 +23,9 @@ class CargoCurriculoController extends Controller
 	        'codCurriculo' => $codCurriculo
 	    ]);
     }
+
+    public function removerCargoByCurriculo(int $codCurriculo){
+        return DB::table('tbCargoCurriculo')
+        ->where('tbCargoCurriculo.codCurriculo', $codCurriculo);
+    }
 }

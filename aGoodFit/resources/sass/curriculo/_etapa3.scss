@@ -3,6 +3,10 @@
     flex-wrap: wrap;
     margin-top: 20px;
 
+    &.view {
+    	margin-bottom: 40px;
+    }
+
     @include MQ($small) {
         margin: 20px 0 50px
     }

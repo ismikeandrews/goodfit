@@ -523,6 +523,73 @@ a {
   width: 50%;
 }
 
+.container-home {
+  height: 100vh;
+  position: relative;
+}
+
+.container-home:before {
+  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
+  background-size: 450px;
+  content: "";
+  display: block;
+  height: 450px;
+  left: 0px;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  z-index: 1;
+}
+
+.container-home:after {
+  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
+  background-size: 450px;
+  content: "";
+  display: block;
+  height: 450px;
+  right: 0px;
+  position: absolute;
+  bottom: 0;
+  transform: rotate(180deg) translate(-50%, -50%);
+  width: 450px;
+  z-index: 1;
+}
+
+.home-content-logo {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.home-content-logo-img {
+  margin: 50px auto 30px;
+  width: 360px;
+}
+
+.home-content-desc-title {
+  color: #2a2a2a;
+  font: 21px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  line-height: 25px;
+}
+
+@media screen and (max-width: 380px) {
+  .home-content-desc-title {
+    font-size: 20px;
+  }
+}
+
+.home-content-desc-title-span {
+  color: #04B2D9;
+}
+
+.home-content-desc-text {
+  color: #828181;
+  font: 14px "Raleway Light", "Montserrat Light", "sans-serif";
+  letter-spacing: 0.5px;
+  margin: 5px 0 15px;
+}
+
 .container-login {
   position: relative;
 }
@@ -756,6 +823,10 @@ a {
   width: 48% !important;
 }
 
+.container-curriculo.view {
+  padding-top: 100px;
+}
+
 .curriculo-etapa1-submenu {
   align-items: center;
   display: flex;
@@ -892,6 +963,10 @@ a {
   z-index: 0;
 }
 
+.curriculo-content-item-etapa-2.view {
+  width: 100%;
+}
+
 @media screen and (max-width: 380px) {
   .curriculo-content-item-etapa-2 {
     margin: 0 auto 30px;
@@ -917,8 +992,20 @@ a {
   position: relative;
 }
 
+.curriculo-select-box.view {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-left: 15px;
+}
+
 .curriculo-select-box-icon {
   padding-bottom: 25px;
+}
+
+.curriculo-select-box-icon.view {
+  padding: 0;
+  width: 60px;
 }
 
 .curriculo-select-content {
@@ -928,6 +1015,14 @@ a {
   padding: 110px 0 10px;
   position: absolute;
   width: 100%;
+}
+
+.curriculo-select-content.view {
+  color: #2a2a2a;
+  margin-left: 20px;
+  padding: 0;
+  position: relative;
+  width: auto;
 }
 
 .curriculo-select-list {
@@ -991,6 +1086,10 @@ a {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+}
+
+.curriculo-etapa3.view {
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 380px) {
@@ -1321,64 +1420,59 @@ a {
   padding: 5px 0;
 }
 
-.modal.hide {
-  display: none;
-}
-
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.3);
-}
-
-.modal-conteudo {
-  background-color: #f4f4f4;
-  border-radius: 20px;
-  margin: 15% auto;
-  width: 90%;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.17);
-  -webkit-animation-name: modalAberto;
-          animation-name: modalAberto;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-}
-
-.modal-conteudo-header-fechar {
-  color: #04B2D9;
-  float: right;
-  font-size: 30px;
+  left: 100%;
+  height: 100%;
+  overflow: auto;
   position: absolute;
-  right: 10%;
+  top: 0;
+  transition: all 0.5s ease-out;
+  width: 100%;
+  z-index: 0;
 }
 
-.modal-conteudo-body {
+.modal.is-active {
+  left: 0;
+  z-index: 2;
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  height: 100%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.modal-content-body {
   padding: 60px 20px 20px;
+  text-align: center;
 }
 
-@-webkit-keyframes modalAberto {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.modal-content-body-img {
+  width: 60%;
+  margin: auto;
+  display: block;
+  border-radius: 10px;
 }
 
-@keyframes modalAberto {
-  from {
-    opacity: 0;
-  }
+.modal-content-body-fantasia {
+  margin: 18px 0px 4px auto;
+  font-size: 23px;
+  color: #04B2D9;
+}
 
-  to {
-    opacity: 1;
-  }
+.modal-content-body-box {
+  position: absolute;
+  float: left;
+  left: 10%;
+  margin: 25px 0;
+  border: 1px #2eb9dc solid;
+  padding: 8px 15px;
+  border-radius: 10px;
+}
+
+.modal-content-body-box-icon {
+  width: 25px;
 }
 
 .modal-btn-cortar {
@@ -1389,6 +1483,13 @@ a {
   .modal-btn-cortar {
     width: 90%;
   }
+}
+
+.voltar-svg {
+  fill: #04B2D9;
+  left: 30px;
+  top: 30px;
+  position: absolute;
 }
 
 .aprovado {
