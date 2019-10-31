@@ -14,6 +14,11 @@ if (counterCadastro) {
       idx++;
       contents[idx].classList.add('is-active');
       counterCadastro[idx].classList.remove('is-disable');
+      
+      if (idx + 1 == contentsLength) {
+        btnNext.innerHTML = 'Concluir';
+        btnNext.type = 'submit';
+      }
     }
   })
 
@@ -23,6 +28,7 @@ if (counterCadastro) {
       contents[idx].classList.remove('is-active');
       idx--;
       contents[idx].classList.add('is-active');
+
       if (idx == 0) {
         btnPrev.classList.add('is-disable');
       }
