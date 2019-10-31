@@ -1,14 +1,12 @@
 <div class="section section-cadastro">
   <div class="cadastro-intro">
     <h3 class="intro-title">Informações pessoais</h3>
-    <p class="intro-desc">Talvez você precise de ajuda nessa etapa, pois precisamos de dados do seu documento</p>
+    <p class="intro-desc">Talvez você precise de ajuda nessa etapa, pois precisamos de dados do seu documento...</p>
   </div>
-  
+
   <div class="cadastro-etapa2-content">
     <form method="post">
       @csrf
-
-
 
       <div class="content-perfil">
           <label class="content-perfil-image content-perfil-image-cadastro" for="selecao-arquivo">
@@ -45,7 +43,7 @@
             </span>
             @enderror
         </div>
-        
+
         <div class="content-perfil-desc-box">
             <div class="content-perfil-desc-item content-perfil-desc-box-item">
               RG
@@ -67,16 +65,8 @@
                 @enderror
             </div>
         </div>
-        
-        
-
-
-
-
-      
-    </div>
+      </div>
 
     </form>
-
   </div>
 </div>

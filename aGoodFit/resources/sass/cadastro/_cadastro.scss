@@ -2,6 +2,14 @@
     padding: 20px 30px;
 }
 
+.icon-voltar-cadastro {
+  margin: 20px 0;
+}
+
+.cadastro-intro {
+    padding: 10px 0;
+}
+
 .intro {
     color: $cinza;
     letter-spacing: 0.5px;
@@ -10,32 +18,9 @@
     &-title {
         font: 25px $font-light;
     }
-    
+
     &-desc {
         font: 15px $font-regular;
-    }
-}
-
-.cadastro-intro {
-    padding: 10px 0;
-}
-
-
-.label {
-    font: 11px $font-regular;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-
-    &-senha {
-        color: $azul_primary;
-        float: right;
-        margin-top: 10px;
-    }
-
-    &-cadastrar {
-        color: $cinza;
-        margin: 45px auto -40px;
-        text-align: center;
     }
 }
 
@@ -45,13 +30,4 @@
 
 .borda-progresso-invalido{
   border-color: #F06A47;
-}
-
-.btn-cadastro {
-    float: right;
-    width: 35%;
-
-    @include MQ($medium){
-        width: 100%;
-    }
 }

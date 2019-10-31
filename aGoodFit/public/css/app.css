@@ -830,6 +830,14 @@ a {
   padding: 20px 30px;
 }
 
+.icon-voltar-cadastro {
+  margin: 20px 0;
+}
+
+.cadastro-intro {
+  padding: 10px 0;
+}
+
 .intro {
   color: #828181;
   letter-spacing: 0.5px;
@@ -844,45 +852,12 @@ a {
   font: 15px "Raleway Regular", "Montserrat Regular", "sans-serif";
 }
 
-.cadastro-intro {
-  padding: 10px 0;
-}
-
-.label {
-  font: 11px "Raleway Regular", "Montserrat Regular", "sans-serif";
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-
-.label-senha {
-  color: #04B2D9;
-  float: right;
-  margin-top: 10px;
-}
-
-.label-cadastrar {
-  color: #828181;
-  margin: 45px auto -40px;
-  text-align: center;
-}
-
 .borda-progresso-valido {
   border-color: #63DE9A;
 }
 
 .borda-progresso-invalido {
   border-color: #F06A47;
-}
-
-.btn-cadastro {
-  float: right;
-  width: 35%;
-}
-
-@media screen and (max-width: 500px) {
-  .btn-cadastro {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 380px) {
