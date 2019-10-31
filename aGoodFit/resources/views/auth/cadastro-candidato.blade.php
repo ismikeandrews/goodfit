@@ -15,6 +15,9 @@
       <div class="counter-etapas-content">
         @include('auth.cadastro.etapa3')
       </div>
+      <div class="counter-etapas-content">
+        @include('auth.cadastro.etapa4')
+      </div>
 
       <div class="counter">
         <div class="counter-etapas">
