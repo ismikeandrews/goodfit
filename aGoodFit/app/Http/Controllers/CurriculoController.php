@@ -177,4 +177,11 @@ class CurriculoController extends Controller
     ->where('codCandidato', $codCandidato)
     ->first();
   }
+
+  public function downloadTexto(){ 
+    $van = 'nessa';
+
+    return \PDF::loadView('curriculo.curriculo-download-texto', compact('van'))
+      ->stream('nome-arquivo-pdf-gerado.pdf');
+  }
 }

@@ -48,6 +48,9 @@ Route::prefix('curriculo')->group(function() {
 	
 	//Editar Curriculo
 	Route::get('/formulario/editar', 'CurriculoController@viewEditar')->middleware('auth');
+
+	//Downloads
+	Route::get('/pdf', 'CurriculoController@downloadTexto')->name('pdf');
 });
 
 //Endereco
