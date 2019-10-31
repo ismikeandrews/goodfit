@@ -138,27 +138,34 @@ if (containerVagas) {
 
 var btnNext = document.querySelector('#btn-next');
 var btnPrev = document.querySelector('#btn-prev');
+var counterCadastro = document.querySelectorAll('.counter-etapas-etapa');
 var contents = document.querySelectorAll('.counter-etapas-content');
-var idx = 0;
-var contentsLength = contents.length;
-btnNext.addEventListener('click', function () {
-  if (idx + 1 < contentsLength) {
-    contents[idx].classList.remove('is-active');
-    idx++;
-    contents[idx].classList.add('is-active');
-  } else {
-    console.log('acabou pra frente');
-  }
-});
-btnPrev.addEventListener('click', function () {
-  if (idx - 1 >= 0) {
-    contents[idx].classList.remove('is-active');
-    idx--;
-    contents[idx].classList.add('is-active');
-  } else {
-    console.log('acabou pra trás');
-  }
-});
+
+if (counterCadastro) {
+  var idx = 0;
+  var contentsLength = contents.length;
+  btnNext.addEventListener('click', function () {
+    if (idx + 1 < contentsLength) {
+      contents[idx].classList.remove('is-active');
+      btnPrev.classList.remove('is-disable');
+      idx++;
+      contents[idx].classList.add('is-active');
+      counterCadastro[idx].classList.remove('is-disable');
+    }
+  });
+  btnPrev.addEventListener('click', function () {
+    if (idx - 1 >= 0) {
+      counterCadastro[idx].classList.add('is-disable');
+      contents[idx].classList.remove('is-active');
+      idx--;
+      contents[idx].classList.add('is-active');
+
+      if (idx == 0) {
+        btnPrev.classList.add('is-disable');
+      }
+    }
+  });
+}
 
 /***/ }),
 
