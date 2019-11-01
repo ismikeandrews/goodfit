@@ -159,7 +159,7 @@ if (counterCadastro) {
       }
     }
   });
-  btnPrev.addEventListener('click', function () {
+  btnPrev.addEventListener('click', function (e) {
     if (idx - 1 >= 0) {
       e.preventDefault();
       btnNext.innerHTML = 'Avançar';

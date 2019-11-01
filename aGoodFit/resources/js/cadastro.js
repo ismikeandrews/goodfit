@@ -23,7 +23,7 @@ if (counterCadastro) {
     }
   })
 
-  btnPrev.addEventListener('click', () => {
+  btnPrev.addEventListener('click', (e) => {
     if (idx - 1 >= 0) {
       e.preventDefault();
       btnNext.innerHTML = 'Avançar';
