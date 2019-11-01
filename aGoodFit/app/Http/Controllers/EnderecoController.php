@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class EnderecoController extends Controller
 {
+  /**
+  * Função para cadastrar um endereco
+  *
+  * @param array $data array com os dados do formulario
+  *
+  * @author Michael Andrews
+  **/
   public function novoEndereço(array $data){
     $cep = $data['cep'];
     $regex = '/[^0-9]/';

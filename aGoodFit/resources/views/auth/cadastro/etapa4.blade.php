@@ -1,4 +1,4 @@
-<div class="section section-cadastro">
+<div class="section section-cadastro container-endereco">
   <div class="cadastro-intro">
     <h3 class="intro-title">Endereço</h3>
     <p class="intro-desc">Para finalizar, precisamos de informações localização</p>
@@ -8,7 +8,7 @@
       <div class="content-perfil-desc">
         <div class="content-perfil-desc-item">
           CEP
-          <input class="form-input-item form-input-item-perfil @error('cep') is-invalid @enderror" id="cep" type="text" name="cep" value="{{ old('cep') }}"  autocomplete="cep" autofocus>
+          <input class="form-input-item form-input-item-perfil @error('cep') is-invalid @enderror" id="cep" type="text" name="cep" value="{{ old('cep') }}" data-mask="00000-000"  autocomplete="cep" autofocus>
           @error('cep')
           <span class="erro" role="alert">
             <strong>{{ $message }}</strong>
