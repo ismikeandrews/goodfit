@@ -19,7 +19,7 @@
         @include MQ($large) {
           background-size: 400px;
         }
-        
+
         @include MQ($small) {
           background-size: 330px;
         }
@@ -41,7 +41,7 @@
         @include MQ($large) {
           background-size: 400px;
         }
-        
+
         @include MQ($small) {
           background-size: 330px;
         }
@@ -54,7 +54,7 @@
   @include MQ($large) {
     margin-top: 120px;
   }
-  
+
   @include MQ($medium) {
     margin-top: 100px;
   }
@@ -84,7 +84,7 @@
         @include MQ($medium) {
           width: 250px;
         }
-        
+
         @include MQ($small) {
           width: 230px;
         }
@@ -106,12 +106,12 @@
         font-size: 55px;
         line-height: 53px;
       }
-      
+
       @include MQ($medium) {
         font-size: 45px;
         line-height: 43px;
       }
-      
+
       @include MQ($small) {
         font-size: 40px;
         line-height: 35px;
@@ -132,7 +132,7 @@
         font-size: 25px;
         margin: 40px 0px 15px;
       }
-      
+
       @include MQ($medium) {
         font-size: 20px;
         margin-top: 10px;
