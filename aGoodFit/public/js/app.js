@@ -195,10 +195,9 @@ btnNext.addEventListener('click', function (e) {
       btnNext.innerHTML = 'Concluir';
       btnNext.type = 'submit';
     }
-<<<<<<< HEAD
   }
 });
-btnPrev.addEventListener('click', function () {
+btnPrev.addEventListener('click', function (e) {
   if (idx - 1 >= 0) {
     e.preventDefault();
     btnNext.innerHTML = 'Avançar';
@@ -209,21 +208,6 @@ btnPrev.addEventListener('click', function () {
 
     if (idx == 0) {
       btnPrev.classList.add('is-disable');
-=======
-  });
-  btnPrev.addEventListener('click', function (e) {
-    if (idx - 1 >= 0) {
-      e.preventDefault();
-      btnNext.innerHTML = 'Avançar';
-      counterCadastro[idx].classList.add('is-disable');
-      contents[idx].classList.remove('is-active');
-      idx--;
-      contents[idx].classList.add('is-active');
-
-      if (idx == 0) {
-        btnPrev.classList.add('is-disable');
-      }
->>>>>>> 6b03aad0ebf0b741ad65c0777c1dcad84064155c
     }
   }
 });
@@ -516,8 +500,8 @@ slidePrev.addEventListener('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

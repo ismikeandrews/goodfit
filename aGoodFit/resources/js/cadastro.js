@@ -22,7 +22,6 @@ btnNext.addEventListener('click', (e) => {
   }
 })
 
-<<<<<<< HEAD
 btnPrev.addEventListener('click', (e) => {
     if (idx - 1 >= 0) {
       e.preventDefault();
