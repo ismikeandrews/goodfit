@@ -7,15 +7,16 @@ if (counterCadastro) {
   let idx = 0;
   let contentsLength = contents.length;
 
-  btnNext.addEventListener('click', () => {
+  btnNext.addEventListener('click', (e) => {
     if (idx + 1 < contentsLength) {
+      e.preventDefault();
       contents[idx].classList.remove('is-active');
       btnPrev.classList.remove('is-disable');
       idx++;
       contents[idx].classList.add('is-active');
       counterCadastro[idx].classList.remove('is-disable');
-      
-      if (idx + 1 == contentsLength) {
+
+      if (idx + 1 === contentsLength) {
         btnNext.innerHTML = 'Concluir';
         btnNext.type = 'submit';
       }
@@ -24,6 +25,8 @@ if (counterCadastro) {
 
   btnPrev.addEventListener('click', () => {
     if (idx - 1 >= 0) {
+      e.preventDefault();
+      btnNext.innerHTML = 'Avançar';
       counterCadastro[idx].classList.add('is-disable');
       contents[idx].classList.remove('is-active');
       idx--;

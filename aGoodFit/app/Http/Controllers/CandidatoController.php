@@ -8,6 +8,7 @@ use App\Candidato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class CandidatoController extends Controller
 {
@@ -96,6 +97,15 @@ class CandidatoController extends Controller
     $usuario->save();
 
     return redirect('/candidato/configuracoes');
+  }
+
+  public function validarCandidato(array $data){
+    return Validator::make($data, [
+     'nome' => ['required'],
+     'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
+     'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
+     'nascimento' => ['required', 'before:2003-10-14', 'date_format:d/m/Y']
+   ]);
   }
 
   /**

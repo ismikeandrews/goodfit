@@ -144,15 +144,16 @@ var contents = document.querySelectorAll('.counter-etapas-content');
 if (counterCadastro) {
   var idx = 0;
   var contentsLength = contents.length;
-  btnNext.addEventListener('click', function () {
+  btnNext.addEventListener('click', function (e) {
     if (idx + 1 < contentsLength) {
+      e.preventDefault();
       contents[idx].classList.remove('is-active');
       btnPrev.classList.remove('is-disable');
       idx++;
       contents[idx].classList.add('is-active');
       counterCadastro[idx].classList.remove('is-disable');
 
-      if (idx + 1 == contentsLength) {
+      if (idx + 1 === contentsLength) {
         btnNext.innerHTML = 'Concluir';
         btnNext.type = 'submit';
       }
@@ -160,6 +161,8 @@ if (counterCadastro) {
   });
   btnPrev.addEventListener('click', function () {
     if (idx - 1 >= 0) {
+      e.preventDefault();
+      btnNext.innerHTML = 'Avançar';
       counterCadastro[idx].classList.add('is-disable');
       contents[idx].classList.remove('is-active');
       idx--;
@@ -420,8 +423,8 @@ listCurriculoParent.forEach(function (elem, idx) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
