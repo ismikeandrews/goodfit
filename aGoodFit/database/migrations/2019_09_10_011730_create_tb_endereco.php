@@ -12,7 +12,7 @@ class CreateTbEndereco extends Migration
       $table->increments('codEndereco');
       $table->string('cepEndereco', 8);
       $table->string('logradouroEndereco', 200);
-      $table->string('numeroEndereco', 5);
+      $table->text('numeroEndereco', 5);
       $table->text('complementoEndereco');
       $table->string('bairroEndereco', 50);
       $table->string('zonaEndereco', 50);
