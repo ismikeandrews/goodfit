@@ -49,6 +49,16 @@
             </span>
             @enderror
           </div>
+
+          <div class="content-perfil-desc-item content-perfil-desc-box-item">
+            Data de Nascimento
+            <input class="form-input-item form-input-item-perfil @error('nascimento') is-invalid @enderror" type="text" name="nascimento" data-mask="00/00/0000" value="{{ old('nascimento') }}" autocomplete="nascimento" autofocus>
+            @error('nascimento')
+            <span class="erro" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
         </div>
       </div>
   </div>

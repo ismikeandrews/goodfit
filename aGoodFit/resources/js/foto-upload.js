@@ -1,6 +1,6 @@
 const reader = new FileReader();
-const fotoPerfil = document.getElementById("foto-perfil");
-const selecaoArquivo = document.getElementById("selecao-arquivo");
+const fotoPerfil = document.getElementById('foto-perfil');
+const selecaoArquivo = document.getElementById('selecao-arquivo');
 
 selecaoArquivo.onchange = function(){
   reader.onload = function(){

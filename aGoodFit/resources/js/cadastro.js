@@ -22,14 +22,16 @@ btnNext.addEventListener('click', (e) => {
   }
 })
 
-btnPrev.addEventListener('click', () => {
-  if (idx - 1 >= 0) {
-    e.preventDefault();
-    btnNext.innerHTML = 'Avançar';
-    counterCadastro[idx].classList.add('is-disable');
-    contents[idx].classList.remove('is-active');
-    idx--;
-    contents[idx].classList.add('is-active');
+<<<<<<< HEAD
+btnPrev.addEventListener('click', (e) => {
+    if (idx - 1 >= 0) {
+      e.preventDefault();
+      btnNext.innerHTML = 'Avançar';
+      counterCadastro[idx].classList.add('is-disable');
+      contents[idx].classList.remove('is-active');
+      idx--;
+      contents[idx].classList.add('is-active');
+
 
     if (idx == 0) {
       btnPrev.classList.add('is-disable');

@@ -97,8 +97,9 @@
 var containerCadastro = document.querySelector('.container-cadastro');
 var containerCurriculo = document.querySelector('.container-curriculo');
 var containerRequisitos = document.querySelector('.container-requisitos');
-var containerVagas = document.querySelector('.container-vagas');
+var containerEndereco = document.querySelector('.container-endereco');
 var containerModal = document.querySelector('.container-modal');
+var containerVagas = document.querySelector('.container-vagas');
 var containerPerfil = document.querySelector('.container-perfil');
 
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
@@ -111,12 +112,16 @@ if (containerCurriculo) {
   __webpack_require__(/*! ./curriculo */ "./resources/js/curriculo.js");
 }
 
-if (containerPerfil) {
+if (containerPerfil || containerCadastro) {
   __webpack_require__(/*! ./foto-upload */ "./resources/js/foto-upload.js");
 }
 
 if (containerModal) {
   __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+}
+
+if (containerEndereco) {
+  __webpack_require__(/*! ./busca-cep */ "./resources/js/busca-cep.js");
 }
 
 if (containerRequisitos) {
@@ -128,6 +133,39 @@ if (containerVagas) {
 
   __webpack_require__(/*! ./slide */ "./resources/js/slide.js");
 }
+
+/***/ }),
+
+/***/ "./resources/js/busca-cep.js":
+/*!***********************************!*\
+  !*** ./resources/js/busca-cep.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $("#cep").focusout(function () {
+    var cep = $("#cep").val();
+    cep = cep.replace("-", "");
+    var StringUrl = "https://viacep.com.br/ws/" + cep + "/json/";
+    $.ajax({
+      url: StringUrl,
+      type: "get",
+      dataType: "json",
+      success: function success(data) {
+        console.log(data);
+        $("#cidade").val(data.localidade);
+        $("#logradouro").val(data.logradouro);
+        $("#bairro").val(data.bairro);
+        $("#estado").val(data.uf);
+        $("#complemento").val(data.complemento);
+      },
+      erro: function erro(_erro) {
+        console.log(_erro);
+      }
+    });
+  });
+});
 
 /***/ }),
 
@@ -157,6 +195,7 @@ btnNext.addEventListener('click', function (e) {
       btnNext.innerHTML = 'Concluir';
       btnNext.type = 'submit';
     }
+<<<<<<< HEAD
   }
 });
 btnPrev.addEventListener('click', function () {
@@ -170,6 +209,21 @@ btnPrev.addEventListener('click', function () {
 
     if (idx == 0) {
       btnPrev.classList.add('is-disable');
+=======
+  });
+  btnPrev.addEventListener('click', function (e) {
+    if (idx - 1 >= 0) {
+      e.preventDefault();
+      btnNext.innerHTML = 'Avançar';
+      counterCadastro[idx].classList.add('is-disable');
+      contents[idx].classList.remove('is-active');
+      idx--;
+      contents[idx].classList.add('is-active');
+
+      if (idx == 0) {
+        btnPrev.classList.add('is-disable');
+      }
+>>>>>>> 6b03aad0ebf0b741ad65c0777c1dcad84064155c
     }
   }
 });
@@ -266,8 +320,8 @@ btnVoltar.addEventListener('click', function () {
 /***/ (function(module, exports) {
 
 var reader = new FileReader();
-var fotoPerfil = document.getElementById("foto-perfil");
-var selecaoArquivo = document.getElementById("selecao-arquivo");
+var fotoPerfil = document.getElementById('foto-perfil');
+var selecaoArquivo = document.getElementById('selecao-arquivo');
 
 selecaoArquivo.onchange = function () {
   reader.onload = function () {
