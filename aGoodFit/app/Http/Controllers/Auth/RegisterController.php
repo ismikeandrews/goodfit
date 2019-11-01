@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'codNivelUsuario' => ['required', 'string'],
 
-            'cep' => ['required', 'between:8,8', 'string'],
+            'cep' => ['required', 'between:9,9', 'string'],
             'logradouro' => ['required', 'max:250', 'string'],
             'bairro' => ['required', 'max:50', 'string'],
             'cidade' => ['required', 'max:100', 'string'],
