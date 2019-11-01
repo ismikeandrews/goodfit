@@ -1,0 +1,23 @@
+.slide {
+    display: flex;
+    height:100%;
+    justify-content: flex-start;
+    width: 100vw;
+}
+
+.slide-wrapper {
+    align-items: flex-start;
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    transition: all ease .5s;
+}
+
+.slide-item {
+    opacity: 0;
+    transition: opacity ease .5s;
+
+    &.is-active{
+        opacity: 1;
+    }
+}

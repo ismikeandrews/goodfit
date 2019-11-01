@@ -33,4 +33,5 @@ if (containerRequisitos) {
 
 if (containerVagas) {
   require('./vagas');
+  require('./slide');
 }

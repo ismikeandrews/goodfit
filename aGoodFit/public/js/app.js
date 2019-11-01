@@ -125,6 +125,8 @@ if (containerRequisitos) {
 
 if (containerVagas) {
   __webpack_require__(/*! ./vagas */ "./resources/js/vagas.js");
+
+  __webpack_require__(/*! ./slide */ "./resources/js/slide.js");
 }
 
 /***/ }),
@@ -140,40 +142,37 @@ var btnNext = document.querySelector('#btn-next');
 var btnPrev = document.querySelector('#btn-prev');
 var counterCadastro = document.querySelectorAll('.counter-etapas-etapa');
 var contents = document.querySelectorAll('.counter-etapas-content');
+var idx = 0;
+var contentsLength = contents.length;
+btnNext.addEventListener('click', function (e) {
+  if (idx + 1 < contentsLength) {
+    e.preventDefault();
+    contents[idx].classList.remove('is-active');
+    btnPrev.classList.remove('is-disable');
+    idx++;
+    contents[idx].classList.add('is-active');
+    counterCadastro[idx].classList.remove('is-disable');
 
-if (counterCadastro) {
-  var idx = 0;
-  var contentsLength = contents.length;
-  btnNext.addEventListener('click', function (e) {
-    if (idx + 1 < contentsLength) {
-      e.preventDefault();
-      contents[idx].classList.remove('is-active');
-      btnPrev.classList.remove('is-disable');
-      idx++;
-      contents[idx].classList.add('is-active');
-      counterCadastro[idx].classList.remove('is-disable');
-
-      if (idx + 1 === contentsLength) {
-        btnNext.innerHTML = 'Concluir';
-        btnNext.type = 'submit';
-      }
+    if (idx + 1 === contentsLength) {
+      btnNext.innerHTML = 'Concluir';
+      btnNext.type = 'submit';
     }
-  });
-  btnPrev.addEventListener('click', function () {
-    if (idx - 1 >= 0) {
-      e.preventDefault();
-      btnNext.innerHTML = 'Avançar';
-      counterCadastro[idx].classList.add('is-disable');
-      contents[idx].classList.remove('is-active');
-      idx--;
-      contents[idx].classList.add('is-active');
+  }
+});
+btnPrev.addEventListener('click', function () {
+  if (idx - 1 >= 0) {
+    e.preventDefault();
+    btnNext.innerHTML = 'Avançar';
+    counterCadastro[idx].classList.add('is-disable');
+    contents[idx].classList.remove('is-active');
+    idx--;
+    contents[idx].classList.add('is-active');
 
-      if (idx == 0) {
-        btnPrev.classList.add('is-disable');
-      }
+    if (idx == 0) {
+      btnPrev.classList.add('is-disable');
     }
-  });
-}
+  }
+});
 
 /***/ }),
 
@@ -394,6 +393,46 @@ listCurriculoParent.forEach(function (elem, idx) {
 
 /***/ }),
 
+/***/ "./resources/js/slide.js":
+/*!*******************************!*\
+  !*** ./resources/js/slide.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var slide = document.querySelector('.slide');
+var slideWrapper = document.querySelector('.slide-wrapper');
+var slideItem = document.querySelectorAll('.slide-item');
+console.log(slideWrapper);
+var slideNext = document.querySelector('.slide-next');
+var slidePrev = document.querySelector('.slide-prev');
+var slideLength = slideItem.length;
+var slideItemWidth = slideItem[0].clientWidth;
+var idx = 0;
+var position = 0;
+slideWrapper.style.width = "".concat(slideItemWidth * slideLength, "px");
+slideItem[0].classList.add('is-active');
+slideNext.addEventListener('click', function () {
+  if (idx + 1 < slideLength) {
+    slideItem[idx].classList.remove('is-active');
+    idx++;
+    slideItem[idx].classList.add('is-active');
+    position += slideItemWidth;
+    slideWrapper.style.transform = "translateX(-".concat(position, "px)");
+  }
+});
+slidePrev.addEventListener('click', function () {
+  if (idx > 0) {
+    slideItem[idx].classList.remove('is-active');
+    idx--;
+    slideItem[idx].classList.add('is-active');
+    position -= slideItemWidth;
+    slideWrapper.style.transform = "translateX(-".concat(position, "px)");
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/vagas.js":
 /*!*******************************!*\
   !*** ./resources/js/vagas.js ***!
@@ -423,8 +462,8 @@ listCurriculoParent.forEach(function (elem, idx) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
