@@ -59,15 +59,17 @@ class RegisterController extends Controller
 
      protected function validator(array $data)
      {
+       dd($data);
           return Validator::make($data, [
            'login' => ['required', 'alpha_dash', 'string', 'max:50', 'unique:tbUsuario,loginUsuario'],
            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
            'password' => ['required', 'string', 'min:8', 'confirmed'],
+           'codNivelUsuario' => ['required', 'string'],
+           'foto' => ['image', 'file'],
            'nome' => ['required'],
            'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
            'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
            'nascimento' => ['required', 'before:2003-10-14', 'date_format:d/m/Y'],
-           'foto' => ['image', 'file']
          ]);
      }
 
@@ -82,6 +84,7 @@ class RegisterController extends Controller
        **/
      public function create(array $data)
      {
+
           $candidatoController = new CandidatoController;
 
          if (Arr::has($data, 'foto')) {
