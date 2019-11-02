@@ -26,16 +26,16 @@
                     <h3 class="home-desc-text">O match perfeito, o que mais combinar com você.</h3>
                 </div>
             </div>
-                
+            
             <div class="home-container">
                 <div class="home-content">
-                    <form action="" class="home-content-form">
+                    <form action="php/insert.php" method="post" class="home-content-form">
                         <div class="home-content-form-item">
                             <input class="home-content-form-item-input" id="email" type="email" name="email" placeholder="Deixe seu email para contato" autofocus>
                         </div>
 
                         <div class="home-content-form-button">
-                            <button class="home-content-form-button-btn">
+                            <button type="submit" class="home-content-form-button-btn">
                                 Enviar
                             </button>
                         </div>
@@ -44,17 +44,5 @@
             </div>
         </div>
     </section>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script type="text/javascript">
-    Email.send({
-      SecureToken : "2911de0c-387f-4414-9279-6f74abfad2b8",
-      To : "goodfitoficial@gmail.com",
-      From : "goodfitoficial@gmail.com",
-      Subject : "This is the subject",
-      Body : "And this is the body"
-    }).then(
-    message => alert(message)
-    );
-  </script>
 </body>
 </html>
