@@ -1234,6 +1234,7 @@ a {
 }
 
 .vagas-empresa-logo-img {
+  height: 350px;
   width: 100%;
 }
 
@@ -1241,9 +1242,10 @@ a {
   align-items: center;
   display: flex;
   justify-content: center;
-  position: fixed;
-  top: 210px;
-  left: 0;
+  left: 50%;
+  position: absolute;
+  top: 370px;
+  transform: translate(-50%, -50%);
   z-index: 1;
   /* Botões de prev e next */
 }
@@ -1277,10 +1279,15 @@ a {
   width: 100%;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 320px) {
+  .vagas-btn-item-inscrever {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .vagas-btn-item {
-    height: 65px;
-    width: 65px;
+    height: 55px;
   }
 }
 
@@ -1296,12 +1303,6 @@ a {
 @media screen and (max-width: 380px) {
   .vagas-btn-icon {
     width: 25px;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .vagas-btn {
-    margin-top: -65px;
   }
 }
 

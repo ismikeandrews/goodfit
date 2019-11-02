@@ -1,14 +1,14 @@
 const slide = document.querySelector('.slide');
 const slideWrapper = document.querySelector('.slide-wrapper');
 const slideItem = document.querySelectorAll('.slide-item');
-
-console.log(slideWrapper)
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
+const vagaImage = document.querySelector('.vagas-empresa-logo');
+const vagasBtn = document.querySelector('.vagas-btn');
 
 let slideLength = slideItem.length;
 let slideItemWidth = slideItem[0].clientWidth;
-
+let vagaItemHeight = slideItem[0].clientHeight;
 let idx = 0;
 let position = 0;
 
@@ -24,6 +24,7 @@ slideNext.addEventListener('click', () => {
         slideItem[idx].classList.add('is-active');
         position += slideItemWidth;
         slideWrapper.style.transform = `translateX(-${ position }px)`;
+        vagasBtn.style.transform = `top:${ vagaItemHeight - 15 }px`;
     }
 });
 

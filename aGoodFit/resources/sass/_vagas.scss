@@ -13,6 +13,7 @@
       text-align: center;
 
       &-img {
+        height: 350px;
         width: 100%;
       }
     }
@@ -23,9 +24,10 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  position: fixed;
-  top: 210px;
-  left: 0;
+  left: 50%;
+  position: absolute;
+  top: 370px;
+  transform: translate(-50%, -50%);
   z-index: 1;
 
   &-item {
@@ -54,11 +56,14 @@
         top: 50%;
         width: 100%;
       }
+
+      @include MQ(320px) {
+        padding: 0 50px;
+      }
     }
 
-    @include MQ($small) {
-      height: 65px;
-      width: 65px;
+    @include MQ(320px) {
+      height: 55px;
     }
   }
 
@@ -73,10 +78,6 @@
     @include MQ($small) {
       width: 25px;
     }
-  }
-
-  @include MQ($small) {
-    margin-top: -65px;
   }
 
   /* Botões de prev e next */

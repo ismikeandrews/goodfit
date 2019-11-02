@@ -441,11 +441,13 @@ listCurriculoParent.forEach(function (elem, idx) {
 var slide = document.querySelector('.slide');
 var slideWrapper = document.querySelector('.slide-wrapper');
 var slideItem = document.querySelectorAll('.slide-item');
-console.log(slideWrapper);
 var slideNext = document.querySelector('.slide-next');
 var slidePrev = document.querySelector('.slide-prev');
+var vagaImage = document.querySelector('.vagas-empresa-logo');
+var vagasBtn = document.querySelector('.vagas-btn');
 var slideLength = slideItem.length;
 var slideItemWidth = slideItem[0].clientWidth;
+var vagaItemHeight = slideItem[0].clientHeight;
 var idx = 0;
 var position = 0;
 slideWrapper.style.width = "".concat(slideItemWidth * slideLength, "px");
@@ -457,6 +459,7 @@ slideNext.addEventListener('click', function () {
     slideItem[idx].classList.add('is-active');
     position += slideItemWidth;
     slideWrapper.style.transform = "translateX(-".concat(position, "px)");
+    vagasBtn.style.transform = "top:".concat(vagaItemHeight - 15, "px");
   }
 });
 slidePrev.addEventListener('click', function () {
@@ -500,8 +503,8 @@ slidePrev.addEventListener('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
