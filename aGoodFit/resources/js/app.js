@@ -3,8 +3,9 @@
 const containerCadastro = document.querySelector('.container-cadastro');
 const containerCurriculo = document.querySelector('.container-curriculo');
 const containerRequisitos = document.querySelector('.container-requisitos');
-const containerVagas = document.querySelector('.container-vagas');
+const containerEndereco = document.querySelector('.container-endereco');
 const containerModal = document.querySelector('.container-modal');
+const containerVagas = document.querySelector('.container-vagas');
 const containerPerfil = document.querySelector('.container-perfil');
 
 
@@ -18,7 +19,7 @@ if (containerCurriculo) {
   require('./curriculo');
 }
 
-if (containerPerfil) {
+if (containerPerfil || containerCadastro) {
   require('./foto-upload');
 }
 
@@ -26,6 +27,9 @@ if (containerModal) {
   require('./modal');
 }
 
+if (containerEndereco) {
+  require('./busca-cep');
+}
 
 if (containerRequisitos) {
   require('./requisitos');
@@ -33,4 +37,5 @@ if (containerRequisitos) {
 
 if (containerVagas) {
   require('./vagas');
+  require('./slide');
 }

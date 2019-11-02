@@ -1,0 +1,213 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-home {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-home:before {
+    background: url('../images/componentes/logo-bg.png') center no-repeat;
+    background-size: 450px;
+    content: '';
+    display: block;
+    height: 450px;
+    left: 0px;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%,-50%);
+    width: 450px;
+    z-index: 1;
+}
+
+.container-home:after {
+    background: url('../images/componentes/logo-bg.png') center no-repeat;
+    background-size: 450px;
+    content: '';
+    display: block;
+    height: 450px;
+    right: 0px;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(180deg) translate(-50%, -50%);
+    width: 450px;
+    z-index: 1;
+}
+
+.home {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 100%;
+}
+
+.home-container:nth-last-child(1) {
+  margin-bottom: -80px;
+}
+
+.home-logo {
+    display: block;
+    height: 150px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.home-logo-img {
+    margin: 50px auto 30px;
+    width: 360px;
+}
+
+.home-desc-title {
+    color: #2a2a2a;
+    font: 65px 'Raleway Bold', 'Montserrat Bold', 'sans-serif';
+    line-height: 25px;
+    padding-top: 20px;
+}
+
+.home-desc-title-span {
+  color: #04B2D9;
+}
+ 
+.home-desc-text {
+    color: #828181;
+    font: 30px/0px 'Raleway Light', 'Montserrat Light', 'sans-serif';
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.home-content-form {
+  text-align: center;
+  margin-top: 70px;
+  width: 100%;
+}
+
+.home-content-form-item-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  color: #2a2a2a;
+  font: 20px 'Raleway Regular', 'Montserrat Regular', 'sans-serif';
+  outline: none;
+  text-align: center;
+  padding: 5px 0;
+  width: 320px;
+}
+
+.home-content-form-button-btn {
+  background: #04B2D9;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  display: block;
+  font: 14px 'Raleway SemiBold', 'Montserrat SemiBold', 'sans-serif';
+  padding: 15px 0;
+  margin: 15px auto 10px;
+  text-align: center;
+  transition: all .5s ease-out;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .home-container {
+    margin: 20px;
+  }
+
+  .container-home:before {
+    background-size: 400px;
+  }
+  
+  .container-home:after {
+    background-size: 400px;
+  }
+  
+  .home-logo-img {
+    margin-top: 60px;
+    margin-left: 100px;
+    width: 280px;
+  }
+  
+  .home-desc-title {
+    font-size: 55px;
+    margin: 0;
+  }
+
+  .home-desc-text {
+    font-size: 25px;
+    line-height: 23px;
+    margin: 40px 0px 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-container:nth-last-child(1) {
+    margin-bottom: -150px;
+  }
+
+  .home-logo-img {
+    width: 250px;
+  }
+  
+  .home-desc-title {
+    font-size: 45px;
+    line-height: 45px;
+  }
+
+  .home-desc-text {
+    font-size: 20px;
+    margin-top: 10px;
+    max-width: 370px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container-home:before {
+    background-size: 330px;
+  }
+
+  .container-home:after {
+    background-size: 330px;
+  }
+
+  .home-logo-img {
+    width: 230px;
+  }
+
+  .home-desc-title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .home-content-form-button-btn {
+    margin-top: 20px;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .home-logo-img {
+    margin-left: 100px;
+    width: 180px;
+  }
+
+  .home-container {
+    margin: 0 20px;
+  }
+
+  .home-content {
+    margin: auto;
+    width: 95%;
+  }
+
+  .home-content-form-button-btn {
+    width: 70%;
+  }
+}
