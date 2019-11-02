@@ -9,7 +9,7 @@
     	<style type="text/css">
     		@font-face {
 			    font-family: Montserrat Medium;
-			    src: url( "{{ asset('fonts/Montserrat-Medium.ttf') }}" );
+			    src: url('../../../public/fonts/Montserrat-Medium.ttf');
 				font-weight: 400;
             	font-style: normal;
 			}
@@ -38,9 +38,25 @@
 
     		.section-curriculo-pdf {
     			border-left: 2px solid #04b2d9;
+    			display: flex;
+				flex-wrap: wrap;
     			height: 60%;
     			margin-top: 50px;
     			width: 100%;
+    			background-color: red;
+    		}
+
+    		.section-curriculo-pdf-left{
+    			background-color: red;
+    			height: 80%;
+    			width: 47%;
+    		}
+
+    		.blue{
+    			background-color: blue;
+    			float: right;
+    			height: 80%;
+    			width: 47%;
     		}
     	</style>
 
@@ -56,7 +72,13 @@
     	</div>
 
     	<div class="section-curriculo-pdf">
-    		
+    		<div class="section-curriculo-pdf-left">
+    			<div class="caixa-section-curriculo-pdf">
+    				<h1> PERFIL PROFISSIONAL </h1>
+    				<p> {{ $curriculo->descricaoCurriculo }} </p>
+    			</div>
+    		</div>
+    		<div class="blue"></div>
     	</div>
     </body>
 </html>

@@ -179,9 +179,14 @@ class CurriculoController extends Controller
   }
 
   public function downloadTexto(){ 
-    $van = 'nessa';
+    $usuario   = Auth::user();
+    $candidato = DB::table('tbCandidato')
+    ->where('codUsuario', $usuario->codUsuario)->first();
 
-    return \PDF::loadView('curriculo.curriculo-download-texto', compact('van'))
+    $curriculo = DB::table('tbCurriculo')
+    ->where('codCandidato', $candidato->codCandidato)->first();
+
+    return \PDF::loadView('curriculo.curriculo-download-texto', compact('curriculo'))
       ->stream('nome-arquivo-pdf-gerado.pdf');
   }
 }
