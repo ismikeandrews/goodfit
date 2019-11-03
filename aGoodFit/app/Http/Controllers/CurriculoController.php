@@ -28,7 +28,7 @@ class CurriculoController extends Controller
     $this->habilidadeController     = new habilidadeController;
     $this->tipoAdicionalController  = new TipoAdicionalController;
   }
-  
+
 
   public function index(){
     $usuario   = Auth::user();
@@ -147,9 +147,10 @@ class CurriculoController extends Controller
     * @author Vanessa Amaral Marques
     **/
   public function atualizarCurriculo(Request $request){
+
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    
+
     DB::table('tbCurriculo')
     ->where('codCandidato', $candidato->codCandidato)
     ->update([
@@ -170,6 +171,7 @@ class CurriculoController extends Controller
     foreach ($request->categorias as $categoria) {
       $this->cargoCurriculoController->novoCargoCurriculo($categoria, $curriculo->codCurriculo);
     }
+    return redirect("/curriculo/formulario/editar");
   }
 
   public function getCurriculobyCandidato(int $codCandidato){
@@ -178,7 +180,7 @@ class CurriculoController extends Controller
     ->first();
   }
 
-  public function downloadTexto(){ 
+  public function downloadTexto(){
     $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $usuario->codUsuario)->first();

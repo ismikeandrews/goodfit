@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <form class="curriculo-form" action="/curriculo/formulario @isset($curriculo)/editar @endisset" method="post" enctype="multipart/form-data">
+    <form class="curriculo-form" action="/curriculo/formulario/@isset($curriculo)editar @endisset" method="post" enctype="multipart/form-data">
       @csrf
       <div class="counter-etapas-content is-active">
         @include('curriculo.curriculo-etapa1')
