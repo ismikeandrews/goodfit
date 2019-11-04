@@ -8,7 +8,7 @@
     <div class="content-perfil-desc">
       <div class="content-perfil-desc-item">
         Login
-        <input class="form-input-item form-input-item-perfil @error('login') is-invalid @enderror" id="login" type="text" name="login" value="{{ old('login') }}" required autocomplete="login" autofocus>
+        <input class="form-input-item form-input-item-perfil @error('login') is-invalid @enderror" id="login" type="text" name="login" value="{{ old('login') }}"  autocomplete="login" autofocus>
         @error('login')
         <span class="erro" role="alert">
           <strong>{{ $message }}</strong>
@@ -18,7 +18,7 @@
 
       <div class="content-perfil-desc-item">
         Email
-        <input class="form-input-item form-input-item-perfil @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <input class="form-input-item form-input-item-perfil @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
         @error('email')
         <span class="erro" role="alert">
           <strong>{{ $message }}</strong>
