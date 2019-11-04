@@ -79,7 +79,6 @@ class RegisterController extends Controller
             'estado' => ['required', 'max:50', 'string'],
             'zona' => ['required', 'max:50', 'string'],
             'numero' => ['required', 'max:5', 'string'],
-            'complemento' => ['required', 'string'],
          ]);
      }
 
