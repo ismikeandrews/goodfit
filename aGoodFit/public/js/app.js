@@ -153,16 +153,29 @@ $(document).ready(function () {
       type: "get",
       dataType: "json",
       success: function success(data) {
+        if (erro = true) {
+          console.log("Cep não encontrado");
+        }
+
         console.log(data);
         $("#cidade").val(data.localidade);
         $("#logradouro").val(data.logradouro);
         $("#bairro").val(data.bairro);
         $("#estado").val(data.uf);
-        $("#complemento").val(data.complemento);
       },
-      erro: function erro(_erro) {
-        console.log(_erro);
-      }
+      erro: function (_erro) {
+        function erro(_x) {
+          return _erro.apply(this, arguments);
+        }
+
+        erro.toString = function () {
+          return _erro.toString();
+        };
+
+        return erro;
+      }(function (erro) {
+        console.log(erro);
+      })
     });
   });
 });
@@ -503,8 +516,8 @@ slidePrev.addEventListener('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\new-vision\aGoodFit\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/new-vision/aGoodFit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

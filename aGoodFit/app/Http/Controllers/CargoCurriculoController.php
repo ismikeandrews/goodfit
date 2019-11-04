@@ -26,6 +26,8 @@ class CargoCurriculoController extends Controller
 
     public function removerCargoByCurriculo(int $codCurriculo){
         return DB::table('tbCargoCurriculo')
-        ->where('tbCargoCurriculo.codCurriculo', $codCurriculo);
+        ->join('tbCategoria', 'tbCargoCurriculo.codCategoria', '=', 'tbCategoria.codCategoria')
+        ->where('tbCargoCurriculo.codCurriculo', '=', $codCurriculo)
+        ->delete();
     }
 }
