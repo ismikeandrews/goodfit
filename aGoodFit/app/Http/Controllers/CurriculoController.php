@@ -60,7 +60,7 @@ class CurriculoController extends Controller
       $dados['curriculo'] = $curriculo;
       $dados['candidato'] = $candidato;
 
-      return view('curriculo.view', $dados);
+      return view('curriculo.configCurriculo', $dados);
     }
 
     return view('curriculo.curriculo', $dados);
@@ -78,9 +78,13 @@ class CurriculoController extends Controller
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
     $curriculo = Curriculo::create([
-      'videoCurriculo'     => $request->input('videoCandidato'),
-      'descricaoCurriculo' => $request->input('descricaoCurriculo'),
-      'codCandidato'       => $candidato->codCandidato,
+      'codCandidato' => $candidato->codCandidato,
+    ]);
+
+    DB::table('tbCurriculo')
+    ->where('codCandidato', $candidato->codCandidato)
+    ->update([
+      'descricaoCurriculo' => $request->input('descricaoCurriculo')
     ]);
 
     $this->adicionalController->novoAdicionalCurriculo($request->input('escolaridade'), $curriculo->codCurriculo);
@@ -171,7 +175,7 @@ class CurriculoController extends Controller
     foreach ($request->categorias as $categoria) {
       $this->cargoCurriculoController->novoCargoCurriculo($categoria, $curriculo->codCurriculo);
     }
-    return redirect("/curriculo/formulario/editar");
+    return redirect("/curriculo/formulario");
   }
 
   public function getCurriculobyCandidato(int $codCandidato){

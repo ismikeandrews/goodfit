@@ -55,12 +55,12 @@ Route::prefix('curriculo')->group(function() {
 });
 
 //Endereco
-Route::prefix('endereco')->group(function() {
+// Route::prefix('endereco')->group(function() {
 //Paginas
-Route::get('/formulario', 'EnderecoController@index')->middleware('auth');
+// Route::get('/formulario', 'EnderecoController@index')->middleware('auth');
 //Novo endereco
-Route::post('/formulario', 'EnderecoController@novoEndereco')->middleware('auth');
-});
+// Route::post('/formulario', 'EnderecoController@novoEndereco')->middleware('auth');
+// });
 
 //Usuario
 Route::prefix('usuario')->group(function() {
