@@ -90,6 +90,17 @@ class DatabaseSeeder extends Seeder
                 'cidadeEndereco'      => 'São Paulo',
                 'estadoEndereco'      => 'SP',
             ],
+            [
+                'codEndereco'         => 5,
+                'cepEndereco'         => '01418100',
+                'logradouroEndereco'  => 'Alameda Santos',
+                'numeroEndereco'      => '1054',
+                'complementoEndereco' => ' ',
+                'bairroEndereco'      => 'Jardim Paulista',
+                'zonaEndereco'        => 'Zona Sul',
+                'cidadeEndereco'      => 'São Paulo',
+                'estadoEndereco'      => 'SP',
+            ],
         ]);
 
         //USUARIOS
@@ -131,10 +142,19 @@ class DatabaseSeeder extends Seeder
                 'codNivelUsuario' => 3,
                 'codEndereco'     => 4,
             ],
+            [
+                'codUsuario'      => 5,
+                'fotoUsuario'     => 'starbucks.png',
+                'loginUsuario'    => 'starbucks',
+                'password'        => '$2y$10$UGYW4JK2i.8Jv1IQdHpZdu9hX.HwIXukFjpZxYcS5Y.KPEqciHNai',
+                'email'           =>'starbucks@gmail.com.br',
+                'codNivelUsuario' => 3,
+                'codEndereco'     => 5,
+            ],
 
             //Candidatos
             [
-        		'codUsuario'      => 5,
+        		    'codUsuario'      => 6,
                 'fotoUsuario'     => 'perfil.png',
                 'loginUsuario'    => 'Candidato',
                 'password'        => '$2y$10$Wrjg/tHTvKekdW5Qc/k4S.BrIJVVfWe0B1MoJ.EVarRbQMzkrw.Ii',
@@ -174,6 +194,13 @@ class DatabaseSeeder extends Seeder
                 'cnpjEmpresa'         => '03409936000169',
                 'codUsuario'          => 4,
            ],
+           [
+                'codEmpresa'          => 5,
+                'razaoSocialEmpresa'  => 'Starbucks',
+                'nomeFantasiaEmpresa' => 'STARBUCKS BRASIL COMERCIO DE CAFES LTDA',
+                'cnpjEmpresa'         => '07984267000100',
+                'codUsuario'          => 5,
+           ],
         ]);
 
         //CANDIDATOS
@@ -184,7 +211,7 @@ class DatabaseSeeder extends Seeder
                 'cpfCandidato'            => '12345678901',
                 'rgCandidato'             => '123',
                 'dataNascimentoCandidato' => '1998-05-22',
-                'codUsuario'              => 5,
+                'codUsuario'              => 6,
     	   ],
         ]);
 
@@ -456,6 +483,11 @@ class DatabaseSeeder extends Seeder
                 'nomeProfissao' => 'Professor de Dança',
                 'codCategoria'  => 5
             ],
+            [
+                'codProfissao'  => 5,
+                'nomeProfissao' => 'Barista',
+                'codCategoria'  => 6
+            ],
     	]);
 
         //REGIME CONTRATAÇÃO
@@ -524,34 +556,75 @@ class DatabaseSeeder extends Seeder
             'codEndereco'              => 4,
             'codRegimeContratacao'     => 1,
            ],
+           [
+            'codVaga'                  => 5,
+            'descricaoVaga'            => 'Se você tem interesse em fazer parte de uma empresa onde você pode impactar pessoas, viver seus valores e desfrutar de grandes oportunidades, gostaríamos de te conhecer.',
+            'salarioVaga'              => 1500,
+            'cargaHorariaVaga'         => '44:00:00',
+            'quantidadeVaga'           => 1,
+            'codEmpresa'               => 5,
+            'codProfissao'             => 5,
+            'codEndereco'              => 5,
+            'codRegimeContratacao'     => 3,
+           ],
         ]);
 
         //REQUISITOS
         DB::table('tbRequisitoVaga')->insert([
         	[
         		'codRequisitoVaga'             => 1,
-                'obrigatoriedadeRequisitoVaga' => 0,
-                'codAdicional'                 => 1,
-                'codVaga'                      => 1,
+            'obrigatoriedadeRequisitoVaga' => 0,
+            'codAdicional'                 => 1,
+            'codVaga'                      => 1,
         	],
-            [
+          [
         		'codRequisitoVaga'             => 2,
-                'obrigatoriedadeRequisitoVaga' => 0,
-                'codAdicional'                 => 6,
-                'codVaga'                      => 1,
+            'obrigatoriedadeRequisitoVaga' => 0,
+            'codAdicional'                 => 6,
+            'codVaga'                      => 1,
         	],
-            [
+          [
         		'codRequisitoVaga'             => 3,
-                'obrigatoriedadeRequisitoVaga' => 0,
-                'codAdicional'                 => 11,
-                'codVaga'                      => 1,
+            'obrigatoriedadeRequisitoVaga' => 0,
+            'codAdicional'                 => 11,
+            'codVaga'                      => 1,
         	],
-            [
+          [
         		'codRequisitoVaga'             => 4,
-                'obrigatoriedadeRequisitoVaga' => 1,
-                'codAdicional'                 => 10,
-                'codVaga'                      => 1,
+            'obrigatoriedadeRequisitoVaga' => 1,
+            'codAdicional'                 => 10,
+            'codVaga'                      => 1,
         	],
+          [
+            'codRequisitoVaga'             => 5,
+            'obrigatoriedadeRequisitoVaga' => 1,
+            'codAdicional'                 => 3,
+            'codVaga'                      => 5,
+          ],
+          [
+            'codRequisitoVaga'             => 6,
+            'obrigatoriedadeRequisitoVaga' => 0,
+            'codAdicional'                 => 4,
+            'codVaga'                      => 5,
+          ],
     	]);
+      //Beneficios
+      DB::table('tbBeneficio')->insert([
+        [
+          'codBeneficio'  => 1,
+          'nomeBeneficio' => "Vale Transporte",
+          'codVaga'       => 5,
+        ],
+        [
+          'codBeneficio'  => 2,
+          'nomeBeneficio' => "Vale Alimentação",
+          'codVaga'       => 5,
+        ],
+        [
+          'codBeneficio'  => 3,
+          'nomeBeneficio' => "Assistência Médica",
+          'codVaga'       => 5,
+        ],
+    ]);
     }
 }
