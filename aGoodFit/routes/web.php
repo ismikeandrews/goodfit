@@ -33,6 +33,8 @@ Route::prefix('candidatura')->group(function(){
 Route::get('/', 'StatusController@index')->middleware('auth');
 //Nova Candidatura
 Route::get('/{codVaga}', 'CandidaturaController@novaCandidatura')->middleware('auth');
+//Excluir candidatura
+Route::get('/delete/{codVaga}', 'CandidaturaController@excluirCandidatura')->middleware('auth');
 });
 
 //Curriculo

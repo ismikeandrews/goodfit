@@ -33,4 +33,24 @@ class CandidaturaController extends Controller
 
 	    return redirect('/vagas');
     }
+    /**
+      * Função para deletar uma candidatura
+      *
+      * @param $codVaga
+      *
+      * @author Michael Andrews
+      **/
+
+    public function excluirCandidatura(int $codVaga){
+      $usuario = Auth::user();
+
+	    $candidato = DB::table('tbCandidato')
+	    ->where('codUsuario', $usuario->codUsuario)->first();
+
+      $candidatura = Candidatura::where('codCandidato', '=', $candidato->codCandidato)
+      ->where('codVaga', '=',  $codVaga);
+
+      $candidatura->delete();
+      return redirect("/candidatura");
+    }
 }

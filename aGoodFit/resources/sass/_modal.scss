@@ -8,6 +8,7 @@
     transition: all .5s ease-out;
     width: 100%;
     z-index: 0;
+    margin-top: 60px;
 
     &.is-active {
       left: 0;
@@ -36,17 +37,22 @@
           color: #04B2D9;
         }
 
-        &-box{
+        &-button{
           position: absolute;
-          float: left;
-          left: 10%;
-          margin: 25px 0;
-          border: 1px #2eb9dc solid;
+          border: 1px #F06A47 solid;
           padding: 8px 15px;
           border-radius: 10px;
+          margin: 25px 0;
+          left: 5%;
+          right: 5%;
 
           &-icon{
             width: 25px;
+          }
+
+          &-text{
+            margin-top: 5px;
+            color: #F06A47;
           }
         }
       }
@@ -64,6 +70,6 @@
 .voltar-svg {
   fill: $azul_primary;
   left: 30px;
-  top: 30px;
+  top: 25px;
   position: absolute;
 }

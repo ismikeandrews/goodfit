@@ -63,10 +63,12 @@
 								<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Logo - {{$vaga->empresa->nomeFantasiaEmpresa}}" class="modal-content-body-img">
 								<p class="modal-content-body-fantasia">{{$vaga->empresa->nomeFantasiaEmpresa}}</p>
 								<p class="modal-content-body-profissao">{{$vaga->profissao->nomeProfissao}}</p>
-								<div class="modal-content-body-box">
-									<img src="{{asset('images/componentes/vagas-periodo.svg')}}" alt="Período de trabalho" class="modal-content-body-box-icon">
-									<p class="modal-content-body-box-text">Tempo Integral</p>
-								</div>
+								<a href="/candidatura/delete/{{$vaga->codVaga}}">
+									<div class="modal-content-body-button">
+										<img src="{{asset('images/componentes/vagas-x.svg')}}" alt="" class="modal-content-body-button-icon">
+										<p class="modal-content-body-button-text">Cancelar candidatura</p>
+									</div>
+								</a>
 							</div>
 						</div>
 					</div>
