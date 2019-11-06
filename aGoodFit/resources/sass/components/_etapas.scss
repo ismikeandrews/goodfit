@@ -16,7 +16,7 @@
     border: 2px solid $azul-primary;
     border-radius: 100%;
     color: $azul-primary;
-    font: 17px/19px $font-bold;    
+    font: 18px/20px $font-bold;    
     height: 25px;
     margin: 0 25px;
     position: relative;
@@ -34,7 +34,7 @@
         content: "";
         display: block;
         height: 2px;
-        right: 48px;
+        right: 52px;
         position: absolute;
         transform: translate(50%, -50%);
         transition: background ease 1s;

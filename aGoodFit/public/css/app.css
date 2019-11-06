@@ -4,6 +4,7 @@ body {
   background: #F2F2F2;
   font-family: "Raleway Regular", "Montserrat Regular", "sans-serif";
   height: 100%;
+  overflow-x: hidden;
   width: 100%;
 }
 
@@ -389,7 +390,7 @@ a {
   border: 2px solid #04B2D9;
   border-radius: 100%;
   color: #04B2D9;
-  font: 17px/19px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  font: 18px/20px "Raleway Bold", "Montserrat Bold", "sans-serif";
   height: 25px;
   margin: 0 25px;
   position: relative;
@@ -410,7 +411,7 @@ a {
   content: "";
   display: block;
   height: 2px;
-  right: 48px;
+  right: 52px;
   position: absolute;
   transform: translate(50%, -50%);
   transition: background ease 1s;
@@ -994,7 +995,7 @@ a {
 .curriculo-etapa1-content.is-active .curriculo-etapa1-content-video {
   height: 100px;
   margin: 30px auto -5px;
-  padding: 40px 10px 150px;
+  padding: 40px 10px 70px;
 }
 
 .curriculo-etapa1-content.is-active .curriculo-etapa1-textarea {
@@ -1004,7 +1005,7 @@ a {
 
 .box-hidden {
   background: #F2F2F2;
-  bottom: 5px;
+  bottom: 0;
   height: 50px;
   position: absolute;
   right: -10px;
@@ -1221,6 +1222,7 @@ a {
 }
 
 .vagas-empresa {
+  max-height: 400px;
   padding-top: 10px;
   position: relative;
   z-index: -1;
@@ -1234,8 +1236,12 @@ a {
 }
 
 .vagas-empresa-logo-img {
-  height: 350px;
+  height: auto;
   width: 100%;
+}
+
+.slide-item {
+  width: 100vw;
 }
 
 .vagas-btn {
@@ -1335,7 +1341,6 @@ a {
   max-width: 500px;
   padding-top: 80px;
   position: relative;
-  width: 100vw;
   z-index: -1;
 }
 

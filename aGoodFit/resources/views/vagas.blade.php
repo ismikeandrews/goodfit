@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<div class="slide-wrapper">
-		<section class="container-vagas vagas slide-item">
+		<section class="slide-item">
 			<div class="vagas-empresa">
 				<div class="vagas-empresa-logo">
 					<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Vagas - {{$vaga->nomeFantasiaEmpresa}}" class="vagas-empresa-logo-img">
@@ -114,7 +114,7 @@
 		</div>
 	</section>
 	
-	<section class="container-vagas vagas slide-item">
+	<section class="slide-item">
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
 				<img src="images/empresas/{{$vaga->usuario->fotoUsuario}}" alt="Vagas - {{$vaga->nomeFantasiaEmpresa}}" class="vagas-empresa-logo-img">

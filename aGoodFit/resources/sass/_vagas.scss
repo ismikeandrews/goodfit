@@ -2,6 +2,7 @@
   padding-top: 30px;
 
   &-empresa {
+    max-height: 400px;
     padding-top: 10px;
     position: relative;
     z-index: -1;
@@ -13,11 +14,15 @@
       text-align: center;
 
       &-img {
-        height: 350px;
+        height: auto;
         width: 100%;
       }
     }
   }
+}
+
+.slide-item {
+  width: 100vw;
 }
 
 .vagas-btn {
@@ -106,6 +111,7 @@
   }
 }
 
+
 .container-vagas {
   background: #fff;
   border-radius: 30px 30px;
@@ -113,7 +119,6 @@
   max-width: 500px;
   padding-top: 80px;
   position: relative;
-  width: 100vw;
   z-index: -1;
 }
 
