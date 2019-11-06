@@ -77,6 +77,12 @@ class CurriculoController extends Controller
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
 
+    $this->validate($request, [
+      'habilidades' => 'required|array',
+      'categorias' => 'required|array',
+      'descricaoCurriculo' => 'string|nullable',
+    ]);
+
     $curriculo = Curriculo::create([
       'codCandidato' => $candidato->codCandidato,
     ]);

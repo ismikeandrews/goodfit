@@ -5,6 +5,11 @@
     Gostaria de trabalhar com<span>...</span>
   </div>
   <div class="curriculo-etapa4">
+    @error('habilidades')
+    <span class="erro" role="alert">
+      <strong>Escolha no mínimo um objetivo profissional.</strong>
+    </span>
+    @enderror
     @foreach ($categorias as $categoria)
     <div class="curriculo-content-item">
         <input value="{{$categoria->codCategoria}}" type="checkbox" id="objetivo-{{$categoria->nomeCategoria}}" class="curriculo-checkbox" name="categorias[]" @isset($curriculo) @if(in_array($categoria->codCategoria, $candidato->categorias)) checked @endif @endisset/>

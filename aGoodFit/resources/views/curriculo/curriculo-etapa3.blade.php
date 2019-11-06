@@ -5,6 +5,11 @@
     Eu sou bom com<span>...</span>
 </div>
 <div class="curriculo-etapa3">
+    @error('habilidades')
+    <span class="erro" role="alert">
+      <strong>Escolha no mínimo uma habilidade.</strong>
+    </span>
+    @enderror
     @foreach ($habilidades as $habilidade)
         <div class="curriculo-content-item">
           <input value="{{$habilidade->codAdicional}}" type="checkbox" id="habilidade-{{$habilidade->nomeAdicional}}" class="curriculo-checkbox" name="habilidades[]" @isset($curriculo) @if(in_array($habilidade->codAdicional, $candidato->habilidades)) checked @endif @endisset/>

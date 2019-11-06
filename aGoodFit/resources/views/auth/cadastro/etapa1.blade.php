@@ -33,5 +33,10 @@
         </p>
       </label>
     </div>
+    @error('codNivelUsuario')
+    <span class="erro" role="alert">
+      <strong>Escolha o tipo de usuário.</strong>
+    </span>
+    @enderror
   </div>
 </div>

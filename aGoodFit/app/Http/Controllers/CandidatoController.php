@@ -45,7 +45,7 @@ class CandidatoController extends Controller
       'nome'  => 'string|required',
       'rg'    => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'cpf'   => ['between:14,14', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      'foto'  => 'sometimes|file|image',
+      'foto'  => 'sometimes|file|image|mimes:jpeg,png|max:10000',
       'dataNascimentoCandidato' => 'required|before:2003-10-14|date_format:d/m/Y',
       'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
       'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]

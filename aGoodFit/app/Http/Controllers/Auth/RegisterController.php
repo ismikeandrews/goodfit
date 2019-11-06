@@ -61,7 +61,7 @@ class RegisterController extends Controller
      protected function validator(array $data)
      {
           return Validator::make($data, [
-            'foto' => ['image', 'file'],
+            'foto' => ['sometimes', 'image', 'file', 'mimes:jpeg,png', 'max:10000'],
             'nome' => ['required'],
             'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
             'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'login' => ['required', 'alpha_dash', 'string', 'max:50', 'unique:tbUsuario,loginUsuario'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'codNivelUsuario' => ['required', 'string'],
+            'codNivelUsuario' => ['required'],
 
             'cep' => ['required', 'between:9,9', 'string'],
             'logradouro' => ['required', 'max:250', 'string'],
