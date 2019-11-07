@@ -26,27 +26,21 @@ class StatusController extends Controller
     ->where('codCandidato', $candidato->codCandidato)
     ->get();
 
-    $dados = [
-      'candidaturas' => $candidaturas
-    ];
-
     if ($candidaturas->count() > 0) {
       foreach ($candidaturas as $candidatura) {
-        $vagas               = $vagaController->getVagaByCod($candidatura->codVaga);
+        $candidatura->vaga  = $vagaController->getVagaByCod($candidatura->codVaga);
         $candidatura->status = $this->getStatusByCod($candidatura->codStatusCandidatura);
-      }
+        foreach ($candidatura->vaga as $vaga){
+          $vaga->profissao  = $profissaoController->getProfissaoByCod($vaga->codProfissao);
+          $vaga->empresa    = $empresaController->getEmpresaByCod($vaga->codEmpresa);
+          $vaga->beneficios = $beneficioController->getBeneficioByVaga($vaga->codVaga);
+          $vaga->usuario    = $usuarioController->getUsuarioByCod($vaga->codVaga);
 
-      foreach ($vagas as $vaga){
-        $vaga->profissao  = $profissaoController->getProfissaoByCod($vaga->codProfissao);
-        $vaga->empresa    = $empresaController->getEmpresaByCod($vaga->codEmpresa);
-        $vaga->beneficios = $beneficioController->getBeneficioByVaga($vaga->codVaga);
-        $vaga->usuario    = $usuarioController->getUsuarioByCod($vaga->codVaga);
+        }
       }
-      $dados['vagas'] = $vagas;
-
     }
 
-    return view('status', $dados);
+    return view('status')->with('candidaturas', $candidaturas);
   }
 
   /**

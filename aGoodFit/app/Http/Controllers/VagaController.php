@@ -165,6 +165,13 @@ class VagaController extends Controller
     return view("vaga.formVaga", $dados);
   }
 
+  /**
+  * Função para cadastrar uma nova vaga
+  *
+  * @param $request dados do formulario
+  *
+  * @author Michael Andrews
+  **/
   public function novaVaga(Request $request){
     dd($request->input());
 

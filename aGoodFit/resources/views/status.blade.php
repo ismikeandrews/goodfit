@@ -47,7 +47,7 @@
 	@elseif($candidaturas->count() > 0)
 	<div class="container container-status">
 		@foreach($candidaturas as $candidatura)
-			@foreach($vagas as $vaga)
+			@foreach($candidatura->vaga as $vaga)
 				<!-- inicio modal -->
 				<div class="container-modal">
 					<div id="modal" class="modal">
