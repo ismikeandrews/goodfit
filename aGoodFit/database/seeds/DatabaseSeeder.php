@@ -513,15 +513,15 @@ class DatabaseSeeder extends Seeder
         //VAGAS
         DB::table('tbVaga')->insert([
     	   [
-    	       'codVaga'               => 1,
-                'descricaoVaga'        => 'Irá ministrar aula, fazer planejamento, preencher relatórios, fazer provas e trabalhos, semanário e trabalhar com projetos.',
-                'salarioVaga'          => 2,
-                'cargaHorariaVaga'     => '44:00:00',
-                'quantidadeVaga'       => 5,
-                'codEmpresa'           => 1,
-                'codProfissao'         => 1,
-                'codEndereco'          => 1,
-                'codRegimeContratacao' => 1,
+    	      'codVaga'               => 1,
+            'descricaoVaga'        => 'Irá ministrar aula, fazer planejamento, preencher relatórios, fazer provas e trabalhos, semanário e trabalhar com projetos.',
+            'salarioVaga'          => 2,
+            'cargaHorariaVaga'     => '44:00:00',
+            'quantidadeVaga'       => 5,
+            'codEmpresa'           => 1,
+            'codProfissao'         => 1,
+            'codEndereco'          => 1,
+            'codRegimeContratacao' => 1,
     	   ],
            [
             'codVaga'                  => 2,

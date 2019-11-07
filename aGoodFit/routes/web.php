@@ -73,9 +73,11 @@ Route::get('/formulario', 'UsuarioController@index');
 
 //Vagas
 Route::prefix('vagas')->group(function() {
-//paginas
-Route::get('/', 'VagaController@index')->middleware('auth');
-//Excluir e Editar dados e Validar
+	//paginas
+	Route::get('/cadastro', 'VagaController@formularioVaga');
+	Route::get('/', 'VagaController@index')->middleware('auth');
+	//Excluir e Editar dados e Validar
+	Route::post('/cadastro', 'VagaController@novaVaga');
 });
 
 /******** Rotas Dashboard**********/

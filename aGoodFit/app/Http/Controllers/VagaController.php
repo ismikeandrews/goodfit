@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Profissao;
+use App\Empresa;
+use App\RegimeContratacao;
 
 class VagaController extends Controller
 {
@@ -148,5 +151,30 @@ class VagaController extends Controller
     return DB::table('tbVaga')
     ->where('codVaga', $codVaga)
     ->get();
+  }
+
+  public function formularioVaga(){
+    $profissao = Profissao::all();
+    $empresa = Empresa::all();
+    $regimeContratacao = RegimeContratacao::all();
+
+    $dados['profissao'] = $profissao;
+    $dados['empresa'] = $empresa;
+    $dados['regimeContratacao'] = $regimeContratacao;
+
+    return view("vaga.formVaga", $dados);
+  }
+
+  public function novaVaga(Request $request){
+    dd($request->input());
+
+    $this->validate($request, [
+      'desc' => 'required',
+      'salario' => 'required',
+      'cargaHoraria' => 'required',
+      'quantidadeVaga' => 'required',
+      'profissao' => 'required',
+      'empresa' => 'required',
+    ]);
   }
 }
