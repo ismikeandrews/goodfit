@@ -30,7 +30,21 @@
 			</ul>
 		</div>
 	</div>
-	@if($candidaturas->count() == 0)
+	@if($curriculo == null)
+	<section class="page-section-null page-section-null-status">
+		<div class="page-content-null page-content-null-curriculo">
+			 <div class="page-content-null-img">
+				 <img src='{{asset("images/componentes/menu-curriculo.svg")}}' alt="Ícone de currículo" class="vagas-null-img">
+			 </div>
+			 <div class="page-content-null-text">
+				Para continuar<br> cadastre um currículo
+			</div>
+			<a href="/curriculo/formulario" class="btn btn-page-null">
+				Cadastro do currículo
+			</a>
+		</div>
+	</section>
+	@elseif($candidaturas->count() == 0)
 	<section class="page-section-null page-section-null-status">
 		<div class="page-content-null page-content-null-curriculo">
 			 <div class="page-content-null-img">

@@ -22,6 +22,10 @@ class StatusController extends Controller
     ->where('codUsuario', $usuario->codUsuario)
     ->first();
 
+    $curriculo = DB::table('tbCurriculo')
+    ->where('codCandidato', $candidato->codCandidato)
+    ->first();
+
     $candidaturas = DB::table('tbCandidatura')
     ->where('codCandidato', $candidato->codCandidato)
     ->get();
@@ -40,7 +44,11 @@ class StatusController extends Controller
       }
     }
 
-    return view('status')->with('candidaturas', $candidaturas);
+    $dados = [
+      'candidaturas' => $candidaturas,
+      'curriculo' => $curriculo,
+    ];
+    return view('status', $dados);
   }
 
   /**

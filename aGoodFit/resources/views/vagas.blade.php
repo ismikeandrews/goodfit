@@ -113,7 +113,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="slide-item">
 		<div class="vagas-empresa">
 			<div class="vagas-empresa-logo">
