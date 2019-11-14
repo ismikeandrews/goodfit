@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Vaga;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +12,16 @@ use App\RegimeContratacao;
 
 class VagaController extends Controller
 {
-  /**
+  public $enderecoController;
+  public $beneficioController;
+
+  public function __construct()
+  {
+      $this->enderecoController  = new EnderecoController;
+      $this->beneficioController = new BeneficioController;
+  }
+
+    /**
   * Função para mostrar vagas compatíveis com candidato
   *
   *
@@ -173,15 +183,44 @@ class VagaController extends Controller
   * @author Michael Andrews
   **/
   public function novaVaga(Request $request){
-    dd($request->input());
-
     $this->validate($request, [
-      'desc' => 'required',
-      'salario' => 'required',
-      'cargaHoraria' => 'required',
-      'quantidadeVaga' => 'required',
-      'profissao' => 'required',
-      'empresa' => 'required',
+        'beneficio'      => 'required',
+        'desc'           => 'required',
+        'salario'        => 'required',
+        'cargaHoraria'   => 'required',
+        'quantidadeVaga' => 'required',
+        'profissao'      => 'required',
+        'empresa'        => 'required',
     ]);
+
+    $endereco =
+    [
+      'cep'         => $request->input('cep'),
+      'logradouro'  => $request->input('logradouro'),
+      'bairro'      => $request->input('bairro'),
+      'complemento' => $request->input('complemento'),
+      'bairro'      => $request->input('bairro'),
+      'zona'        => $request->input('zona'),
+      'cidade'      => $request->input('cidade'),
+      'estado'      => $request->input('estado'),
+      'estado'      => $request->input('estado'),
+    ];
+
+    $codEndereco = $this->enderecoController->novoEndereço($endereco);
+
+      $vaga = Vaga::create([
+          'descricaoVaga'        => $request->input('desc'),
+          'salarioVaga'          => $request->input('salario'),
+          'cargaHorariaVaga'     => $request->input('cargaHoraria'),
+          'quantidadeVaga'       => $request->input('quantidadeVaga'),
+          'codEmpresa'           => $request->input('empresa'),
+          'codProfissao'         => $request->input('profissao'),
+          'codEndereco'          => $codEndereco,
+          'codRegimeContratacao' => $request->input('empresa'),
+      ]);
+
+      $this->beneficioController->novoBeneficio($request->input('beneficio'), $vaga->codVaga);
+
+     return redirect('/vagas/cadastro');
   }
 }
