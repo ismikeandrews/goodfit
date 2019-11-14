@@ -7,6 +7,7 @@ const containerEndereco = document.querySelector('.container-endereco');
 const containerModal = document.querySelector('.container-modal');
 const containerVagas = document.querySelector('.container-vagas');
 const containerPerfil = document.querySelector('.container-perfil');
+const containerCadastroVaga = document.querySelector('.container-cadastro-vaga');
 
 
 require('./menu');
@@ -27,7 +28,7 @@ if (containerModal) {
   require('./modal');
 }
 
-if (containerEndereco) {
+if (containerEndereco || containerCadastroVaga) {
   require('./busca-cep');
 }
 

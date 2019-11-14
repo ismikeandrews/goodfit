@@ -101,6 +101,7 @@ var containerEndereco = document.querySelector('.container-endereco');
 var containerModal = document.querySelector('.container-modal');
 var containerVagas = document.querySelector('.container-vagas');
 var containerPerfil = document.querySelector('.container-perfil');
+var containerCadastroVaga = document.querySelector('.container-cadastro-vaga');
 
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
 
@@ -120,7 +121,7 @@ if (containerModal) {
   __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
 }
 
-if (containerEndereco) {
+if (containerEndereco || containerCadastroVaga) {
   __webpack_require__(/*! ./busca-cep */ "./resources/js/busca-cep.js");
 }
 
