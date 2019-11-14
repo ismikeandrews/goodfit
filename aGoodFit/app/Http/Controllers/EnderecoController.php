@@ -15,7 +15,8 @@ class EnderecoController extends Controller
   *
   * @author Michael Andrews
   **/
-  public function novoEndereço(array $data){
+  public function novoEndereço(array $data)
+  {
     $cep = $data['cep'];
     $regex = '/[^0-9]/';
     $cep = preg_replace($regex, '', $cep);

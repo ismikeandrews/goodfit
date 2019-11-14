@@ -28,6 +28,8 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    public $enderecoController;
+    public $candidatoController;
 
     use RegistersUsers;
 
@@ -45,6 +47,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this->candidatoController = new CandidatoController;
+        $this->enderecoController  = new EnderecoController;
         $this->middleware('guest');
     }
 
@@ -93,9 +97,6 @@ class RegisterController extends Controller
        **/
      public function create(array $data)
      {
-          $candidatoController = new CandidatoController;
-          $enderecoController  = new EnderecoController;
-
          if (Arr::has($data, 'foto')) {
            $foto = $data['foto'];
            $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
@@ -107,7 +108,7 @@ class RegisterController extends Controller
          else {
            $nomeFoto = 'perfil.png';
          }
-         $codEndereco = $enderecoController->novoEndereço($data);
+         $codEndereco = $this->enderecoController->novoEndereço($data);
 
          $usuario = User::create([
            'loginUsuario' => $data['login'],
@@ -119,7 +120,7 @@ class RegisterController extends Controller
          ]);
 
          if($usuario->codNivelUsuario = CANDIDATO){
-           $usuarioCandidato = $candidatoController->novoCandidato($data, $usuario->codUsuario);
+            $this->candidatoController->novoCandidato($data, $usuario->codUsuario);
          }
 
          return $usuario;

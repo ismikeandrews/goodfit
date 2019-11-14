@@ -74,7 +74,7 @@ class CandidatoController extends Controller
 
     //Tratamento do cpf
     $cpf   = $request->cpf;
-	  $cpf   = preg_replace('/[^0-9]/', '', $cpf);
+    $cpf   = preg_replace('/[^0-9]/', '', $cpf);
 
     //Tratamento da data de nascimento
     $date = $request->dataNascimentoCandidato;
@@ -125,7 +125,7 @@ class CandidatoController extends Controller
     $date = preg_replace($regex, '-', $date);
     $parsed = date('Y-m-d', strtotime($date));
 
-   Candidato::create([
+    Candidato::create([
      'nomeCandidato' => $data['nome'],
      'cpfCandidato' => $cpf,
      'rgCandidato' => $data['rg'],
