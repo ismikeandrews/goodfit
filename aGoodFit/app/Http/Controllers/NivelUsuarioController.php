@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\NivelUsuario;
 use Illuminate\Support\Facades\DB;
+use App\Http\Resources\NivelUsuarioService;
 
 class NivelUsuarioController extends Controller
 {
@@ -45,5 +46,12 @@ class NivelUsuarioController extends Controller
   public function escolhaNivelUsuario(){
     $nivel = NivelUsuario::all();
     return view('escolhaNivel')->with('niveis', $nivel);
+  }
+
+  //API
+  public function getAll(){
+    $niveisUsuario = NivelUsuario::all();
+
+    return NivelUsuarioService::collection($niveisUsuario);
   }
 }
