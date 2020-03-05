@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>GoodFit</title>
+  <title>GoodFit | Laravel</title>
 
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link rel="shortcut icon" href="{{ asset('images/componentes/logo.png') }}">
