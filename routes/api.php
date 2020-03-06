@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('cors')->get('nivel-usuario', 'NivelUsuarioController@getAll');
+Route::middleware('cors')->get('nivel-usuario/{codNivelUsuario}', 'NivelUsuarioController@getUsuarioById');

@@ -10,48 +10,64 @@ use App\Http\Resources\NivelUsuarioService;
 class NivelUsuarioController extends Controller
 {
   public function novoNivel(Request $request){
+    $this->validate($request, ['titulo' => 'required|unique:tbNivelUsuario,nomeNivelUsuario',]);
+    try {
+      $nivelUsuario = NivelUsuario::create(['nomeNivelUsuario' => $request->input('titulo'),]);
+      $salvar = $nivelUsuario->save();
 
-    $this->validate($request, [
-      'titulo' => 'required|unique:tbNivelUsuario,nomeNivelUsuario',
-    ]);
-
-
-    $nivelUsuario = NivelUsuario::create([
-      'nomeNivelUsuario' => $request->input('titulo'),
-    ]);
-
-    $salvar = $nivelUsuario->save();
-
-    return view('cadastroNivelUsuario')
-    ->with('ok', $salvar);
-  }
-
-  public function formularioNivelUsuario(){
-    return view('cadastroNivelUsuario');
+      if ($salvar) {
+        return response()->json('A new user type has successfuly been created.', 201);
+      } else {
+        throw new \Exception('An error accured during the process, please check your data and try again.');
+      }
+    } catch (\Exception $error) {
+      echo $error;
+      return response()->json($error->getMessage(), 400);
+    }
   }
 
   public function getUsuarioById(int $codNivelUsuario){
-    return DB::table('tbNivelUsuario')
-    ->select('tbNivelUsuario.nomeNivelUsuario')
-    ->where('tbNivelUsuario.codNivelUsuario', '=', $codNivelUsuario)
-    ->first();
+    try {
+      $nivelUsuario = NivelUsuario::where('codNivelUsuario', $codNivelUsuario);
+      if ($nivelUsuario) {
+        return NivelUsuarioService::collection($nivelUsuario);
+      }else{
+        throw new \Exception("Sorry, the user type you were looking for was not found");
+      }
+    } catch (\Exception $error) {
+      echo $error;
+      return response()->json($error->getMessage(), 404);
+    }
   }
 
-  public function deletarNivel($codNivelUsuario){
-    $deletar = NivelUsuario::where('codNivelUsuario', $codNivelUsuario);
-    $deletar->delete();
-    return redirect('/nivelusuario');
+  public function deletarNivel(int $codNivelUsuario){
+    try {
+      $response = NivelUsuario::where('codNivelUsuario', $codNivelUsuario);
+
+      if ($response) {
+        $response->delete();
+        return response()->json('The user requested has been deleted', 200);
+      }else{
+        throw new \Exception("Sorry, the user type you were looking for was not found");
+      }
+    } catch (\Exception $error) {
+      echo $error;
+      return response()->json($error->getMessage(), 404);
+    }
   }
 
-  public function escolhaNivelUsuario(){
-    $nivel = NivelUsuario::all();
-    return view('escolhaNivel')->with('niveis', $nivel);
-  }
-
-  //API
   public function getAll(){
-    $niveisUsuario = NivelUsuario::all();
+    try {
+      $niveisUsuario = NivelUsuario::all();
 
-    return NivelUsuarioService::collection($niveisUsuario);
+      if ($niveisUsuario) {
+        return NivelUsuarioService::collection($niveisUsuario);
+      }else{
+        throw new \Exception("Sorry, no users type were found");
+      }
+    } catch (\Exception $error) {
+      echo $error;
+      return response()->json($error->getMessage(), 404);
+    }  
   }
 }
