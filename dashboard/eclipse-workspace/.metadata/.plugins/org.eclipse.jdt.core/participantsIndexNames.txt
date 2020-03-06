@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-/Users/michael/archives/fiap/new-vison/dashboard/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/682696345.index
-/AGoodFitWeb/src
