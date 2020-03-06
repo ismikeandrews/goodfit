@@ -1,2 +1,0 @@
-127.0.0.1 - - [01/Oct/2019:16:17:16 -0300] "GET / HTTP/1.1" 404 1074
-0:0:0:0:0:0:0:1 - - [01/Oct/2019:16:17:17 -0300] "GET /AGoodFitWeb/WEB-INF/classes/br/com/projeto/dao/NivelUsuarioDAO.java HTTP/1.1" 404 1047
