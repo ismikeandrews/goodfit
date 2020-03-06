@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/Users/michael/archives/fiap/new-vison/dashboard/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3261951336.index
+2147648956.index
+4102267041.index
+3035281780.index
+682696345.index
+4102169525.index
+3977881826.index
