@@ -1,0 +1,25 @@
+.curriculo-title {
+    color: $preto;
+    font: 21px/25px $font-bold;
+}
+
+.curriculo-desc {
+    color: $cinza;
+    font: 15px/18px $font-regular;
+    letter-spacing: 0.5px;
+
+    & span {
+        font-family: $font-bold;
+    }
+}
+
+.curriculo-btn-item {
+     width: 48% !important;
+}
+
+
+.container-curriculo {
+	&.view {
+		padding-top: 100px;
+	}
+}

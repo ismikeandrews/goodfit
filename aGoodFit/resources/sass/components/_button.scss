@@ -1,0 +1,13 @@
+.btn {
+    background: $azul_primary;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    display: block;
+    font: 14px $font-semibold;
+    padding: 15px 0;
+    margin: 15px auto 10px;
+    text-align: center;
+    transition: all .5s ease-out;
+    width: 100%;
+}

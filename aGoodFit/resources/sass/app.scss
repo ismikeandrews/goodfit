@@ -1,0 +1,47 @@
+// Variables
+@import 'variables';
+
+// Base
+@import 'base';
+
+// Menu
+@import 'menu';
+
+// Components
+@import 'components/button';
+@import 'components/form';
+@import 'components/radio';
+@import 'components/curriculo';
+@import 'components/etapas';
+@import 'components/page-null';
+@import 'components/slide';
+
+// Home
+@import 'home';
+
+// Login
+@import 'login';
+
+// Cadastro
+@import 'cadastro/cadastro';
+@import 'cadastro/etapa1';
+@import 'cadastro/etapa2';
+
+// Currículo
+@import 'curriculo/curriculo';
+@import 'curriculo/etapa1';
+@import 'curriculo/etapa2';
+@import 'curriculo/etapa3';
+@import 'curriculo/etapa4';
+
+// Vagas
+@import 'vagas';
+
+// Perfil
+@import 'perfil';
+
+// Modal
+@import 'modal';
+
+// Status
+@import 'status';

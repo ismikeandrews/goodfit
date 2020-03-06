@@ -1,0 +1,52 @@
+.curriculo-content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &-item {
+        margin: 10px auto;
+        text-align: center;
+        width: 48%;
+    }
+
+    @include MQ($small) {
+        display: block;
+
+        &-item {
+            width: 80%;
+    
+            &:first-child {
+                margin: auto;
+            }
+        }
+    }
+}
+
+.curriculo-content-item-label {
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    color: #ccc;
+    display: block;
+    padding: 20px 0;
+    transition: all .5s ease-out;
+    
+    &-icon {
+        width: 90px;
+    }
+
+    &-desc {
+        font: 15px/19px $font-semibold;
+        margin-top: 10px;
+    }
+}
+
+.curriculo-checkbox {
+    position: absolute;
+    left: -9999px;
+}
+
+.curriculo-checkbox:checked + .curriculo-content-item-label {
+    background: rgba(4, 178, 217, 0.25);
+    border-color: $azul-primary;
+    color: #0096b7;
+}

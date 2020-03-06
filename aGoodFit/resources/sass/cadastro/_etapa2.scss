@@ -1,0 +1,14 @@
+.content-perfil-desc-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    
+    &-item {
+        width: 47%;
+
+        @include MQ($small) {
+            width: 100%;
+        }
+    }
+}

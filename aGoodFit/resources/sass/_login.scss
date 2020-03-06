@@ -1,0 +1,126 @@
+ .container-login {
+    position: relative;
+
+    &:after {
+        background: url('../images/componentes/logo-bg.png') center no-repeat;
+        background-size: 335px;
+        content: '';
+        display: block;
+        height: 330px;
+        right: 0px;
+        position: absolute;
+        top: 0;
+        transform: translate(50%,-50%);
+        width: 330px;
+        z-index: 1;
+    }
+}
+
+.section-login {
+    margin: 0 auto;
+    width: 75%;
+
+    @include MQ($medium){
+        width: 100%;
+    }
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  width: 100%;
+
+    &-img {
+      margin: 50px auto;
+      width: 125px;
+    }
+}
+
+.intro {
+    &-title {
+        color: $preto;
+        font: 21px $font-bold;
+        line-height: 25px;
+
+        @include MQ($small) {
+            font-size: 20px;
+        }
+
+        &-span {
+            color: $azul_primary;
+        }
+    }
+
+    &-desc {
+        color: $cinza;
+        font: 14px $font-light;
+        letter-spacing: 0.5px;
+        margin: 5px 0 15px;
+    }
+}
+
+.label {
+    font: 11px $font-regular;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+
+    &-senha {
+        color: $azul_primary;
+        float: right;
+        margin-top: 10px;
+    }
+
+    &-cadastrar {
+        color: $cinza;
+        margin: 45px auto -40px;
+        text-align: center;
+    }
+}
+
+.login-btn-entrar {
+    margin: 60px 0 50px;
+
+    @include MQ($medium){
+        margin: 40px 0 0;
+    }
+}
+
+.btn {
+    &-login {
+        margin-top: 20px;
+    }
+
+    &-cod {
+        background: transparent;
+        border: 1px solid $azul_dark;
+        color: $azul_dark;
+    }
+
+    &-cadastrar {
+        background: transparent;
+        border: 1px solid $cinza;
+        color: $cinza;
+    }
+
+    &-link {
+        text-decoration: none;
+    }
+}
+
+.cadastro-content {
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+
+    &-item {
+        width: 50%;
+
+        &:first-child {
+            margin-right: 5px;
+        }
+
+        &:last-child {
+            margin-left: 5px;
+        }
+    }
+}

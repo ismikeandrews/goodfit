@@ -1,0 +1,235 @@
+.vagas {
+  padding-top: 30px;
+
+  &-empresa {
+    max-height: 400px;
+    padding-top: 10px;
+    position: relative;
+    z-index: -1;
+
+    &-logo {
+      display: block;
+      padding-bottom: 10px;
+      margin: auto;
+      text-align: center;
+
+      &-img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.slide-item {
+  width: 100vw;
+}
+
+.vagas-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 370px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  &-item {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 2px 20px 2px #717171;
+    display: flex;
+    height: 80px;
+    margin: 0 5px;
+    text-align: center;
+    width: 80px;
+
+    &-inscrever {
+      border-radius: 15px;
+      height: 60px;
+      padding: 0 65px;
+      position: relative;
+
+      &-text {
+        color: $azul_primary;
+        font: 18px $font-bold;
+        left: 50%;
+        position: absolute;
+        text-transform: uppercase;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        width: 100%;
+      }
+
+      @include MQ(320px) {
+        padding: 0 50px;
+      }
+    }
+
+    @include MQ(320px) {
+      height: 55px;
+    }
+  }
+
+  &-icon {
+    left: 50%;
+    margin: 0 3px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 35px;
+
+    @include MQ($small) {
+      width: 25px;
+    }
+  }
+
+  /* Botões de prev e next */
+  &-side {
+    &-item {
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      margin: 10px;
+      width: 50px;
+
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      &:last-child {
+        margin-left: 20px;
+        transform: rotate(180deg);
+      }
+    }
+
+    &-icon {
+      height: 25px;
+      width: 25px;
+    }
+  }
+}
+
+
+.container-vagas {
+  background: #fff;
+  border-radius: 30px 30px;
+  margin: -40px 0 0;
+  max-width: 500px;
+  padding-top: 80px;
+  position: relative;
+  z-index: -1;
+}
+
+.vagas-content {
+  &-title {
+    color: $preto;
+    font: 20px/22px $font-bold;
+    margin: 0 auto 10px;
+    text-align: center;
+    width: 85%;
+  }
+
+  &-desc {
+    align-items: center;
+    display: flex;
+
+    &-icon {
+      margin: 10px 20px 10px 0;
+      width: 50px;
+    }
+
+    &-nome {
+      color: $azul-primary;
+      font: 20px $font-regular;
+
+      @include MQ($small) {
+        font-size: 18px;
+      }
+    }
+
+    &-local {
+      color: $cinza;
+      font: 18px/20px $font-regular;
+
+      @include MQ($small) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.vagas-content-tags {
+  display: flex;
+  justify-content: space-between;
+
+  &-item {
+    border: 1px solid $azul-primary;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 15px 0;
+    width: 50%;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &-icon {
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    &-text {
+      color: $cinza;
+      font: 15px $font-semibold;
+    }
+  }
+}
+
+.vagas-content-sobre {
+  &-title {
+    font: 18px/25px $font-bold;
+    color: $azul-primary;
+    margin: 30px 0 5px;
+    text-transform: uppercase;
+  }
+
+  &-text {
+    color: $preto;
+    font: 15px/23px $font-regular;
+    letter-spacing: 0.5px;
+    max-height: 90px;
+    overflow-y: auto;
+  }
+
+  &-requisitos-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  &-beneficios-list {
+    &-item {
+      color: $preto;
+      font: 20px/23px "Raleway Regular", "Montserrat Regular", "sans-serif";
+      margin: 13px 25px 0;
+      position: relative;
+
+      &:before {
+        border: 1px solid $azul-primary;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: 10px;
+        left: -30px;
+        position: absolute;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 10px;
+      }
+    }
+  }
+}

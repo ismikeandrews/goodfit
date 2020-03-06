@@ -1,0 +1,143 @@
+ .container-home {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        background: url('../images/componentes/logo-bg.png') center no-repeat;
+        background-size: 450px;
+        content: '';
+        display: block;
+        height: 450px;
+        left: 0px;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%,-50%);
+        width: 450px;
+        z-index: 1;
+
+        @include MQ($large) {
+          background-size: 400px;
+        }
+
+        @include MQ($small) {
+          background-size: 330px;
+        }
+    }
+
+    &:after {
+        background: url('../images/componentes/logo-bg.png') center no-repeat;
+        background-size: 450px;
+        content: '';
+        display: block;
+        height: 450px;
+        right: 0px;
+        position: absolute;
+        bottom: 0;
+        transform: rotate(180deg) translate(-50%, -50%);
+        width: 450px;
+        z-index: 1;
+
+        @include MQ($large) {
+          background-size: 400px;
+        }
+
+        @include MQ($small) {
+          background-size: 330px;
+        }
+    }
+}
+
+.home-content {
+  margin-top: 170px;
+
+  @include MQ($large) {
+    margin-top: 120px;
+  }
+
+  @include MQ($medium) {
+    margin-top: 100px;
+  }
+
+  @include MQ($small) {
+    margin-top: 60px;
+  }
+
+  &-logo {
+    display: block;
+    height: 150px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+      &-img {
+        margin: 50px auto 30px;
+        width: 360px;
+
+        @include MQ($large) {
+          margin-top: 60px;
+          position: absolute;
+          right: -10px;
+          width: 280px;
+        }
+
+        @include MQ($medium) {
+          width: 250px;
+        }
+
+        @include MQ($small) {
+          width: 230px;
+        }
+      }
+  }
+
+  &-desc {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-title {
+      color: $preto;
+      font: 65px $font-bold;
+      line-height: 25px;
+
+      @include MQ($large) {
+        font-size: 55px;
+        line-height: 53px;
+      }
+
+      @include MQ($medium) {
+        font-size: 45px;
+        line-height: 43px;
+      }
+
+      @include MQ($small) {
+        font-size: 40px;
+        line-height: 35px;
+      }
+
+      &-span {
+        color: $azul_primary;
+      }
+    }
+
+    &-text {
+      color: $cinza;
+      font: 30px $font-light;
+      letter-spacing: 0.5px;
+      margin: 35px 0px 15px;
+
+      @include MQ($large) {
+        font-size: 25px;
+        margin: 40px 0px 15px;
+      }
+
+      @include MQ($medium) {
+        font-size: 20px;
+        margin-top: 10px;
+        max-width: 370px;
+      }
+    }
+  }
+}
