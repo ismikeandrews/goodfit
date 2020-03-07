@@ -13,9 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::middleware('cors')->get('nivel-usuario', 'NivelUsuarioController@getAll');
-Route::middleware('cors')->get('nivel-usuario/{codNivelUsuario}', 'NivelUsuarioController@getUsuarioById');
+Route::prefix('nivel-usuario')->group(function() {
+    Route::middleware('cors')->get('/', 'NivelUsuarioController@getAll');
+    Route::middleware('cors')->get('/{codNivelUsuario}', 'NivelUsuarioController@getUsuarioById');
+    Route::middleware('cors')->post('/register', 'NivelUsuarioController@novoNivel');
+    Route::middleware('cors')->delete('/delete/{codNivelUsuario}', 'NivelUsuarioController@deletarNivel');
+});

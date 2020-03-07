@@ -10,9 +10,10 @@ use App\Http\Resources\NivelUsuarioService;
 class NivelUsuarioController extends Controller
 {
   public function novoNivel(Request $request){
-    $this->validate($request, ['titulo' => 'required|unique:tbNivelUsuario,nomeNivelUsuario',]);
+    $request->body;
+    $this->validate($request, ['nomeNivelUsuario' => 'required|unique:tbNivelUsuario,nomeNivelUsuario',]);
     try {
-      $nivelUsuario = NivelUsuario::create(['nomeNivelUsuario' => $request->input('titulo'),]);
+      $nivelUsuario = NivelUsuario::create(['nomeNivelUsuario' => $request->input('nomeNivelUsuario'),]);
       $salvar = $nivelUsuario->save();
 
       if ($salvar) {
@@ -28,7 +29,8 @@ class NivelUsuarioController extends Controller
 
   public function getUsuarioById(int $codNivelUsuario){
     try {
-      $nivelUsuario = NivelUsuario::where('codNivelUsuario', $codNivelUsuario);
+      $nivelUsuario = NivelUsuario::where('codNivelUsuario', $codNivelUsuario)->get();
+
       if ($nivelUsuario) {
         return NivelUsuarioService::collection($nivelUsuario);
       }else{
@@ -43,7 +45,6 @@ class NivelUsuarioController extends Controller
   public function deletarNivel(int $codNivelUsuario){
     try {
       $response = NivelUsuario::where('codNivelUsuario', $codNivelUsuario);
-
       if ($response) {
         $response->delete();
         return response()->json('The user requested has been deleted', 200);
