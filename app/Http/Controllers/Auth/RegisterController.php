@@ -16,6 +16,7 @@ use Image;
 define('MODERADOR', 1);
 define('CANDIDATO', 2);
 define('EMPRESA', 3);
+
 class RegisterController extends Controller
 {
     /*
@@ -65,24 +66,24 @@ class RegisterController extends Controller
      protected function validator(array $data)
      {
           return Validator::make($data, [
-            'foto' => ['sometimes', 'image', 'file', 'mimes:jpeg,png', 'max:10000'],
-            'nome' => ['required'],
-            'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
-            'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
+            'foto'       => ['sometimes', 'image', 'file', 'mimes:jpeg,png', 'max:10000'],
+            'nome'       => ['required'],
+            'cpf'        => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
+            'rg'         => ['required', 'unique:tbCandidato,rgCandidato'],
             'nascimento' => ['required', 'before:2003-10-14', 'date_format:d/m/Y'],
 
-            'login' => ['required', 'alpha_dash', 'string', 'max:50', 'unique:tbUsuario,loginUsuario'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'login'           => ['required', 'alpha_dash', 'string', 'max:50', 'unique:tbUsuario,loginUsuario'],
+            'email'           => ['required', 'string', 'email', 'max:255', 'unique:tbUsuario,email'],
+            'password'        => ['required', 'string', 'min:8', 'confirmed'],
             'codNivelUsuario' => ['required'],
 
-            'cep' => ['required', 'between:9,9', 'string'],
+            'cep'        => ['required', 'between:9,9', 'string'],
             'logradouro' => ['required', 'max:250', 'string'],
-            'bairro' => ['required', 'max:50', 'string'],
-            'cidade' => ['required', 'max:100', 'string'],
-            'estado' => ['required', 'max:50', 'string'],
-            'zona' => ['required', 'max:50', 'string'],
-            'numero' => ['required', 'max:5', 'string'],
+            'bairro'     => ['required', 'max:50', 'string'],
+            'cidade'     => ['required', 'max:100', 'string'],
+            'estado'     => ['required', 'max:50', 'string'],
+            'zona'       => ['required', 'max:50', 'string'],
+            'numero'     => ['required', 'max:5', 'string'],
          ]);
      }
 
@@ -95,8 +96,7 @@ class RegisterController extends Controller
        *
        * @author Michael Andrews
        **/
-     public function create(array $data)
-     {
+     public function create(array $data){
          if (Arr::has($data, 'foto')) {
            $foto = $data['foto'];
            $nomeFoto = time() . '.' . $foto->getClientOriginalExtension();
@@ -108,15 +108,16 @@ class RegisterController extends Controller
          else {
            $nomeFoto = 'perfil.png';
          }
+         
          $codEndereco = $this->enderecoController->novoEndereço($data);
 
          $usuario = User::create([
-           'loginUsuario' => $data['login'],
-           'email' => $data['email'],
-           'fotoUsuario' => $nomeFoto,
-           'codEndereco' => $codEndereco,
+           'loginUsuario'    => $data['login'],
+           'email'           => $data['email'],
+           'fotoUsuario'     => $nomeFoto,
+           'codEndereco'     => $codEndereco,
            'codNivelUsuario' => $data['codNivelUsuario'],
-           'password' => Hash::make($data['password']),
+           'password'        => Hash::make($data['password']),
          ]);
 
          if($usuario->codNivelUsuario = CANDIDATO){

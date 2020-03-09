@@ -9,9 +9,19 @@ use App\Http\Resources\NivelUsuarioService;
 
 class NivelUsuarioController extends Controller
 {
+  /**
+  * Function to register a new type of user.
+  *
+  * @param $request parameter 
+  *
+  * @return json response
+  *
+  * @author Michael Andrews
+  **/
   public function novoNivel(Request $request){
     $request->body;
     $this->validate($request, ['nomeNivelUsuario' => 'required|unique:tbNivelUsuario,nomeNivelUsuario',]);
+
     try {
       $nivelUsuario = NivelUsuario::create(['nomeNivelUsuario' => $request->input('nomeNivelUsuario'),]);
       $salvar = $nivelUsuario->save();
@@ -27,10 +37,18 @@ class NivelUsuarioController extends Controller
     }
   }
 
+  /**
+  * Function to get a type of user by id.
+  *
+  * @param $codNivelUsuario user's type id 
+  *
+  * @return $nivelUsuario collection
+  *
+  * @author Michael Andrews
+  **/
   public function getUsuarioById(int $codNivelUsuario){
     try {
       $nivelUsuario = NivelUsuario::where('codNivelUsuario', $codNivelUsuario)->get();
-
       if ($nivelUsuario) {
         return NivelUsuarioService::collection($nivelUsuario);
       }else{
@@ -42,6 +60,15 @@ class NivelUsuarioController extends Controller
     }
   }
 
+  /**
+  * Function to delete a type of user with an id
+  *
+  * @param $codNivelUsuario user's type id 
+  *
+  * @return json response
+  *
+  * @author Michael Andrews
+  **/
   public function deletarNivel(int $codNivelUsuario){
     try {
       $response = NivelUsuario::where('codNivelUsuario', $codNivelUsuario);
@@ -57,6 +84,13 @@ class NivelUsuarioController extends Controller
     }
   }
 
+  /**
+  * Function to get all users types
+  *
+  * @return $nivelUsuario collection
+  * 
+  * @author Michael Andrews
+  **/
   public function getAll(){
     try {
       $niveisUsuario = NivelUsuario::all();
