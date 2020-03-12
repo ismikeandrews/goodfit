@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 // });
 
 Route::prefix('nivel-usuario')->group(function() {
-    Route::middleware('cors')->get('/', 'NivelUsuarioController@getAll');
-    Route::middleware('cors')->get('/{codNivelUsuario}', 'NivelUsuarioController@getUsuarioById');
-    Route::middleware('cors')->post('/register', 'NivelUsuarioController@novoNivel');
-    Route::middleware('cors')->delete('/delete/{codNivelUsuario}', 'NivelUsuarioController@deletarNivel');
+    Route::get('/', 'NivelUsuarioController@getAll');
+    Route::get('/{codNivelUsuario}', 'NivelUsuarioController@getUsuarioById');
+    Route::post('/register', 'NivelUsuarioController@novoNivel');
+    Route::delete('/delete/{codNivelUsuario}', 'NivelUsuarioController@deletarNivel');
 });
