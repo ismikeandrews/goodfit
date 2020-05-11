@@ -3,38 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\AdicionalCurriculo;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class HabilidadeController extends Controller
 {
 
-	/**
-	* Função para pegar todas as habilidades
-	*
-	*
-	* @author Vanessa Amaral Marques
-	**/
+    /**
+     * Retorna as habilidades cadastradas
+     *
+     * @return JsonResponse
+     * @author Vanessa Amaral Marques
+     */
 	public function getHabilidades(){
-		return DB::table('tbAdicional')
+		$habilidades = DB::table('tbAdicional')
 	    ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional', 'tbAdicional.imagemAdicional')
 	    ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
 	    ->where('tbTipoAdicional.nomeTipoAdicional', '=', 'Habilidade')
 	    ->orderBy('tbAdicional.nomeAdicional', 'ASC')
 	    ->get();
+
+		return response()->json($habilidades);
 	}
 
-	/**
-	* Função para pegar as habilidades em um curriculo
-	*
-	* @param $codCurriculo cod do curriculo do candidato
-	*
-	*
-	* @author Vanessa Amaral Marques
-	**/
+    /**
+     * Retorna as habilidades de um curriculo
+     *
+     * @param int $codCurriculo cod do curriculo do candidato
+     * @return Collection
+     * @author Vanessa Amaral Marques
+     */
 	public function getHabilidadesByCurriculo(int $codCurriculo){
-		return DB::table('tbAdicional')
+		$habilidades = DB::table('tbAdicional')
 	      ->select('tbAdicional.codAdicional', 'tbAdicional.nomeAdicional' , 'tbAdicional.imagemAdicional')
 	      ->join('tbTipoAdicional', 'tbAdicional.codTipoAdicional', '=', 'tbTipoAdicional.codTipoAdicional')
 	      ->join('tbAdicionalCurriculo', 'tbAdicionalCurriculo.codAdicional', '=', 'tbAdicional.codAdicional')
@@ -42,35 +45,42 @@ class HabilidadeController extends Controller
 	      ->where('tbAdicionalCurriculo.codCurriculo', '=', $codCurriculo)
 	      ->orderBy('tbAdicional.nomeAdicional', 'ASC')
 	      ->get();
+
+		return response()->json($habilidades);
 	}
 
-	/**
-	* Função para adicionar habilidades em um curriculo
-	*
-	* @param $codAdicional cod do adicional
-	* @param $codCurriculo cod do curriculo do candidato
-	*
-	*
-	* @author Vanessa Amaral Marques
-	**/
-	public function adicionarHabilidade(int $codAdicional, int $codCurriculo){
-	    return AdicionalCurriculo::create([
-	    	'codAdicional' => $codAdicional,
-	    	'codCurriculo' => $codCurriculo
-	    ]);
-	}
+    /**
+     * Adiciona habilidades em um curriculo
+     *
+     * @param int $codAdicional cod do adicional
+     * @param int $codCurriculo cod do curriculo do candidato
+     * @return JsonResponse
+     * @author Vanessa Amaral Marques
+     */
+    public function adicionarHabilidade(int $codAdicional, int $codCurriculo){
+        $adicional = AdicionalCurriculo::create([
+            'codAdicional' => $codAdicional,
+            'codCurriculo' => $codCurriculo
+        ]);
 
-  /**
-  * Função para remover habilidades de um candidato
-  *
-  * @param $codCurriculo cod do curriculo do candidato
-  *
-  *
-  * @author Vanessa Amaral Marques
-  **/
-  public function removerHabilidades(int $codCurriculo){
-    return DB::table('tbAdicionalCurriculo')
-    ->where('codCurriculo', $codCurriculo)
-    ->delete();
-  }
+        if ( ! $adicional->save() ) {
+            return response()->json('Erro ao criar adicional', 503);
+        }
+    }
+
+    /**
+     * Função para remover habilidades de um candidato
+     *
+     * @param int $codCurriculo cod do curriculo do candidato
+     * @return JsonResponse
+     * @author Vanessa Amaral Marques
+     */
+    public function removerHabilidades(int $codCurriculo){
+        $habilidade = DB::table('tbAdicionalCurriculo')
+        ->where('codCurriculo', $codCurriculo);
+
+        if ( ! $habilidade->delete() ) {
+            return response()->json('Erro ao remover habilidade', 503);
+        }
+    }
 }
