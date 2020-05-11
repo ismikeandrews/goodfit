@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Auth;
 use File;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 use Image;
 use App\Candidato;
 use Illuminate\Http\Request;
@@ -10,8 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
-class CandidatoController extends Controller
-{
+class CandidatoController extends UsuarioController {
   public function login(){
     if (Auth::check()) {
       return redirect('/home');
@@ -19,84 +20,55 @@ class CandidatoController extends Controller
       return view('auth.login');
     }
   }
+
   public function index(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
     $candidato->dataNascimentoCandidato = date('d/m/Y', strtotime($candidato->dataNascimentoCandidato));
 
-    return view('auth.configPerfil')
-    ->with('candidato', $candidato)
-    ->with('usuario', $usuario);
+    return response()->json([$candidato, $usuario], 200);
   }
 
   /**
-    * Função para atualizar do perfil
-    *
-    * @param $request dados do formulário
-    *
-    * @author Michael Andrews
-    **/
+  * Função para atualizar do perfil
+  *
+  * @param Request $request dados do formulário
+  * @return JsonResponse
+  * @throws ValidationException
+  * @author Michael Andrews
+  * @author Vanessa Amaral Marques
+  */
   public function atualizarPerfil(Request $request){
-    $usuario = Auth::user();
+    $usuario   = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
+    $novaFoto  = null;
 
     //Validacao dos parametros
     $this->validate($request, [
-      'nome'  => 'string|required',
-      'rg'    => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      'cpf'   => ['between:14,14', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
-      'foto'  => 'sometimes|file|image|mimes:jpeg,png|max:10000',
+      'nome'                    => 'string|required',
+      'rg'                      => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      'cpf'                     => ['between:14,14', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
+      'foto'                    => 'sometimes|file|image|mimes:jpeg,png|max:10000',
       'dataNascimentoCandidato' => 'required|before:2003-10-14|date_format:d/m/Y',
-      'login' => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
-      'email' => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
+      'login'                   => ['string','required', Rule::unique('tbUsuario', 'loginUsuario')->ignore($usuario->codUsuario, 'codUsuario')],
+      'email'                   => ['email','required', Rule::unique('tbUsuario')->ignore($usuario->codUsuario, 'codUsuario')]
     ]);
 
-    //Tratamento da foto
     if ($request->hasFile("foto")){
-      if ($usuario->fotoUsuario !== 'perfil.png') {
-        $foto = public_path('images/candidatos/' . $usuario->fotoUsuario);
-
-        if (File::exists($foto)) {
-           unlink($foto);
-        }
-      }
-
-      $foto = $request->foto;
-      $nome = time() . '.' . $foto->getClientOriginalExtension();
-
-      $image = Image::make($foto);
-      $image->orientate()->fit(300, 300);
-      $image->save(public_path('/images/candidatos/'.$nome));
-
-
-      DB::table('tbUsuario')->where('codUsuario', $candidato->codUsuario)->update(['fotoUsuario' => $nome]);
+      $novaFoto = $request->foto;
     }
-
-    //Tratamento do cpf
-    $cpf   = $request->cpf;
-    $cpf   = preg_replace('/[^0-9]/', '', $cpf);
-
-    //Tratamento da data de nascimento
-    $date = $request->dataNascimentoCandidato;
-    $data = preg_replace('/[^0-9]/', '-', $date);
-    $parsed = date('Y-m-d', strtotime($data));
 
     //realizando o update dos dados do candidato
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
     ->update([
       'nomeCandidato'           => $request->nome,
-      'cpfCandidato'            => $cpf,
+      'cpfCandidato'            => $this->validaCpf($request->cpf),
       'rgCandidato'             => $request->rg,
-      'dataNascimentoCandidato' => $parsed,
+      'dataNascimentoCandidato' => $this->validaData($request->dataNascimentoCandidato),
       'codUsuario'              => $usuario->codUsuario,
     ]);
 
-    //realizando o update dos dados do usuario
-    $usuario->loginUsuario = $request->input('login');
-    $usuario->email = $request->input('email');
-    $usuario->save();
-
-    return redirect('/candidato/configuracoes');
+    return $this->atualizaUsuario($request->input('login'), $request->input('email'), $novaFoto);
   }
 
   public function validarCandidato(array $data){
@@ -108,42 +80,70 @@ class CandidatoController extends Controller
    ]);
   }
 
-  /**
-  * Função para cadastrar um candidato
-  *
-  * @param array $data array com os dados do formulario
-  * @param int $codUsuario id do usuario recem cadastrado
-  *
-  * @author Michael Andrews
-  **/
+   /**
+   * Função para cadastrar um candidato
+   *
+   * @param array $data array com os dados do formulario
+   * @param int $codUsuario id do usuario recem cadastrado
+   * @return JsonResponse
+   * @author Michael Andrews
+   * @author Vanessa Amaral Marques
+   **/
   public function novoCandidato(array $data, int $codUsuario){
-    $cpf = $data['cpf'];
-    $regex = '/[^0-9]/';
-    $cpf = preg_replace($regex, '', $cpf);
+    $cpf  = $this->validaCpf($data['cpf']);
+    $date = $this->validaData($data['nascimento']);
 
-    $date = $data['nascimento'];
-    $date = preg_replace($regex, '-', $date);
-    $parsed = date('Y-m-d', strtotime($date));
-
-    Candidato::create([
-     'nomeCandidato' => $data['nome'],
-     'cpfCandidato' => $cpf,
-     'rgCandidato' => $data['rg'],
-     'dataNascimentoCandidato' => $parsed,
-     'codUsuario' => $codUsuario
+    $candidato = Candidato::create([
+     'nomeCandidato'           => $data['nome'],
+     'cpfCandidato'            => $cpf,
+     'rgCandidato'             => $data['rg'],
+     'dataNascimentoCandidato' => $date,
+     'codUsuario'              => $codUsuario
    ]);
+
+    if ( $candidato->save() ) {
+        return response()->json('Usuário cadastrado com sucesso', 200);
+    }
+
+    return response()->json('Erro ao cadastrar usuário', 503);
   }
 
   /**
   * Função para pegar um candidato pelo codigo de usuário
   *
-  * @param $codUsuario codigo do usuario
-  *
+  * @param int $codUsuario codigo do usuario
+  * @return JsonResponse
   * @author Vanessa Amaral Marques
-  **/
+  */
   public function getCandidatoByUsuario(int $codUsuario){
-    return DB::table('tbCandidato')
+    $candidato = DB::table('tbCandidato')
     ->where('codUsuario', $codUsuario)
     ->get();
+
+    return response()->json($candidato, 200);
+  }
+
+  /**
+  * Valida um cpf
+  *
+  * @param string $cpf
+  * @return string|string[]|null
+  * @author Vanessa Amaral Marques
+  **/
+  private function validaCpf(string $cpf){
+      return preg_replace('/[^0-9]/', '', $cpf);
+  }
+
+  /**
+  * Valida uma data e retorna formatada no
+  * formato americano
+  *
+  * @param string $data
+  * @return false|string
+  * @author Vanessa Amaral Marques
+  **/
+  private function validaData(string $data){
+      $data = preg_replace('/[^0-9]/', '-', $data);
+      return date('Y-m-d', strtotime($data));
   }
 }
