@@ -17,7 +17,7 @@ class TbVaga extends Migration
             $table->increments('codVaga');
             $table->text('descricaoVaga');
             $table->double('salarioVaga');
-            $table->time('cargaHorariaVaga');
+            $table->string('cargaHorariaVaga');
             $table->integer('quantidadeVaga');
             $table->integer('codEmpresa')->unsigned();
             $table->integer('codProfissao')->unsigned();
