@@ -31,16 +31,6 @@
 
         <div class="content-perfil-desc-box">
           <div class="content-perfil-desc-item content-perfil-desc-box-item">
-            RG
-            <input class="form-input-item form-input-item-perfil @error('rg') is-invalid @enderror" type="text" name="rg" value="{{ old('rg') }}" autocomplete="rg" autofocus>
-            @error('rg')
-            <span class="erro" role="alert">
-              <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-          </div>
-
-          <div class="content-perfil-desc-item content-perfil-desc-box-item">
             CPF
             <input class="form-input-item form-input-item-perfil @error('cpf') is-invalid @enderror" type="text" name="cpf" data-mask="000.000.000-00" value="{{ old('cpf') }}" autocomplete="cpf" autofocus>
             @error('cpf')

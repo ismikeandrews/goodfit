@@ -44,16 +44,6 @@
 			</div>
 
 			<div class="content-perfil-desc-item">
-				RG
-				<input class="form-input-item form-input-item-perfil" type="text" name="rg" value="{{$candidato->rgCandidato}}">
-				@error('rg')
-				<span class="erro" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
-			</div>
-
-			<div class="content-perfil-desc-item">
 				Data de nascimento
 				<input class="form-input-item form-input-item-perfil" type="text" name="dataNascimentoCandidato" data-mask="00/00/0000" value="{{$candidato->dataNascimentoCandidato}}">
 				@error('dataNascimentoCandidato')

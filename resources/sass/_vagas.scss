@@ -137,15 +137,17 @@
 
     &-icon {
       margin: 10px 20px 10px 0;
-      width: 50px;
+      width: 40px;
     }
 
     &-nome {
-      color: $azul-primary;
+      color: $rosa_escuro;
       font: 20px $font-regular;
+      font-weight: bold;
+      text-transform: uppercase;
 
       @include MQ($small) {
-        font-size: 18px;
+        font-size: 15px;
       }
     }
 
@@ -165,7 +167,7 @@
   justify-content: space-between;
 
   &-item {
-    border: 1px solid $azul-primary;
+    border: 1px solid $rosa_claro;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -192,7 +194,7 @@
 .vagas-content-sobre {
   &-title {
     font: 18px/25px $font-bold;
-    color: $azul-primary;
+    color: $rosa_claro;
     margin: 30px 0 5px;
     text-transform: uppercase;
   }

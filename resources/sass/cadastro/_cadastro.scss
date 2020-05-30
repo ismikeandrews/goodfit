@@ -16,7 +16,8 @@
     margin: 15px 0;
 
     &-title {
-        font: 25px $font-light;
+        font: 20px $font-bold;
+        text-transform: uppercase;
     }
 
     &-desc {

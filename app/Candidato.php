@@ -10,7 +10,7 @@ class Candidato extends Model
     protected $table 	  = 'tbCandidato';
     protected $primaryKey = 'codCandidato';
     protected $fillable   =
-    ['nomeCandidato', 'cpfCandidato', 'rgCandidato', 'dataNascimentoCandidato', 'codUsuario'];
+    ['nomeCandidato', 'cpfCandidato', 'dataNascimentoCandidato', 'codUsuario'];
 
     public function Usuario(){
     	return $this->hasOne(Usuario::class, 'codUsuario', 'codUsuario');

@@ -206,7 +206,7 @@ class VagaController extends Controller
       'estado'      => $request->input('estado'),
     ];
 
-    $codEndereco = $this->enderecoController->novoEndereço($endereco);
+    $codEndereco = $this->enderecoController->novoEndereco($endereco);
 
       $vaga = Vaga::create([
           'descricaoVaga'        => $request->input('desc'),

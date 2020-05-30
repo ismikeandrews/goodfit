@@ -27,7 +27,7 @@
                 </svg>
               </li>
             </a>
-            
+
             <a class="menu-nav-list-link" href="/curriculo/formulario">
               <li class="menu-nav-list-link-item">
                 <img src="{{asset('images/componentes/menu-curriculo.svg')}}" alt="Menu - página de currículo" class="menu-item-img">
@@ -88,7 +88,7 @@
     <div class="menu-content">
       <div class="menu-logo">
         <a class="menu-logo-link" href="{{ url('/vagas/') }}">
-            <img src="{{asset('images/componentes/logo-menu.svg')}}" alt="Logo - A Good Fit" class="menu-logo-img">
+            <img src="{{asset('images/componentes/logo-ijc-branco.svg')}}" alt="Logo - A Good Fit" class="menu-logo-img">
         </a>
       </div>
     </div>
