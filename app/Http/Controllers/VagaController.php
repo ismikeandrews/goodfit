@@ -123,7 +123,7 @@ class VagaController extends Controller
         )
         AND tbVaga.quantidadeVaga > 0
         AND tbcandidatura.codCandidatura IS NULL
-        AND tbAdicional.codTipoAdicional <> 1
+        AND tbAdicional.codTipoAdicional = 1
         GROUP BY
             tbVaga.codVaga,
             tbVaga.descricaoVaga,
