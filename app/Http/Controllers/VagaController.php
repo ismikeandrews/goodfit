@@ -95,7 +95,7 @@ class VagaController extends Controller
             WHERE tbRequisitoVaga.codAdicional NOT IN (
                 SELECT tbAdicionalCurriculo.codAdicional
                 FROM tbAdicionalCurriculo
-                WHERE tbAdicionalCurriculo.codCurriculo = '$codCurriculo'
+                WHERE tbAdicionalCurriculo.codCurriculo = '$curriculo->codCurriculo'
             ) AND tbRequisitoVaga.obrigatoriedadeRequisitoVaga = 1
             AND tbadicional.codTipoAdicional = 1
         ) AND tbVaga.codVaga IN (
@@ -114,7 +114,7 @@ class VagaController extends Controller
                 ON tbRequisitoVaga.codAdicional = tbComparaVaga.codAdicional
                 AND tbComparaVaga.codTipoAdicional IN (2, 3)
             INNER JOIN tbAdicionalCurriculo
-                ON tbAdicionalCurriculo.codCurriculo = '$codCurriculo'
+                ON tbAdicionalCurriculo.codCurriculo = '$curriculo->codCurriculo'
             INNER JOIN tbAdicional AS tbComparaCurriculo
                 ON tbAdicionalCurriculo.codAdicional = tbComparaCurriculo.codAdicional
                 AND tbComparaCurriculo.codTipoAdicional = tbComparaVaga.codTipoAdicional
