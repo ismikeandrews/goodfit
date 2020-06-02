@@ -14,7 +14,7 @@
 
         &-item {
             width: 80%;
-    
+
             &:first-child {
                 margin: auto;
             }
@@ -29,7 +29,7 @@
     display: block;
     padding: 20px 0;
     transition: all .5s ease-out;
-    
+
     &-icon {
         width: 90px;
     }
@@ -46,7 +46,7 @@
 }
 
 .curriculo-checkbox:checked + .curriculo-content-item-label {
-    background: rgba(4, 178, 217, 0.25);
-    border-color: $azul-primary;
-    color: #0096b7;
+    background-color: rgba(255, 69, 134, 0.5);
+    border-color: $rosa_claro;
+    color: $rosa_claro;
 }

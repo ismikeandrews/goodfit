@@ -15,7 +15,7 @@ class EnderecoController extends Controller
   *
   * @author Michael Andrews
   **/
-  public function novoEndereço(array $data)
+  public function novoEndereco(array $data)
   {
     $cep = $data['cep'];
     $regex = '/[^0-9]/';
@@ -24,7 +24,7 @@ class EnderecoController extends Controller
     $endereco = Endereco::create([
       'cepEndereco' => $cep,
       'logradouroEndereco' => $data['logradouro'],
-      'numeroEndereco' => $data['bairro'],
+      'numeroEndereco' => $data['numero'],
       'complementoEndereco' => $data['complemento'],
       'bairroEndereco' => $data['bairro'],
       'zonaEndereco' => $data['zona'],

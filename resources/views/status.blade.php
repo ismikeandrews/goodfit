@@ -51,7 +51,8 @@
 				 <img src='{{asset("images/componentes/menu-vagas.svg")}}' alt="Ícone de vagas" class="vagas-null-img">
 			 </div>
 			 <div class="page-content-null-text">
-				Para continuar<br> inscreva-se em uma vaga
+				Inscreva-se em
+                <br> uma vaga
 			</div>
 			<a href="/vagas" class="btn btn-page-null">
 				Vagas

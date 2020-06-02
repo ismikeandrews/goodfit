@@ -29,7 +29,7 @@ a {
 }
 
 .container-menu {
-  background: #04B2D9;
+  background: #ff4586;
   display: flex;
   justify-content: space-between;
   padding: 13px 0;
@@ -47,7 +47,7 @@ a {
   left: 25px;
   outline: none !important;
   position: fixed;
-  top: 15px;
+  top: 18px;
   width: 25px;
   z-index: 5;
 }
@@ -106,7 +106,7 @@ a {
 }
 
 .menu-logo-img {
-  width: 100px;
+  width: 130px;
 }
 
 .menu-perfil {
@@ -149,7 +149,7 @@ a {
 }
 
 .menu-nav-collapse-bar {
-  background: #04B2D9;
+  background: #b81765;
   height: 0;
   transition: height ease 0.5s;
   width: 70px;
@@ -178,14 +178,14 @@ a {
 }
 
 .menu-nav-list-link {
-  color: #0468BF;
-  fill: #0468BF;
+  color: #b81765;
+  fill: #b81765;
   text-decoration: none;
 }
 
 .menu-nav-list-link:nth-child(odd) {
-  color: #04B2D9;
-  fill: #04B2D9;
+  color: #ff9000;
+  fill: #ff9000;
 }
 
 .menu-nav-list-link-item {
@@ -214,14 +214,15 @@ a {
 }
 
 .menu-nav-list-link-item.is-active {
+  max-width: 100%;
+  min-width: 50%;
   padding: 0 50px 0 110px;
-  width: 100%;
 }
 
 @media screen and (max-width: 500px) {
   .menu-nav-list-link-item.is-active {
     padding: 0 20px;
-    width: 90%;
+    width: 85%;
   }
 }
 
@@ -232,7 +233,7 @@ a {
 }
 
 .btn {
-  background: #04B2D9;
+  background: #b81765;
   border: none;
   border-radius: 30px;
   color: #fff;
@@ -272,7 +273,7 @@ a {
 }
 
 .radio:checked + label {
-  color: #04B2D9;
+  color: #b81765;
 }
 
 .radio:not(:checked) + label {
@@ -313,8 +314,9 @@ a {
 }
 
 .radio:checked + label {
-  border-color: #04B2D9;
-  color: #04B2D9;
+  background-color: rgba(255, 69, 134, 0.5);
+  border-color: #b81765;
+  color: #b81765;
 }
 
 .curriculo-content {
@@ -367,9 +369,9 @@ a {
 }
 
 .curriculo-checkbox:checked + .curriculo-content-item-label {
-  background: rgba(4, 178, 217, 0.25);
-  border-color: #04B2D9;
-  color: #0096b7;
+  background-color: rgba(255, 69, 134, 0.5);
+  border-color: #ff4586;
+  color: #ff4586;
 }
 
 .etapas {
@@ -387,9 +389,10 @@ a {
 }
 
 .counter-etapas-etapa {
-  border: 2px solid #04B2D9;
+  background-color: rgba(255, 69, 134, 0.1);
+  border: 2px solid #ff4586;
   border-radius: 100%;
-  color: #04B2D9;
+  color: #ff4586;
   font: 18px/20px "Raleway Bold", "Montserrat Bold", "sans-serif";
   height: 25px;
   margin: 0 25px;
@@ -407,13 +410,13 @@ a {
 }
 
 .counter-etapas-etapa:before {
-  background: #04B2D9;
+  background: #ff4586;
   content: "";
   display: block;
   height: 2px;
   right: 52px;
   position: absolute;
-  transform: translate(50%, -50%);
+  transform: translate(40%, -50%);
   transition: background ease 1s;
   top: 50%;
   width: 50px;
@@ -432,6 +435,7 @@ a {
 }
 
 .counter-etapas-etapa.is-disable {
+  background-color: transparent;
   border-color: #C5C5C5;
   color: #C5C5C5;
 }
@@ -482,7 +486,7 @@ a {
 }
 
 .etapas-btn-item.is-disable {
-  background: rgba(4, 178, 217, 0.34);
+  background: rgba(184, 23, 101, 0.34);
   pointer-events: none;
 }
 
@@ -497,7 +501,7 @@ a {
 }
 
 .page-content-null {
-  color: #0468BF;
+  color: #b81765;
   font: 22px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
   left: 50%;
   text-align: center;
@@ -726,20 +730,6 @@ a {
   position: relative;
 }
 
-.container-login:after {
-  background: url(/images/logo-bg.png?2d614b6d58b84682fa3271e39e12bef8) center no-repeat;
-  background-size: 335px;
-  content: "";
-  display: block;
-  height: 330px;
-  right: 0px;
-  position: absolute;
-  top: 0;
-  transform: translate(50%, -50%);
-  width: 330px;
-  z-index: 1;
-}
-
 .section-login {
   margin: 0 auto;
   width: 75%;
@@ -763,19 +753,16 @@ a {
 }
 
 .intro-title {
-  color: #2a2a2a;
-  font: 21px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  color: #b81765;
+  font: 21px bold;
   line-height: 25px;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 380px) {
   .intro-title {
     font-size: 20px;
   }
-}
-
-.intro-title-span {
-  color: #04B2D9;
 }
 
 .intro-desc {
@@ -792,7 +779,7 @@ a {
 }
 
 .label-senha {
-  color: #04B2D9;
+  color: #ff4586;
   float: right;
   margin-top: 10px;
 }
@@ -819,8 +806,8 @@ a {
 
 .btn-cod {
   background: transparent;
-  border: 1px solid #023373;
-  color: #023373;
+  border: 1px solid #ff4586;
+  color: #ff4586;
 }
 
 .btn-cadastrar {
@@ -870,7 +857,8 @@ a {
 }
 
 .intro-title {
-  font: 25px "Raleway Light", "Montserrat Light", "sans-serif";
+  font: 20px "Raleway Bold", "Montserrat Bold", "sans-serif";
+  text-transform: uppercase;
 }
 
 .intro-desc {
@@ -1359,17 +1347,19 @@ a {
 
 .vagas-content-desc-icon {
   margin: 10px 20px 10px 0;
-  width: 50px;
+  width: 40px;
 }
 
 .vagas-content-desc-nome {
-  color: #04B2D9;
+  color: #b81765;
   font: 20px "Raleway Regular", "Montserrat Regular", "sans-serif";
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 380px) {
   .vagas-content-desc-nome {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 
@@ -1390,7 +1380,7 @@ a {
 }
 
 .vagas-content-tags-item {
-  border: 1px solid #04B2D9;
+  border: 1px solid #ff4586;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -1415,7 +1405,7 @@ a {
 
 .vagas-content-sobre-title {
   font: 18px/25px "Raleway Bold", "Montserrat Bold", "sans-serif";
-  color: #04B2D9;
+  color: #ff4586;
   margin: 30px 0 5px;
   text-transform: uppercase;
 }
@@ -1483,7 +1473,7 @@ a {
 }
 
 .content-perfil-image-img {
-  border: 5px solid #04B2D9;
+  border: 5px solid #ff4586;
   border-radius: 50%;
   height: 200px;
   margin: 0 auto;
@@ -1657,7 +1647,7 @@ a {
 }
 
 .status-header-menu-content-item:nth-child(1) {
-  border-bottom: 4px solid #6DD9F1;
+  border-bottom: 4px solid #ff4586;
 }
 
 .status-header-menu-content-item:nth-child(2) {
@@ -1735,7 +1725,7 @@ a {
 }
 
 .status-box-desc-content-nome {
-  color: #04B2D9;
+  color: #ff4586;
   font: 15px "Raleway SemiBold", "Montserrat SemiBold", "sans-serif";
   margin: 5px 0;
 }

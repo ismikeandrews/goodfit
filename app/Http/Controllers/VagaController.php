@@ -45,83 +45,103 @@ class VagaController extends Controller
     if ($curriculo) {
       $vagas = DB::select("
         SELECT
-        COUNT(tbAdicionalCurriculo.codAdicional) AS 'Habilidades',
-        tbVaga.codVaga,
-          tbVaga.descricaoVaga,
-          tbVaga.salarioVaga,
-          tbVaga.cargaHorariaVaga,
-          tbVaga.quantidadeVaga,
-          tbEmpresa.codEmpresa,
-          tbEmpresa.nomeFantasiaEmpresa,
-          tbProfissao.nomeProfissao,
-          tbEndereco.cepEndereco,
-          tbEndereco.logradouroEndereco,
-          tbEndereco.complementoEndereco,
-          tbEndereco.numeroEndereco,
-          tbEndereco.bairroEndereco,
-          tbEndereco.zonaEndereco,
-          tbEndereco.cidadeEndereco,
-          tbEndereco.estadoEndereco,
-          tbRegimeContratacao.nomeRegimeContratacao
+            COUNT(tbAdicionalCurriculo.codAdicional) AS 'Habilidades',
+            tbVaga.codVaga,
+            tbVaga.descricaoVaga,
+            tbVaga.salarioVaga,
+            tbVaga.cargaHorariaVaga,
+            tbVaga.quantidadeVaga,
+            tbEmpresa.codEmpresa,
+            tbEmpresa.nomeFantasiaEmpresa,
+            tbProfissao.nomeProfissao,
+            tbEndereco.cepEndereco,
+            tbEndereco.logradouroEndereco,
+            tbEndereco.complementoEndereco,
+            tbEndereco.numeroEndereco,
+            tbEndereco.bairroEndereco,
+            tbEndereco.zonaEndereco,
+            tbEndereco.cidadeEndereco,
+            tbEndereco.estadoEndereco,
+            tbRegimeContratacao.nomeRegimeContratacao
         FROM tbVaga
         INNER JOIN tbEmpresa
-          ON tbVaga.codEmpresa = tbEmpresa.codEmpresa
+            ON tbVaga.codEmpresa = tbEmpresa.codEmpresa
         INNER JOIN tbProfissao
-          ON tbVaga.codProfissao = tbProfissao.codProfissao
+            ON tbVaga.codProfissao = tbProfissao.codProfissao
         INNER JOIN tbEndereco
-          ON tbVaga.codEndereco = tbEndereco.codEndereco
+            ON tbVaga.codEndereco = tbEndereco.codEndereco
         INNER JOIN tbRegimeContratacao
-          ON tbVaga.codRegimeContratacao = tbRegimeContratacao.codRegimeContratacao
+            ON tbVaga.codRegimeContratacao = tbRegimeContratacao.codRegimeContratacao
         INNER JOIN tbRequisitoVaga
-          ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+            ON tbVaga.codVaga = tbRequisitoVaga.codVaga
         INNER JOIN tbAdicionalCurriculo
-          ON tbRequisitoVaga.codAdicional = tbAdicionalCurriculo.codAdicional
+            ON tbRequisitoVaga.codAdicional = tbAdicionalCurriculo.codAdicional
         INNER JOIN tbCategoria
-          ON tbProfissao.codCategoria = tbCategoria.codCategoria
+            ON tbProfissao.codCategoria = tbCategoria.codCategoria
         INNER JOIN tbCargoCurriculo
-          ON tbCategoria.codCategoria = tbCargoCurriculo.codCategoria
-        WHERE tbVaga.codVaga NOT IN (
-          SELECT tbCandidatura.codVaga
-          FROM tbCandidatura
-          WHERE tbCandidatura.codCandidato = '$candidato->codCandidato'
-        )
+            ON tbCategoria.codCategoria = tbCargoCurriculo.codCategoria
+        INNER JOIN tbAdicional
+            ON tbRequisitoVaga.codAdicional = tbAdicional.codAdicional
+        LEFT JOIN tbcandidatura
+        	ON tbvaga.codVaga = tbcandidatura.codVaga
+            AND tbcandidatura.codCandidato = '$curriculo->codCandidato'
         AND tbVaga.codVaga NOT IN (
-          SELECT tbVaga.codVaga
+            SELECT tbVaga.codVaga
             FROM tbVaga
             INNER JOIN tbRequisitoVaga
-            ON tbVaga.codVaga = tbRequisitoVaga.codVaga
-          WHERE tbRequisitoVaga.codAdicional NOT IN (
-            SELECT tbAdicionalCurriculo.codAdicional
+                ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+            INNER JOIN tbadicional
+                ON tbrequisitovaga.codAdicional = tbadicional.codAdicional
+            WHERE tbRequisitoVaga.codAdicional NOT IN (
+                SELECT tbAdicionalCurriculo.codAdicional
                 FROM tbAdicionalCurriculo
                 WHERE tbAdicionalCurriculo.codCurriculo = '$curriculo->codCurriculo'
             ) AND tbRequisitoVaga.obrigatoriedadeRequisitoVaga = 1
+            AND tbadicional.codTipoAdicional = 1
         ) AND tbVaga.codVaga IN (
-          SELECT tbVaga.codVaga
+            SELECT tbVaga.codVaga
             FROM tbVaga
             INNER JOIN tbRequisitoVaga
-            ON tbVaga.codVaga = tbRequisitoVaga.codVaga
-          INNER JOIN tbAdicionalCurriculo
-            ON tbRequisitoVaga.codAdicional = tbAdicionalCurriculo.codAdicional
+                ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+            INNER JOIN tbAdicionalCurriculo
+                ON tbRequisitoVaga.codAdicional = tbAdicionalCurriculo.codAdicional
+        ) AND tbVaga.codVaga IN (
+            SELECT tbVaga.codVaga
+            FROM tbVaga
+            INNER JOIN tbRequisitoVaga
+                ON tbVaga.codVaga = tbRequisitoVaga.codVaga
+            INNER JOIN tbAdicional AS tbComparaVaga
+                ON tbRequisitoVaga.codAdicional = tbComparaVaga.codAdicional
+                AND tbComparaVaga.codTipoAdicional IN (2, 3)
+            INNER JOIN tbAdicionalCurriculo
+                ON tbAdicionalCurriculo.codCurriculo = '$curriculo->codCurriculo'
+            INNER JOIN tbAdicional AS tbComparaCurriculo
+                ON tbAdicionalCurriculo.codAdicional = tbComparaCurriculo.codAdicional
+                AND tbComparaCurriculo.codTipoAdicional = tbComparaVaga.codTipoAdicional
+                AND tbComparaCurriculo.codTipoAdicional IN (2, 3)
+            WHERE tbComparaCurriculo.grauAdicional >= tbComparaVaga.grauAdicional
         )
         AND tbVaga.quantidadeVaga > 0
+        AND tbcandidatura.codCandidatura IS NULL
+        AND tbAdicional.codTipoAdicional = 1
         GROUP BY
-          tbVaga.codVaga,
-          tbVaga.descricaoVaga,
-          tbVaga.salarioVaga,
-          tbVaga.cargaHorariaVaga,
-          tbVaga.quantidadeVaga,
-          tbEmpresa.codEmpresa,
-          tbEmpresa.nomeFantasiaEmpresa,
-          tbProfissao.nomeProfissao,
-          tbEndereco.cepEndereco,
-          tbEndereco.logradouroEndereco,
-          tbEndereco.complementoEndereco,
-          tbEndereco.numeroEndereco,
-          tbEndereco.bairroEndereco,
-          tbEndereco.zonaEndereco,
-          tbEndereco.cidadeEndereco,
-          tbEndereco.estadoEndereco,
-          tbRegimeContratacao.nomeRegimeContratacao
+            tbVaga.codVaga,
+            tbVaga.descricaoVaga,
+            tbVaga.salarioVaga,
+            tbVaga.cargaHorariaVaga,
+            tbVaga.quantidadeVaga,
+            tbEmpresa.codEmpresa,
+            tbEmpresa.nomeFantasiaEmpresa,
+            tbProfissao.nomeProfissao,
+            tbEndereco.cepEndereco,
+            tbEndereco.logradouroEndereco,
+            tbEndereco.complementoEndereco,
+            tbEndereco.numeroEndereco,
+            tbEndereco.bairroEndereco,
+            tbEndereco.zonaEndereco,
+            tbEndereco.cidadeEndereco,
+            tbEndereco.estadoEndereco,
+            tbRegimeContratacao.nomeRegimeContratacao
         ORDER BY Habilidades DESC");
 
       foreach ($vagas as $vaga){
@@ -206,7 +226,7 @@ class VagaController extends Controller
       'estado'      => $request->input('estado'),
     ];
 
-    $codEndereco = $this->enderecoController->novoEndereço($endereco);
+    $codEndereco = $this->enderecoController->novoEndereco($endereco);
 
       $vaga = Vaga::create([
           'descricaoVaga'        => $request->input('desc'),

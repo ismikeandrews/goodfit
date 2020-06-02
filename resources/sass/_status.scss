@@ -43,7 +43,7 @@
 		width: 25%;
 
 		&:nth-child(1) {
-			border-bottom: 4px solid #6DD9F1;
+			border-bottom: 4px solid $rosa_claro;
 		}
 
 		&:nth-child(2) {
@@ -61,11 +61,11 @@
 }
 
 .status-box {
-  align-items: center;
+    align-items: center;
 	background: #fff;
 	display: flex;
 	margin: 0 auto 20px;
-  max-width: 550px;
+    max-width: 550px;
 	position: relative;
 
 	&-desc {
@@ -112,7 +112,7 @@
 			}
 
 			&-nome {
-				color: $azul-primary;
+				color: $rosa_claro;
 				font: 15px $font-semibold;
 				margin: 5px 0;
 			}

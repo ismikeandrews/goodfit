@@ -14,6 +14,10 @@ $azul_secondary: #0468BF;
 $azul_tertiary: #0339A6;
 $azul_dark: #023373;
 
+$rosa_escuro: #b81765;
+$rosa_claro: #ff4586;
+$laranja: #ff9000;
+
 // Sizes
 @mixin MQ($size) {
     @media screen and (max-width: $size) {

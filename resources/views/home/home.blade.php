@@ -5,7 +5,7 @@
 <section class="container container-home">
     <div class="home-content-header">
         <div class="home-content-logo">
-            <img src="{{asset('images/componentes/logo-goodfit.png')}}" alt="Logo - A Good Fit" class="home-content-logo-img">
+            <img src="{{asset('images/componentes/logo-ijc.png')}}" alt="Logo - Instituto Jô Clemente" class="home-content-logo-img">
         </div>
     </div>
 

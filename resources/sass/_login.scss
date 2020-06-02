@@ -1,19 +1,5 @@
  .container-login {
     position: relative;
-
-    &:after {
-        background: url('../images/componentes/logo-bg.png') center no-repeat;
-        background-size: 335px;
-        content: '';
-        display: block;
-        height: 330px;
-        right: 0px;
-        position: absolute;
-        top: 0;
-        transform: translate(50%,-50%);
-        width: 330px;
-        z-index: 1;
-    }
 }
 
 .section-login {
@@ -38,16 +24,13 @@
 
 .intro {
     &-title {
-        color: $preto;
-        font: 21px $font-bold;
+        color: $rosa_escuro;
+        font: 21px bold;
         line-height: 25px;
+        text-transform: uppercase;
 
         @include MQ($small) {
             font-size: 20px;
-        }
-
-        &-span {
-            color: $azul_primary;
         }
     }
 
@@ -65,7 +48,7 @@
     text-decoration: none;
 
     &-senha {
-        color: $azul_primary;
+        color: $rosa_claro;
         float: right;
         margin-top: 10px;
     }
@@ -92,8 +75,8 @@
 
     &-cod {
         background: transparent;
-        border: 1px solid $azul_dark;
-        color: $azul_dark;
+        border: 1px solid $rosa_claro;
+        color: $rosa_claro;
     }
 
     &-cadastrar {

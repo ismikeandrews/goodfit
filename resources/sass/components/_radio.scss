@@ -4,7 +4,7 @@
 }
 
 .radio:checked + label {
-  color: $azul-primary;
+  color: $rosa_escuro;
 }
 
 .radio:not(:checked) + label {
@@ -29,7 +29,7 @@
 .radio-label {
   &-icon {
     width: 90px;
-    
+
     @include MQ($small) {
       width: 60px;
     }
@@ -42,6 +42,7 @@
 }
 
 .radio:checked + label {
-  border-color: $azul-primary;
-  color: $azul-primary;
+  background-color: rgba(255, 69, 134, 0.5);
+  border-color: $rosa_escuro;
+  color: $rosa_escuro;
 }

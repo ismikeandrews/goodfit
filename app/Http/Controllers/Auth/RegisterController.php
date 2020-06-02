@@ -68,7 +68,6 @@ class RegisterController extends Controller
             'foto' => ['sometimes', 'image', 'file', 'mimes:jpeg,png', 'max:10000'],
             'nome' => ['required'],
             'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
-            'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
             'nascimento' => ['required', 'before:2003-10-14', 'date_format:d/m/Y'],
 
             'login' => ['required', 'alpha_dash', 'string', 'max:50', 'unique:tbUsuario,loginUsuario'],
@@ -108,7 +107,7 @@ class RegisterController extends Controller
          else {
            $nomeFoto = 'perfil.png';
          }
-         $codEndereco = $this->enderecoController->novoEndereço($data);
+         $codEndereco = $this->enderecoController->novoEndereco($data);
 
          $usuario = User::create([
            'loginUsuario' => $data['login'],

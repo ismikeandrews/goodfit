@@ -5,14 +5,14 @@
 <section class="container container-login">
     <div class="logo-content">
         <div class="logo">
-            <img src="{{asset('images/componentes/logo.png')}}" alt="Logo - A Good Fit" class="logo-img">
+            <img src="{{asset('images/componentes/logo.png')}}" alt="Logo - Instituto Jô Clemente" class="logo-img">
         </div>
     </div>
 
     <div class="section section-login">
         <div class="intro">
-            <h1 class="intro-title">Seja bem-vindo a <span class="intro-title-span">Good Fit</span></h1>
-            <h3 class="intro-desc">Entre para acessar a plataforma</h3>
+            <h1 class="intro-title"> Olá, </h1>
+            <h3 class="intro-desc"> Acesse sua conta para começar :)</h3>
         </div>
 
         <form class="form" method="POST" action="{{ route('login') }}">

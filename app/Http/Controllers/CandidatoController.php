@@ -22,7 +22,7 @@ class CandidatoController extends Controller
   public function index(){
     $usuario = Auth::user();
     $candidato = DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)->first();
-    $candidato->dataNascimentoCandidato = date('d/m/Y', strtotime($candidato->dataNascimentoCandidato));
+    $candidato->dataNascimentoCandidato = date('d/m/Y', $candidato->dataNascimentoCandidato);
 
     return view('auth.configPerfil')
     ->with('candidato', $candidato)
@@ -43,7 +43,6 @@ class CandidatoController extends Controller
     //Validacao dos parametros
     $this->validate($request, [
       'nome'  => 'string|required',
-      'rg'    => ['string','required', Rule::unique('tbCandidato', 'rgCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'cpf'   => ['between:14,14', 'string', 'required', Rule::unique('tbCandidato', 'cpfCandidato')->ignore($candidato->codCandidato, 'codCandidato')],
       'foto'  => 'sometimes|file|image|mimes:jpeg,png|max:10000',
       'dataNascimentoCandidato' => 'required|before:2003-10-14|date_format:d/m/Y',
@@ -77,17 +76,14 @@ class CandidatoController extends Controller
     $cpf   = preg_replace('/[^0-9]/', '', $cpf);
 
     //Tratamento da data de nascimento
-    $date = $request->dataNascimentoCandidato;
-    $data = preg_replace('/[^0-9]/', '-', $date);
-    $parsed = date('Y-m-d', strtotime($data));
+    $data = str_replace('/', '-', $request->dataNascimentoCandidato);
 
     //realizando o update dos dados do candidato
     DB::table('tbCandidato')->where('codUsuario', $usuario->codUsuario)
     ->update([
       'nomeCandidato'           => $request->nome,
       'cpfCandidato'            => $cpf,
-      'rgCandidato'             => $request->rg,
-      'dataNascimentoCandidato' => $parsed,
+      'dataNascimentoCandidato' => strtotime($data),
       'codUsuario'              => $usuario->codUsuario,
     ]);
 
@@ -103,7 +99,6 @@ class CandidatoController extends Controller
     return Validator::make($data, [
      'nome' => ['required'],
      'cpf' => ['required', 'between:14,14', 'unique:tbCandidato,cpfCandidato'],
-     'rg' => ['required', 'unique:tbCandidato,rgCandidato'],
      'nascimento' => ['required', 'before:2003-10-14', 'date_format:d/m/Y']
    ]);
   }
@@ -121,15 +116,12 @@ class CandidatoController extends Controller
     $regex = '/[^0-9]/';
     $cpf = preg_replace($regex, '', $cpf);
 
-    $date = $data['nascimento'];
-    $date = preg_replace($regex, '-', $date);
-    $parsed = date('Y-m-d', strtotime($date));
+    $dataNascimento = str_replace('/', '-', $data['nascimento']);
 
     Candidato::create([
      'nomeCandidato' => $data['nome'],
      'cpfCandidato' => $cpf,
-     'rgCandidato' => $data['rg'],
-     'dataNascimentoCandidato' => $parsed,
+     'dataNascimentoCandidato' => strtotime($dataNascimento),
      'codUsuario' => $codUsuario
    ]);
   }

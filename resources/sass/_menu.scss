@@ -1,5 +1,5 @@
 .container-menu {
-  background: $azul-primary;
+  background: $rosa_claro;
   display: flex;
   justify-content: space-between;
   padding: 13px 0;
@@ -16,7 +16,7 @@
   left: 25px;
   outline: none !important;
   position: fixed;
-  top: 15px;
+  top: 18px;
   width: 25px;
   z-index: 5;
 }
@@ -74,7 +74,7 @@
   text-align: center;
 
   &-img {
-    width: 100px;
+    width: 130px;
   }
 }
 
@@ -112,7 +112,7 @@
   width: 0;
 
   &-bar {
-    background: $azul-primary;
+    background: $rosa_escuro;
     height: 0;
     transition: height ease 0.5s;
     width: 70px;
@@ -142,14 +142,14 @@
 }
 
 .menu-nav-list-link {
-  color: $azul-secondary;
-  fill: $azul-secondary;
+  color: $rosa_escuro;
+  fill: $rosa_escuro;
   text-decoration: none;
 
-  &:nth-child(odd) {
-    color: $azul-primary;
-    fill: $azul-primary;
-  }
+    &:nth-child(odd) {
+        color: $laranja;
+        fill: $laranja;
+    }
 }
 
 .menu-nav-list-link-item {
@@ -175,12 +175,13 @@
   }
 
   &.is-active {
+    max-width: 100%;
+    min-width: 50%;
     padding: 0 50px 0 110px;
-    width: 100%;
 
     @include MQ($medium){
       padding: 0 20px;
-      width: 90%;
+      width: 85%;
     }
   }
 
