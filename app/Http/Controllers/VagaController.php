@@ -84,7 +84,7 @@ class VagaController extends Controller
             ON tbRequisitoVaga.codAdicional = tbAdicional.codAdicional
         LEFT JOIN tbcandidatura
         	ON tbvaga.codVaga = tbcandidatura.codVaga
-            AND tbcandidatura.codCandidato = 3
+            AND tbcandidatura.codCandidato = '$curriculo->codCandidato'
         AND tbVaga.codVaga NOT IN (
             SELECT tbVaga.codVaga
             FROM tbVaga
