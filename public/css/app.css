@@ -149,7 +149,7 @@ a {
 }
 
 .menu-nav-collapse-bar {
-  background: #ff4586;
+  background: #b81765;
   height: 0;
   transition: height ease 0.5s;
   width: 70px;
@@ -181,6 +181,11 @@ a {
   color: #b81765;
   fill: #b81765;
   text-decoration: none;
+}
+
+.menu-nav-list-link:nth-child(odd) {
+  color: #ff9000;
+  fill: #ff9000;
 }
 
 .menu-nav-list-link-item {

@@ -112,7 +112,7 @@
   width: 0;
 
   &-bar {
-    background: $rosa_claro;
+    background: $rosa_escuro;
     height: 0;
     transition: height ease 0.5s;
     width: 70px;
@@ -145,6 +145,11 @@
   color: $rosa_escuro;
   fill: $rosa_escuro;
   text-decoration: none;
+
+    &:nth-child(odd) {
+        color: $laranja;
+        fill: $laranja;
+    }
 }
 
 .menu-nav-list-link-item {
